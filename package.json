@@ -1,14 +1,37 @@
 {
   "name": "@anicanon/sakuga",
-  "version": "2.54.0",
+  "version": "2.54.1",
   "description": "Sakuga 2.0, AniCanon's design system for the web: tokens, fonts, icons, the core components and AniCanonKit.",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "react",
+    "react-components",
+    "ui",
+    "ui-components",
+    "component-library",
+    "typescript",
+    "tree-shakeable",
+    "accessibility",
+    "a11y",
+    "dark-mode",
+    "theming",
+    "icons",
+    "anime",
+    "manga",
+    "video",
+    "animation",
+    "creative-tools",
+    "sakuga",
+    "anicanon"
+  ],
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AniCanon/sakuga.git"
   },
-  "homepage": "https://github.com/AniCanon/sakuga#readme",
+  "homepage": "https://sakuga.design",
   "bugs": {
     "url": "https://github.com/AniCanon/sakuga/issues"
   },
