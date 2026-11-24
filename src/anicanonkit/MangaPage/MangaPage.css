@@ -1,0 +1,35 @@
+/* MangaPage: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--mpage-img-develop-animation:var(--motion-develop);--mpage-inset-ring-width:var(--line-hairline);--mpage-selected-ring-width:var(--line-strong);--mpage-frame-border-width:var(--line-hairline);--mpage-frame-radius:var(--radius-mark);--mpage-frame-b-left:var(--inset-xs);--mpage-frame-b-top:var(--inset-2xs);--mpage-frame-b-font:var(--text-micro);--mpage-frame-small-font:var(--text-small-strong);--mpage-frame-b-line-height:var(--text-micro-line-height);--mpage-frame-small-margin-top:calc(var(--mpage-frame-b-top) + var(--mpage-frame-b-line-height));--mpage-sel-outline-width:var(--line-strong);--mpage-sel-sel-in-animation:var(--motion-select);--mpage-h-size:calc(var(--space-base) * 2);--mpage-h-radius:var(--radius-mark);--mpage-h-ring-width:var(--line-strong);--mpage-fig-gap:var(--gap-md);--mpage-cap-gap:var(--gap-sm);--mpage-cap-font:var(--text-small-strong);--mpage-captext-gap:var(--gap-2xs);--mpage-captext-span-font-weight:var(--weight-medium);--mpage-mask-ring-width:var(--line-strong)}
+@media (prefers-reduced-motion:reduce){.sk-mpage__img{animation:var(--motion-reduced-in) both}}
+.sk-mpage{position:relative;display:block;flex:none;overflow:hidden;background:var(--mpage-paper);box-shadow:inset 0 0 0 var(--mpage-inset-ring-width) var(--mpage-edge)}
+.sk-mpage.is-blank{background:var(--mpage-blank)}
+.sk-mpage.is-selected{box-shadow:0 0 0 var(--mpage-selected-ring-width) var(--mpage-selected)}
+.sk-mpage__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:var(--mpage-img-develop-animation) backwards}
+.sk-mpage__frame{position:absolute;box-sizing:border-box;border:var(--mpage-frame-border-width) solid var(--mpage-frame);border-radius:var(--mpage-frame-radius);display:flex;align-items:center;justify-content:center}
+.sk-mpage__frame b{position:absolute;left:var(--mpage-frame-b-left);top:var(--mpage-frame-b-top);font:var(--mpage-frame-b-font);color:var(--mpage-text);font-variant-numeric:tabular-nums}
+.sk-mpage__frame small{font:var(--mpage-frame-small-font);color:var(--mpage-text)}
+.sk-mpage__frame b+small{margin-top:var(--mpage-frame-small-margin-top)}
+.sk-mpage__frame.is-drawing,.sk-mpage__frame.is-waiting{background:var(--mpage-busy)}
+.sk-mpage__sel{position:absolute;box-sizing:border-box;outline:var(--mpage-sel-outline-width) solid var(--mpage-selected);box-shadow:0 0 0 2000px color-mix(in srgb,var(--mpage-dim) 42%,transparent);animation:var(--mpage-sel-sel-in-animation)}
+.sk-mpage__h{position:absolute;width:var(--mpage-h-size);height:var(--mpage-h-size);box-sizing:border-box;border-radius:var(--mpage-h-radius);background:var(--mpage-handle);box-shadow:0 0 0 var(--mpage-h-ring-width) var(--mpage-selected);transform:translate(-50%,-50%)}
+.sk-mpage__h.is-nw{left:0;top:0}
+.sk-mpage__h.is-n{left:50%;top:0}
+.sk-mpage__h.is-ne{left:100%;top:0}
+.sk-mpage__h.is-e{left:100%;top:50%}
+.sk-mpage__h.is-se{left:100%;top:100%}
+.sk-mpage__h.is-s{left:50%;top:100%}
+.sk-mpage__h.is-sw{left:0;top:100%}
+.sk-mpage__h.is-w{left:0;top:50%}
+.sk-mpage-fig{margin:0;display:flex;flex-direction:column;gap:var(--mpage-fig-gap)}
+.sk-mpage-fig.is-end .sk-mpage__captext{text-align:right}
+.sk-mpage__cap{position:relative;display:flex;align-items:flex-start;gap:var(--mpage-cap-gap);font:var(--mpage-cap-font);color:var(--mpage-cap);font-variant-numeric:tabular-nums}
+.sk-mpage__captext{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--mpage-captext-gap)}
+.sk-mpage__captext span{font-weight:var(--mpage-captext-span-font-weight);color:var(--mpage-cap-meta)}
+@media (prefers-reduced-motion:reduce){.sk-mpage__sel{animation:none;transition:none}}
+.sk-mpage__mask{position:absolute;border-radius:40%;background:color-mix(in srgb,var(--mpage-mask) 45%,transparent);box-shadow:0 0 0 var(--mpage-mask-ring-width) var(--mpage-mask)}
+:root{--mpage-forced-edge-width:var(--line-hairline);--mpage-forced-mask-width:var(--line-strong)}
+@media (forced-colors:active){.sk-mpage{outline:var(--mpage-forced-edge-width) solid CanvasText;outline-offset:calc(-1 * var(--mpage-forced-edge-width))}}
+@media (forced-colors:active){.sk-mpage__h{forced-color-adjust:none;background:Canvas;box-shadow:0 0 0 var(--stage-forced-handle-ring-width) Highlight}}
+@media (forced-colors:active){.sk-mpage__sel{outline-color:Highlight}}
+@media (forced-colors:active){.sk-mpage.is-selected{outline:var(--mpage-forced-selected-width) solid Highlight;outline-offset:var(--ring-gap)}}
+@media (forced-colors:active){.sk-mpage__mask{outline:var(--mpage-forced-mask-width) dashed Highlight}}

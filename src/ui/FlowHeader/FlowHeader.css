@@ -1,0 +1,8 @@
+/* FlowHeader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--flowhead-gap:var(--gap-lg);--flowhead-height:calc(var(--space-base) * 16);--flowhead-padding-x:var(--inset-xl);--flowhead-edge-bottom-width:var(--line-hairline);--flowhead-title-font:var(--text-title-4);--flowhead-title-span-font:var(--text-body);--flowhead-end-gap:var(--gap-lg)}
+.sk-flowhead{display:flex;align-items:center;gap:var(--flowhead-gap);height:var(--flowhead-height);padding:0 var(--flowhead-padding-x);box-sizing:border-box;box-shadow:inset 0 calc(-1 * var(--flowhead-edge-bottom-width)) 0 var(--flowhead-rule)}
+.sk-flowhead__title{margin:0;font:var(--flowhead-title-font);color:var(--flowhead-title)}
+.sk-flowhead__title span{font:var(--flowhead-title-span-font);color:var(--flowhead-context)}
+.sk-flowhead__steps{margin:0 auto}
+.sk-flowhead__end{display:flex;align-items:center;gap:var(--flowhead-end-gap);margin-left:auto}
+.sk-flowhead__steps+.sk-flowhead__end{margin-left:0}

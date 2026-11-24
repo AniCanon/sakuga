@@ -1,0 +1,11 @@
+/* MakiStep: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+.sk-mk-step__line{all:unset;box-sizing:border-box;display:block;font:var(--mk-meta-font);color:var(--mk-meta);text-wrap:pretty}
+.sk-mk-step__line>*+*{margin-left:var(--mk-step-gap)}
+.sk-mk-step__line>.sk-icon,.sk-mk-step__line>svg{vertical-align:-0.15em}
+button.sk-mk-step__line{cursor:pointer}
+button.sk-mk-step__line:hover{color:var(--mk-text)}
+button.sk-mk-step__line:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset);border-radius:var(--radius-mark)}
+.sk-mk-step__mark{display:inline-flex;vertical-align:-0.15em;color:var(--mk-quiet)}
+.sk-mk-step__detail{color:var(--mk-quiet)}
+.sk-mk-step__detail::before{content:"· "}
+.sk-mk-step__more{padding:var(--gap-xs) 0 0 calc(var(--mk-step-icon-size) + var(--mk-step-gap));font:var(--mk-meta-font);color:var(--mk-meta)}

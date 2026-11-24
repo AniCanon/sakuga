@@ -1,0 +1,15 @@
+/* SwatchPicker: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--swatches-gap:var(--gap-md);--swatches-named-row-gap:var(--gap-md);--swatches-named-column-gap:var(--gap-lg);--swatches-item-gap:var(--gap-xs);--swatches-item-font:var(--text-small-strong);--swatch-press-duration:var(--duration-state);--swatch-press-easing:var(--ease-move);--swatch-active-scale:var(--scale-press-sm);--swatch-active-duration:var(--duration-press);--swatch-size:calc(var(--space-base) * 8);--swatch-radius:var(--radius-pill);--swatch-inset-ring-width:var(--line-hairline);--swatch-duration:var(--duration-state);--swatch-easing:var(--ease-move);--swatch-checked-ring-width:var(--line-strong);--swatch-checked-outer-ring-width:var(--ring-outer);--swatch-focus-outline-offset:var(--focus-ring-offset)}
+@media (prefers-reduced-motion:reduce){.sk-swatch:active{transform:none}}
+.sk-swatches{display:flex;flex-wrap:wrap;align-items:center;gap:var(--swatches-gap)}
+.sk-swatches.is-named{display:grid;grid-template-columns:repeat(7,minmax(var(--swatch-size),max-content));justify-content:start;gap:var(--swatches-named-row-gap) var(--swatches-named-column-gap)}
+.sk-swatches__item{display:flex;flex-direction:column;align-items:center;gap:var(--swatches-item-gap);font:var(--swatches-item-font);color:var(--swatches-text-secondary);text-align:center}
+.sk-swatch{width:var(--swatch-size);height:var(--swatch-size);flex:none;padding:0;border:0;border-radius:var(--swatch-radius);overflow:hidden;box-shadow:inset 0 0 0 var(--swatch-inset-ring-width) var(--swatch-border-divider);cursor:pointer;transition:box-shadow var(--swatch-duration) var(--swatch-easing),transform var(--swatch-press-duration) var(--swatch-press-easing)}
+.sk-swatch:active{transform:scale(var(--swatch-active-scale));transition-duration:var(--swatch-active-duration)}
+.sk-swatch svg{display:block}
+.sk-swatch[aria-checked="true"]{box-shadow:0 0 0 var(--swatch-checked-ring-width) var(--swatch-bg-surface),0 0 0 var(--swatch-checked-outer-ring-width) var(--swatch-accent)}
+.sk-swatch:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--swatch-focus-outline-offset)}
+:root{--swatch-forced-checked-width:var(--line-strong);--swatch-forced-checked-offset:var(--ring-gap)}
+@media (forced-colors:active){.sk-swatch{forced-color-adjust:none}}
+@media (forced-colors:active){.sk-swatch[aria-checked="true"]{box-shadow:inset 0 0 0 var(--swatch-inset-ring-width) var(--swatch-border-divider);outline:var(--swatch-forced-checked-width) solid Highlight;outline-offset:var(--swatch-forced-checked-offset)}}
+:root,[data-theme]{--swatches-text-secondary:var(--text-secondary);--swatch-border-divider:var(--border-divider);--swatch-bg-surface:var(--bg-surface);--swatch-accent:var(--accent)}

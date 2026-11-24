@@ -1,0 +1,25 @@
+/* Stepper: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--stepper-gap:var(--gap-md);--stepper-font-family:var(--font-body);--stepper-step-gap:var(--gap-md);--stepper-step-font:var(--text-caption-strong);--stepper-step-duration:var(--duration-move);--stepper-step-easing:var(--ease-move);--stepper-n-size:var(--icon-size-md);--stepper-n-radius:var(--radius-pill);--stepper-n-inset-ring-width:var(--line-strong);--stepper-n-font:var(--text-micro);--stepper-n-duration:var(--duration-move);--stepper-n-easing:var(--ease-move);--stepper-step-current-n-settle-animation:var(--motion-settle);--stepper-step-done-n-icon-swap-animation:var(--motion-swap);--stepper-sep-width:calc(var(--space-base) * 7);--stepper-sep-height:var(--line-hairline);--stepper-sep-after-duration:var(--duration-move);--stepper-sep-after-easing:var(--ease-move);--stepper-check-icon-size:var(--icon-size-xs)}
+.sk-stepper{display:flex;align-items:center;gap:var(--stepper-gap);margin:0;padding:0;list-style:none;font-family:var(--stepper-font-family)}
+.sk-stepper__step{display:flex;align-items:center;gap:var(--stepper-step-gap);font:var(--stepper-step-font);color:var(--stepper-fg);transition:color var(--stepper-step-duration) var(--stepper-step-easing)}
+.sk-stepper__n{width:var(--stepper-n-size);height:var(--stepper-n-size);border-radius:var(--stepper-n-radius);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 var(--stepper-n-inset-ring-width) var(--stepper-ring);font:var(--stepper-n-font);transition:background-color var(--stepper-n-duration) var(--stepper-n-easing),color var(--stepper-n-duration) var(--stepper-n-easing),box-shadow var(--stepper-n-duration) var(--stepper-n-easing)}
+.sk-stepper__step--done .sk-stepper__n{background:var(--stepper-done-bg);box-shadow:none;color:var(--stepper-current-fg)}
+.sk-stepper__step--current{color:var(--stepper-current-fg)}
+.sk-stepper__step--current .sk-stepper__n{background:var(--stepper-current-bg);color:var(--stepper-current-num);box-shadow:none;animation:var(--stepper-step-current-n-settle-animation)}
+.sk-stepper__step--done .sk-stepper__n .sk-icon{animation:var(--stepper-step-done-n-icon-swap-animation)}
+.sk-stepper__sep{position:relative;width:var(--stepper-sep-width);height:var(--stepper-sep-height);background:var(--stepper-sep)}
+.sk-stepper__sep::after{content:"";position:absolute;inset:0;background:var(--stepper-current-fg);transform:scaleX(0);transform-origin:left;transition:transform var(--stepper-sep-after-duration) var(--stepper-sep-after-easing)}
+.sk-stepper__sep.is-done::after{transform:none}
+:root{--stepbar-gap:var(--gap-md);--stepbar-font-family:var(--font-body);--stepbar-track-gap:var(--gap-xs);--stepbar-track-i-height:calc(var(--space-base) * 1);--stepbar-track-i-radius:var(--radius-pill);--stepbar-label-font:var(--text-small-strong);--stepbar-media-gap:var(--gap-sm)}
+@media (prefers-reduced-motion:reduce){.sk-stepper__step--current .sk-stepper__n,.sk-stepper__step--done .sk-stepper__n .sk-icon{animation:none}}
+.sk-stepbar{display:flex;flex-direction:column;gap:var(--stepbar-gap);font-family:var(--stepbar-font-family)}
+.sk-stepbar__track{display:flex;gap:var(--stepbar-track-gap)}
+.sk-stepbar__track i{flex:1;height:var(--stepbar-track-i-height);border-radius:var(--stepbar-track-i-radius);background:var(--stepbar-bg-fill)}
+.sk-stepbar__track i.is-done{background:var(--stepbar-accent)}
+.sk-stepbar__label{font:var(--stepbar-label-font);color:var(--stepbar-text-muted)}
+.sk-stepbar.is-media{align-items:center;gap:var(--stepbar-media-gap)}
+.sk-stepbar.is-media .sk-stepbar__track{align-self:stretch}
+.sk-stepbar.is-media .sk-stepbar__track i{background:color-mix(in srgb,var(--stepbar-text-on-media) 40%,transparent)}
+.sk-stepbar.is-media .sk-stepbar__track i.is-done{background:var(--stepbar-accent)}
+.sk-stepbar.is-media .sk-stepbar__label{color:var(--stepbar-text-on-media-muted)}
+:root,[data-theme]{--stepbar-bg-fill:var(--bg-fill);--stepbar-accent:var(--accent);--stepbar-text-muted:var(--text-muted);--stepbar-text-on-media:var(--text-on-media);--stepbar-text-on-media-muted:var(--text-on-media-muted)}

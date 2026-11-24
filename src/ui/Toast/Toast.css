@@ -1,0 +1,17 @@
+/* Toast: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--toast-gap:var(--gap-lg);--toast-swipe-dismiss:.35;--toast-swipe-duration:var(--duration-move);--toast-swipe-easing:var(--ease-move);--toast-swipe-out-duration:var(--duration-state);--toast-swipe-out-easing:var(--ease-leave);--toast-width:calc(var(--space-base) * 95);--toast-padding-y:var(--inset-md);--toast-padding-x:var(--inset-lg);--toast-radius:var(--radius-card);--toast-inset-ring-width:var(--line-hairline);--toast-font-family:var(--font-body);--toast-rise-in-animation:var(--motion-rise);--toast-img-size:calc(var(--space-base) * 10);--toast-img-radius:var(--radius-pill);--toast-body-b-font:var(--text-label);--toast-body-span-font:var(--text-small);--toast-icon-size:var(--icon-size-md)}
+.sk-toast{display:flex;align-items:center;gap:var(--toast-gap);width:var(--toast-width);max-width:100%;padding:var(--toast-padding-y) var(--toast-padding-x);border-radius:var(--toast-radius);background:var(--toast-bg);box-shadow:inset 0 0 0 var(--toast-inset-ring-width) var(--toast-border),var(--toast-shadow-overlay);font-family:var(--toast-font-family);color:var(--toast-text-primary);animation:var(--toast-rise-in-animation) both}
+.sk-toast{touch-action:pan-y;transition:transform var(--toast-swipe-duration) var(--toast-swipe-easing),opacity var(--toast-swipe-duration) var(--toast-swipe-easing)}
+.sk-toast.is-swiped,.sk-toast.is-swiped.is-leaving{animation:none;transition-duration:var(--toast-swipe-out-duration);transition-timing-function:var(--toast-swipe-out-easing)}
+.sk-toast__icon{display:flex;flex:none;color:var(--toast-icon)}
+.sk-toast__img{width:var(--toast-img-size);height:var(--toast-img-size);border-radius:var(--toast-img-radius);object-fit:cover;object-position:top;flex:none}
+.sk-toast__body{flex:1;min-width:0;display:flex;flex-direction:column}
+.sk-toast__body b{font:var(--toast-body-b-font)}
+.sk-toast__body span{font:var(--toast-body-span-font);color:var(--toast-text-muted)}
+:root{--toast-leaving-out-animation:sk-sink var(--duration-state) var(--ease-leave)}
+.sk-toast.is-leaving{animation:var(--toast-leaving-out-animation) both;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sk-toast{animation:var(--motion-reduced-in) both}}
+@media (prefers-reduced-motion:reduce){.sk-toast.is-leaving{animation:var(--motion-reduced-out) both}}
+:root{--toast-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-toast{outline:var(--toast-forced-edge-width) solid CanvasText;outline-offset:calc(-1 * var(--toast-forced-edge-width))}}
+:root,[data-theme]{--toast-shadow-overlay:var(--shadow-overlay);--toast-text-primary:var(--text-primary);--toast-text-muted:var(--text-muted)}

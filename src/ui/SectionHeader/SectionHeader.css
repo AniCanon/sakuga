@@ -1,0 +1,21 @@
+/* SectionHeader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--section-header-gap:var(--gap-xl);--section-header-title-font-family:var(--font-heading);--section-header-title-font-weight:var(--weight-bold);--section-header-title-font-size-lg:var(--text-subtitle-size);--section-header-title-line-height-lg:var(--text-subtitle-line-height);--section-header-title-font-size-md:var(--text-title-3-size);--section-header-title-line-height-md:var(--text-title-3-line-height);--section-header-sub-margin-top:var(--gap-xs);--section-header-sub-font-size:var(--text-caption-size);--section-header-sub-line-height:var(--text-caption-line-height);--section-header-sub-font-weight:var(--text-caption-weight);--section-header-sub-font-family:var(--font-body);--section-header-action-font-family:var(--font-body);--section-header-action-font-size:var(--text-label-size);--section-header-action-font-weight:var(--text-label-weight);--section-header-min-height-xs:calc(var(--space-base) * 8);--section-header-title-font-xs:var(--text-micro);--section-header-icon-size:var(--icon-size-lg)}
+.sk-sec{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--section-header-gap)}
+.sk-sec__title{margin:0;font-family:var(--section-header-title-font-family);font-weight:var(--section-header-title-font-weight);color:var(--section-header-title)}
+.sk-sec--lg .sk-sec__title{font-size:var(--section-header-title-font-size-lg);line-height:var(--section-header-title-line-height-lg)}
+.sk-sec--md .sk-sec__title{font-size:var(--section-header-title-font-size-md);line-height:var(--section-header-title-line-height-md)}
+.sk-sec__sub{margin:var(--section-header-sub-margin-top) 0 0;font-size:var(--section-header-sub-font-size);line-height:var(--section-header-sub-line-height);font-weight:var(--section-header-sub-font-weight);color:var(--section-header-subtitle);font-family:var(--section-header-sub-font-family)}
+.sk-sec__action{font-family:var(--section-header-action-font-family);font-size:var(--section-header-action-font-size);font-weight:var(--section-header-action-font-weight);color:var(--section-header-action);text-decoration:none;white-space:nowrap}
+.sk-sec--xs{align-items:center;min-height:var(--section-header-min-height-xs)}
+.sk-sec--xs .sk-sec__title{font:var(--section-header-title-font-xs);color:var(--sec-xs-title)}
+:root{--section-header-title-font-size-sm:var(--text-subtitle-sm-size);--section-header-title-line-height-sm:var(--text-subtitle-sm-line-height);--section-header-title-meta-gap:var(--gap-lg);--section-header-count-font:var(--text-micro)}
+.sk-sec--sm .sk-sec__title{font-size:var(--section-header-title-font-size-sm);line-height:var(--section-header-title-line-height-sm)}
+.sk-sec__title.has-meta{display:flex;align-items:center;gap:var(--section-header-title-meta-gap)}
+.sk-sec__icon{display:flex;color:var(--sec-accent)}
+.sk-sec__count{font:var(--section-header-count-font);color:var(--sec-text-muted)}
+button.sk-sec__action{padding:0;border:0;background:none;cursor:pointer}
+:root{--section-header-xs-meta-gap:var(--gap-sm)}
+.sk-sec__xs{min-width:0}
+.sk-sec--xs.has-sub{align-items:flex-end}
+.sk-sec--xs .sk-sec__title.has-meta{gap:var(--section-header-xs-meta-gap)}
+:root,[data-theme]{--sec-accent:var(--accent);--sec-text-muted:var(--text-muted)}

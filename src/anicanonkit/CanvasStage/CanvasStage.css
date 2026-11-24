@@ -1,0 +1,35 @@
+/* CanvasStage: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--stage-radius:var(--radius-card);--stage-gap:var(--gap-lg);--stage-padding:var(--inset-lg);--stage-edge-width:var(--line-hairline);--stage-mask-inset-ring-width:var(--line-hairline);--stage-sel-outline-width:var(--line-strong);--stage-sel-sel-in-animation:var(--motion-select);--stage-h-size:calc(var(--space-base) * 2);--stage-h-radius:var(--radius-mark);--stage-h-ring-width:var(--line-strong)}
+.sk-stage{position:relative;flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden;gap:var(--stage-gap);padding:var(--stage-padding);border-radius:var(--stage-radius);background:var(--stage-bg-surface);box-shadow:inset 0 0 0 var(--stage-edge-width) var(--stage-border-hairline)}
+.sk-stage__frame{position:relative;height:78%}
+.sk-stage__item{position:absolute;overflow:visible}
+.sk-stage__item img{display:block;width:100%;height:100%;object-fit:cover}
+.sk-stage__mask{position:absolute;inset:0;pointer-events:none;box-shadow:0 0 0 4000px color-mix(in srgb,var(--stage-bg-media) 58%,transparent),inset 0 0 0 var(--stage-mask-inset-ring-width) color-mix(in srgb,var(--stage-text-on-media) 35%,transparent)}
+.sk-stage__sel{position:absolute;box-sizing:border-box;outline:var(--stage-sel-outline-width) solid var(--stage-accent);outline-offset:0;animation:var(--stage-sel-sel-in-animation)}
+.sk-stage__sel.is-movable{cursor:move;touch-action:none}
+.sk-stage__sel.is-dragging{cursor:grabbing}
+.sk-stage__h{position:absolute;width:var(--stage-h-size);height:var(--stage-h-size);box-sizing:border-box;border-radius:var(--stage-h-radius);background:var(--stage-text-on-media);box-shadow:0 0 0 var(--stage-h-ring-width) var(--stage-accent);transform:translate(-50%,-50%)}
+.sk-stage__h.is-nw{left:0;top:0;cursor:nwse-resize}
+.sk-stage__h.is-n{left:50%;top:0;cursor:ns-resize}
+.sk-stage__h.is-ne{left:100%;top:0;cursor:nesw-resize}
+.sk-stage__h.is-e{left:100%;top:50%;cursor:ew-resize}
+.sk-stage__h.is-se{left:100%;top:100%;cursor:nwse-resize}
+.sk-stage__h.is-s{left:50%;top:100%;cursor:ns-resize}
+.sk-stage__h.is-sw{left:0;top:100%;cursor:nesw-resize}
+.sk-stage__h.is-w{left:0;top:50%;cursor:ew-resize}
+.sk-stage__item img{-webkit-user-drag:none}
+@media (prefers-reduced-motion:reduce){.sk-stage *{transition:none!important;animation:none!important}}
+.sk-stage__sel:focus-visible{outline-width:var(--focus-ring-width);outline-color:var(--focus-ring);outline-offset:var(--stages-item-sel-focus-outline-offset)}
+@media (forced-colors:active){.sk-stage__h{forced-color-adjust:none;background:Canvas;box-shadow:0 0 0 var(--stage-forced-handle-ring-width) Highlight}}
+@media (forced-colors:active){.sk-stage__sel{outline-color:Highlight}}
+:root,[data-theme]{--stage-bg-media:var(--bg-media);--stage-text-on-media:var(--text-on-media);--stage-accent:var(--accent);--stage-bg-surface:var(--bg-surface);--stage-border-hairline:var(--border-hairline)}
+.sk-stage.is-fill{flex:1;align-self:stretch;min-width:0;min-height:0;padding:0;background:none;box-shadow:none;container-type:size}
+.sk-stage.is-fill .sk-stage__frame{height:auto;width:min(100cqw,100cqh * var(--stage-ratio));border-radius:var(--monitor-radius);background:var(--stage-bg-media)}
+.sk-stage.is-fill .sk-stage__mask{border-radius:var(--monitor-radius)}
+:root{--stage-outside:var(--bg-canvas);--stage-outside-mix:62%}
+.sk-stage{padding:0;background:none;box-shadow:none;border-radius:0}
+.sk-stage__frame{height:100%;border-radius:var(--monitor-radius);background:var(--stage-bg-media)}
+.sk-stage__mask{border-radius:var(--monitor-radius);box-shadow:0 0 0 4000px color-mix(in srgb,var(--stage-outside) var(--stage-outside-mix),transparent)}
+.sk-stage.is-fill.is-past .sk-stage__frame{width:calc(min(100cqw - 2 * var(--stage-h-size),(100cqh - 2 * var(--stage-h-size)) * var(--stage-ratio)) * var(--stage-fit));transform:translate(var(--stage-shift-x),var(--stage-shift-y))}
+.sk-stage{container-type:size;align-self:stretch}
+.sk-stage__frame{height:auto;width:min(100cqw,100cqh * var(--stage-ratio))}

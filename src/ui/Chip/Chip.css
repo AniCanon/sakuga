@@ -1,0 +1,35 @@
+/* Chip: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--chip-height:var(--size-control-md);--chip-padding-x:var(--inset-lg);--chip-radius:var(--radius-pill);--chip-font:var(--text-label);--chip-duration:var(--duration-state);--chip-easing:var(--ease-move);--chip-active-scale:var(--scale-press-sm);--chip-active-duration:var(--duration-press);--chips-gap:var(--gap-md);--chip-gap:var(--gap-sm);--chip-soft-height:calc(var(--space-base) * 8);--chip-soft-padding-right:var(--inset-md);--chip-soft-padding-left:var(--inset-sm);--chip-soft-font-size:var(--text-caption-size);--chip-soft-line-height:var(--text-caption-line-height);--chip-soft-pressed-inset-ring-width:var(--line-strong);--chip-soft-icon-size:var(--icon-size-sm);--chip-icon-size:var(--icon-size-sm)}
+.sk-chip:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-chip{height:var(--chip-height);padding:0 var(--chip-padding-x);border:0;border-radius:var(--chip-radius);background:var(--chip-bg);color:var(--chip-fg);font:var(--chip-font);cursor:pointer;flex:none;transition:background-color var(--chip-duration) var(--chip-easing),color var(--chip-duration) var(--chip-easing),box-shadow var(--chip-duration) var(--chip-easing),transform var(--chip-duration) var(--chip-easing)}
+.sk-chip:active{transform:scale(var(--chip-active-scale));transition-duration:var(--chip-active-duration)}
+.sk-chip[aria-pressed="true"]{background:var(--chip-active-bg);color:var(--chip-active-fg)}
+.sk-chips{display:flex;gap:var(--chips-gap);flex-wrap:wrap}
+.sk-chips--scroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.sk-chips--scroll::-webkit-scrollbar{display:none}
+.sk-chip{display:inline-flex;align-items:center;gap:var(--chip-gap)}
+.sk-chip__icon{display:inline-flex;color:var(--chip-icon)}
+.sk-chip--soft{height:var(--chip-soft-height);padding:0 var(--chip-soft-padding-right) 0 var(--chip-soft-padding-left);font-size:var(--chip-soft-font-size);line-height:var(--chip-soft-line-height)}
+.sk-chip--soft[aria-pressed="true"]{background:var(--chip-soft-selected-bg);color:var(--chip-fg);box-shadow:inset 0 0 0 var(--chip-soft-pressed-inset-ring-width) var(--chip-soft-selected-border)}
+@media (prefers-reduced-motion:reduce){.sk-chip:active{transform:none}}
+:root{--chip-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-chip{border:var(--chip-forced-edge-width) solid ButtonText}}
+@media (forced-colors:active){.sk-chip:disabled{color:GrayText;border-color:GrayText}}
+@media (forced-colors:active){.sk-chip[aria-pressed="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}}
+@media (prefers-reduced-motion:reduce){.sk-chip:active{transform:none}}
+:root{--chip-soft-target-size:var(--size-target)}
+.sk-chip--soft{position:relative}
+.sk-chip--soft::after{content:"";position:absolute;left:0;right:0;top:calc((var(--chip-soft-height) - var(--chip-soft-target-size)) / 2);bottom:calc((var(--chip-soft-height) - var(--chip-soft-target-size)) / 2)}
+@media (forced-colors:active){.sk-chip[aria-pressed="true"],.sk-chip.is-removable{box-shadow:none}}
+.sk-chip.is-removable{background:var(--chip-active-bg);color:var(--chip-active-fg)}
+.sk-chip--soft.is-removable{background:var(--chip-soft-selected-bg);color:var(--chip-fg);box-shadow:inset 0 0 0 var(--chip-soft-pressed-inset-ring-width) var(--chip-soft-selected-border)}
+@media (forced-colors:active){.sk-chip.is-removable{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}}
+:root{--chip-soft-padding-plain:var(--inset-md)}
+.sk-chip--soft:not(:has(.sk-chip__icon)){padding-left:var(--chip-soft-padding-plain);padding-right:var(--chip-soft-padding-plain)}
+:root{--chip-arrive-animation:sk-emerge var(--duration-move) var(--ease-arrive);--chip-leave-animation:sk-recede var(--duration-state) var(--ease-leave)}
+.sk-chip.is-arriving{animation:var(--chip-arrive-animation) both}
+.sk-chip.is-leaving{animation:var(--chip-leave-animation) both;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sk-chip.is-arriving{animation:var(--motion-reduced-in) both!important}}
+@media (prefers-reduced-motion:reduce){.sk-chip.is-leaving{animation:var(--motion-reduced-out) both!important}}
+/* At a desk (a mouse, 768px and up) the control takes the desk scale */
+@media (pointer:fine) and (min-width:768px){:root,[data-theme]{--chip-padding-x:var(--inset-md)}}

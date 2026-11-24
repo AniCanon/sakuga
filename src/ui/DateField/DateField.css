@@ -1,0 +1,36 @@
+/* DateField: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--datefield-icon-size:var(--select-value-icon-size);--datefield-chevron-size:var(--select-chevron-icon-size);--datefield-disabled-opacity:var(--opacity-disabled);--datefield-body-gap:var(--gap-xl);--datefield-months-gap:var(--gap-xl);--datefield-month-gap:var(--gap-xs);--datefield-nav-size:var(--icon-button-size);--datefield-title-font:var(--text-label);--datefield-day-size:var(--size-control-sm);--datefield-weekday-height:var(--size-control-sm);--datefield-weekday-font:var(--text-small);--datefield-day-font:var(--text-body);--datefield-day-focus-offset:calc(-1 * var(--focus-ring-width));--datefield-duration:var(--duration-state);--datefield-easing:var(--ease-move);--datefield-end-font-weight:var(--weight-strong);--datefield-today-size:var(--state-dot-size);--datefield-today-bottom:var(--inset-xs);--datefield-today-radius:var(--radius-pill)}
+:root,[data-theme]{--datefield-end-bg:var(--action-primary);--datefield-end-fg:var(--text-inverse);--datefield-band-bg:var(--bg-fill-subtle);--datefield-today:var(--accent);--datefield-today-on-end:var(--text-inverse)}
+.sk-datefield__trigger:disabled{opacity:var(--datefield-disabled-opacity);cursor:default}
+.sk-datefield__preset{color:var(--datefield-text-muted)}
+.sk-datefield__body{display:flex;flex-wrap:wrap;align-items:flex-start;gap:var(--datefield-body-gap)}
+.sk-datefield__presets{flex:none}
+.sk-datefield__months{display:flex;flex-wrap:wrap;gap:var(--datefield-months-gap)}
+.sk-datefield__months.is-sweepable{touch-action:none}
+.sk-datefield__month{display:flex;flex-direction:column;gap:var(--datefield-month-gap)}
+.sk-datefield__head{display:grid;grid-template-columns:var(--datefield-nav-size) 1fr var(--datefield-nav-size);align-items:center;text-align:center}
+.sk-datefield__title{font:var(--datefield-title-font);color:var(--datefield-text-primary)}
+.sk-datefield__grid{border-collapse:collapse;border-spacing:0}
+.sk-datefield__grid th{width:var(--datefield-day-size);height:var(--datefield-weekday-height);padding:0;font:var(--datefield-weekday-font);color:var(--datefield-text-muted);text-align:center}
+.sk-datefield__day{position:relative;width:var(--datefield-day-size);height:var(--datefield-day-size);padding:0;text-align:center;font:var(--datefield-day-font);font-variant-numeric:tabular-nums;color:var(--datefield-text-primary);cursor:pointer;transition:background-color var(--datefield-duration) var(--datefield-easing)}
+@media (hover:hover){.sk-datefield__day:hover{background:var(--datefield-bg-fill-subtle)}}
+.sk-datefield__day:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--datefield-day-focus-offset)}
+.sk-datefield__day.is-other,.sk-datefield__day.is-off{color:var(--datefield-text-muted)}
+.sk-datefield__day.is-off{cursor:default}
+@media (hover:hover){.sk-datefield__day.is-off:hover{background:none}}
+.sk-datefield__day.is-band{background:var(--datefield-band-bg)}
+@media (hover:hover){.sk-datefield__day.is-band:hover{background:var(--datefield-band-bg)}}
+.sk-datefield__day.is-end{background:var(--datefield-end-bg);color:var(--datefield-end-fg);font-weight:var(--datefield-end-font-weight)}
+@media (hover:hover){.sk-datefield__day.is-end:hover{background:var(--datefield-end-bg);color:var(--datefield-end-fg);font-weight:var(--datefield-end-font-weight)}}
+.sk-datefield__day[aria-current="date"]::after{content:"";position:absolute;left:50%;bottom:var(--datefield-today-bottom);width:var(--datefield-today-size);height:var(--datefield-today-size);border-radius:var(--datefield-today-radius);background:var(--datefield-today);transform:translateX(-50%)}
+.sk-datefield__day.is-end[aria-current="date"]::after{background:var(--datefield-today-on-end)}
+.sk-datefield__day.is-blank{background:none;cursor:default}
+@media (hover:hover){.sk-datefield__day.is-blank:hover{background:none;cursor:default}}
+.sk-datefield__body.is-quiet .sk-datefield__day:focus-visible{outline:none}
+.sk-datefield__body.is-narrow{flex-direction:column}
+:root{--datefield-forced-band-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-datefield__day.is-band{outline:var(--datefield-forced-band-width) dashed Highlight;outline-offset:calc(-1 * var(--datefield-forced-band-width))}}
+@media (forced-colors:active){.sk-datefield__day.is-end{forced-color-adjust:none;background:Highlight;color:HighlightText}}
+@media (forced-colors:active){.sk-datefield__day[aria-current="date"]::after{forced-color-adjust:none;background:CanvasText}}
+@media (forced-colors:active){.sk-datefield__day.is-end[aria-current="date"]::after{background:HighlightText}}
+:root,[data-theme]{--datefield-text-muted:var(--text-muted);--datefield-text-primary:var(--text-primary);--datefield-bg-fill-subtle:var(--bg-fill-subtle)}

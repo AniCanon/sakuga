@@ -1,0 +1,8 @@
+/* ViewHeader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--view-header-gap:var(--gap-lg);--view-header-padding-top:var(--inset-xl);--view-header-padding-x:var(--inset-xl);--view-header-padding-bottom:var(--inset-xs);--view-header-words-gap:var(--gap-2xs);--view-header-eyebrow-font:var(--text-eyebrow);--view-header-eyebrow-letter-spacing:var(--tracking-caps);--view-header-h1-font:var(--text-title-2);--view-header-meta-font:var(--text-caption)}
+.sk-viewhead{display:flex;align-items:center;gap:var(--view-header-gap);padding:var(--view-header-padding-top) var(--view-header-padding-x) var(--view-header-padding-bottom)}
+.sk-viewhead__text{display:flex;flex-direction:column;gap:var(--view-header-words-gap);min-width:0}
+.sk-viewhead__eyebrow{font:var(--view-header-eyebrow-font);letter-spacing:var(--view-header-eyebrow-letter-spacing);text-transform:uppercase;color:var(--viewhead-text-muted)}
+.sk-viewhead h1{margin:0;font:var(--view-header-h1-font);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sk-viewhead__meta{font:var(--view-header-meta-font);color:var(--viewhead-text-muted)}
+:root,[data-theme]{--viewhead-text-muted:var(--text-muted)}

@@ -1,0 +1,16 @@
+/* Popover: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--popover-gap:var(--gap-xs);--popover-padding:var(--inset-sm);--popover-radius:var(--radius-control);--popover-ring-width:var(--line-hairline);--popover-drop-in-animation:var(--motion-drop-in);--popover-aligned-max-width:calc(100vw - 2 * var(--inset-lg));--popover-anchored-top:var(--inset-xs)}
+.sk-popover{display:flex;flex-direction:column;gap:var(--popover-gap);padding:var(--popover-padding);border-radius:var(--popover-radius);background:var(--popover-bg);box-shadow:0 0 0 var(--popover-ring-width) var(--popover-border),var(--popover-shadow-overlay);transform-origin:top center;animation:var(--popover-drop-in-animation) both}
+.sk-popover.is-anchored{position:absolute;left:0;right:0;top:calc(100% + var(--popover-anchored-top));z-index:30}
+.sk-popover.is-anchored.is-start{right:auto;width:max-content;max-width:var(--popover-aligned-max-width)}
+.sk-popover.is-anchored.is-end{left:auto;width:max-content;max-width:var(--popover-aligned-max-width)}
+.sk-popover:focus{outline:none}
+:root{--popover-leaving-drop-out-animation:var(--motion-drop-out)}
+.sk-popover.is-leaving{animation:var(--popover-leaving-drop-out-animation) both;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sk-popover{animation:var(--motion-reduced-in) both}}
+@media (prefers-reduced-motion:reduce){.sk-popover.is-leaving{animation:var(--motion-reduced-out) both}}
+:root{--popover-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-popover,.sk-popover:focus{outline:var(--popover-forced-edge-width) solid CanvasText;outline-offset:calc(-1 * var(--popover-forced-edge-width))}}
+:root,[data-theme]{--popover-shadow-overlay:var(--shadow-overlay)}
+:root{--picker-aligned-max-width:min(440px, var(--popover-aligned-max-width))}
+.sk-popover.sk-picker.is-anchored:is(.is-start,.is-end){max-width:var(--picker-aligned-max-width)}

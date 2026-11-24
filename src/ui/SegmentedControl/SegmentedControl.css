@@ -1,0 +1,34 @@
+/* SegmentedControl: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--segmented-height:var(--size-control-md);--segmented-padding:var(--inset-xs);--segmented-radius:var(--radius-pill);--segmented-font-family:var(--font-body);--segmented-glass-blur:var(--blur-glass);--segmented-glass-inset-ring-width:var(--line-hairline);--segmented-button-padding-x:var(--inset-lg);--segmented-button-radius:var(--radius-pill);--segmented-button-font:var(--text-label);--segmented-button-background-color-duration:var(--duration-move);--segmented-button-easing:var(--ease-move);--segmented-button-duration:var(--duration-state)}
+.sk-seg button:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-seg{display:inline-flex;padding:var(--segmented-padding);border-radius:var(--segmented-radius);background:var(--segmented-track-bg);font-family:var(--segmented-font-family)}
+.sk-seg{touch-action:pan-y}
+.sk-seg button[aria-pressed="true"]{cursor:grab}
+.sk-seg.is-dragging,.sk-seg.is-dragging button{cursor:grabbing}
+.sk-seg--full{display:flex;width:100%}
+.sk-seg--glass button{color:var(--segmented-glass-item-fg)}
+.sk-seg.sk-seg--glass button[aria-pressed="true"]{background:var(--segmented-glass-active-bg);color:var(--segmented-glass-active-fg)}
+.sk-seg--glass button:focus-visible{outline-color:var(--icon-button-media-focus)}
+.sk-seg--glass{background:var(--segmented-glass-bg);-webkit-backdrop-filter:var(--segmented-glass-blur);backdrop-filter:var(--segmented-glass-blur);box-shadow:inset 0 0 0 var(--segmented-glass-inset-ring-width) var(--segmented-glass-border)}
+.sk-seg button{flex:1;height:var(--segmented-height);padding:0 var(--segmented-button-padding-x);border:0;border-radius:var(--segmented-button-radius);background:transparent;color:var(--segmented-item-fg);font:var(--segmented-button-font);cursor:pointer;white-space:nowrap;transition:background-color var(--segmented-button-background-color-duration) var(--segmented-button-easing),color var(--segmented-button-duration) var(--segmented-button-easing),transform var(--segmented-button-duration) var(--segmented-button-easing)}
+.sk-seg button[aria-pressed="true"]{background:var(--segmented-item-active-bg);color:var(--segmented-item-active-fg)}
+:root{--segmented-button-active-scale:var(--scale-press-sm);--segmented-button-active-duration:var(--duration-press);--segmented-glide-radius:var(--radius-pill)}
+.sk-seg button:active{transform:scale(var(--segmented-button-active-scale));transition-duration:var(--segmented-button-active-duration)}
+.sk-seg{position:relative;isolation:isolate}
+/* The pill sits under the segments by order, not by z-index:-1 as Version 215 draws it: drawn the same, but axe placed a
+   negative layer in the isolated track below the page and measured the chosen label against the track */
+.sk-seg>button{position:relative}
+.sk-seg>.sk-glide{z-index:auto;border-radius:var(--segmented-glide-radius);background:var(--segmented-item-active-bg)}
+.sk-seg--glass>.sk-glide{background:var(--segmented-glass-active-bg)}
+.sk-seg[data-glide] button[aria-pressed="true"]{background:transparent}
+.sk-seg.is-dragging button[aria-pressed="true"]{color:var(--segmented-item-fg)}
+.sk-seg.is-dragging button.is-under{color:var(--segmented-item-active-fg)}
+.sk-seg.sk-seg--glass.is-dragging button[aria-pressed="true"]{color:var(--segmented-glass-item-fg)}
+.sk-seg.sk-seg--glass.is-dragging button.is-under{color:var(--segmented-glass-active-fg)}
+@media (prefers-reduced-motion:reduce){.sk-seg button{transition-property:opacity,color,background-color,box-shadow!important;transition-duration:var(--motion-reduced-duration)!important;transition-timing-function:linear!important}}
+@media (prefers-reduced-motion:reduce){.sk-seg button:active{transform:none}}
+:root{--segmented-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-seg{outline:var(--segmented-forced-edge-width) solid ButtonText;outline-offset:calc(-1 * var(--segmented-forced-edge-width))}}
+@media (forced-colors:active){.sk-seg button[aria-pressed="true"],.sk-seg[data-glide] button[aria-pressed="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText}}
+/* At a desk (a mouse, 768px and up) the control takes the desk scale */
+@media (pointer:fine) and (min-width:768px){:root,[data-theme]{--segmented-height:var(--size-control-sm);--segmented-padding:calc((var(--size-control-md) - var(--size-control-sm)) / 2)}}

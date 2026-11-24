@@ -1,0 +1,14 @@
+/* PageWall: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--wall-row-gap:var(--gap-2xl);--wall-column-gap:var(--gap-lg);--wall-cell-gap:var(--gap-md);--wall-spread-gap:var(--gap-2xs);--wall-page-gap:var(--gap-sm);--wall-cap-gap:var(--gap-2xs);--wall-cap-font:var(--text-small-strong);--wall-cap-span-font-weight:var(--weight-medium);--wall-stage-gap:var(--gap-2xs);--wall-stage-margin-top:var(--gap-xs);--wall-stage-i-height:calc(var(--space-base) * 1);--wall-stage-i-radius:var(--radius-mark);--wall-istrip-turn-margin-top:var(--gap-sm);--wall-istrip-turn-margin-bottom:var(--gap-3xl)}
+.sk-wall{display:grid;gap:var(--wall-row-gap) var(--wall-column-gap);align-items:start}
+.sk-wall__cell{display:flex;align-items:flex-start;gap:var(--wall-cell-gap)}
+.sk-wall__spread{display:flex;gap:var(--wall-spread-gap)}
+.sk-wall__page{display:flex;flex-direction:column;gap:var(--wall-page-gap)}
+.sk-wall__cap{display:flex;flex-direction:column;gap:var(--wall-cap-gap);font:var(--wall-cap-font);color:var(--wall-cap);font-variant-numeric:tabular-nums}
+.sk-wall__cap span{font-weight:var(--wall-cap-span-font-weight);color:var(--wall-cap-meta)}
+.sk-wall__stage{display:flex;gap:var(--wall-stage-gap);width:100%;margin-top:var(--wall-stage-margin-top)}
+.sk-wall__stage i{flex:1;height:var(--wall-stage-i-height);border-radius:var(--wall-stage-i-radius);background:var(--wall-stage)}
+.sk-wall__stage i.is-on{background:var(--wall-stage-on)}
+.sk-wall .sk-istrip__turn{margin:var(--wall-istrip-turn-margin-top) 0 var(--wall-istrip-turn-margin-bottom)}
+@media (forced-colors:active){.sk-wall__stage i{forced-color-adjust:none;background:GrayText}}
+@media (forced-colors:active){.sk-wall__stage i.is-on{background:Highlight}}

@@ -1,0 +1,16 @@
+/* ProviderButton: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--provider-button-radius:var(--radius-control);--provider-button-pill-radius:var(--radius-pill);--provider-button-height-md:var(--size-control-md);--provider-button-height-lg:var(--size-control-lg);--provider-button-gap:var(--gap-md);--provider-button-font:var(--text-subtitle-sm);--provider-button-padding-x:var(--inset-xl);--provider-button-duration:var(--duration-state);--provider-button-easing:var(--ease-move);--provider-button-padding-x-md:var(--inset-lg);--provider-button-font-size-md:var(--text-label-bold-size);--provider-button-line-height-md:var(--text-label-bold-line-height);--provider-button-active-scale:var(--scale-press);--provider-button-active-duration:var(--duration-press);--provider-button-disabled-opacity:var(--opacity-disabled);--provider-button-google-inset-ring-width:var(--line-hairline)}
+.sk-provider{display:inline-flex;align-items:center;justify-content:center;gap:var(--provider-button-gap);border:0;cursor:pointer;font:var(--provider-button-font);white-space:nowrap;text-decoration:none;height:var(--provider-button-height-lg);padding:0 var(--provider-button-padding-x);border-radius:var(--provider-button-radius);transition:transform var(--provider-button-duration) var(--provider-button-easing)}
+.sk-provider--md{height:var(--provider-button-height-md);padding:0 var(--provider-button-padding-x-md);font-size:var(--provider-button-font-size-md);line-height:var(--provider-button-line-height-md)}
+.sk-provider--pill{border-radius:var(--provider-button-pill-radius)}
+.sk-provider--full{width:100%}
+.sk-provider:active:not(:disabled){transform:scale(var(--provider-button-active-scale));transition-duration:var(--provider-button-active-duration)}
+.sk-provider:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-provider:disabled{opacity:var(--provider-button-disabled-opacity);cursor:default}
+.sk-provider__mark{flex:none;display:block}
+.sk-provider--apple{background:var(--provider-button-apple-bg);color:var(--provider-button-apple-fg)}
+.sk-provider--google{background:var(--provider-button-google-bg);color:var(--provider-button-google-fg);box-shadow:inset 0 0 0 var(--provider-button-google-inset-ring-width) var(--provider-button-google-edge)}
+:root{--provider-button-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-provider{border:var(--provider-button-forced-edge-width) solid ButtonText}}
+@media (forced-colors:active){.sk-provider:disabled{color:GrayText;border-color:GrayText}}
+@media (prefers-reduced-motion:reduce){.sk-provider:active:not(:disabled){transform:none}}

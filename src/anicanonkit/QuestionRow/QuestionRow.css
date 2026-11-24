@@ -1,0 +1,23 @@
+/* QuestionRow: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--question-gap:var(--gap-lg);--question-padding-y:var(--inset-md);--question-padding-x:var(--inset-lg);--question-radius:var(--radius-control);--question-inset-ring-width:var(--line-hairline);--question-selected-inset-ring-width:var(--line-strong);--question-done-opacity:var(--opacity-muted);--question-q-width:calc(var(--space-base) * 50);--question-q-gap:var(--gap-sm);--question-q-b-font:var(--text-title-4);--question-q-span-gap:var(--gap-md);--question-q-span-font:var(--text-small);--question-steps-gap:var(--gap-md);--question-step-gap:var(--gap-xs);--question-step-small-font:var(--text-eyebrow);--question-step-small-letter-spacing:var(--tracking-caps);--question-event-gap:var(--gap-md);--question-event-padding-y:var(--inset-xs);--question-event-padding-right:var(--inset-sm);--question-event-padding-left:var(--inset-xs);--question-event-radius:var(--radius-item);--question-event-b-font:var(--text-small-strong);--question-empty-gap:var(--gap-sm);--question-empty-height:calc(var(--space-base) * 10);--question-empty-radius:var(--radius-item);--question-empty-inset-ring-width:var(--line-strong);--question-empty-font:var(--text-small-strong);--question-arrow-margin-top:var(--gap-xl);--question-arrow-icon-size:var(--icon-size-xs);--question-empty-icon-size:var(--icon-size-xs)}
+.sk-qrow{display:flex;align-items:center;gap:var(--question-gap);padding:var(--question-padding-y) var(--question-padding-x);border-radius:var(--question-radius);background:var(--question-bg);box-shadow:inset 0 0 0 var(--question-inset-ring-width) var(--question-border)}
+.sk-qrow.is-selected{box-shadow:inset 0 0 0 var(--question-selected-inset-ring-width) var(--question-selected)}
+.sk-qrow.is-done{opacity:var(--question-done-opacity)}
+.sk-qrow__q{flex:none;width:var(--question-q-width);display:flex;flex-direction:column;gap:var(--question-q-gap)}
+.sk-qrow__q b{font:var(--question-q-b-font);color:var(--question-title)}
+.sk-qrow__q>span{display:flex;align-items:center;gap:var(--question-q-span-gap);font:var(--question-q-span-font);color:var(--question-note)}
+.sk-qrow__steps{flex:1;min-width:0;display:flex;align-items:center;gap:var(--question-steps-gap)}
+.sk-qrow__step{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--question-step-gap)}
+.sk-qrow__step small{font:var(--question-step-small-font);letter-spacing:var(--question-step-small-letter-spacing);text-transform:uppercase;color:var(--question-note)}
+.sk-qrow__event{display:flex;align-items:center;gap:var(--question-event-gap);min-width:0;padding:var(--question-event-padding-y) var(--question-event-padding-right) var(--question-event-padding-y) var(--question-event-padding-left);border-radius:var(--question-event-radius);background:var(--question-event-bg)}
+.sk-qrow__event b{flex:1;min-width:0;font:var(--question-event-b-font);color:var(--question-title);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sk-qrow__empty{display:flex;align-items:center;justify-content:center;gap:var(--question-empty-gap);height:var(--question-empty-height);border-radius:var(--question-empty-radius);box-shadow:inset 0 0 0 var(--question-empty-inset-ring-width) var(--question-empty-border);font:var(--question-empty-font);color:var(--question-note)}
+.sk-qrow__arrow{flex:none;display:flex;margin-top:var(--question-arrow-margin-top);color:var(--question-note)}
+:root{--question-opacity-duration:var(--duration-move);--question-easing:var(--ease-move);--question-box-shadow-duration:var(--duration-state)}
+.sk-qrow{transition:opacity var(--question-opacity-duration) var(--question-easing),box-shadow var(--question-box-shadow-duration) var(--question-easing)}
+:root{--question-forced-selected-width:var(--line-strong)}
+@media (forced-colors:active){.sk-qrow.is-selected{outline:var(--question-forced-selected-width) solid Highlight;outline-offset:calc(-1 * var(--question-forced-selected-width))}}
+.sk-qrow.is-done{opacity:1}
+.sk-qrow.is-done .sk-ev,.sk-qrow.is-done .sk-qrow__arrow{opacity:var(--question-done-opacity)}
+.sk-qrow.is-done .sk-qrow__q b,.sk-qrow.is-done .sk-qrow__q>span,.sk-qrow.is-done .sk-qrow__step small,.sk-qrow.is-done .sk-qrow__event b{color:var(--qrow-text-muted)}
+:root,[data-theme]{--qrow-text-muted:var(--text-muted)}

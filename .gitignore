@@ -1,0 +1,11 @@
+node_modules/
+dist/
+check/treeshake/out/
+check/treeshake/kit/out/
+.DS_Store
+build/
+test-results/
+playwright-report/
+check/.generated/
+.design/
+.snapshots/

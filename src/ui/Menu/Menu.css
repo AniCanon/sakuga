@@ -1,0 +1,15 @@
+/* Menu: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--menu-min-width:calc(var(--space-base) * 55);--menu-item-gap:var(--gap-md);--menu-item-min-height:var(--size-control-sm);--menu-item-padding-x:var(--inset-sm);--menu-item-radius:var(--radius-item);--menu-item-font:var(--text-body);--menu-item-fg:var(--text-primary);--menu-item-icon-fg:var(--text-secondary);--menu-item-icon-size:var(--icon-size-sm);--menu-item-hover-bg:var(--bg-fill-subtle);--menu-item-active-scale:var(--scale-press-lg);--menu-item-duration:var(--duration-press);--menu-item-easing:var(--ease-move);--menu-item-outline-offset:calc(-1 * var(--focus-ring-width));--menu-item-danger-fg:var(--text-danger);--menu-item-disabled-opacity:var(--opacity-disabled);--menu-rule:var(--border-hairline);--menu-rule-margin-y:var(--gap-xs)}
+.sk-menu{min-width:var(--menu-min-width)}
+.sk-menu__items{display:flex;flex-direction:column}
+.sk-menu__item{display:flex;align-items:center;justify-content:flex-start;gap:var(--menu-item-gap);width:100%;min-height:var(--menu-item-min-height);padding:0 var(--menu-item-padding-x);box-sizing:border-box;border:0;border-radius:var(--menu-item-radius);background:transparent;font:var(--menu-item-font);color:var(--menu-item-fg);text-align:left;text-decoration:none;cursor:pointer;transition:background-color var(--menu-item-duration) linear,transform var(--menu-item-duration) var(--menu-item-easing)}
+.sk-menu__item>svg{flex:none;color:var(--menu-item-icon-fg)}
+.sk-menu__label{flex:1;min-width:0}
+@media (hover:hover){.sk-menu__item:hover{background:var(--menu-item-hover-bg)}}
+.sk-menu__item:active{background:var(--menu-item-hover-bg);transform:scale(var(--menu-item-active-scale))}
+.sk-menu__item:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--menu-item-outline-offset)}
+.sk-menu__item.is-danger,.sk-menu__item.is-danger>svg{color:var(--menu-item-danger-fg)}
+.sk-menu__item[aria-disabled="true"]{opacity:var(--menu-item-disabled-opacity);cursor:default}
+.sk-menu__rule{height:var(--line-hairline);margin:var(--menu-rule-margin-y) 0;background:var(--menu-rule)}
+@media (prefers-reduced-motion:reduce){.sk-menu__item:active{transform:none}}
+@media (forced-colors:active){.sk-menu__item:focus-visible{outline-color:Highlight}}

@@ -1,0 +1,25 @@
+/* Scrubber: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--scrubber-wrap-gap:var(--gap-lg);--scrubber-wrap-font:var(--text-caption-strong);--scrubber-height:calc(var(--space-base) * 6);--scrubber-track-height:calc(var(--space-base) * 1);--scrubber-track-before-radius:var(--radius-pill);--scrubber-track-before-duration:var(--duration-state);--scrubber-track-before-easing:var(--ease-move);--scrubber-buf-height:calc(var(--space-base) * 1);--scrubber-buf-radius:var(--radius-pill);--scrubber-fill-height:calc(var(--space-base) * 1);--scrubber-fill-radius:var(--radius-pill);--scrubber-mark-top:calc(-1 * var(--inset-2xs));--scrubber-mark-width:var(--line-strong);--scrubber-mark-height:calc(var(--space-base) * 2);--scrubber-mark-margin-left:calc(var(--scrubber-mark-width) / -2);--scrubber-thumb-size:calc(var(--space-base) * 4);--scrubber-thumb-margin-top:calc(var(--scrubber-thumb-size) / -2);--scrubber-thumb-margin-left:calc(var(--scrubber-thumb-size) / -2);--scrubber-thumb-scale:.75;--scrubber-thumb-duration:var(--duration-state);--scrubber-thumb-easing:var(--ease-move);--scrubber-track-before-hover-scale-y:1.5;--scrubber-thumb-dragging-scale:1.25}
+:root,[data-theme]{--scrubber-thumb-shadow:var(--shadow-raised)}
+.sk-scrub:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-scrub-wrap{display:flex;align-items:center;gap:var(--scrubber-wrap-gap);font:var(--scrubber-wrap-font);color:var(--scrubber-time);font-variant-numeric:tabular-nums}
+.sk-scrub{position:relative;flex:1;height:var(--scrubber-height);display:flex;align-items:center;cursor:pointer;touch-action:none}
+.sk-scrub__track{position:relative;width:100%;height:var(--scrubber-track-height)}
+.sk-scrub__track::before{content:"";position:absolute;inset:0;border-radius:var(--scrubber-track-before-radius);background:var(--scrubber-track)}
+.sk-scrub__track::before,.sk-scrub__buf,.sk-scrub__fill{transition:transform var(--scrubber-track-before-duration) var(--scrubber-track-before-easing)}
+.sk-scrub__buf{position:absolute;left:0;top:0;height:var(--scrubber-buf-height);border-radius:var(--scrubber-buf-radius);background:var(--scrubber-buffer)}
+.sk-scrub__fill{position:absolute;left:0;top:0;height:var(--scrubber-fill-height);border-radius:var(--scrubber-fill-radius);background:var(--scrubber-fill)}
+.sk-scrub__mark{position:absolute;top:var(--scrubber-mark-top);width:var(--scrubber-mark-width);height:var(--scrubber-mark-height);margin-left:var(--scrubber-mark-margin-left);background:var(--scrubber-marker)}
+.sk-scrub__thumb{position:absolute;top:50%;width:var(--scrubber-thumb-size);height:var(--scrubber-thumb-size);margin:var(--scrubber-thumb-margin-top) 0 0 var(--scrubber-thumb-margin-left);border-radius:50%;background:var(--scrubber-thumb);box-shadow:var(--scrubber-thumb-shadow);transform:scale(var(--scrubber-thumb-scale));transition:transform var(--scrubber-thumb-duration) var(--scrubber-thumb-easing)}
+.sk-scrub:focus-visible .sk-scrub__track::before,.sk-scrub:focus-visible .sk-scrub__buf,.sk-scrub:focus-visible .sk-scrub__fill,.sk-scrub.is-dragging .sk-scrub__track::before,.sk-scrub.is-dragging .sk-scrub__buf,.sk-scrub.is-dragging .sk-scrub__fill{transform:scaleY(var(--scrubber-track-before-hover-scale-y))}
+@media (hover:hover){.sk-scrub:hover .sk-scrub__track::before,.sk-scrub:hover .sk-scrub__buf,.sk-scrub:hover .sk-scrub__fill{transform:scaleY(var(--scrubber-track-before-hover-scale-y))}}
+.sk-scrub:focus-visible .sk-scrub__thumb{transform:none}
+@media (hover:hover){.sk-scrub:hover .sk-scrub__thumb{transform:none}}
+.sk-scrub.is-dragging .sk-scrub__thumb{transform:scale(var(--scrubber-thumb-dragging-scale))}
+@media (prefers-reduced-motion:reduce){.sk-scrub .sk-scrub__thumb,.sk-scrub .sk-scrub__track::before,.sk-scrub .sk-scrub__buf,.sk-scrub .sk-scrub__fill{transform:none}}
+:root{--scrubber-forced-thumb-edge-width:var(--line-strong)}
+@media (forced-colors:active){.sk-scrub{forced-color-adjust:none}}
+@media (forced-colors:active){.sk-scrub__track::before{background:ButtonText}}
+@media (forced-colors:active){.sk-scrub__buf{background:GrayText}}
+@media (forced-colors:active){.sk-scrub__fill,.sk-scrub__mark{background:Highlight}}
+@media (forced-colors:active){.sk-scrub__thumb{background:Canvas;box-shadow:none;outline:var(--scrubber-forced-thumb-edge-width) solid Highlight;outline-offset:calc(-1 * var(--scrubber-forced-thumb-edge-width))}}

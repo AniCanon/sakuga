@@ -1,0 +1,37 @@
+/* Button: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--button-radius:var(--radius-control);--button-pill-radius:var(--radius-pill);--button-height-sm:var(--size-control-sm);--button-height-md:var(--size-control-md);--button-height-lg:var(--size-control-lg);--button-gap:var(--gap-md);--button-font-family:var(--font-body);--button-font-weight:var(--weight-bold);--button-duration:var(--duration-state);--button-easing:var(--ease-move);--button-active-scale:var(--scale-press);--button-active-duration:var(--duration-press);--button-padding-x-sm:var(--inset-md);--button-font-size-sm:var(--text-label-bold-size);--button-line-height-sm:var(--text-label-bold-line-height);--button-padding-x-md:var(--inset-lg);--button-font-size-md:var(--text-label-bold-size);--button-line-height-md:var(--text-label-bold-line-height);--button-padding-x-lg:var(--inset-xl);--button-font-size-lg:calc(var(--space-base) * 4);--button-line-height-lg:calc(var(--space-base) * 5);--button-secondary-font-weight:var(--weight-strong);--button-outline-inset-ring-width:var(--line-hairline);--button-outline-font-weight:var(--weight-strong);--button-ghost-font-weight:var(--weight-strong);--button-media-secondary-font-weight:var(--weight-strong);--button-media-secondary-blur:var(--blur-glass);--button-media-secondary-inset-ring-width:var(--line-hairline);--button-disabled-opacity:var(--opacity-disabled);--button-icon-size-lg:var(--icon-size-sm);--button-icon-size:var(--icon-size-sm)}
+.sk-btn:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--button-gap);border:0;cursor:pointer;font-family:var(--button-font-family);font-weight:var(--button-font-weight);white-space:nowrap;border-radius:var(--button-radius);transition:background-color var(--button-duration) var(--button-easing),color var(--button-duration) var(--button-easing),box-shadow var(--button-duration) var(--button-easing),transform var(--button-duration) var(--button-easing),opacity var(--button-duration)}
+.sk-btn:active:not(:disabled){transform:scale(var(--button-active-scale));transition-duration:var(--button-active-duration)}
+.sk-btn--pill{border-radius:var(--button-pill-radius)}
+.sk-btn--sm{height:var(--button-height-sm);padding:0 var(--button-padding-x-sm);font-size:var(--button-font-size-sm);line-height:var(--button-line-height-sm)}
+.sk-btn--md{height:var(--button-height-md);padding:0 var(--button-padding-x-md);font-size:var(--button-font-size-md);line-height:var(--button-line-height-md)}
+.sk-btn--lg{height:var(--button-height-lg);padding:0 var(--button-padding-x-lg);font-size:var(--button-font-size-lg);line-height:var(--button-line-height-lg)}
+.sk-btn--primary{background:var(--button-primary-bg);color:var(--button-primary-fg)}
+.sk-btn--secondary{background:var(--button-secondary-bg);color:var(--button-secondary-fg);font-weight:var(--button-secondary-font-weight)}
+.sk-btn--outline{background:transparent;color:var(--button-outline-fg);box-shadow:inset 0 0 0 var(--button-outline-inset-ring-width) var(--button-outline-border);font-weight:var(--button-outline-font-weight)}
+.sk-btn--ghost{background:transparent;color:var(--button-ghost-fg);font-weight:var(--button-ghost-font-weight)}
+@media (hover:hover){.sk-btn--ghost:hover{background:var(--button-ghost-hover-bg)}}
+.sk-btn--media{background:var(--button-media-bg);color:var(--button-media-fg)}
+.sk-btn--media-secondary{background:var(--button-media-secondary-bg);color:var(--button-media-secondary-fg);font-weight:var(--button-media-secondary-font-weight);-webkit-backdrop-filter:var(--button-media-secondary-blur);backdrop-filter:var(--button-media-secondary-blur);box-shadow:inset 0 0 0 var(--button-media-secondary-inset-ring-width) var(--button-media-secondary-border)}
+.sk-btn--media:focus-visible,.sk-btn--media-secondary:focus-visible{outline-color:var(--icon-button-media-focus)}
+.sk-btn--full{width:100%}
+.sk-btn:disabled{opacity:var(--button-disabled-opacity);cursor:default}
+.sk-btn--primary:disabled,.sk-btn--media:disabled{opacity:1;background:var(--button-disabled-bg);color:var(--button-disabled-fg)}
+a.sk-btn{text-decoration:none}
+:root{--button-cost-gap:var(--gap-xs);--button-cost-margin-left:var(--gap-2xs);--button-cost-padding-left:var(--inset-md);--button-cost-border-left-width:var(--line-hairline);--button-cost-font-weight:var(--weight-strong);--button-cost-padding-left-sm-md:var(--inset-sm)}
+.sk-btn__cost{display:inline-flex;align-items:center;gap:var(--button-cost-gap);margin-left:var(--button-cost-margin-left);padding-left:var(--button-cost-padding-left);border-left:var(--button-cost-border-left-width) solid color-mix(in srgb,currentColor 25%,transparent);font-weight:var(--button-cost-font-weight);font-variant-numeric:tabular-nums}
+.sk-btn--sm .sk-btn__cost,.sk-btn--md .sk-btn__cost{padding-left:var(--button-cost-padding-left-sm-md)}
+@media (prefers-reduced-motion:reduce){.sk-btn:active:not(:disabled){transform:none}}
+.sk-btn--destructive{background:var(--button-destructive-bg);color:var(--button-destructive-fg)}
+.sk-btn--destructive:disabled{opacity:1;background:var(--button-disabled-bg);color:var(--button-disabled-fg)}
+:root{--button-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-btn{border:var(--button-forced-edge-width) solid ButtonText}}
+@media (forced-colors:active){.sk-btn:disabled{color:GrayText;border-color:GrayText}}
+.sk-btn{--button-busy-delay:var(--duration-reveal);--button-busy-loader:currentColor;--button-busy-loader-size:var(--icon-size-lg)}
+.sk-btn.is-busy{cursor:progress}
+.sk-btn.is-busy:active{transform:none}
+.sk-btn--ghost.is-busy:hover{background:transparent}
+.sk-btn__loader{display:inline-flex;margin-block:calc((var(--button-busy-loader-size) - 1em) / -2);--load-accent:var(--button-busy-loader);--loader-arc:var(--button-busy-loader)}
+/* At a desk (a mouse, 768px and up) the control takes the desk scale */
+@media (pointer:fine) and (min-width:768px){:root,[data-theme]{--button-padding-x-md:var(--inset-md)}}

@@ -1,0 +1,30 @@
+/* MentionChip: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--mchip-slot-icon-size:var(--icon-size-xs);--mchip-remove-size:var(--icon-size-md);--mchip-remove-icon-size:var(--icon-size-xs);--mchip-held-gap:var(--gap-2xs);--mchip-gap:var(--gap-sm);--mchip-height:calc(var(--space-base) * 8);--mchip-padding-right:var(--inset-md);--mchip-padding-left:var(--inset-xs);--mchip-radius:var(--radius-pill);--mchip-font:var(--text-caption-strong);--mchip-no-img-padding-left:var(--inset-md);--mchip-img-size:calc(var(--space-base) * 6);--mchip-img-radius:var(--radius-mark);--mchip-small-font-weight:var(--text-caption-weight);--mchip-media-height:calc(var(--space-base) * 8);--mchip-media-padding-left:var(--inset-2xs)}
+.sk-mchip{display:inline-flex;align-items:center;gap:var(--mchip-gap);height:var(--mchip-height);padding:0 var(--mchip-padding-right) 0 var(--mchip-padding-left);border-radius:var(--mchip-radius);background:var(--mchip-bg);color:var(--mchip-text);font:var(--mchip-font);white-space:nowrap;text-decoration:none}
+.sk-mchip:not(:has(img)){padding-left:var(--mchip-no-img-padding-left)}
+.sk-mchip img{width:var(--mchip-img-size);height:var(--mchip-img-size);border-radius:50%;object-fit:cover;object-position:top}
+.sk-mchip.is-place img,.sk-mchip.is-prop img,.sk-mchip.is-reference img{border-radius:var(--mchip-img-radius)}
+.sk-mchip small{font-size:inherit;font-weight:var(--mchip-small-font-weight);color:var(--mchip-note)}
+.sk-mchip.is-media{height:var(--mchip-media-height);padding-left:var(--mchip-media-padding-left);background:var(--mchip-bg-glass-media);color:var(--mchip-text-on-media)}
+.sk-mchip.is-media small{color:var(--mchip-text-on-media-muted)}
+.sk-mchip b{font-weight:inherit}
+:root,[data-theme]{--mchip-bg-glass-media:var(--bg-glass-media);--mchip-text-on-media:var(--text-on-media);--mchip-text-on-media-muted:var(--text-on-media-muted)}
+.sk-mchip .sk-mchip__face{width:var(--mchip-img-size);height:var(--mchip-img-size);border-radius:50%}
+button.sk-mchip{margin:0;border:0;cursor:pointer;transition:transform var(--chip-duration) var(--chip-easing)}
+button.sk-mchip:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+button.sk-mchip:active{transform:scale(var(--chip-active-scale));transition-duration:var(--chip-active-duration)}
+@media (prefers-reduced-motion:reduce){button.sk-mchip:active{transform:none}}
+:root,[data-theme]{--mchip-held-bg:var(--bg-fill-subtle)}
+.sk-mchip.is-object img,.sk-mchip.is-object .sk-mchip__face{border-radius:var(--mchip-img-radius);object-fit:contain;background:var(--bg-canvas)}
+.sk-mchip__slot{flex:none;display:inline-flex;align-items:center;justify-content:center;width:var(--mchip-img-size);height:var(--mchip-img-size);border-radius:var(--mchip-img-radius);background:var(--bg-canvas);color:var(--text-secondary)}
+.sk-mchip .sk-badge{flex:none}
+.sk-mchip.is-missing b{color:var(--mention-missing-fg);text-decoration:underline wavy var(--mention-missing-fg)}
+.sk-mchip.is-missing img,.sk-mchip.is-missing .sk-mchip__face{opacity:var(--opacity-muted)}
+.sk-mchip-held{display:inline-flex;align-items:center;gap:var(--mchip-held-gap);border-radius:var(--mchip-radius);background:var(--mchip-bg)}
+.sk-mchip-held>.sk-mchip{background:transparent}
+.sk-mchip-held__x{all:unset;display:inline-flex;align-items:center;justify-content:center;width:var(--mchip-remove-size);height:var(--mchip-remove-size);margin-right:var(--gap-2xs);border-radius:var(--radius-pill);color:var(--text-muted);cursor:pointer}
+.sk-mchip-held__x:hover{color:var(--text-primary);background:var(--bg-fill-subtle)}
+.sk-mchip-held__x:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:0}
+.sk-mchip__slot.is-figure{border-radius:var(--radius-pill);align-items:flex-end;overflow:hidden}
+/* As a button it presses as every chip does; Chip's own tokens, so a page with no Chip still has them */
+:root{--chip-duration:var(--motion-fast);--chip-easing:var(--ease-standard);--chip-active-scale:var(--scale-press-sm);--chip-active-duration:var(--motion-instant)}

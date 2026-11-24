@@ -1,0 +1,14 @@
+/* TrimFrames: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--trim-gap:var(--gap-md);--trim-f-gap:var(--gap-xs);--trim-lab-font:var(--text-small-strong);--trim-lab-span-font-weight:var(--weight-medium);--trim-nudge-gap:var(--gap-2xs);--trim-nudge-margin-left:calc(-1 * var(--gap-sm))}
+.sk-trimframes{display:grid;grid-template-columns:1fr 1fr;gap:var(--trim-gap)}
+.sk-trimframes__f{display:flex;flex-direction:column;gap:var(--trim-f-gap);min-width:0}
+.sk-trimframes__pic{display:block}
+.sk-trimframes__lab{display:flex;align-items:baseline;justify-content:space-between;font:var(--trim-lab-font);font-variant-numeric:tabular-nums}
+.sk-trimframes__lab span{font-weight:var(--trim-lab-span-font-weight);color:var(--trimframes-text-muted)}
+.sk-trimframes__nudge{display:flex;align-items:center;gap:var(--trim-nudge-gap);margin-left:var(--trim-nudge-margin-left)}
+.sk-trimframes.is-narrow{grid-template-columns:auto auto;justify-content:start}
+.sk-trimframes.is-narrow .sk-trimframes__f{align-items:center}
+.sk-trimframes.is-narrow .sk-trimframes__lab{gap:var(--trim-lab-narrow-gap)}
+.sk-trimframes.is-narrow .sk-trimframes__nudge{margin-left:0}
+:root{--trim-lab-narrow-gap:var(--gap-sm)}
+:root,[data-theme]{--trimframes-text-muted:var(--text-muted)}

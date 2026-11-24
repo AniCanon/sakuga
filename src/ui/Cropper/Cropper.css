@@ -1,0 +1,16 @@
+/* Cropper: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+.sk-crop{--crop-shade:var(--shade-on-media);--crop-ring:var(--edge-on-media);--crop-ring-edge:var(--shade-on-media);--crop-ring-width:2px;--crop-handle-size:16px;--crop-radius:var(--radius-card);--crop-gap:var(--gap-sm);display:flex;flex-direction:column;gap:var(--crop-gap);min-width:0}
+.sk-crop__stage{position:relative;width:100%;max-width:100%;overflow:hidden;border-radius:var(--crop-radius);background:var(--look-plate-bg);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
+.sk-crop__stage:active{cursor:grabbing}
+.sk-crop__stage.is-still{cursor:default}
+.sk-crop__stage:focus-visible{box-shadow:0 0 0 var(--focus-ring-width) var(--focus-ring)}
+.sk-crop__picture{position:absolute;max-width:none;display:block;-webkit-user-drag:none;user-select:none;pointer-events:none}
+.sk-crop__window{position:absolute;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:var(--radius-pill);box-shadow:0 0 0 var(--crop-ring-width) var(--crop-ring),0 0 0 calc(var(--crop-ring-width) + 1px) var(--crop-ring-edge),0 0 0 200vmax var(--crop-shade);pointer-events:none}
+.sk-crop__window.is-square{border-radius:var(--radius-item)}
+.sk-crop__handle{position:absolute;left:85.36%;top:85.36%;width:var(--crop-handle-size);height:var(--crop-handle-size);margin:calc(var(--crop-handle-size) / -2);border-radius:var(--radius-pill);background:var(--crop-ring);box-shadow:0 0 0 1px var(--crop-ring-edge),var(--shadow-raised);cursor:nwse-resize;pointer-events:auto;touch-action:none}
+.sk-crop__window.is-square .sk-crop__handle{left:100%;top:100%}
+.sk-crop__zoom{display:flex;align-items:center;gap:var(--gap-xs)}
+.sk-crop__zoom .sk-slidertrack{flex:1}
+.sk-crop__hint{margin:0;font:var(--txt-small-font);color:var(--txt-muted)}
+@media (forced-colors:active){.sk-crop__window{box-shadow:0 0 0 var(--crop-ring-width) Highlight,0 0 0 200vmax rgba(0,0,0,.5)}}
+@media (forced-colors:active){.sk-crop__handle{background:Highlight}}

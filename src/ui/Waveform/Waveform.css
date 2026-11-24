@@ -1,0 +1,15 @@
+/* Waveform: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--waveform-height:calc(var(--space-base) * 7);--waveform-height-sm:calc(var(--space-base) * 5);--waveform-focus-outline-offset:var(--focus-ring-offset);--waveform-bars-span-basis:var(--line-strong);--waveform-bars-span-width:var(--line-strong);--waveform-bars-span-min-height:calc(var(--space-base) * 1);--waveform-bars-span-radius:var(--radius-pill);--waveform-bars-span-duration:var(--duration-state);--waveform-bars-span-easing:var(--ease-move)}
+.sk-wave{--waveform-bar:color-mix(in srgb,var(--wave-text-primary) 26%,transparent);--waveform-played:var(--wave-accent);--waveform-selected:var(--wave-accent);position:relative;flex:1;min-width:0;height:var(--waveform-height);overflow:hidden}
+.sk-wave--sm{height:var(--waveform-height-sm)}
+.sk-wave--media{--waveform-bar:color-mix(in srgb,var(--wave-text-on-media) 30%,transparent)}
+.sk-wave.is-selected{--waveform-bar:var(--waveform-selected)}
+.sk-wave.is-seekable{cursor:pointer;touch-action:none}
+.sk-wave:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--waveform-focus-outline-offset)}
+.sk-wave__bars{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between}
+.sk-wave__bars>span{flex:0 0 var(--waveform-bars-span-basis);width:var(--waveform-bars-span-width);min-height:var(--waveform-bars-span-min-height);border-radius:var(--waveform-bars-span-radius);background:var(--waveform-bar);transition:background-color var(--waveform-bars-span-duration) var(--waveform-bars-span-easing)}
+.sk-wave__bars--played>span{background:var(--waveform-played)}
+@media (prefers-reduced-motion:reduce){.sk-wave__bars>span{transition-property:opacity,color,background-color,box-shadow!important;transition-duration:var(--motion-reduced-duration)!important;transition-timing-function:linear!important}}
+@media (forced-colors:active){.sk-wave{forced-color-adjust:none;--waveform-bar:CanvasText;--waveform-played:Highlight;--waveform-selected:Highlight}}
+@media (forced-colors:active){.sk-wave.sk-wave--media{--waveform-bar:CanvasText;--waveform-played:Highlight}}
+:root,[data-theme]{--wave-text-primary:var(--text-primary);--wave-accent:var(--accent);--wave-text-on-media:var(--text-on-media)}

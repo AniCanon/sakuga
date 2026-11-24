@@ -1,0 +1,8 @@
+/* AniCanonLoader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--mark-loader-track-stroke-width:8;--mark-loader-arc-stroke-width:8;--mark-loader-arc-dasharray:72 205;--mark-loader-arc-loader-trace-animation:sk-spin 1.4s cubic-bezier(.45,.05,.55,.95)}
+.sk-loader{display:inline-flex;flex:none;color:var(--loader-mark)}
+.sk-loader svg{display:block;width:100%;height:100%;overflow:visible}
+.sk-loader__track{fill:none;stroke:currentColor;stroke-width:var(--mark-loader-track-stroke-width);opacity:var(--loader-track-opacity)}
+.sk-loader__arc{fill:none;stroke:var(--loader-arc);stroke-width:var(--mark-loader-arc-stroke-width);stroke-linecap:round;stroke-dasharray:var(--mark-loader-arc-dasharray);transform-origin:50px 49px;animation:var(--mark-loader-arc-loader-trace-animation) infinite}
+.sk-loader__moon{fill:currentColor}
+@media (prefers-reduced-motion:reduce){.sk-loader__arc{animation:none}}

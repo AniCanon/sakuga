@@ -1,0 +1,8 @@
+/* TextLink: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--tlink-icon-size:var(--icon-size-xs);--tlink-gap:var(--gap-xs);--tlink-font:var(--text-caption-strong);--tlink-duration:var(--duration-state);--tlink-hover-underline-offset:var(--underline-offset);--tlink-focus-outline-offset:var(--focus-ring-offset);--tlink-focus-radius:var(--radius-mark);--tlink-underline-thickness:var(--line-hairline);--tlink-underline-offset:var(--underline-offset);--tlink-underline-color:color-mix(in srgb,currentColor calc(var(--opacity-muted) * 100%),transparent)}
+.sk-tlink{display:inline-flex;align-items:center;gap:var(--tlink-gap);margin:0;padding:0;border:0;background:none;font:var(--tlink-font);color:var(--tlink-fg);text-decoration:underline;text-decoration-thickness:var(--tlink-underline-thickness);text-underline-offset:var(--tlink-underline-offset);text-decoration-color:var(--tlink-underline-color);cursor:pointer;transition:color var(--tlink-duration) linear,text-decoration-color var(--tlink-duration) linear}
+.sk-tlink.is-strong{color:var(--tlink-strong)}
+@media (hover:hover){.sk-tlink:hover{color:var(--tlink-hover);text-decoration-color:currentColor}}
+.sk-tlink:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--tlink-focus-outline-offset);border-radius:var(--tlink-focus-radius);text-decoration-color:currentColor}
+.sk-tlink.is-destructive{color:var(--tlink-destructive)}
+@media (hover:hover){.sk-tlink.is-destructive:hover{color:var(--tlink-destructive)}}

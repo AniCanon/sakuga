@@ -1,0 +1,11 @@
+/* ProposalCard: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--proposal-gap:var(--gap-xs);--proposal-padding-y:var(--inset-sm);--proposal-padding-x:var(--inset-sm);--proposal-radius:var(--radius-item);--proposal-inset-ring-width:var(--line-hairline);--proposal-inferred-outline-width:var(--line-strong);--proposal-inferred-outline-offset:calc(-1 * var(--line-strong));--proposal-conflict-inset-ring-width:var(--line-strong);--proposal-head-gap:var(--gap-md);--proposal-head-entity-visual-slot-width:calc(var(--space-base) * 4);--proposal-head-entity-visual-avatar-size:calc(var(--space-base) * 5);--proposal-head-b-font:var(--text-small-strong);--proposal-note-font:var(--text-small)}
+.sk-proposal{display:flex;flex-direction:column;gap:var(--proposal-gap);padding:var(--proposal-padding-y) var(--proposal-padding-x);border-radius:var(--proposal-radius);background:var(--proposal-bg);box-shadow:inset 0 0 0 var(--proposal-inset-ring-width) var(--proposal-border)}
+.sk-proposal--inferred{background:transparent;box-shadow:none;outline:var(--proposal-inferred-outline-width) dashed var(--proposal-inferred-border);outline-offset:var(--proposal-inferred-outline-offset)}
+.sk-proposal--conflict{box-shadow:inset 0 0 0 var(--proposal-conflict-inset-ring-width) var(--proposal-conflict-border)}
+.sk-proposal__head{display:flex;align-items:center;gap:var(--proposal-head-gap)}
+.sk-proposal__head .sk-ev--slot{width:var(--proposal-head-entity-visual-slot-width)}
+.sk-proposal__head .sk-ev--avatar{width:var(--proposal-head-entity-visual-avatar-size)!important;height:var(--proposal-head-entity-visual-avatar-size)!important}
+.sk-proposal__head b{flex:1;min-width:0;font:var(--proposal-head-b-font);color:var(--proposal-title)}
+.sk-proposal__note{font:var(--proposal-note-font);color:var(--proposal-note)}
+.sk-proposal__tag{display:flex}

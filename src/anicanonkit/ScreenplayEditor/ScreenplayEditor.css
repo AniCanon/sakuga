@@ -1,0 +1,18 @@
+/* ScreenplayEditor: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--screenplay-caret:var(--accent)}
+.sk-sped{position:relative;display:flex;flex-direction:column}
+.sk-sped__line{white-space:pre-wrap;outline:none;caret-color:var(--screenplay-caret);min-height:1lh}
+.sk-sped__line.is-empty::before{content:attr(data-placeholder);color:var(--screenplay-meta);pointer-events:none}
+.sk-sped__line:focus-visible{box-shadow:inset var(--line-strong) 0 0 var(--focus-ring);margin-left:calc(-1 * var(--inset-sm));padding-left:calc(var(--inset-sm) - var(--line-strong))}
+.sk-sped__line.sk-spl--cue:focus-visible{padding-left:calc(var(--screenplay-cue-padding-left) + var(--inset-sm) - var(--line-strong))}
+.sk-sped__line.sk-spl--paren:focus-visible{padding-left:calc(var(--screenplay-paren-padding-left) + var(--inset-sm) - var(--line-strong))}
+.sk-sped__line.sk-spl--dialogue:focus-visible{padding-left:calc(var(--screenplay-dialogue-padding-left) + var(--inset-sm) - var(--line-strong))}
+.sk-sped__list{position:absolute;left:0;z-index:10;width:300px;max-height:280px;overflow:auto;padding:var(--inset-xs);border-radius:var(--radius-control);background:var(--bg-surface-raised);box-shadow:var(--shadow-overlay),inset 0 0 0 var(--line-hairline) var(--border-hairline)}
+.sk-sped__opt{display:flex;align-items:center;gap:var(--gap-sm);padding:var(--inset-xs) var(--inset-sm);border-radius:var(--radius-item);font:var(--text-body-strong, 600 14px/20px var(--font-body));color:var(--text-primary);cursor:pointer}
+.sk-sped__opt img{width:24px;height:24px;border-radius:var(--radius-pill);object-fit:cover}
+.sk-sped__opt.is-active{background:var(--bg-fill-selected)}
+@media (forced-colors:active){.sk-sped__line:focus-visible{box-shadow:none;outline:2px solid Highlight}}
+@media (forced-colors:active){.sk-sped__opt.is-active{outline:2px solid Highlight}}
+/* ScreenplayEditor: mentions drawn over the live words, in Mention's colours */
+::highlight(sk-sp-cast){background-color:var(--mention-character-bg);color:var(--mention-character-fg)}
+::highlight(sk-sp-place){color:var(--mention-place-fg);text-decoration:underline;text-decoration-color:var(--mention-place-rule)}

@@ -1,0 +1,16 @@
+/* VoiceTiles: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--voice-play-icon-size:var(--icon-size-xs);--voices-gap:var(--gap-md);--voice-press-duration:var(--duration-state);--voice-press-easing:var(--ease-move);--voice-active-scale:var(--scale-press);--voice-active-duration:var(--duration-press);--voice-gap:var(--gap-md);--voice-padding-y:var(--inset-sm);--voice-padding-right:var(--inset-sm);--voice-padding-left:var(--inset-sm);--voice-radius:var(--radius-control);--voice-inset-ring-width:var(--line-hairline);--voice-font-family:var(--font-body);--voice-duration:var(--duration-state);--voice-easing:var(--ease-move);--voice-checked-inset-ring-width:var(--line-strong);--voice-focus-outline-offset:var(--focus-ring-offset);--voice-play-size:calc(var(--space-base) * 7);--voice-play-radius:var(--radius-pill);--voice-words-b-font:var(--text-caption-strong);--voice-words-small-font:var(--text-small)}
+@media (prefers-reduced-motion:reduce){.sk-voice:active{transform:none}}
+.sk-voices{display:grid;gap:var(--voices-gap)}
+.sk-voice{display:flex;align-items:center;gap:var(--voice-gap);min-width:0;padding:var(--voice-padding-y) var(--voice-padding-right) var(--voice-padding-y) var(--voice-padding-left);border:0;border-radius:var(--voice-radius);background:var(--voice-bg-canvas);box-shadow:inset 0 0 0 var(--voice-inset-ring-width) var(--voice-border-hairline);color:var(--voice-text-primary);text-align:left;font-family:var(--voice-font-family);cursor:pointer;transition:box-shadow var(--voice-duration) var(--voice-easing),background-color var(--voice-duration) var(--voice-easing),transform var(--voice-press-duration) var(--voice-press-easing)}
+.sk-voice:active{transform:scale(var(--voice-active-scale));transition-duration:var(--voice-active-duration)}
+.sk-voice[aria-checked="true"]{background:var(--voice-accent-subtle);box-shadow:inset 0 0 0 var(--voice-checked-inset-ring-width) var(--voice-accent)}
+.sk-voice:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--voice-focus-outline-offset)}
+.sk-voice__play{width:var(--voice-play-size);height:var(--voice-play-size);flex:none;border-radius:var(--voice-play-radius);display:flex;align-items:center;justify-content:center;background:var(--voice-bg-fill);color:var(--voice-text-primary)}
+.sk-voice__text{min-width:0;display:flex;flex-direction:column}
+.sk-voice__text b{font:var(--voice-words-b-font)}
+.sk-voice__text small{font:var(--voice-words-small-font);color:var(--voice-text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+:root{--voice-forced-edge-width:var(--line-hairline);--voice-forced-selected-width:var(--line-heavy)}
+@media (forced-colors:active){.sk-voice{outline:var(--voice-forced-edge-width) solid ButtonText;outline-offset:calc(-1 * var(--voice-forced-edge-width))}}
+@media (forced-colors:active){.sk-voice[aria-checked="true"]{outline:var(--voice-forced-selected-width) solid Highlight;outline-offset:calc(-1 * var(--voice-forced-selected-width))}}
+:root,[data-theme]{--voice-bg-canvas:var(--bg-canvas);--voice-border-hairline:var(--border-hairline);--voice-text-primary:var(--text-primary);--voice-accent-subtle:var(--accent-subtle);--voice-accent:var(--accent);--voice-bg-fill:var(--bg-fill);--voice-text-muted:var(--text-muted)}

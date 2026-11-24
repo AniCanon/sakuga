@@ -1,0 +1,4 @@
+#!/bin/sh
+# Installed by `npm install` (scripts/install-hooks.mjs). Refuses a commit that would add private material, or a doc or comment
+# that records who decided something or when.
+node scripts/check-public.mjs && node scripts/check-provenance.mjs

@@ -1,0 +1,31 @@
+/* IconButton: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--icon-button-size:var(--size-control-md);--icon-button-size-lg:var(--size-control-lg);--icon-button-radius:var(--radius-pill);--icon-button-duration:var(--duration-state);--icon-button-easing:var(--ease-move);--icon-button-active-scale:var(--scale-press-sm);--icon-button-active-duration:var(--duration-press);--icon-button-media-blur:var(--blur-glass);--icon-button-media-inset-ring-width:var(--line-hairline);--icon-button-disabled-opacity:var(--opacity-disabled);--icon-button-icon-size:var(--icon-size-md);--icon-button-media-hover-bg:var(--bg-scrim-strong)}
+.sk-ib:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-ib{display:inline-flex;align-items:center;justify-content:center;width:var(--icon-button-size);height:var(--icon-button-size);border-radius:var(--icon-button-radius);border:0;padding:0;cursor:pointer;color:var(--icon-button-fg);background:transparent;flex:none;transition:background-color var(--icon-button-duration) var(--icon-button-easing),color var(--icon-button-duration) var(--icon-button-easing),transform var(--icon-button-duration) var(--icon-button-easing)}
+a.sk-ib{text-decoration:none}
+.sk-ib:active:not(:disabled){transform:scale(var(--icon-button-active-scale));transition-duration:var(--icon-button-active-duration)}
+.sk-ib--lg{width:var(--icon-button-size-lg);height:var(--icon-button-size-lg)}
+.sk-ib--solid{background:var(--icon-button-solid-bg)}
+@media (hover:hover){.sk-ib--solid:hover{background:var(--icon-button-solid-hover-bg)}}
+@media (hover:hover){.sk-ib--plain:hover{background:var(--icon-button-solid-bg)}}
+@media (hover:hover){.sk-ib--media:hover{background:var(--icon-button-media-hover-bg)}}
+.sk-ib--media{color:var(--icon-button-media-fg);background:var(--icon-button-media-bg);-webkit-backdrop-filter:var(--icon-button-media-blur);backdrop-filter:var(--icon-button-media-blur);box-shadow:inset 0 0 0 var(--icon-button-media-inset-ring-width) var(--icon-button-media-border),var(--ib-shadow-glass-media)}
+.sk-ib--media:focus-visible{outline-color:var(--icon-button-media-focus)}
+.sk-ib[aria-pressed="true"]{color:var(--icon-button-pressed-fg)}
+.sk-ib:disabled{opacity:var(--icon-button-disabled-opacity);cursor:default}
+:root{--icon-button-flip-settle-animation:var(--motion-settle);--icon-button-primary-hover-filter:brightness(1.08);--icon-button-after-attention-inset:var(--inset-sm)}
+.sk-ib .sk-icon.is-flip{animation:var(--icon-button-flip-settle-animation)}
+@media (prefers-reduced-motion:reduce){.sk-ib:active:not(:disabled){transform:none}}
+@media (prefers-reduced-motion:reduce){.sk-ib .sk-icon.is-flip{animation:none}}
+.sk-ib--primary{background:var(--ib-primary-bg);color:var(--ib-text-inverse)}
+@media (hover:hover){.sk-ib--primary:hover{background:var(--ib-primary-bg);filter:var(--icon-button-primary-hover-filter)}}
+.sk-ib.is-attention::after{content:"";flex:none;width:var(--state-dot-size);height:var(--state-dot-size);border-radius:var(--state-dot-radius);background:var(--state-dot)}
+.sk-ib.is-attention{position:relative}
+.sk-ib.is-attention::after{position:absolute;top:var(--icon-button-after-attention-inset);right:var(--icon-button-after-attention-inset)}
+:root{--icon-button-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-ib{border:var(--icon-button-forced-edge-width) solid ButtonText}}
+@media (forced-colors:active){.sk-ib:disabled{color:GrayText;border-color:GrayText}}
+@media (forced-colors:active){.sk-ib[aria-pressed="true"],.sk-ib.is-pressed{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}}
+.sk-ib.is-pressed{color:var(--icon-button-pressed-fg)}
+:root,[data-theme]{--ib-shadow-glass-media:var(--shadow-glass-media);--ib-text-inverse:var(--text-inverse)}
+@media (forced-colors:active){.sk-ib.is-attention::after{forced-color-adjust:none;background:CanvasText}}

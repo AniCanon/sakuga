@@ -1,0 +1,11 @@
+/* Notice: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--notice-rise-in-animation:var(--motion-rise);--notice-gap:var(--gap-lg);--notice-padding-y:var(--inset-md);--notice-padding-x:var(--inset-lg);--notice-radius:var(--radius-control);--notice-font:var(--text-caption);--notice-body-b-font-weight:var(--weight-bold);--notice-action-gap:var(--gap-md);--notice-icon-size:var(--icon-size-md)}
+.sk-notice{display:flex;align-items:center;gap:var(--notice-gap);padding:var(--notice-padding-y) var(--notice-padding-x);border-radius:var(--notice-radius);font:var(--notice-font);color:var(--notice-text);animation:var(--notice-rise-in-animation) backwards}
+.sk-notice--info{background:var(--notice-info-bg)}
+.sk-notice--attention{background:var(--notice-attention-bg)}
+.sk-notice__icon{display:flex;flex:none;color:var(--notice-info-icon)}
+.sk-notice--attention .sk-notice__icon{color:var(--notice-attention-icon)}
+.sk-notice__body{flex:1;min-width:0}
+.sk-notice__body b{font-weight:var(--notice-body-b-font-weight);color:var(--notice-title)}
+.sk-notice__action{flex:none;display:flex;gap:var(--notice-action-gap)}
+@media (prefers-reduced-motion:reduce){.sk-notice{animation:var(--motion-reduced-in) both}}

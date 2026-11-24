@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sakuga parity</title>
+  <style>
+    body { margin: 0; font: 14px system-ui, sans-serif; background: #111; color: #eee; display: grid; grid-template-columns: 220px 1fr; height: 100vh; }
+    nav { overflow: auto; border-right: 1px solid #333; padding: 8px 0; }
+    nav a { display: block; padding: 3px 14px; color: #aaa; text-decoration: none; }
+    nav a.ported { color: #eee; }
+    nav a.on { background: #333; color: #fff; }
+    nav h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #777; margin: 14px 14px 4px; }
+    main { display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+    header { display: flex; gap: 16px; align-items: center; padding: 8px 14px; border-bottom: 1px solid #333; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+    .pair section { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-right: 1px solid #333; }
+    .pair h3 { margin: 0; padding: 6px 14px; font-size: 12px; color: #999; font-weight: 500; }
+    iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+  </style>
+</head>
+<body>
+  <nav id="list"></nav>
+  <main>
+    <header>
+      <strong id="name"></strong>
+      <label><input type="checkbox" id="light"> Light theme</label>
+      <span style="color:#777">Left: Sakuga Version 221's bundle. Right: this repo's port. Names in grey are not ported yet.</span>
+    </header>
+    <div class="pair">
+      <section><h3>Reference · Version 221</h3><iframe id="ref"></iframe></section>
+      <section><h3>Port · src/</h3><iframe id="port"></iframe></section>
+    </div>
+  </main>
+  <script type="module" src="./index.ts"></script>
+</body>
+</html>

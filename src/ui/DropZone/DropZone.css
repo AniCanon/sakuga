@@ -1,0 +1,17 @@
+/* DropZone: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--drop-gap:var(--gap-md);--drop-min-height:calc(var(--space-base) * 30);--drop-padding:var(--inset-lg);--drop-radius:var(--radius-control);--drop-inset-ring-width:var(--line-strong);--drop-font:var(--text-caption);--drop-duration:var(--duration-state);--drop-easing:var(--ease-move);--drop-active-scale:var(--scale-press-lg);--drop-active-duration:var(--duration-press);--drop-hover-inset-ring-width:var(--line-strong);--drop-b-font:var(--text-label);--drop-filled-inset-ring-width:var(--line-hairline);--drop-focus-outline-offset:var(--focus-ring-offset);--drop-loader-size:calc(var(--space-base) * 8);--drop-icon-size:var(--icon-size-lg)}
+.sk-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--drop-gap);width:100%;min-height:var(--drop-min-height);padding:var(--drop-padding);border:0;border-radius:var(--drop-radius);background:transparent;box-shadow:inset 0 0 0 var(--drop-inset-ring-width) var(--drop-border);color:var(--drop-fg);font:var(--drop-font);text-align:center;cursor:pointer;transition:box-shadow var(--drop-duration) var(--drop-easing),background-color var(--drop-duration) var(--drop-easing),transform var(--drop-duration) var(--drop-easing)}
+.sk-drop:active{transform:scale(var(--drop-active-scale));transition-duration:var(--drop-active-duration)}
+@media (hover:hover){.sk-drop:hover{box-shadow:inset 0 0 0 var(--drop-hover-inset-ring-width) var(--drop-hover-border)}}
+.sk-drop b{font:var(--drop-b-font);color:var(--drop-title)}
+.sk-drop__icon{display:flex;color:var(--drop-icon)}
+.sk-drop--filled,.sk-drop--busy{background:var(--drop-filled-bg);box-shadow:inset 0 0 0 var(--drop-filled-inset-ring-width) var(--drop-border-hairline)}
+.sk-drop--filled .sk-drop__icon{color:var(--drop-fg)}
+.sk-drop--picture{position:relative;padding:0;overflow:hidden;background:var(--drop-filled-bg)}
+.sk-drop--picture>.sk-thumb{position:absolute;inset:0}
+.sk-drop__remove{position:absolute;top:var(--drop-remove-inset);right:var(--drop-remove-inset);z-index:1}
+.sk-drop__remove .sk-ib{width:var(--drop-remove-size);height:var(--drop-remove-size)}
+.sk-drop:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--drop-focus-outline-offset)}
+:root{--drop-remove-inset:var(--inset-xs);--drop-remove-size:var(--size-control-sm)}
+@media (prefers-reduced-motion:reduce){.sk-drop:active{transform:none}}
+:root,[data-theme]{--drop-border-hairline:var(--border-hairline)}

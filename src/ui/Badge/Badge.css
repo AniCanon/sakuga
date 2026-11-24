@@ -1,0 +1,21 @@
+/* Badge: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--badge-height:calc(var(--space-base) * 5);--badge-padding-x:var(--inset-sm);--badge-radius:var(--radius-mark);--badge-font:var(--text-micro);--badge-icon-gap:var(--gap-xs);--badge-icon-padding-left:var(--inset-xs);--badge-icon-size:var(--icon-size-xs)}
+.sk-badge{display:inline-flex;align-items:center;height:var(--badge-height);padding:0 var(--badge-padding-x);border-radius:var(--badge-radius);font:var(--badge-font);background:var(--badge-bg);color:var(--badge-fg);white-space:nowrap}
+.sk-badge--new{background:var(--badge-new-bg);color:var(--badge-new-fg)}
+.sk-badge--alert{background:var(--badge-alert-bg);color:var(--badge-alert-fg)}
+.sk-badge--icon{gap:var(--badge-icon-gap);padding-left:var(--badge-icon-padding-left)}
+.sk-badge--icon .sk-icon{flex:none}
+:root{--badge-outline-inset-ring-width:var(--line-hairline);--badge-dot-size:var(--state-dot-size);--badge-dot-margin-right:var(--gap-xs);--badge-dot-radius:var(--radius-pill);--badge-loader-margin-right:var(--gap-xs)}
+.sk-badge--neutral{background:var(--badge-bg-fill-subtle);color:var(--badge-text-secondary)}
+.sk-badge--attention{background:var(--badge-accent-subtle);color:var(--badge-text-accent)}
+.sk-badge--outline{background:transparent;color:var(--badge-text-secondary);box-shadow:inset 0 0 0 var(--badge-outline-inset-ring-width) var(--badge-border-divider)}
+/* A warning: the outline badge in amber, never a fill */
+.sk-badge--warning{background:transparent;color:var(--badge-warning);box-shadow:inset 0 0 0 var(--badge-outline-inset-ring-width) var(--badge-warning)}
+.sk-badge__dot{width:var(--badge-dot-size);height:var(--badge-dot-size);flex:none;margin-right:var(--badge-dot-margin-right);border-radius:var(--badge-dot-radius);background:currentColor}
+.sk-badge .sk-load,.sk-badge .sk-loader{margin-right:var(--badge-loader-margin-right)}
+:root{--badge-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-badge{border:var(--badge-forced-edge-width) solid CanvasText}}
+@media (forced-colors:active){.sk-badge__dot{forced-color-adjust:none;background:CanvasText}}
+:root,[data-theme]{--badge-bg-fill-subtle:var(--bg-fill-subtle);--badge-text-secondary:var(--text-secondary);--badge-accent-subtle:var(--accent-subtle);--badge-text-accent:var(--text-accent);--badge-border-divider:var(--border-divider)}
+/* Over a picture a badge always reads on badge-bg, whatever its variant */
+.sk-thumb .sk-badge:is(.sk-badge--neutral,.sk-badge--outline,.sk-badge--attention,.sk-badge--warning),.sk-card__frame .sk-badge:is(.sk-badge--neutral,.sk-badge--outline,.sk-badge--attention,.sk-badge--warning),.sk-plate__frame .sk-badge:is(.sk-badge--neutral,.sk-badge--outline,.sk-badge--attention,.sk-badge--warning){background:var(--badge-bg);color:var(--badge-fg);box-shadow:none}

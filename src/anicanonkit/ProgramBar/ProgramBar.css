@@ -1,0 +1,23 @@
+/* ProgramBar: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--pbar-sec-duration:var(--duration-move);--pbar-sec-easing:var(--ease-move);--pbar-gap:var(--gap-md);--pbar-track-height:calc(var(--space-base) * 6);--pbar-track-radius:var(--radius-item);--pbar-track-inset-ring-width:var(--line-hairline);--pbar-sec-inset:var(--inset-2xs);--pbar-sec-padding-x:var(--inset-xs);--pbar-sec-radius:var(--radius-mark);--pbar-sec-border-right-width:var(--line-hairline);--pbar-sec-b-font:var(--text-small-strong);--pbar-sec-partial-outline-width:var(--line-strong);--pbar-sec-partial-outline-offset:calc(-1 * var(--line-strong));--pbar-sec-missing-outline-width:var(--line-strong);--pbar-sec-missing-outline-offset:calc(-1 * var(--line-strong));--pbar-window-radius:var(--radius-item);--pbar-window-inset-ring-width:var(--line-strong);--pbar-playhead-inset:calc(-1 * var(--inset-2xs));--pbar-playhead-border-left-width:var(--line-strong);--pbar-mark-top:calc(-1 * var(--inset-sm));--pbar-mark-min-width:var(--icon-size-md);--pbar-mark-height:var(--icon-size-md);--pbar-mark-padding-x:var(--inset-xs);--pbar-mark-radius:var(--radius-pill);--pbar-mark-font:var(--text-micro);--pbar-total-font:var(--text-small-strong)}
+.sk-pbar{display:flex;align-items:center;gap:var(--pbar-gap)}
+.sk-pbar__track{position:relative;flex:1;height:var(--pbar-track-height);border-radius:var(--pbar-track-radius);background:var(--pbar-bg);box-shadow:inset 0 0 0 var(--pbar-track-inset-ring-width) var(--pbar-border)}
+.sk-pbar__sec{position:absolute;top:var(--pbar-sec-inset);bottom:var(--pbar-sec-inset);display:flex;align-items:center;padding:0 var(--pbar-sec-padding-x);border-radius:var(--pbar-sec-radius);overflow:hidden;background:var(--pbar-cut);box-shadow:inset calc(-1 * var(--pbar-sec-border-right-width)) 0 0 var(--pbar-bg);transition:background-color var(--pbar-sec-duration) var(--pbar-sec-easing),box-shadow var(--pbar-sec-duration) var(--pbar-sec-easing),outline-color var(--pbar-sec-duration) var(--pbar-sec-easing)}
+.sk-pbar__sec b{font:var(--pbar-sec-b-font);color:var(--pbar-label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sk-pbar__sec.is-partial{outline:var(--pbar-sec-partial-outline-width) dashed var(--pbar-partial);outline-offset:var(--pbar-sec-partial-outline-offset)}
+.sk-pbar__sec.is-missing{background:transparent;box-shadow:none;outline:var(--pbar-sec-missing-outline-width) dashed var(--pbar-missing);outline-offset:var(--pbar-sec-missing-outline-offset)}
+.sk-pbar__sec.is-missing b{color:var(--pbar-meta)}
+.sk-pbar__window{position:absolute;top:0;bottom:0;border-radius:var(--pbar-window-radius);box-shadow:inset 0 0 0 var(--pbar-window-inset-ring-width) var(--pbar-window)}
+.sk-pbar__playhead{position:absolute;top:var(--pbar-playhead-inset);bottom:var(--pbar-playhead-inset);border-left:var(--pbar-playhead-border-left-width) solid var(--pbar-window)}
+.sk-pbar__track.is-seekable{cursor:pointer;touch-action:none;user-select:none}
+.sk-pbar__track.is-scrubbing{cursor:ew-resize}
+.sk-pbar__playhead:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-pbar__mark{position:absolute;top:var(--pbar-mark-top);transform:translateX(-50%);min-width:var(--pbar-mark-min-width);height:var(--pbar-mark-height);padding:0 var(--pbar-mark-padding-x);border-radius:var(--pbar-mark-radius);background:var(--pbar-window);font:var(--pbar-mark-font);color:var(--pbar-mark-fg);text-align:center}
+.sk-pbar__mark.is-done{background:var(--pbar-meta)}
+.sk-pbar__total{flex:none;font:var(--pbar-total-font);color:var(--pbar-meta);white-space:nowrap}
+:root{--pbar-mark-gap:var(--gap-xs);--pbar-mark-line-width:var(--line-hairline)}
+.sk-pbar:has(.sk-pbar__mark){padding-top:calc(var(--pbar-mark-height) + var(--pbar-mark-gap))}
+.sk-pbar__mark{top:calc(-1 * (var(--pbar-mark-height) + var(--pbar-mark-gap)));display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+.sk-pbar__mark::after{content:"";position:absolute;left:50%;top:100%;height:calc(var(--pbar-mark-gap) + var(--pbar-track-height));border-left:var(--pbar-mark-line-width) solid var(--pbar-window)}
+.sk-pbar__mark.is-done::after{border-left-color:var(--pbar-meta)}
+@media (forced-colors:active){.sk-pbar__mark::after{border-left-color:CanvasText}}

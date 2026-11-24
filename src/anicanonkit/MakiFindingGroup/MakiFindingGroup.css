@@ -1,0 +1,6 @@
+/* MakiFindingGroup: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--mk-group-gap:var(--gap-sm);--mk-group-label-font:var(--text-caption-strong)}
+.sk-mk-group{display:flex;flex-direction:column;gap:var(--mk-group-gap)}
+.sk-mk-group+.sk-mk-group{margin-top:var(--gap-sm)}
+.sk-mk-group__label{margin:0;font:var(--mk-group-label-font);color:var(--mk-meta)}
+.sk-mk-group__note{margin:0;font:var(--mk-meta-font);color:var(--mk-quiet)}

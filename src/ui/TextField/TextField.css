@@ -1,0 +1,19 @@
+/* TextField: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--field-gap:var(--gap-sm);--field-label-gap:var(--gap-sm);--field-label-font:var(--text-micro);--field-opt-font-weight:var(--weight-medium);--field-control-min-height:var(--size-control-md);--field-control-padding-x:var(--inset-md);--field-control-radius:var(--radius-item);--field-control-inset-ring-width:var(--line-hairline);--field-control-font:var(--text-body);--field-control-duration:var(--duration-state);--field-control-easing:var(--ease-move);--field-control-placeholder-font-weight:var(--weight-regular);--field-control-focus-inset-ring-width:var(--line-strong);--field-control-area-padding:var(--inset-md);--field-control-area-min-height:calc(var(--space-base) * 19);--field-control-area-font-weight:var(--weight-regular);--field-control-area-line-height:var(--text-body-line-height);--field-control-highlight-inset-ring-width:var(--line-strong);--field-wrap-icon-left:var(--inset-md);--field-wrap-control-padding-left:calc(var(--field-wrap-icon-left) + var(--field-icon-size) + var(--gap-md));--field-hint-font:var(--text-small)}
+/* Declared with the icon sizes, where the split gives it to OptionTiles by the --field prefix it shares with sk-field; the field's icon reads it */
+:root{--field-icon-size:var(--icon-size-sm)}
+.sk-tf{display:flex;flex-direction:column;gap:var(--field-gap);min-width:0}
+.sk-tf__label{display:flex;align-items:center;gap:var(--field-label-gap);font:var(--field-label-font);color:var(--field-label)}
+.sk-tf__opt{font-weight:var(--field-opt-font-weight)}
+.sk-tf__control{box-sizing:border-box;width:100%;min-height:var(--field-control-min-height);padding:0 var(--field-control-padding-x);border:0;border-radius:var(--field-control-radius);box-shadow:inset 0 0 0 var(--field-control-inset-ring-width) var(--field-border);background:var(--field-bg);color:var(--field-fg);font:var(--field-control-font);outline:none;transition:box-shadow var(--field-control-duration) var(--field-control-easing)}
+.sk-tf__control::placeholder{color:var(--field-placeholder);font-weight:var(--field-control-placeholder-font-weight)}
+.sk-tf__control:focus-visible{box-shadow:inset 0 0 0 var(--field-control-focus-inset-ring-width) var(--focus-ring)}
+.sk-tf__control--area{padding:var(--field-control-area-padding);min-height:var(--field-control-area-min-height);font-weight:var(--field-control-area-font-weight);line-height:var(--field-control-area-line-height);resize:vertical}
+.sk-tf__control.is-highlight{box-shadow:inset 0 0 0 var(--field-control-highlight-inset-ring-width) var(--field-highlight)}
+.sk-tf__wrap{position:relative;display:block}
+.sk-tf__wrap>.sk-icon{position:absolute;left:var(--field-wrap-icon-left);top:50%;transform:translateY(-50%);color:var(--field-placeholder);pointer-events:none}
+.sk-tf__wrap>.sk-tf__control{padding-left:var(--field-wrap-control-padding-left)}
+.sk-tf__hint{font:var(--field-hint-font);color:var(--field-hint)}
+:root{--field-forced-edge-width:var(--line-hairline);--field-forced-focus-width:var(--line-strong)}
+@media (forced-colors:active){.sk-tf__control{outline:var(--field-forced-edge-width) solid ButtonText;outline-offset:calc(-1 * var(--field-forced-edge-width))}}
+@media (forced-colors:active){.sk-tf__control:focus-visible,.sk-tf__control.is-highlight{outline:var(--field-forced-focus-width) solid Highlight;outline-offset:calc(-1 * var(--field-forced-focus-width))}}

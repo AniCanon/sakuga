@@ -1,0 +1,6 @@
+/* MonitorBar: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--monitor-bar-gap:var(--gap-sm);--monitor-bar-font:var(--text-small-strong);--monitor-bar-sep-width:var(--line-hairline);--monitor-bar-sep-height:calc(var(--space-base) * 4);--monitor-bar-sep-margin-x:var(--gap-xs)}
+.sk-monitorbar{display:flex;align-items:center;gap:var(--monitor-bar-gap);font:var(--monitor-bar-font);color:var(--monitorbar-text-secondary);font-variant-numeric:tabular-nums}
+.sk-monitorbar__tc{white-space:nowrap}
+.sk-monitorbar__sep{width:var(--monitor-bar-sep-width);height:var(--monitor-bar-sep-height);background:var(--monitorbar-border-divider);margin:0 var(--monitor-bar-sep-margin-x)}
+:root,[data-theme]{--monitorbar-text-secondary:var(--text-secondary);--monitorbar-border-divider:var(--border-divider)}

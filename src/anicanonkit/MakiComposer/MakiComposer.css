@@ -1,0 +1,26 @@
+/* MakiComposer: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--mk-composer-radius:var(--radius-surface);--mk-composer-padding:var(--inset-sm);--mk-composer-input-padding-x:var(--inset-sm);--mk-composer-input-max-height:calc(var(--space-base) * 36);--mk-composer-gap:var(--gap-xs);--mk-file-size:calc(var(--space-base) * 16);--mk-file-gap:var(--gap-sm);--mk-file-remove-size:calc(var(--space-base) * 5);--mk-file-remove-inset:var(--inset-2xs);--mk-composer-cost-font:var(--text-small);--mk-composer-hint-font:var(--text-small)}
+:root,[data-theme]{--mk-composer-bg:var(--bg-surface-raised);--mk-composer-ring:var(--border-divider)}
+.sk-mk-composer__bar .sk-ib--solid{background:var(--mk-tool-bg);color:var(--mk-text)}
+.sk-mk-composer__bar .sk-ib--solid:hover{background:var(--mk-tool-bg-hover)}
+.sk-mk-composer__space{flex:1}
+.sk-mk-composer{display:flex;flex-direction:column;gap:var(--gap-xs)}
+.sk-mk-composer__box{display:flex;flex-direction:column;gap:var(--mk-composer-gap);padding:var(--mk-composer-padding);border-radius:var(--mk-composer-radius);background:var(--mk-composer-bg);box-shadow:inset 0 0 0 var(--line-hairline) var(--mk-composer-ring);cursor:text;transition:box-shadow var(--duration-state) var(--ease-move)}
+.sk-mk-composer__box:focus-within{box-shadow:inset 0 0 0 var(--line-strong) var(--focus-ring)}
+.sk-mk-composer__context{display:flex;flex-wrap:wrap;gap:var(--gap-xs);padding:var(--gap-2xs) var(--gap-2xs) 0}
+.sk-mk-composer__files{gap:var(--mk-file-gap)}
+.sk-mk-file{width:var(--mk-file-size);min-width:0}
+.sk-mk-file .sk-thumbfig{--thumb-action-size:var(--mk-file-remove-size);--thumb-action-inset:var(--mk-file-remove-inset)}
+.sk-mk-file figcaption,.sk-mk-file figcaption span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sk-mk-composer__context-label{flex-basis:100%;padding:0 var(--inset-xs);font:var(--mk-composer-cost-font);color:var(--mk-meta)}
+.sk-mk-composer__input{display:block;box-sizing:border-box;width:100%;min-height:24px;max-height:var(--mk-composer-input-max-height);margin:0;padding:var(--inset-xs) var(--mk-composer-input-padding-x);border:0;background:transparent;font:var(--mk-say-font);color:var(--mk-text);resize:none;outline:none;field-sizing:content;overflow-y:auto}
+.sk-mk-composer__input::placeholder{color:var(--mk-quiet);opacity:1}
+.sk-mk-composer__prompt{padding:0 var(--mk-composer-input-padding-x)}
+.sk-mk-composer__prompt .sk-composer__prompt{min-height:0;max-height:var(--mk-composer-input-max-height);overflow-y:auto;padding:var(--inset-xs) 0;outline:none;font:var(--mk-say-font);color:var(--mk-text)}
+.sk-mk-composer__prompt .sk-composer__prompt.is-empty::before{content:attr(data-placeholder);color:var(--mk-quiet);pointer-events:none}
+.sk-mk-composer__bar{display:flex;align-items:center;gap:var(--gap-2xs)}
+.sk-mk-composer__cost{display:inline-flex;align-items:center;gap:var(--gap-xs);margin-right:var(--gap-sm);font:var(--mk-composer-cost-font);color:var(--mk-quiet);white-space:nowrap}
+.sk-mk-composer__send:disabled{opacity:var(--opacity-disabled,0.4)}
+.sk-mk-composer__hint{margin:0;padding:0 var(--inset-sm);font:var(--mk-composer-hint-font);color:var(--mk-quiet)}
+.sk-mk-composer__context .sk-mchip.is-event .sk-mchip__slot{border-radius:50%;background:var(--bg-fill-subtle);color:var(--mk-conflict)}
+@media (forced-colors:active){.sk-mk-composer__box{outline:var(--line-hairline) solid ButtonText}}

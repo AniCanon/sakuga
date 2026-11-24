@@ -1,0 +1,24 @@
+/* CharacterCard: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--character-card-width:calc(var(--space-base) * 90);--character-card-radius:var(--radius-surface);--character-card-font-family:var(--font-body);--character-card-after-inset-ring-width:var(--line-hairline);--character-card-stage-height:calc(var(--space-base) * 75);--character-card-portrait-stage-aspect-ratio:var(--ratio-portrait);--character-card-portrait-develop-animation:var(--motion-develop);--character-card-avatar-size:calc(var(--space-base) * 37);--character-card-avatar-ring-width:var(--line-heavy);--character-card-silhouette-opacity:var(--opacity-muted);--character-card-body-padding-top:var(--inset-lg);--character-card-body-padding-x:var(--inset-lg);--character-card-body-padding-bottom:var(--inset-lg);--character-card-body-gap:var(--gap-lg);--character-card-role-font:var(--text-eyebrow);--character-card-role-letter-spacing:var(--tracking-caps);--character-card-name-font:var(--text-title-2);--character-card-traits-gap:var(--gap-sm);--character-card-trait-gap:var(--gap-sm);--character-card-trait-height:calc(var(--space-base) * 7);--character-card-trait-padding-right:var(--inset-sm);--character-card-trait-padding-left:var(--inset-sm);--character-card-trait-radius:var(--radius-pill);--character-card-trait-font:var(--text-small-strong);--character-card-voice-padding:var(--inset-md);--character-card-voice-radius:var(--radius-control);--character-card-note-font:var(--text-small);--character-card-silhouette-icon-size:calc(var(--space-base) * 45);--character-card-trait-icon-size:var(--icon-size-xs)}
+.sk-ccard{position:relative;width:var(--character-card-width);flex:none;align-self:flex-start;border-radius:var(--character-card-radius);background:var(--character-card-bg);overflow:hidden;font-family:var(--character-card-font-family);color:var(--ccard-text-primary)}
+.sk-ccard::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 var(--character-card-after-inset-ring-width) var(--character-card-border);pointer-events:none}
+.sk-ccard__stage{height:var(--character-card-stage-height);display:flex;align-items:center;justify-content:center;background:var(--character-card-stage);position:relative}
+.sk-ccard--portrait .sk-ccard__stage{height:auto;aspect-ratio:var(--character-card-portrait-stage-aspect-ratio);background:var(--look-plate-bg)}
+.sk-ccard--portrait .sk-ccard__stage{aspect-ratio:auto;width:100%;height:min(var(--character-card-portrait-stage-max-height), calc(var(--character-card-width) * 16 / 9))}
+.sk-ccard--portrait .sk-ccard__portrait{object-fit:contain}
+.sk-ccard--creature .sk-ccard__stage{aspect-ratio:var(--ratio-creature)}
+.sk-ccard__portrait{width:100%;height:100%;object-fit:cover;animation:var(--character-card-portrait-develop-animation) backwards}
+.sk-ccard__avatar{width:var(--character-card-avatar-size);height:var(--character-card-avatar-size);border-radius:50%;object-fit:cover;object-position:top;box-shadow:0 0 0 var(--character-card-avatar-ring-width) var(--ccard-accent)}
+.sk-ccard__silhouette{color:var(--ccard-text-on-media-muted);opacity:var(--character-card-silhouette-opacity);display:flex}
+.sk-ccard__body{padding:var(--character-card-body-padding-top) var(--character-card-body-padding-x) var(--character-card-body-padding-bottom);display:flex;flex-direction:column;gap:var(--character-card-body-gap)}
+.sk-ccard__role{font:var(--character-card-role-font);letter-spacing:var(--character-card-role-letter-spacing);text-transform:uppercase;color:var(--character-card-role)}
+.sk-ccard__name{font:var(--character-card-name-font)}
+.sk-ccard__traits{display:flex;flex-wrap:wrap;gap:var(--character-card-traits-gap)}
+.sk-ccard__trait{display:inline-flex;align-items:center;gap:var(--character-card-trait-gap);height:var(--character-card-trait-height);padding:0 var(--character-card-trait-padding-right) 0 var(--character-card-trait-padding-left);border-radius:var(--character-card-trait-radius);background:var(--ccard-bg-fill-subtle);font:var(--character-card-trait-font)}
+.sk-ccard__trait .sk-icon{color:var(--ccard-accent)}
+.sk-ccard__voice{padding:var(--character-card-voice-padding);border-radius:var(--character-card-voice-radius);background:var(--ccard-bg-fill-subtle)}
+.sk-ccard__note{font:var(--character-card-note-font);color:var(--ccard-text-muted)}
+:root{--character-card-portrait-stage-max-height:calc(var(--space-base) * 75)}
+@media (prefers-reduced-motion:reduce){.sk-ccard__portrait{animation:var(--motion-reduced-in) both}}
+.sk-ccard--portrait .sk-ccard__stage{border-top-left-radius:inherit;border-top-right-radius:inherit}
+:root,[data-theme]{--ccard-text-primary:var(--text-primary);--ccard-accent:var(--accent);--ccard-text-on-media-muted:var(--text-on-media-muted);--ccard-bg-fill-subtle:var(--bg-fill-subtle);--ccard-text-muted:var(--text-muted)}

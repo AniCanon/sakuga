@@ -1,0 +1,4 @@
+/* Revision: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--revision-del-underline-thickness:var(--line-hairline);--revision-ins-underline-thickness:var(--line-hairline);--revision-ins-underline-offset:var(--underline-offset)}
+.sk-revision del{color:var(--revision-from);text-decoration:line-through;text-decoration-thickness:var(--revision-del-underline-thickness)}
+.sk-revision ins{text-decoration:underline;text-decoration-color:var(--revision-mark);text-decoration-thickness:var(--revision-ins-underline-thickness);text-underline-offset:var(--revision-ins-underline-offset)}

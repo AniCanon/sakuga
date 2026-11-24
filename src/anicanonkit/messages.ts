@@ -1,0 +1,46 @@
+import { messages as coreMessages } from '../internal/allWords';
+import type { SakugaMessages } from '../internal/words';
+import { words as w0 } from './ActivityPanel/words';
+import { words as w1 } from './ActivityRow/words';
+import { words as w2 } from './AskMaki/words';
+import { words as w3 } from './CanvasStage/words';
+import { words as w4 } from './CharacterCard/words';
+import { words as w5 } from './CoverageTable/words';
+import { words as w6 } from './CutCell/words';
+import { words as w7 } from './CutRow/words';
+import { words as w8 } from './EditorShell/words';
+import { words as w10 } from './FragmentBalance/words';
+import { words as w11 } from './IssueStrip/words';
+import { words as w12 } from './LayerStrip/words';
+import { words as w13 } from './LookPlate/words';
+import { words as w15 } from './MakiComposer/words';
+import { words as w16 } from './MakiFinding/words';
+import { words as w17 } from './MakiPanel/words';
+import { words as w18 } from './MakiTurn/words';
+import { words as w19 } from './MangaPage/words';
+import { words as w20 } from './Manuscript/words';
+import { words as w21 } from './ManuscriptSection/words';
+import { words as w22 } from './Mention/words';
+import { words as w23 } from './PageWall/words';
+import { words as w24 } from './PremiereSlot/words';
+import { words as w25 } from './ProductionNav/words';
+import { words as w26 } from './ProgramBar/words';
+import { words as w27 } from './PromptComposer/words';
+import { words as w28 } from './ProposalCard/words';
+import { words as w29 } from './QuestionRow/words';
+import { words as w30 } from './Readiness/words';
+import { words as w31 } from './Revision/words';
+import { words as w32 } from './ScreenplayEditor/words';
+import { words as w33 } from './ScreenplayLine/words';
+import { words as w34 } from './Slip/words';
+import { words as w35 } from './Stages/words';
+import { words as w36 } from './StateChange/words';
+import { words as w37 } from './StoryMap/words';
+import { words as w38 } from './StoryScrubber/words';
+import { words as w39 } from './Timesheet/words';
+import { words as w40 } from './TrimFrames/words';
+import { words as w41 } from './VolumeControl/words';
+
+/** Every word Sakuga says in English, by key: the core's and AniCanonKit's. An app reads it to translate them all; a component
+ *  carries only its own. */
+export const messages: Readonly<Required<SakugaMessages>> = Object.freeze({ ...coreMessages, ...w0, ...w1, ...w2, ...w3, ...w4, ...w5, ...w6, ...w7, ...w8, ...w10, ...w11, ...w12, ...w13, ...w15, ...w16, ...w17, ...w18, ...w19, ...w20, ...w21, ...w22, ...w23, ...w24, ...w25, ...w26, ...w27, ...w28, ...w29, ...w30, ...w31, ...w32, ...w33, ...w34, ...w35, ...w36, ...w37, ...w38, ...w39, ...w40, ...w41 } as Required<SakugaMessages>);

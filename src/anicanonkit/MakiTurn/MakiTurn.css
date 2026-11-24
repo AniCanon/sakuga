@@ -1,0 +1,16 @@
+/* MakiTurn: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+@media (prefers-reduced-motion:reduce){.sk-mk-reply{animation:var(--motion-reduced-in) both}}
+:root{--mk-writing-size:var(--icon-size-sm);--mk-writing-gap:var(--gap-sm)}
+.sk-mk-reply{display:flex;flex-direction:column;gap:var(--mk-say-gap);animation:var(--motion-rise) backwards}
+.sk-mk-reply__say{display:flex;flex-direction:column;gap:var(--mk-say-gap);font:var(--mk-say-font);color:var(--mk-text)}
+.sk-mk-reply__say p{margin:0;text-wrap:pretty}
+.sk-mk-reply__say ul,.sk-mk-reply__say ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:var(--gap-xs)}
+.sk-mk-reply__steps{display:flex;flex-direction:column;gap:var(--gap-2xs)}
+.sk-mk-reply__actions{display:flex;align-items:center;gap:var(--mk-actions-gap);margin-left:calc(-1 * (var(--mk-tool-size) - var(--mk-tool-icon-size)) / 2);color:var(--mk-quiet)}
+.sk-mk-reply__actions .sk-btn{margin-left:0}
+.sk-mk-writing{display:inline-flex;align-items:center;gap:var(--mk-writing-gap);font:var(--mk-meta-font);color:var(--mk-meta)}
+.sk-mk-reply__say q{display:block;quotes:none;padding-left:var(--inset-md);box-shadow:inset var(--line-strong) 0 0 var(--side-rule);color:var(--mk-meta)}
+.sk-mk-reply__say>.sk-mk-group{margin-top:var(--gap-sm)}
+.sk-mk-reply .sk-ev--slot{width:auto;height:var(--mk-find-line);background:none}
+.sk-mk-reply .sk-mchip.is-event .sk-mchip__slot{border-radius:50%;background:var(--bg-fill-subtle);color:var(--mk-conflict)}
+@media (prefers-reduced-motion:reduce){.sk-mk-reply{animation:none}}

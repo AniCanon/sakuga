@@ -1,0 +1,7 @@
+/* VolumeControl: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--volume-column-3:calc(var(--space-base) * 13);--volume-gap:var(--gap-md);--volume-font:var(--text-small-strong);--volume-slidertrack-muted-opacity:var(--opacity-disabled);--volume-b-font-weight:var(--weight-strong)}
+.sk-volume{display:grid;grid-template-columns:auto 1fr var(--volume-column-3);gap:var(--volume-gap);align-items:center;font:var(--volume-font);font-variant-numeric:tabular-nums}
+.sk-volume.is-muted .sk-slidertrack{opacity:var(--volume-slidertrack-muted-opacity)}
+.sk-volume b{text-align:right;font-weight:var(--volume-b-font-weight)}
+@media (forced-colors:active){.sk-volume.is-muted .sk-slidertrack{background:GrayText;opacity:1}}
+@media (forced-colors:active){.sk-volume.is-muted .sk-slidertrack__thumb{outline-color:GrayText}}

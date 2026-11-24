@@ -1,0 +1,9 @@
+/* DialogueLine: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--dline-gap:var(--gap-md);--dline-img-size:calc(var(--space-base) * 6);--dline-div-gap:var(--gap-2xs);--dline-b-font:var(--text-micro);--dline-b-small-font-weight:var(--weight-medium);--dline-q-font:var(--text-body);--dline-div-span-font:var(--text-small)}
+.sk-dline{display:flex;gap:var(--dline-gap);align-items:flex-start}
+.sk-dline img{flex:none;width:var(--dline-img-size);height:var(--dline-img-size);border-radius:50%;object-fit:cover}
+.sk-dline>div{display:flex;flex-direction:column;gap:var(--dline-div-gap);min-width:0}
+.sk-dline b{font:var(--dline-b-font);color:var(--dline-speaker)}
+.sk-dline b small{font-weight:var(--dline-b-small-font-weight);color:var(--dline-meta)}
+.sk-dline q{font:var(--dline-q-font);color:var(--dline-text);quotes:"“" "”"}
+.sk-dline>div>span{font:var(--dline-div-span-font);color:var(--dline-meta)}

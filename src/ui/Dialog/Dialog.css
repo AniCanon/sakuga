@@ -1,0 +1,34 @@
+/* Dialog: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--dialog-scrim-fade-in-animation:var(--motion-fade-in);--dialog-width:calc(var(--space-base) * 180);--dialog-radius:var(--radius-surface);--dialog-inset-ring-width:var(--line-hairline);--dialog-font-family:var(--font-body);--dialog-in-animation:sk-emerge var(--duration-open) var(--ease-arrive);--dialog-head-gap:var(--gap-lg);--dialog-head-padding-top:var(--inset-lg);--dialog-head-padding-x:var(--inset-xl);--dialog-head-padding-bottom:var(--inset-lg);--dialog-title-font:var(--text-title-3);--dialog-desc-margin-top:var(--gap-xs);--dialog-desc-font:var(--text-body);--dialog-body-padding-x:var(--inset-xl);--dialog-body-padding-bottom:var(--inset-lg);--dialog-foot-gap:var(--gap-md);--dialog-foot-padding-y:var(--inset-lg);--dialog-foot-padding-x:var(--inset-xl);--dialog-foot-border-top-width:var(--line-hairline)}
+.sk-dialog-scrim{position:fixed;inset:0;background:var(--dialog-scrim);display:flex;align-items:center;justify-content:center;z-index:30;animation:var(--dialog-scrim-fade-in-animation) both}
+.sk-dialog{width:min(var(--dialog-width),92%);max-height:88%;overflow:hidden;display:flex;flex-direction:column;border-radius:var(--dialog-radius);background:var(--dialog-bg);box-shadow:inset 0 0 0 var(--dialog-inset-ring-width) var(--dialog-border),var(--dialog-shadow-overlay);font-family:var(--dialog-font-family);color:var(--dialog-text-primary);animation:var(--dialog-in-animation) both}
+.sk-dialog__head{display:flex;align-items:flex-start;gap:var(--dialog-head-gap);padding:var(--dialog-head-padding-top) var(--dialog-head-padding-x) var(--dialog-head-padding-bottom)}
+.sk-dialog__title{margin:0;font:var(--dialog-title-font);color:var(--dialog-title)}
+.sk-dialog__desc{margin:var(--dialog-desc-margin-top) 0 0;font:var(--dialog-desc-font);color:var(--dialog-description)}
+.sk-dialog__body{padding:0 var(--dialog-body-padding-x) var(--dialog-body-padding-bottom);overflow:hidden;flex:1;min-height:0}
+.sk-dialog__foot{display:flex;justify-content:flex-end;gap:var(--dialog-foot-gap);padding:var(--dialog-foot-padding-y) var(--dialog-foot-padding-x);box-shadow:inset 0 var(--dialog-foot-border-top-width) 0 var(--dialog-border-hairline)}
+.sk-dialog:focus{outline:none}
+:root{--dialog-scrim-leaving-fade-out-animation:var(--motion-fade-out);--dialog-scrim-leaving-out-animation:sk-recede var(--duration-move) var(--ease-leave)}
+.sk-dialog-scrim.is-leaving{animation:var(--dialog-scrim-leaving-fade-out-animation) both;pointer-events:none}
+.sk-dialog-scrim.is-leaving .sk-dialog{animation:var(--dialog-scrim-leaving-out-animation) both}
+@media (prefers-reduced-motion:reduce){.sk-dialog,.sk-dialog-scrim{animation:var(--motion-reduced-in) both}}
+@media (prefers-reduced-motion:reduce){.sk-dialog-scrim.is-leaving,.sk-dialog-scrim.is-leaving .sk-dialog{animation:var(--motion-reduced-out) both}}
+:root{--dialog-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-dialog{outline:var(--dialog-forced-edge-width) solid CanvasText;outline-offset:calc(-1 * var(--dialog-forced-edge-width))}}
+:root{--dialog-scrim-fade-in-animation:var(--motion-scrim-in);--dialog-scrim-leaving-fade-out-animation:var(--motion-scrim-out);--dialog-phone-max-height:92%;--dialog-phone-in-animation:sk-slide-in var(--duration-open) var(--ease-arrive);--dialog-phone-leaving-out-animation:sk-slide-out var(--duration-move) var(--ease-leave)}
+@media (max-width:767px){.sk-dialog-scrim{align-items:flex-end}}
+@media (max-width:767px){.sk-dialog{width:100%;max-height:var(--dialog-phone-max-height);border-radius:var(--dialog-radius) var(--dialog-radius) 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
+@media (max-width:767px){.sk-dialog__foot{flex-wrap:wrap}}
+@media (max-width:767px) and (prefers-reduced-motion:no-preference){.sk-dialog{animation:var(--dialog-phone-in-animation) both}}
+@media (max-width:767px) and (prefers-reduced-motion:no-preference){.sk-dialog-scrim.is-leaving .sk-dialog{animation:var(--dialog-phone-leaving-out-animation) both}}
+:root,[data-theme]{--dialog-shadow-overlay:var(--shadow-overlay);--dialog-text-primary:var(--text-primary);--dialog-border-hairline:var(--border-hairline)}
+:root{--dialog-body-gap:var(--gap-xl)}
+.sk-dialog__body{display:flex;flex-direction:column;gap:var(--dialog-body-gap)}
+.sk-dialog__body>*{flex-shrink:0}
+:root{--dialog-body-ring-room:calc(var(--focus-ring-width) + var(--focus-ring-offset))}
+.sk-dialog__body{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--dialog-border-hairline) transparent;margin-top:calc(-1 * var(--dialog-body-ring-room));padding-top:var(--dialog-body-ring-room)}
+.sk-dialog__head{flex:none}
+.sk-dialog.is-scrolled .sk-dialog__head{box-shadow:inset 0 calc(-1 * var(--dialog-foot-border-top-width)) 0 var(--dialog-border-hairline)}
+.sk-dialog__foot{flex-wrap:wrap}
+.sk-dialog__foot>*{max-width:100%}
+:is(.sk-dialog,.sk-panel) .sk-scrub-wrap{--scrubber-time:var(--text-secondary);--scrubber-thumb:var(--text-primary)}

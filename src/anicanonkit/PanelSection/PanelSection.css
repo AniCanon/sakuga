@@ -1,0 +1,5 @@
+/* PanelSection: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--panel-section-gap:var(--gap-2xs);--panel-section-label-margin-bottom:var(--gap-sm);--panel-section-label-font:var(--text-micro);--panel-section-label-span-font-weight:var(--weight-medium)}
+.sk-psec{display:flex;flex-direction:column;gap:var(--panel-section-gap)}
+.sk-psec__label{margin:0 0 var(--panel-section-label-margin-bottom);display:flex;align-items:center;justify-content:space-between;font:var(--panel-section-label-font);color:var(--panel-section-label)}
+.sk-psec__label span{font-weight:var(--panel-section-label-span-font-weight)}

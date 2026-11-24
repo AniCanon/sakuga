@@ -1,0 +1,8 @@
+/* EmptyState: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--empty-icon-glyph-size:calc(var(--space-base) * 7);--empty-gap:var(--gap-xl);--empty-font-family:var(--font-body);--empty-icon-size:calc(var(--space-base) * 14);--empty-icon-radius:var(--radius-pill);--empty-title-font:var(--text-title-2);--empty-words-max-width:calc(var(--space-base) * 110);--empty-words-font:var(--text-body-lg)}
+.sk-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--empty-gap);text-align:center;font-family:var(--empty-font-family)}
+.sk-empty__icon{width:var(--empty-icon-size);height:var(--empty-icon-size);border-radius:var(--empty-icon-radius);display:flex;align-items:center;justify-content:center;background:var(--empty-bg-fill-subtle);color:var(--empty-text-muted)}
+.sk-empty.is-attention .sk-empty__icon{background:var(--empty-accent-subtle);color:var(--empty-text-accent)}
+.sk-empty__title{margin:0;font:var(--empty-title-font);color:var(--empty-text-primary)}
+.sk-empty__text{margin:0;max-width:var(--empty-words-max-width);font:var(--empty-words-font);color:var(--empty-text-secondary)}
+:root,[data-theme]{--empty-bg-fill-subtle:var(--bg-fill-subtle);--empty-text-muted:var(--text-muted);--empty-accent-subtle:var(--accent-subtle);--empty-text-accent:var(--text-accent);--empty-text-primary:var(--text-primary);--empty-text-secondary:var(--text-secondary)}

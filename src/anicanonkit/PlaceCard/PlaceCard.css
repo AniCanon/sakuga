@@ -1,0 +1,8 @@
+/* PlaceCard: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--place-card-empty-loader-size:var(--icon-size-md);--place-card-gap:var(--gap-lg);--place-card-font-family:var(--font-body);--place-card-empty-gap:var(--gap-md);--place-card-empty-font:var(--text-small-strong);--place-card-head-gap:var(--gap-2xs);--place-card-name-font:var(--text-title-3);--place-card-caption-font:var(--text-small)}
+.sk-placecard{display:flex;flex-direction:column;gap:var(--place-card-gap);margin:0;font-family:var(--place-card-font-family);color:var(--placecard-text-primary)}
+.sk-placecard__empty{display:inline-flex;align-items:center;gap:var(--place-card-empty-gap);font:var(--place-card-empty-font);color:var(--placecard-text-muted)}
+.sk-placecard__head{display:flex;flex-direction:column;gap:var(--place-card-head-gap)}
+.sk-placecard__name{margin:0;font:var(--place-card-name-font);color:var(--placecard-text-primary)}
+.sk-placecard__caption,.sk-placecard__note{margin:0;font:var(--place-card-caption-font);color:var(--placecard-text-muted)}
+:root,[data-theme]{--placecard-text-primary:var(--text-primary);--placecard-text-muted:var(--text-muted)}

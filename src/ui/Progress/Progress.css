@@ -1,0 +1,9 @@
+/* Progress: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--progress-height:calc(var(--space-base) * 1);--progress-radius:var(--radius-pill);--progress-fill-radius:var(--radius-pill);--progress-fill-duration:var(--duration-move);--progress-fill-easing:var(--ease-move)}
+.sk-progress{position:relative;width:100%;height:var(--progress-height);border-radius:var(--progress-radius);background:var(--progress-bg-fill);overflow:hidden}
+.sk-progress__fill{position:absolute;left:0;top:0;bottom:0;border-radius:var(--progress-fill-radius);background:var(--progress-accent);transition:width var(--progress-fill-duration) var(--progress-fill-easing)}
+.sk-progress.is-media{background:color-mix(in srgb,var(--progress-text-on-media) 22%,transparent)}
+:root{--progress-forced-edge-width:var(--line-hairline)}
+@media (forced-colors:active){.sk-progress{border:var(--progress-forced-edge-width) solid CanvasText}}
+@media (forced-colors:active){.sk-progress__fill{forced-color-adjust:none;background:Highlight}}
+:root,[data-theme]{--progress-bg-fill:var(--bg-fill);--progress-accent:var(--accent);--progress-text-on-media:var(--text-on-media)}

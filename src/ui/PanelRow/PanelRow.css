@@ -1,0 +1,13 @@
+/* PanelRow: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--panel-row-icon-size:var(--icon-size-md);--panel-row-chevron-icon-size:var(--icon-size-sm);--panel-row-gap:var(--gap-lg);--panel-row-height:var(--size-control-md);--panel-row-padding-x:var(--inset-md);--panel-row-radius:var(--radius-control);--panel-row-inset-ring-width:var(--line-hairline);--panel-row-font:var(--text-label);--panel-row-duration:var(--duration-state);--panel-row-easing:var(--ease-move);--panel-row-active-scale:var(--scale-press-lg);--panel-row-active-duration:var(--duration-press);--panel-row-chev-duration:var(--duration-state);--panel-row-chev-easing:var(--ease-move);--panel-row-value-font-weight:var(--text-caption-weight);--panel-row-value-font-size:var(--text-caption-size)}
+.sk-panelrow{display:flex;align-items:center;gap:var(--panel-row-gap);width:100%;height:var(--panel-row-height);padding:0 var(--panel-row-padding-x);border:0;border-radius:var(--panel-row-radius);background:var(--panel-bg);box-shadow:inset 0 0 0 var(--panel-row-inset-ring-width) var(--panel-border);color:var(--panelrow-text-primary);text-decoration:none;font:var(--panel-row-font);text-align:left;box-sizing:border-box;cursor:pointer;transition:transform var(--panel-row-duration) var(--panel-row-easing)}
+.sk-panelrow:active{transform:scale(var(--panel-row-active-scale));transition-duration:var(--panel-row-active-duration)}
+.sk-panelrow__chev{flex:none;transition:transform var(--panel-row-chev-duration) var(--panel-row-chev-easing)}
+.sk-panelrow[aria-expanded="true"] .sk-panelrow__chev{transform:rotate(180deg)}
+.sk-panelrow__icon{display:flex;color:var(--panel-icon)}
+.sk-panelrow__title{white-space:nowrap}
+.sk-panelrow__value{margin-left:auto;min-width:0;font-weight:var(--panel-row-value-font-weight);color:var(--panelrow-text-muted);font-size:var(--panel-row-value-font-size);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sk-panelrow:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+@media (prefers-reduced-motion:reduce){.sk-panelrow:active{transform:none}}
+.sk-panelrow__title+.sk-panelrow__chev{margin-left:auto}
+:root,[data-theme]{--panelrow-text-primary:var(--text-primary);--panelrow-text-muted:var(--text-muted)}

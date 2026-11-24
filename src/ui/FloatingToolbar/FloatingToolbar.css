@@ -1,0 +1,11 @@
+/* FloatingToolbar: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--toolbar-gap:var(--gap-2xs);--toolbar-padding:var(--inset-xs);--toolbar-radius:var(--radius-control);--toolbar-ring-width:var(--line-hairline)}
+.sk-ftoolbar{display:inline-flex;align-items:center;gap:var(--toolbar-gap);padding:var(--toolbar-padding);border-radius:var(--toolbar-radius);background:var(--toolbar-bg);box-shadow:0 0 0 var(--toolbar-ring-width) var(--toolbar-border),var(--ftoolbar-shadow-overlay)}
+:root{--toolbar-rise-in-animation:var(--motion-rise)}
+.sk-ftoolbar{animation:var(--toolbar-rise-in-animation) both}
+@media (prefers-reduced-motion:reduce){.sk-ftoolbar{animation:var(--motion-reduced-in) both}}
+:root,[data-theme]{--ftoolbar-shadow-overlay:var(--shadow-overlay)}
+:root{--toolbar-count-font:var(--text-label);--toolbar-count-padding-x:var(--inset-xs);--toolbar-rule-width:var(--line-hairline);--toolbar-rule-height:var(--icon-size-md);--toolbar-rule-margin-x:var(--gap-sm)}
+:root,[data-theme]{--ftoolbar-text-primary:var(--text-primary);--ftoolbar-border-hairline:var(--border-hairline)}
+.sk-ftoolbar__count{flex:none;padding:0 var(--toolbar-count-padding-x);font:var(--toolbar-count-font);color:var(--ftoolbar-text-primary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sk-ftoolbar__rule{flex:none;align-self:center;width:var(--toolbar-rule-width);height:var(--toolbar-rule-height);margin:0 var(--toolbar-rule-margin-x);background:var(--ftoolbar-border-hairline)}

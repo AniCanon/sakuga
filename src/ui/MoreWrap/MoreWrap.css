@@ -1,0 +1,6 @@
+/* MoreWrap: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--more-wrap-inset:var(--inset-xs);--more-wrap-open-z:40;--more-wrap-on-art-size:var(--size-control-sm)}
+.sk-more-wrap{position:relative;display:flex;flex-direction:column}
+.sk-more-wrap.is-open{z-index:var(--more-wrap-open-z)}
+.sk-more-wrap>:first-child{flex:1}
+.sk-more-wrap__button{position:absolute;top:var(--more-wrap-inset);right:var(--more-wrap-inset);z-index:1}

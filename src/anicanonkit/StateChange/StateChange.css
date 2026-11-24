@@ -1,0 +1,8 @@
+/* StateChange: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--state-after-swap-animation:var(--motion-swap);--state-gap:var(--gap-sm);--state-before-opacity:var(--opacity-legible);--state-arrow-icon-size:var(--icon-size-xs)}
+.sk-state{display:inline-flex;align-items:center;gap:var(--state-gap);flex-wrap:wrap}
+.sk-state__after{display:inline-flex}
+.sk-state__after.is-fresh{animation:var(--state-after-swap-animation) both}
+.sk-state__before{display:inline-flex;opacity:var(--state-before-opacity)}
+.sk-state__arrow{display:flex;color:var(--state-arrow)}
+@media (prefers-reduced-motion:reduce){.sk-state .sk-state__after.is-fresh{animation:none}}

@@ -1,0 +1,8 @@
+/* AskMaki: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--ask-maki-img-size:calc(var(--space-base) * 5)}
+.sk-ask-maki img{width:var(--ask-maki-img-size);height:var(--ask-maki-img-size);object-fit:contain}
+:root{--ask-maki-button-img-size-md:calc(var(--space-base) * 8);--ask-maki-button-img-margin-left-md:calc(-1 * var(--gap-lg));--ask-maki-button-img-radius-md:var(--radius-pill);--ask-maki-em-min-width:var(--icon-size-md);--ask-maki-em-height:var(--icon-size-md);--ask-maki-em-padding-x:var(--inset-xs);--ask-maki-em-radius:var(--radius-pill);--ask-maki-em-font:var(--text-micro)}
+.sk-ask-maki.sk-btn--md img{width:var(--ask-maki-button-img-size-md);height:var(--ask-maki-button-img-size-md);margin-left:var(--ask-maki-button-img-margin-left-md);border-radius:var(--ask-maki-button-img-radius-md);object-fit:cover;object-position:50% 20%;background:var(--ask-bg-canvas)}
+.sk-ask-maki em{min-width:var(--ask-maki-em-min-width);height:var(--ask-maki-em-height);padding:0 var(--ask-maki-em-padding-x);box-sizing:border-box;border-radius:var(--ask-maki-em-radius);display:inline-flex;align-items:center;justify-content:center;background:var(--ask-accent);color:var(--ask-on-accent);font:var(--ask-maki-em-font);font-style:normal}
+.sk-ask-maki.is-open{background:var(--ask-accent-subtle)}
+:root,[data-theme]{--ask-bg-canvas:var(--bg-canvas);--ask-accent:var(--accent);--ask-on-accent:var(--on-accent);--ask-accent-subtle:var(--accent-subtle)}

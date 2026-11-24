@@ -1,0 +1,6 @@
+/* Slip: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--slip-gap:var(--gap-sm);--slip-padding-y:var(--inset-sm);--slip-padding-x:var(--inset-md);--slip-radius:var(--radius-mark);--slip-font:var(--text-caption);--slip-small-font:var(--text-eyebrow);--slip-small-letter-spacing:var(--tracking-caps);--slip-done-inset-ring-width:var(--line-hairline);--slip-a-font:var(--text-small-strong)}
+.sk-slip{display:flex;flex-direction:column;gap:var(--slip-gap);padding:var(--slip-padding-y) var(--slip-padding-x);border-radius:var(--slip-radius);background:var(--slip-bg);font:var(--slip-font);color:var(--slip-fg)}
+.sk-slip small{font:var(--slip-small-font);letter-spacing:var(--slip-small-letter-spacing);text-transform:uppercase;color:var(--slip-label)}
+.sk-slip.is-done{background:transparent;box-shadow:inset 0 0 0 var(--slip-done-inset-ring-width) var(--slip-done-border);color:var(--slip-done-fg)}
+.sk-slip a,.sk-slip button{align-self:flex-start;padding:0;border:0;background:none;font:var(--slip-a-font);color:var(--slip-label);cursor:pointer}

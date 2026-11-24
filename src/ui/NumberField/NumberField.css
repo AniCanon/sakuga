@@ -1,0 +1,13 @@
+/* NumberField: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--num-gap:var(--gap-md);--num-label-font:var(--text-micro);--num-row-column-2:minmax(72px, max-content);--num-row-gap:var(--gap-2xs);--num-input-height:var(--size-control-sm);--num-input-padding-x:var(--inset-sm);--num-input-radius:var(--radius-item);--num-input-inset-ring-width:var(--line-hairline);--num-input-font:var(--text-label);--num-input-focus-inset-ring-width:var(--line-strong)}
+.sk-num{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:var(--num-gap);min-width:0}
+.sk-num__label{min-width:0;font:var(--num-label-font);color:var(--num-label);overflow-wrap:break-word}
+.sk-num__row{display:grid;grid-template-columns:auto var(--num-row-column-2) auto;align-items:center;gap:var(--num-row-gap)}
+.sk-num__input{box-sizing:border-box;width:0;min-width:100%;height:var(--num-input-height);padding:0 var(--num-input-padding-x);border:0;border-radius:var(--num-input-radius);box-shadow:inset 0 0 0 var(--num-input-inset-ring-width) var(--num-border);background:var(--num-bg);color:var(--num-fg);font:var(--num-input-font);text-align:center;font-variant-numeric:tabular-nums;outline:none}
+.sk-num__box{display:grid;min-width:0}
+.sk-num__box>*{grid-area:1/1}
+.sk-num__size{visibility:hidden;height:0;overflow:hidden;white-space:pre;padding:0 var(--num-input-padding-x);font:var(--num-input-font);font-variant-numeric:tabular-nums}
+.sk-num__input:focus{box-shadow:inset 0 0 0 var(--num-input-focus-inset-ring-width) var(--num-focus)}
+:root{--num-forced-edge-width:var(--line-hairline);--num-forced-focus-width:var(--line-strong)}
+@media (forced-colors:active){.sk-num__input{outline:var(--num-forced-edge-width) solid ButtonText;outline-offset:calc(-1 * var(--num-forced-edge-width))}}
+@media (forced-colors:active){.sk-num__input:focus{outline:var(--num-forced-focus-width) solid Highlight;outline-offset:calc(-1 * var(--num-forced-focus-width))}}

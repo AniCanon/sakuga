@@ -1,0 +1,18 @@
+/* Pagination: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--pagination-gap:var(--gap-xl);--pagination-padding-top:var(--inset-lg);--pagination-edge-top-width:var(--line-hairline);--pagination-count-font:var(--text-caption);--pagination-nav-gap:var(--gap-2xs);--pagination-nav-icon-button-disabled-opacity:var(--opacity-disabled);--pagination-n-min-width:calc(var(--space-base) * 9);--pagination-n-height:calc(var(--space-base) * 9);--pagination-n-padding-x:var(--inset-sm);--pagination-n-radius:var(--radius-pill);--pagination-n-font:var(--text-label);--pagination-n-duration:var(--duration-state);--pagination-n-easing:var(--ease-move);--pagination-n-active-scale:var(--scale-press-sm);--pagination-n-active-duration:var(--duration-press);--pagination-gap-min-width:calc(var(--space-base) * 6);--pagination-gap-font:var(--text-label);--pagination-nav-glide-radius:var(--radius-pill)}
+.sk-pages{display:flex;align-items:center;justify-content:space-between;gap:var(--pagination-gap);padding-top:var(--pagination-padding-top);box-shadow:inset 0 var(--pagination-edge-top-width) 0 var(--pages-border-hairline)}
+.sk-pages__count{font:var(--pagination-count-font);color:var(--pages-text-muted);font-variant-numeric:tabular-nums}
+.sk-pages__nav{position:relative;isolation:isolate;display:flex;align-items:center;gap:var(--pagination-nav-gap)}
+.sk-pages__nav{touch-action:pan-y}
+.sk-pages__nav .sk-ib:disabled{opacity:var(--pagination-nav-icon-button-disabled-opacity);cursor:default}
+.sk-pages__n{min-width:var(--pagination-n-min-width);height:var(--pagination-n-height);padding:0 var(--pagination-n-padding-x);display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:var(--pagination-n-radius);background:none;color:var(--pages-text-secondary);font:var(--pagination-n-font);font-variant-numeric:tabular-nums;text-decoration:none;cursor:pointer;transition:background-color var(--pagination-n-duration) var(--pagination-n-easing),color var(--pagination-n-duration) var(--pagination-n-easing),transform var(--pagination-n-duration) var(--pagination-n-easing)}
+.sk-pages__n:active:not(.is-current){transform:scale(var(--pagination-n-active-scale));transition-duration:var(--pagination-n-active-duration)}
+@media (hover:hover){.sk-pages__n:hover{background:var(--pages-bg-fill-subtle);color:var(--pages-text-primary)}}
+.sk-pages__n.is-current{background:var(--pages-bg-fill-selected);color:var(--pages-text-primary);cursor:default}
+.sk-pages__gap{min-width:var(--pagination-gap-min-width);text-align:center;color:var(--pages-text-muted);font:var(--pagination-gap-font)}
+.sk-pages__n:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-pages__nav>.sk-glide{z-index:-1;border-radius:var(--pagination-nav-glide-radius);background:var(--pages-bg-fill-selected)}
+.sk-pages__nav[data-glide] .sk-pages__n.is-current{background:transparent}
+@media (prefers-reduced-motion:reduce){.sk-pages__n:active{transform:none}}
+@media (forced-colors:active){.sk-pages__n.is-current,.sk-pages__nav[data-glide] .sk-pages__n.is-current{forced-color-adjust:none;background:Highlight;color:HighlightText}}
+:root,[data-theme]{--pages-border-hairline:var(--border-hairline);--pages-text-muted:var(--text-muted);--pages-text-secondary:var(--text-secondary);--pages-bg-fill-subtle:var(--bg-fill-subtle);--pages-text-primary:var(--text-primary);--pages-bg-fill-selected:var(--bg-fill-selected)}

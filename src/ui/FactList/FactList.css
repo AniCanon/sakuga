@@ -1,0 +1,11 @@
+/* FactList: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--fact-row-gap:var(--gap-md);--fact-column-gap:var(--gap-lg);--fact-font:var(--text-caption);--fact-dd-font-weight:var(--weight-strong);--fact-grid-gap:var(--gap-md);--fact-item-gap:var(--gap-2xs);--fact-item-padding-y:var(--inset-sm);--fact-item-padding-x:var(--inset-md);--fact-item-radius:var(--radius-control);--fact-grid-dt-font:var(--text-eyebrow);--fact-grid-dt-letter-spacing:var(--tracking-caps);--fact-grid-dd-font:var(--text-label);--fact-grid-dd-small-margin-top:var(--gap-2xs);--fact-grid-dd-small-font:var(--text-small)}
+.sk-facts{display:grid;grid-template-columns:1fr auto;gap:var(--fact-row-gap) var(--fact-column-gap);align-items:center;margin:0;font:var(--fact-font)}
+.sk-facts dt{color:var(--facts-text-muted)}
+.sk-facts dd{margin:0;font-weight:var(--fact-dd-font-weight);text-align:right}
+.sk-facts--grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--fact-grid-gap);align-items:stretch}
+.sk-facts__item{display:flex;flex-direction:column;gap:var(--fact-item-gap);padding:var(--fact-item-padding-y) var(--fact-item-padding-x);border-radius:var(--fact-item-radius);background:var(--facts-bg-surface)}
+.sk-facts--grid dt{font:var(--fact-grid-dt-font);letter-spacing:var(--fact-grid-dt-letter-spacing);text-transform:uppercase;color:var(--facts-text-muted)}
+.sk-facts--grid dd{text-align:left;font:var(--fact-grid-dd-font);color:var(--facts-text-primary)}
+.sk-facts--grid dd small{display:block;margin-top:var(--fact-grid-dd-small-margin-top);font:var(--fact-grid-dd-small-font);color:var(--facts-text-muted)}
+:root,[data-theme]{--facts-text-muted:var(--text-muted);--facts-bg-surface:var(--bg-surface);--facts-text-primary:var(--text-primary)}

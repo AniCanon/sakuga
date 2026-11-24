@@ -1,0 +1,3 @@
+/* CutFace: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+.sk-cut{position:relative;display:block;flex:none;overflow:hidden;background:var(--look-plate-bg)}
+.sk-cut>img{position:absolute;display:block;max-width:none;-webkit-user-drag:none}

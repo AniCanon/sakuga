@@ -1,0 +1,5 @@
+/* Shorthand: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--shorthand-font:var(--text-eyebrow);--shorthand-letter-spacing:var(--tracking-caps)}
+.sk-shorthand{display:block;font:var(--shorthand-font);letter-spacing:var(--shorthand-letter-spacing);text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--shorthand-fg)}
+.sk-shorthand.is-accent{color:var(--shorthand-accent)}
+.sk-shorthand.is-secondary{color:var(--shorthand-secondary)}

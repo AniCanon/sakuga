@@ -1,0 +1,16 @@
+/* PageHeader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--page-header-gap:var(--gap-xl);--page-header-words-gap:var(--gap-xs);--page-header-end-gap:var(--gap-xl);--page-header-title-font:var(--text-title-1);--page-header-title-letter-spacing:calc(-1 * var(--tracking-tight));--page-header-title-line-height:var(--text-title-1-line-height);--page-header-lead-font:var(--text-body);--page-header-phone-views-gap:var(--gap-xl)}
+:root,[data-theme]{--pagehead-text-primary:var(--text-primary);--pagehead-text-secondary:var(--text-secondary)}
+.sk-pagehead{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "lead";row-gap:var(--page-header-words-gap);align-items:start}
+.sk-pagehead.has-views,.sk-pagehead.has-action{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title end" "lead end";column-gap:var(--page-header-gap)}
+.sk-pagehead__title{grid-area:title;margin:0;font:var(--page-header-title-font);letter-spacing:var(--page-header-title-letter-spacing);color:var(--pagehead-text-primary);text-wrap:balance}
+.sk-pagehead__lead{grid-area:lead;margin:0;font:var(--page-header-lead-font);color:var(--pagehead-text-secondary);text-wrap:pretty}
+.sk-pagehead__end{grid-area:end;display:flex;align-items:flex-start;gap:var(--page-header-end-gap)}
+.sk-pagehead__views,.sk-pagehead__action{display:flex;align-items:center;height:var(--page-header-title-line-height)}
+@media (max-width:767px){.sk-pagehead.has-views,.sk-pagehead.has-action{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "lead" "views"}}
+@media (max-width:767px){.sk-pagehead.has-action{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title action" "lead lead" "views views"}}
+@media (max-width:767px){.sk-pagehead__end{display:contents}}
+@media (max-width:767px){.sk-pagehead__action{grid-area:action}}
+@media (max-width:767px){.sk-pagehead__views{grid-area:views;height:auto;margin-top:calc(var(--page-header-phone-views-gap) - var(--page-header-words-gap))}}
+@media (max-width:767px){.sk-pagehead__views .sk-seg{display:flex;width:100%}}
+@media (max-width:767px){.sk-pagehead__views .sk-seg>button{flex:1}}

@@ -1,0 +1,8 @@
+/* CastStack: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--caststack-face-font-weight:var(--weight-bold);--caststack-face-font-family:var(--font-body);--caststack-face-ring-width:var(--line-strong);--caststack-face-margin-left:calc(-1 * var(--gap-sm))}
+.sk-caststack{display:inline-flex;align-items:center;flex:none}
+.sk-caststack__face{display:inline-flex;align-items:center;justify-content:center;flex:none;border-radius:50%;overflow:hidden;background:var(--caststack-bg-fill);color:var(--caststack-text-secondary);font-weight:var(--caststack-face-font-weight);font-family:var(--caststack-face-font-family);box-shadow:0 0 0 var(--caststack-face-ring-width) var(--caststack-bg-canvas)}
+.sk-caststack__face+.sk-caststack__face{margin-left:var(--caststack-face-margin-left)}
+.sk-caststack__face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.sk-caststack__more{background:var(--caststack-bg-fill-subtle);color:var(--caststack-text-muted)}
+:root,[data-theme]{--caststack-bg-fill:var(--bg-fill);--caststack-text-secondary:var(--text-secondary);--caststack-bg-canvas:var(--bg-canvas);--caststack-bg-fill-subtle:var(--bg-fill-subtle);--caststack-text-muted:var(--text-muted)}

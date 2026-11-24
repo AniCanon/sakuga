@@ -1,0 +1,33 @@
+/* Sheet: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--sheet-radius:var(--radius-sheet);--sheet-scrim-fade-in-animation:var(--motion-fade-in);--sheet-inset:var(--inset-sm);--sheet-padding-top:var(--inset-sm);--sheet-padding-x:var(--inset-lg);--sheet-padding-bottom:var(--inset-xl);--sheet-blur:var(--blur-glass);--sheet-inset-ring-width:var(--line-hairline);--sheet-font-family:var(--font-body);--sheet-in-animation:sk-slide-in var(--duration-open) var(--ease-arrive);--sheet-media-inset-ring-width:var(--line-hairline);--sheet-handle-width:calc(var(--space-base) * 9);--sheet-handle-height:calc(var(--space-base) * 1);--sheet-handle-radius:var(--radius-mark);--sheet-handle-margin-bottom:var(--gap-lg);--sheet-title-margin-bottom:var(--gap-md);--sheet-title-font:var(--text-micro);--sheet-row-min-height:var(--size-target);--sheet-row-radius:var(--radius-item);--sheet-row-gap:var(--gap-lg);--sheet-row-padding-y:var(--inset-sm);--sheet-row-padding-x:var(--inset-md);--sheet-row-font:var(--text-subtitle-sm);--sheet-row-duration:var(--duration-state);--sheet-row-easing:var(--ease-move);--sheet-row-active-scale:var(--scale-press-lg);--sheet-row-active-duration:var(--duration-press);--sheet-row-check-settle-animation:var(--motion-settle);--sheet-row-check-icon-size:var(--icon-size-sm);--sheet-done-margin-top:var(--gap-lg);--sheet-group-margin-bottom:var(--gap-lg)}
+.sk-sheet__done{margin-top:var(--sheet-done-margin-top)}
+.sk-sheet-group{margin-bottom:var(--sheet-group-margin-bottom)}
+.sk-sheet-row:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-sheet-scrim{position:fixed;inset:0;background:var(--sheet-scrim);animation:var(--sheet-scrim-fade-in-animation) both}
+.sk-sheet{position:fixed;left:var(--sheet-inset);right:var(--sheet-inset);bottom:var(--sheet-inset);border-radius:var(--sheet-radius);padding:var(--sheet-padding-top) var(--sheet-padding-x) var(--sheet-padding-bottom);background:var(--sheet-bg);color:var(--sheet-fg);-webkit-backdrop-filter:var(--sheet-blur);backdrop-filter:var(--sheet-blur);box-shadow:inset 0 0 0 var(--sheet-inset-ring-width) var(--sheet-border),var(--sheet-shadow-overlay);font-family:var(--sheet-font-family);animation:var(--sheet-in-animation) both}
+.sk-sheet--media{background:var(--sheet-media-bg);color:var(--sheet-media-fg);box-shadow:inset 0 0 0 var(--sheet-media-inset-ring-width) var(--sheet-media-border),var(--sheet-shadow-overlay)}
+.sk-sheet__handle{width:var(--sheet-handle-width);height:var(--sheet-handle-height);border-radius:var(--sheet-handle-radius);background:var(--sheet-handle);margin:0 auto var(--sheet-handle-margin-bottom)}
+.sk-sheet__title{margin:0 0 var(--sheet-title-margin-bottom);font:var(--sheet-title-font);color:var(--sheet-title)}
+.sk-sheet--media .sk-sheet__title{color:var(--sheet-media-title)}
+.sk-sheet-row{width:100%;min-height:var(--sheet-row-min-height);border:0;border-radius:var(--sheet-row-radius);background:transparent;color:inherit;display:flex;justify-content:space-between;align-items:center;gap:var(--sheet-row-gap);padding:var(--sheet-row-padding-y) var(--sheet-row-padding-x);text-align:left;font:var(--sheet-row-font);cursor:pointer;transition:background-color var(--sheet-row-duration) var(--sheet-row-easing),transform var(--sheet-row-duration) var(--sheet-row-easing)}
+.sk-sheet-row:active{transform:scale(var(--sheet-row-active-scale));transition-duration:var(--sheet-row-active-duration)}
+.sk-sheet-row[aria-pressed="true"]{background:var(--sheet-row-selected-bg)}
+.sk-sheet-row__check{display:flex;color:var(--sheet-check);animation:var(--sheet-row-check-settle-animation) both}
+.sk-sheet:focus{outline:none}
+:root{--sheet-group-glide-radius:var(--radius-item);--sheet-scrim-leaving-fade-out-animation:var(--motion-fade-out);--sheet-leaving-out-animation:sk-slide-out var(--duration-move) var(--ease-leave)}
+.sk-sheet-group{position:relative;isolation:isolate}
+.sk-sheet-group>.sk-glide{z-index:-1;border-radius:var(--sheet-group-glide-radius);background:var(--sheet-row-selected-bg)}
+.sk-sheet-group[data-glide] .sk-sheet-row[aria-pressed="true"]{background:transparent}
+.sk-sheet-scrim.is-leaving{animation:var(--sheet-scrim-leaving-fade-out-animation) both;pointer-events:none}
+.sk-sheet.is-leaving{animation:var(--sheet-leaving-out-animation) both;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sk-sheet-row:active{transform:none}}
+@media (prefers-reduced-motion:reduce){.sk-sheet,.sk-sheet-scrim{animation:var(--motion-reduced-in) both}}
+@media (prefers-reduced-motion:reduce){.sk-sheet.is-leaving,.sk-sheet-scrim.is-leaving{animation:var(--motion-reduced-out) both}}
+@media (prefers-reduced-motion:reduce){.sk-sheet-row__check{animation:none}}
+:root{--sheet-scrim-fade-in-animation:var(--motion-scrim-in);--sheet-scrim-leaving-fade-out-animation:var(--motion-scrim-out)}
+:root,[data-theme]{--sheet-shadow-overlay:var(--shadow-overlay)}
+:root{--sheet-top-room:var(--size-control-md);--sheet-body-ring-room:calc(var(--focus-ring-width) + var(--focus-ring-offset))}
+.sk-sheet{display:flex;flex-direction:column;box-sizing:border-box;max-height:calc(100% - var(--sheet-inset) - env(safe-area-inset-top, 0px) - var(--sheet-top-room))}
+.sk-sheet__handle,.sk-sheet__done{flex:none}
+.sk-sheet__body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;margin:calc(-1 * var(--sheet-body-ring-room)) calc(-1 * var(--sheet-padding-x)) 0;padding:var(--sheet-body-ring-room) var(--sheet-padding-x) 0}
+.sk-sheet__body+.sk-sheet__done{margin-top:0}

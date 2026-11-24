@@ -1,0 +1,22 @@
+/* VideoPlayer: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--video-ratio:calc(16 / 9);--video-radius:var(--radius-control);--video-bg:var(--bg-media);--video-fg:var(--text-on-media);--video-scrim:var(--bg-media);--video-controls-padding:var(--inset-xl) var(--inset-md) var(--video-controls-padding-bottom);--video-controls-padding-bottom:var(--inset-sm);--video-controls-gap:var(--gap-2xs);--video-row-gap:var(--gap-xs);--video-big-size:calc(var(--space-base) * 18);--video-big-icon-size:calc(var(--space-base) * 7);--video-big-clearance:var(--gap-md);--video-controls-reach:calc(var(--scrubber-height) + var(--video-controls-gap) + var(--icon-button-size) + var(--video-controls-padding-bottom));--video-big-bg:var(--bg-media);--video-loader-size:calc(var(--space-base) * 10);--video-wait-bg:color-mix(in srgb, var(--bg-media) calc(var(--opacity-muted) * 100%), transparent);--video-fade-duration:var(--duration-move);--video-fade-easing:var(--ease-move)}
+.sk-video{position:relative;aspect-ratio:var(--video-ratio);max-width:100%;border-radius:var(--video-radius);overflow:hidden;background:var(--video-bg);color:var(--video-fg);outline:none}
+.sk-video-room{flex:1;min-height:0;width:100%;container-type:size;display:flex;align-items:center;justify-content:center}
+.sk-video-room>.sk-video{width:min(100cqw, 100cqh * var(--video-ratio))}
+.sk-video.is-full{border-radius:0;aspect-ratio:auto;width:100%;height:100%}
+.sk-video__media{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.sk-video__surface{position:absolute;inset:0;margin:0;padding:0;border:0;background:none;cursor:pointer}
+.sk-video__mid,.sk-video__wait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.sk-video__wait{background:var(--video-wait-bg)}
+.sk-video__mid>*{pointer-events:auto}
+.sk-video__mid{bottom:max(0px, calc(2 * (var(--video-controls-reach) + var(--video-big-size) / 2 + var(--video-big-clearance)) - 100%))}
+.sk-video .sk-ib.sk-video__big{width:var(--video-big-size);height:var(--video-big-size);border-radius:50%;background:var(--video-big-bg)}
+.sk-video__controls{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:var(--video-controls-gap);padding:var(--video-controls-padding);background:linear-gradient(to top, var(--video-scrim), transparent);opacity:0;transition:opacity var(--video-fade-duration) var(--video-fade-easing)}
+.sk-video.is-shown .sk-video__controls,.sk-video:has(:focus-visible) .sk-video__controls{opacity:1}
+.sk-video__controls,.sk-video__row{pointer-events:none}
+.sk-video__controls>:not(.sk-video__row),.sk-video__row>.sk-ib{pointer-events:auto}
+.sk-video:not(.is-shown):not(:has(:focus-visible)) .sk-video__controls *{pointer-events:none}
+.sk-video:not(.is-shown):not(:has(:focus-visible)){cursor:none}
+.sk-video__row{display:flex;align-items:center;gap:var(--video-row-gap)}
+.sk-video__gap{flex:1}
+@media (prefers-reduced-motion:reduce){.sk-video__controls{transition:none}}

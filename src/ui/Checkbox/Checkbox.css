@@ -1,0 +1,23 @@
+/* Checkbox: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--check-mark-size:var(--icon-size-sm);--check-inset:var(--inset-2xs);--check-size:calc(var(--check-mark-size) + 2 * var(--check-inset));--check-radius:var(--radius-mark);--check-edge-width:var(--line-strong);--check-target:var(--size-target);--check-duration:var(--duration-state);--check-easing:var(--ease-move);--check-active-scale:var(--scale-press-sm);--check-active-duration:var(--duration-press);--check-mark-settle-animation:var(--motion-settle);--check-disabled-opacity:var(--opacity-disabled);--checkrow-gap:var(--gap-md);--checkrow-font:var(--text-caption);--checkrow-box-margin-top:calc((var(--text-caption-line-height) - var(--check-size)) / 2);--checkrow-words-gap:var(--gap-2xs);--checkrow-words-small-font:var(--text-small)}
+.sk-check:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+@media (prefers-reduced-motion:reduce){.sk-check:active:not(:disabled){transform:none}}
+@media (prefers-reduced-motion:reduce){.sk-check .sk-check__mark.is-fresh>*{animation:none}}
+.sk-check{appearance:none;flex:none;position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--check-size);height:var(--check-size);margin:0;padding:0;border:0;border-radius:var(--check-radius);background:transparent;box-shadow:inset 0 0 0 var(--check-edge-width) var(--check-border-control);color:var(--check-on-accent);cursor:pointer;touch-action:manipulation;transition:background-color var(--check-duration) var(--check-easing),box-shadow var(--check-duration) var(--check-easing),transform var(--check-duration) var(--check-easing)}
+.sk-check::before{content:"";position:absolute;inset:calc((var(--check-size) - var(--check-target)) / 2)}
+.sk-check.is-on,.sk-check.is-mixed{background:var(--check-accent);box-shadow:inset 0 0 0 var(--check-edge-width) var(--check-accent)}
+.sk-check:active:not(:disabled){transform:scale(var(--check-active-scale));transition-duration:var(--check-active-duration)}
+.sk-check__mark{display:flex;pointer-events:none}
+.sk-check__mark.is-fresh>*{animation:var(--check-mark-settle-animation) both}
+.sk-check:disabled{opacity:var(--check-disabled-opacity);cursor:default}
+@media (forced-colors:active){.sk-check{forced-color-adjust:none;box-shadow:none;border:var(--check-edge-width) solid ButtonText;background:Canvas;color:HighlightText}}
+@media (forced-colors:active){.sk-check.is-on,.sk-check.is-mixed{background:Highlight;border-color:Highlight;box-shadow:none}}
+@media (forced-colors:active){.sk-check:disabled{border-color:GrayText}}
+@media (forced-colors:active){.sk-check.is-on:disabled,.sk-check.is-mixed:disabled{background:GrayText}}
+.sk-checkrow{display:flex;align-items:flex-start;gap:var(--checkrow-gap);font:var(--checkrow-font);color:var(--checkrow-text-primary);cursor:pointer}
+.sk-checkrow>.sk-check{margin-top:var(--checkrow-box-margin-top)}
+.sk-checkrow.is-off{cursor:default}
+.sk-checkrow__text{display:flex;flex-direction:column;gap:var(--checkrow-words-gap);min-width:0}
+.sk-checkrow__text small{font:var(--checkrow-words-small-font);color:var(--checkrow-text-muted)}
+@media (forced-colors:active){.sk-check:focus-visible{outline-color:Highlight}}
+:root,[data-theme]{--check-border-control:var(--border-control);--check-on-accent:var(--on-accent);--check-accent:var(--accent);--checkrow-text-primary:var(--text-primary);--checkrow-text-muted:var(--text-muted)}

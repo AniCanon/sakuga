@@ -1,0 +1,22 @@
+/* TabBar: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--tabbar-height:calc(var(--space-base) * 16);--tabbar-radius:var(--radius-sheet);--tabbar-gap:var(--gap-md);--tabbar-font-family:var(--font-body);--tabbar-bar-padding-x:var(--inset-xs);--tabbar-bar-blur:var(--blur-glass);--tabbar-bar-inset-ring-width:var(--line-hairline);--tabbar-item-height:var(--size-control-lg);--tabbar-item-min-width:calc(var(--space-base) * 16);--tabbar-item-padding-x:var(--inset-sm);--tabbar-item-radius:var(--radius-pill);--tabbar-item-gap:var(--gap-2xs);--tabbar-item-font-size:var(--text-small-strong-size);--tabbar-item-line-height:var(--text-small-strong-line-height);--tabbar-item-font-weight:var(--text-small-strong-weight);--tabbar-item-duration:var(--duration-state);--tabbar-item-easing:var(--ease-move);--tabbar-item-icon-size:var(--icon-size-md)}
+.sk-tab:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.sk-tabbar{display:flex;align-items:center;gap:var(--tabbar-gap);font-family:var(--tabbar-font-family)}
+.sk-tabbar__bar{flex:1;height:var(--tabbar-height);border-radius:var(--tabbar-radius);display:flex;align-items:center;justify-content:space-around;padding:0 var(--tabbar-bar-padding-x);background:var(--tabbar-bg);-webkit-backdrop-filter:var(--tabbar-bar-blur);backdrop-filter:var(--tabbar-bar-blur);box-shadow:inset 0 0 0 var(--tabbar-bar-inset-ring-width) var(--tabbar-border),var(--tabbar-shadow-glass)}
+.sk-tab{height:var(--tabbar-item-height);min-width:var(--tabbar-item-min-width);padding:0 var(--tabbar-item-padding-x);border-radius:var(--tabbar-item-radius);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--tabbar-item-gap);font-size:var(--tabbar-item-font-size);line-height:var(--tabbar-item-line-height);font-weight:var(--tabbar-item-font-weight);color:var(--tabbar-item-fg);text-decoration:none;transition:color var(--tabbar-item-duration) var(--tabbar-item-easing),background-color var(--tabbar-item-duration) var(--tabbar-item-easing)}
+.sk-tab[aria-current="page"]{background:var(--tabbar-item-active-bg);color:var(--tabbar-item-active-fg)}
+.sk-tabbar__create{width:var(--tabbar-height);height:var(--tabbar-height);color:var(--tabbar-create-fg)}
+:root{--tabbar-item-icon-active-scale:var(--scale-press-sm);--tabbar-item-icon-active-duration:var(--duration-press);--tabbar-item-icon-duration:var(--duration-state);--tabbar-item-icon-easing:var(--ease-move);--tabbar-bar-glide-radius:var(--radius-pill)}
+.sk-tab:active .sk-icon{transform:scale(var(--tabbar-item-icon-active-scale));transition-duration:var(--tabbar-item-icon-active-duration)}
+.sk-tab .sk-icon{transition:transform var(--tabbar-item-icon-duration) var(--tabbar-item-icon-easing)}
+.sk-tabbar__bar{position:relative;isolation:isolate}
+.sk-tabbar__bar>.sk-glide{z-index:-1;border-radius:var(--tabbar-bar-glide-radius);background:var(--tabbar-item-active-bg)}
+.sk-tabbar__bar[data-glide] .sk-tab[aria-current="page"]{background:transparent}
+@media (prefers-reduced-motion:reduce){.sk-tab:active .sk-icon{transform:none}}
+:root{--tabbar-web-layer:20;--tabbar-web-edge-width:var(--line-hairline);--tabbar-web-item-min-width:0}
+.sk-tabbar.is-web{position:sticky;bottom:0;z-index:var(--tabbar-web-layer);gap:0;background:var(--tabbar-bg-surface);box-shadow:inset 0 var(--tabbar-web-edge-width) 0 var(--tabbar-border-divider);padding:0 max(var(--tabbar-bar-padding-x),env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(var(--tabbar-bar-padding-x),env(safe-area-inset-left,0px))}
+.sk-tabbar[hidden]{display:none}
+.sk-tabbar.is-web .sk-tabbar__bar{border-radius:0;padding:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.sk-tabbar.is-web .sk-tab{flex:1 1 0;min-width:var(--tabbar-web-item-min-width)}
+button.sk-tab{border:0;background:none;font-family:inherit;cursor:pointer}
+:root,[data-theme]{--tabbar-shadow-glass:var(--shadow-glass);--tabbar-bg-surface:var(--bg-surface);--tabbar-border-divider:var(--border-divider)}

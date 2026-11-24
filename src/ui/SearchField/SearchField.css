@@ -1,0 +1,8 @@
+/* SearchField: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--search-clear-icon-size:var(--icon-size-sm);--search-clear-right:var(--inset-xs);--search-control-padding-right:calc(var(--icon-button-size) + var(--search-clear-right));--search-results-max-height:calc(var(--space-base) * 90);--search-said-padding:var(--picker-opt-padding-y) var(--picker-opt-padding-x);--search-said-font:var(--text-small);--search-nav-max-width:calc(var(--space-base) * 140);--search-nav-gap:var(--gap-sm)}
+.sk-search{position:relative;min-width:0}
+.sk-search .sk-tf__wrap>.sk-search__control{padding-right:var(--search-control-padding-right);-webkit-appearance:none;appearance:none}
+.sk-search__control::-webkit-search-cancel-button,.sk-search__control::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+.sk-search__clear{position:absolute;right:var(--search-clear-right);top:calc(50% - var(--icon-button-size) / 2)}
+.sk-search__results{max-height:var(--search-results-max-height);overflow-y:auto}
+.sk-search__said{padding:var(--search-said-padding);font:var(--search-said-font);color:var(--popover-muted)}

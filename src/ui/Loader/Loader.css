@@ -1,0 +1,8 @@
+/* Loader: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--loader-arc:var(--accent);--loader-mark:currentColor;--loader-track-opacity:var(--opacity-dim);--loader-onion-opacity:var(--opacity-dim);--loader-ground-stroke-width:5;--loader-ground-opacity:var(--opacity-disabled)}
+.sk-load{display:inline-flex;flex:none}
+.sk-load svg{display:block;width:100%;height:100%;overflow:visible}
+.sk-load__ball{fill:var(--load-accent)}
+.sk-load__onion{fill:var(--load-accent);opacity:var(--loader-onion-opacity)}
+.sk-load__ground{stroke:currentColor;stroke-width:var(--loader-ground-stroke-width);stroke-linecap:round;opacity:var(--loader-ground-opacity)}
+:root,[data-theme]{--load-accent:var(--accent)}

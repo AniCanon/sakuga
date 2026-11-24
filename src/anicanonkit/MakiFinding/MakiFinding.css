@@ -1,0 +1,25 @@
+/* MakiFinding: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--mk-find-gap:var(--gap-xs);--mk-find-padding-y:var(--inset-md);--mk-find-mark-size:var(--icon-size-sm);--mk-find-mark-gap:var(--gap-sm);--mk-find-title-font:var(--text-label);--mk-find-note-font:var(--text-caption);--mk-find-event-min-height:calc(var(--space-base) * 8);--mk-find-event-glyph-gap:var(--gap-sm)}
+.sk-mk-find__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--gap-sm)}
+.sk-mk-find{display:flex;flex-direction:column;gap:var(--mk-find-gap);padding:var(--mk-find-padding-y) 0;box-shadow:inset 0 var(--line-hairline) 0 var(--side-rule)}
+.sk-mk-find__head{all:unset;box-sizing:border-box;display:flex;align-items:flex-start;gap:var(--mk-find-mark-gap)}
+button.sk-mk-find__head{cursor:pointer}
+button.sk-mk-find__head:hover .sk-mk-find__title{text-decoration:underline;text-decoration-thickness:var(--line-hairline);text-underline-offset:var(--gap-2xs)}
+button.sk-mk-find__head:active{transform:scale(var(--scale-press-sm))}
+button.sk-mk-find__head:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset);border-radius:var(--radius-mark)}
+.sk-mk-find__mark{flex:none;display:inline-flex;height:var(--mk-find-line);align-items:center}
+.sk-mk-find__mark.is-conflict{color:var(--mk-conflict)}
+.sk-mk-find__mark.is-warning,.sk-mk-find__mark.is-kept{color:var(--mk-quiet)}
+.sk-mk-find__words{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--gap-2xs)}
+.sk-mk-find__title{font:var(--mk-find-title-font);color:var(--mk-text);text-wrap:pretty}
+.sk-mk-find.is-kept .sk-mk-find__title{color:var(--mk-meta)}
+.sk-mk-find__note{font:var(--mk-find-note-font);color:var(--mk-meta);text-wrap:pretty}
+.sk-mk-find__events,.sk-mk-find__kept,.sk-mk-find__reason,.sk-mk-find__actions,.sk-mk-find__more{margin-left:calc(var(--mk-find-mark-size) + var(--mk-find-mark-gap))}
+.sk-mk-find__events{--entity-name-lines:3;display:flex;flex-direction:column;padding-top:var(--gap-xs)}
+.sk-mk-find__events .sk-erow{min-height:var(--mk-find-event-min-height);gap:var(--mk-find-event-glyph-gap);align-items:flex-start;padding:var(--gap-xs) 0}
+.sk-mk-find__actions{padding-top:var(--gap-xs);margin-left:calc(var(--mk-find-mark-size) + var(--mk-find-mark-gap) - var(--inset-sm))}
+.sk-mk-find__kept{margin-top:0;margin-bottom:0;font:var(--mk-meta-font);color:var(--mk-quiet)}
+.sk-mk-find__reason{display:block;quotes:none;font:var(--mk-meta-font);color:var(--mk-meta)}
+.sk-mk-find__reason::before{content:"“"}
+.sk-mk-find__reason::after{content:"”"}
+@media (forced-colors:active){.sk-mk-find{border-top:var(--line-hairline) solid CanvasText}}

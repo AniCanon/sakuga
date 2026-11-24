@@ -1,0 +1,5326 @@
+{
+ "system": "Sakuga",
+ "version": "244",
+ "site": "https://sakuga.design",
+ "components": [
+  {
+   "name": "Button",
+   "title": "Button",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Button runs an action with a text label: Play, Follow, Remind me, Done.",
+   "use": "an action with a word on it: the one main action of a view, the action beside it, and the confirmation in a dialog that deletes something.",
+   "instead": [
+    {
+     "when": "an action inside a sentence or a row of text",
+     "use": "TextLink"
+    },
+    {
+     "when": "an action that one glyph says better than a word",
+     "use": "IconButton"
+    },
+    {
+     "when": "narrowing what a feed shows",
+     "use": "Chip"
+    },
+    {
+     "when": "switching between views of the same thing",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "a choice whose options each need a picture or a line of explanation",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "signing in with Apple or Google",
+     "use": "ProviderButton"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#Button",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A native button (a link with `href`): Tab reaches it, Enter activates it, and Space does too on a button; `disabled` takes a button out of the tab order. A screen reader hears its text (or `aria-label`), with `trailing`'s value and its `label` read after it (\"~100 fragments\"); icons and the mark are hidden. With `href` and `disabled` it is drawn as a disabled button, out of the tab order, since a link cannot be disabled. With `busy` it keeps focus and its place in the tab order but is `aria-disabled`, so Enter, Space and a click do nothing; after the delay a screen reader hears `busyLabel` once (or \"Save, working\" without it), and `doneLabel` when it ends; a wait shorter than the delay says nothing. In forced colours it keeps an edge in ButtonText, and a disabled one turns GrayText.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ProviderButton",
+   "title": "ProviderButton",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "ProviderButton is the button for signing in with Apple or Google, in the provider's own mark and colours as each provider sets them.",
+   "use": "signing in or creating an account with Apple or Google.",
+   "instead": [
+    {
+     "when": "any other action",
+     "use": "Button"
+    },
+    {
+     "when": "linking an account inside the product (YouTube, a connector)",
+     "use": "Button"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#ProviderButton",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A native button (a link with `href`): Tab reaches it, Enter activates it, and Space does too on a button; `disabled` takes a button out of the tab order. A screen reader hears its label (\"Continue with Apple\"); the provider's mark is hidden. With `href` and `disabled` it is a disabled button. Under reduced motion its press does not scale, and in forced colours it keeps an edge.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "IconButton",
+   "title": "IconButton",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "IconButton is a circular control holding one icon, with a required accessible `label`.",
+   "use": "an action that one glyph says better than a word: back, share, like, captions, the bell.",
+   "instead": [
+    {
+     "when": "an action whose meaning needs a word",
+     "use": "Button"
+    },
+    {
+     "when": "a glyph that only decorates",
+     "use": "Icon"
+    },
+    {
+     "when": "asking Maki",
+     "use": "AskMaki"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#IconButton",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button (a link with `href`): Tab reaches it, Enter activates it, and Space does too on a button; the icon is hidden. Name it with `label`; without one it has no name, and with `pressed` set it is a toggle announced \"pressed\" or \"not pressed\". A link is never a toggle: a pressed link is said to be the current one (`aria-current`) and keeps the pressed look. With `href` and `disabled` it is a disabled button. In forced colours it keeps an edge, and pressed takes Highlight.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Chip",
+   "title": "Chip",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Chip filters a feed by kind: All, Episodes, Shorts, Manga, Following.",
+   "use": "narrowing what a feed or a list shows, one kind at a time; with `variant=\"soft\"`, picking several words from a set, such as traits.",
+   "instead": [
+    {
+     "when": "running an action",
+     "use": "Button"
+    },
+    {
+     "when": "two to four views of the same thing",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "words the person keeps and removes",
+     "use": "TagList"
+    },
+    {
+     "when": "a label on artwork or a state on a surface",
+     "use": "Badge"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Chip",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Tab focuses each chip; Enter or Space runs `onClick`. A screen reader hears the group named by Chip.Group's `label`, then each chip as a button, \"pressed\" when `selected` (a `removable` one is a plain button, \"Remove Smith\"); the icon is hidden. When a keyed chip leaves the group with focus on it, focus goes to the chip now in its place, else the last one. In forced colours each chip keeps an edge, and a selected one takes Highlight. A soft chip is a 44px target, though it draws at 32px.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SegmentedControl",
+   "title": "SegmentedControl",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "SegmentedControl switches between two to four views of the same thing: series sections, Following / For you, reading direction.",
+   "use": "switching between two to four views of the same thing (series sections, Following and For you), or a setting with two to four named values.",
+   "instead": [
+    {
+     "when": "five options or more",
+     "use": "Select"
+    },
+    {
+     "when": "one setting that is on or off",
+     "use": "Switch"
+    },
+    {
+     "when": "narrowing a feed by kind",
+     "use": "Chip"
+    },
+    {
+     "when": "going to another part of the product",
+     "use": "TabBar"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#SegmentedControl",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": [
+     {
+      "rule": "color-contrast",
+      "reason": "The selected label sits on the sliding highlight, a separate element the checker can't see. Measured on screen it is about 19:1 in both themes."
+     }
+    ]
+   },
+   "accessibility_declared": {
+    "design": "Tab focuses each option; Enter or Space picks it. A screen reader hears the group's `label`, then each option as a button, \"pressed\" when selected. Dragging the pill is for the pointer; Enter or Space on an option does the same.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "OptionTiles",
+   "title": "OptionTiles",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "OptionTiles is the Studio's picker: a grid of tiles, each an AniCanon icon over a short name, for shot type, angle, depth, movement, mood, lighting, weather, effects and frame format.",
+   "use": "a choice that is clearer seen than read: Studio's direction pickers (shot, angle, lighting) as tiles, and with `size=\"lg\"` the first choice of a flow, a pack or a plan as cards.",
+   "instead": [
+    {
+     "when": "a short list of plain words",
+     "use": "Select"
+    },
+    {
+     "when": "two to four views of the same thing",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "one setting on or off",
+     "use": "Switch"
+    },
+    {
+     "when": "one thing among many, with pictures and search",
+     "use": "Picker"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#OptionTiles",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Ways in (options with `href`) are a group named by `label`, each tile a link (a button with `onClick` alone) read as its name and description. With one choice the tiles are a radio group: one Tab stop, on the chosen tile (the first when none is), so a Dialog opens on the chosen tile; the arrows move to a tile and choose it, Home and End go to the first and last, and an option's `disabled` is skipped. With `multiple` each tile is a toggle button: Tab focuses each one, and Enter or Space picks it. A screen reader hears the group, named by the words of `label` (or `ariaLabel`), then each tile with its name, as a radio (\"checked\" when chosen) or with `multiple` a toggle button (\"pressed\"), large tiles adding the badge, the amount or cost with its label (\"24,990 fragments\"), the description and the footnote, with icons and art hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Switch",
+   "title": "Switch",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Switch turns one thing on or off, with its name as the `label` (the visible text sits beside it).",
+   "use": "one setting that takes effect the moment it changes: Loop this track, Name who speaks.",
+   "instead": [
+    {
+     "when": "a choice between named options",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "a value on a range",
+     "use": "SliderRow"
+    },
+    {
+     "when": "choosing things to act on together, or agreeing to terms",
+     "use": "Checkbox"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Switch",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A switch named by `label` that Tab reaches; Enter or Space flips it through `onChange`, it is announced \"on\" or \"off\", and `disabled` takes it out of the tab order. With `showLabel` the whole row is its label, so a click on the text flips it too, and the `hint` is its description. Sliding the knob is for the pointer; Enter or Space does the same. In forced colours the track draws an edge and the knob a solid in the system colours (Highlight when on), and the switch keeps its size.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PanelRow",
+   "title": "PanelRow",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "PanelRow is Studio’s folded section: an icon, the section’s name and its current value, with the chevron that opens it, at the row's end with or without a value.",
+   "use": "a folded Studio section: its icon, its name and what it is set to (Close-up · push in · low), with the chevron that opens it.",
+   "instead": [
+    {
+     "when": "several kinds of setting listed together, each opening its full choice",
+     "use": "PropertyList"
+    },
+    {
+     "when": "a Studio card with its controls showing",
+     "use": "Panel"
+    },
+    {
+     "when": "one thing on a row of a list",
+     "use": "ListRow"
+    },
+    {
+     "when": "one setting on or off",
+     "use": "Switch"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PanelRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button (a link with `href`) that Tab reaches; Enter runs `onClick`, and Space does too on a button. A screen reader hears its title and value, then, when `open` is given on a button, expanded or collapsed from it; the icon and chevron are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TextLink",
+   "title": "TextLink",
+   "library": "Core",
+   "group": "Actions",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "TextLink is a quiet action inside a line or a row of text: Accept, Decline, Why; Ask Maki; Use it.",
+   "use": "a quiet action beside what it acts on, inside a line or a row of text (Accept, Decline, Why), and the way into a deletion.",
+   "instead": [
+    {
+     "when": "the action a view exists for",
+     "use": "Button"
+    },
+    {
+     "when": "an action shown as a glyph alone",
+     "use": "IconButton"
+    },
+    {
+     "when": "a row that opens a page",
+     "use": "ListRow"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#TextLink",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A link with `href`, otherwise a button: Tab reaches it, Enter activates it (Space too as a button), and a screen reader hears its text or `aria-label`, with the icon hidden. `variant` changes only its look. For a link that opens a dialog, `aria-haspopup`, `aria-expanded` and `aria-controls` pass through. Its underline at rest tells it apart from the text around it without colour (WCAG 1.4.1).",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TextField",
+   "title": "TextField",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A labelled text input or text area.",
+   "use": "words a person types, on one line or in a text area: a name, a description, a search.",
+   "instead": [
+    {
+     "when": "one choice from a list",
+     "use": "Select"
+    },
+    {
+     "when": "a number stepped a unit at a time",
+     "use": "NumberField"
+    },
+    {
+     "when": "words kept as separate tags",
+     "use": "TagList"
+    },
+    {
+     "when": "Studio's prompt, with who and where it binds",
+     "use": "PromptComposer"
+    },
+    {
+     "when": "writing to Maki",
+     "use": "MakiComposer"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#TextField",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A text input (a text area with `multiline`) that Tab reaches and that takes typing, named by the words of `label` (with \"optional\"), or by `placeholder` without one, and described by `hint`; `required` adds \"required\", and `readOnly` makes it read-only. `onChange` gets the text as it is typed. The icon is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SearchField",
+   "title": "SearchField",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A search: TextField's box with the search icon, a clear button once there are words, and, when the page passes `results`, Picker's options under it.",
+   "use": "finding something by its words: in a series, the library, all of AniCanon.",
+   "instead": [
+    {
+     "when": "choosing one thing for a field (a cast member for a shot)",
+     "use": "Picker"
+    },
+    {
+     "when": "filtering a list already on screen by a few known values",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "writing to Maki",
+     "use": "MakiComposer"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#SearchField",
+   "accessibility_declared": {
+    "design": "A search landmark named by `label`, holding a search field of the same name that Tab reaches. Enter submits the words, or chooses the active result; Escape closes the results, then clears the words, then calls `onClose`. With `results` the field is a combobox: Up and Down move its active descendant through the options (Up or Down opens closed results), each option reads as Picker's do, and one status line says how many results there are, that it is searching, or `emptyText`. The clear button is \"Clear search\" and gives focus back to the field. The icon is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Select",
+   "title": "Select",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A labelled single-choice control that opens a list.",
+   "use": "one choice from a short list of plain values, in a labelled field that opens the list: a faction, with its icon.",
+   "instead": [
+    {
+     "when": "one thing among many, with search and groups",
+     "use": "Picker"
+    },
+    {
+     "when": "two to four named values seen at once",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "a choice that is clearer seen than read",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "a colour chosen by eye",
+     "use": "SwatchPicker"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#Select",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A select-only combobox named by the words of `label` together with its value (\"Faction Heros\"), else by `placeholder`, and described by `hint`; Tab reaches it, and focus stays on it while its list is open. Down, Up, Enter or Space open the list, the arrows, Home, End and a first letter move the active option (read as the active descendant, \"selected\" on the chosen one), Enter or Space picks it, and Escape or Tab closes the list. The arrows still reach a `disabled` option, read as unavailable with its reason after its label, and it can't be picked. The active option is kept in view, and with no `options` the field is unavailable. When the page changes `value` the name follows it, and a `value` not among the options is named by the placeholder, never by its key, with no option read as selected.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Checkbox",
+   "title": "Checkbox",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Checkbox is one thing chosen or not, among others that may be chosen too: the files to queue, the rows to delete, the terms you agree to.",
+   "use": "choosing any number of things at once, or for one agreement: rows for a bulk action, files to queue, \"I agree to the terms\".",
+   "instead": [
+    {
+     "when": "a setting that takes effect the moment it changes",
+     "use": "Switch"
+    },
+    {
+     "when": "choosing among options drawn as tiles",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "choosing one thing among many, with pictures and search",
+     "use": "Picker"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Checkbox",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A checkbox named by `label` that Tab reaches; Enter or Space flips it through `onChange`, and it is announced \"checked\", \"not checked\" or \"mixed\". `disabled` takes it out of the tab order. With `showLabel` the row is its label, so a click on the words flips it too, and the `hint` is its description. The mark is hidden; the state is said. In forced colours the edge and the mark draw in the system colours.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "DropZone",
+   "title": "DropZone",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Where a file goes: drop or choose.",
+   "use": "where a file goes, dropped or chosen, then read and held: a clip to bring in.",
+   "instead": [
+    {
+     "when": "a page or a list with nothing in it yet",
+     "use": "EmptyState"
+    },
+    {
+     "when": "a frame waiting for a picture that will be made",
+     "use": "Thumb"
+    },
+    {
+     "when": "choosing one thing already in the story, such as a place",
+     "use": "Picker"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#DropZone",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button that Tab reaches, named by its `title` and `hint` (and \"added\" once filled), with the icon hidden; filled with an `image` it is a group named by `title`, its picture's alt is `alt`, and its Remove is a button of its own; while busy it carries aria-busy, says its title and hint once through the page's live region as it starts, and its loader stays quiet. With `onFiles`, Enter, Space or a click open the file chooser (after `onClick`, which can prevent it) and a drop hands the files over.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FieldHelp",
+   "title": "FieldHelp",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "FieldHelp is the ⓘ beside a field name.",
+   "use": "the ⓘ beside a field's name that says what the field controls, in one bold line and examples: shot type, depth of field. With `examples`, for showing each case of a choice with its picture: how much a thing matters in a shot.",
+   "instead": [
+    {
+     "when": "context everyone should see, kept on the page",
+     "use": "Notice"
+    },
+    {
+     "when": "a hover card on a mention or a small form",
+     "use": "Popover"
+    },
+    {
+     "when": "an action shown as a glyph alone",
+     "use": "IconButton"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#FieldHelp",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button that Tab reaches, announced \"About\" plus `label` (or \"About this field\") and described by its tip. Focus or hover shows the tip, and the tip can be hovered without closing. Escape hides it, whether focus or the pointer opened it, until focus or the pointer leaves. The button is a 24px target, though it draws at 20px. With `examples` it is a button with `aria-haspopup=\"dialog\"` and `aria-expanded`; a press opens a dialog named by `title` that takes focus, and Escape, a press outside or the done button closes it and returns focus to the ⓘ; with `dialog` it is a modal Dialog that keeps focus inside.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SwatchPicker",
+   "title": "SwatchPicker",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "SwatchPicker chooses a colour by eye: round swatches, the chosen one ringed.",
+   "use": "a colour chosen by eye from round swatches: a skin tone, a creature's coat (Tabby, Calico).",
+   "instead": [
+    {
+     "when": "a choice that reads best as an icon over a name",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "a short list of plain words",
+     "use": "Select"
+    },
+    {
+     "when": "any colour, typed or picked from the whole range (a brand colour)",
+     "use": "ColorPicker"
+    },
+    {
+     "when": "adjusting colour in the editor",
+     "use": "SliderRow"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#SwatchPicker",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A radio group named by `label` and one Tab stop: arrows move to a swatch and choose it, each a radio named by its option's label and \"checked\" when chosen. The visible names and pattern drawings are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ColorPicker",
+   "title": "ColorPicker",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "ColorPicker chooses any colour: a field for saturation and brightness, a hue track and the hex.",
+   "use": "when the colour can be any colour: a brand colour, a design's own colour.",
+   "instead": [
+    {
+     "when": "a colour chosen from a fixed set (skin, coat)",
+     "use": "SwatchPicker"
+    },
+    {
+     "when": "adjusting colour in the editor",
+     "use": "SliderRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#ColorPicker",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by `label`. The field is a slider named \"Saturation and brightness\" that speaks both; arrows move it 1% (10% with Shift), left and right for saturation, up and down for brightness. The hue track is a slider named \"Hue\" in degrees: arrows by 1 (10 with Shift), Page Up and Page Down by 30, Home and End. The hex field is a text field named by `label` and \"hex\". Presets and picture colours are radio groups (see SwatchPicker), the chosen one checked when it matches.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "DateField",
+   "title": "DateField",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "DateField picks a date, or a range of dates read by period: this month, the quarter, the dates on an invoice.",
+   "use": "a date or a span of dates someone picks or reads by period.",
+   "instead": [
+    {
+     "when": "a choice from a few named periods only",
+     "use": "Select"
+    },
+    {
+     "when": "a time of day or a duration",
+     "use": "NumberField"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#DateField",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The field is a button named by `label` and the dates, that opens a dialog named by `label`. Each month is a grid named by its month and year, with one Tab stop: arrows move a day or a week, Page Up and Page Down a month (with Shift a year), Home and End to the start and end of the week, and Enter or Space picks. Days in the range are selected, days out of reach disabled, and today is the current date; the new month is announced when it changes. The presets are a listbox with one Tab stop. Escape, a press outside or Tab out of it closes, and after Escape focus goes back to the field. Sliding across days is for the pointer; two presses, or the keys, do the same.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Field",
+   "title": "Field",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Field puts the form's label over a control that does not carry its own (a segmented control, chips, a group of options), with an optional hint under it.",
+   "use": "the label and hint over a control that has none of its own: a segmented control, chips, a group of options, swatches.",
+   "instead": [
+    {
+     "when": "typed words, which carry their own label",
+     "use": "TextField"
+    },
+    {
+     "when": "a list choice, which carries its own label",
+     "use": "Select"
+    },
+    {
+     "when": "explaining a field on hover or focus",
+     "use": "FieldHelp"
+    },
+    {
+     "when": "a label over a strip or a group inside a panel",
+     "use": "SectionHeader"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Field",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": [
+     {
+      "rule": "color-contrast",
+      "reason": "The flagged label is a SegmentedControl's selected segment, on its sliding highlight, which the checker can't see. Measured on screen it is about 19:1 in both themes."
+     }
+    ]
+   },
+   "accessibility_declared": {
+    "design": "A group named by its `label` and described by its `hint`, so the control inside is announced within it, with \"optional\" read as part of the name.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SliderRow",
+   "title": "SliderRow",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "SliderRow is a labelled value on a track: the name, the track (0–100) and the readout as the creator reads it (`+0.2`, `−3 dB`, `100%`).",
+   "use": "a value set by feel on a track, with its readout in the unit people use: colour, volume, opacity and loudness in the editor.",
+   "instead": [
+    {
+     "when": "a value where one unit matters, such as 1px or 2°",
+     "use": "NumberField"
+    },
+    {
+     "when": "a sound's level with its mute",
+     "use": "VolumeControl"
+    },
+    {
+     "when": "one setting on or off",
+     "use": "Switch"
+    },
+    {
+     "when": "the playhead of an episode or a short",
+     "use": "Scrubber"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#SliderRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A slider named by `label` that Tab reaches, its value spoken as the `readout` (the name and readout beside it are hidden, so neither is read twice); with `onChange`, arrows move it by 1 (10 with Shift), Page Up and Page Down by 10, and Home and End to 0 and 100. Without `onChange` it reads as read-only, and `disabled` takes it out of the tab order and marks it disabled.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "NumberField",
+   "title": "NumberField",
+   "library": "Core",
+   "group": "Forms",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "NumberField is a number you type or step a unit at a time: its name, a step down, the value with its unit, a step up.",
+   "use": "a number where one unit matters, typed or stepped a unit at a time: a 1px border, 2° of rotation, a font size.",
+   "instead": [
+    {
+     "when": "a feel such as strength or mix, where the readout is the point",
+     "use": "SliderRow"
+    },
+    {
+     "when": "nudging a cut's in or out a frame at a time",
+     "use": "TrimFrames"
+    },
+    {
+     "when": "words",
+     "use": "TextField"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#NumberField",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A spinbutton named by `label` that takes typing, handed over on Enter or leaving it: Up and Down step it through `onStep` and its value is read with its unit, and `min` and `max` give its range. Tab also reaches the \"Less\" and \"More\" buttons on either side (\"More duration\"), whose steps are said aloud.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TopNav",
+   "title": "TopNav",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "TopNav is the desktop header: the AniCanon mark and wordmark, the main sections as text links, and search and account on the right.",
+   "use": "the desktop header: the AniCanon mark, up to five main sections (Home, Series, Shorts, Manga, Creators), search and the account.",
+   "instead": [
+    {
+     "when": "navigation on a phone",
+     "use": "TabBar"
+    },
+    {
+     "when": "the creator's workspace sections",
+     "use": "SideNav"
+    },
+    {
+     "when": "the views inside a production",
+     "use": "ProductionNav"
+    },
+    {
+     "when": "the top bar of a full-screen flow",
+     "use": "FlowHeader"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#TopNav",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A header whose brand link reads the name (the logo is hidden; without `brand.href` the brand is the name alone, not a link), then a navigation named by `label` (default \"Main\") whose links mark the current page (a link without `href` is a button running its `onClick`, never a link to #); Tab moves through them, then the `actions`, then, when there is an account or Create, \"Search\" (running `onSearch`, or `search.onOpen`; while searching, the search landmark and \"Close search\" take the links' place and Search is gone), then Create and the account button (\"Your account, Aiko Mori\", running `account.onClick`).",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SideNav",
+   "title": "SideNav",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "The creator sidebar: product, a switcher for the current workspace, grouped sections, a footer slot and the signed-in account at the bottom.",
+   "use": "the creator sidebar: the switcher for the current workspace, grouped sections and the signed-in account at the bottom.",
+   "instead": [
+    {
+     "when": "the main sections a viewer moves between on desktop",
+     "use": "TopNav"
+    },
+    {
+     "when": "the views and scenes inside a production",
+     "use": "ProductionNav"
+    },
+    {
+     "when": "navigation on a phone",
+     "use": "TabBar"
+    },
+    {
+     "when": "the rail inside a production",
+     "use": "ProductionNav"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.7",
+   "url": "https://sakuga.design/components#SideNav",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A complementary region named by `label` (default \"Sections\"); Tab moves through the brand link (without `brand.href`, the name alone), the fold button, the series switcher (\"Series: Ember Bay. Switch\", expanded or collapsed from `switcher.open`, running `switcher.onClick`, controlling `switcher.controls`), the links of a navigation named \"Sections navigation\" (each group named by its title, the current link \"current page\"; an item without `href` is a button running its `onClick`), the footer slot (`children`) and the account button (\"Your account, Aiko Mori\", running `account.onClick`). Icons and pictures are hidden. The fold button is named for what it does next (\"Show icons only\", \"Show the full menu\"). Folded, every name stays for a screen reader and the tip shows it on focus. Compact keeps every name: the switcher and the account are named as above, each item by its name under its icon, and the group titles stay as the groups' names.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TabBar",
+   "title": "TabBar",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "TabBar is the phone's main navigation: a floating glass capsule with four destinations and a separate round Create button.",
+   "use": "the phone's main navigation: four destinations (Home, Shorts, Manga, You) and the separate Create button.",
+   "instead": [
+    {
+     "when": "navigation on desktop",
+     "use": "TopNav"
+    },
+    {
+     "when": "switching between views of the same thing",
+     "use": "SegmentedControl"
+    },
+    {
+     "when": "choices that belong to the current screen",
+     "use": "Sheet"
+    }
+   ],
+   "used_on": [
+    "iOS",
+    "Android",
+    "web (phone)"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#TabBar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A navigation named by `label` (default \"Tabs\"): Tab moves through each destination, a link read by its text with the current one marked \"current page\", then the round Create button, named by `createLabel` (default \"Create\"). In the web form Create is the fifth link, marked \"current page\" when `createCurrent`. An item with no address is a button. Icons are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PageHeader",
+   "title": "PageHeader",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "PageHeader opens an app page: its `title`, the `lead` under it that says what the page holds, and at the end the page's view switch (`slot=\"views\"`) and its one primary action (`slot=\"action\"`).",
+   "use": "the top of an app page beside the SideNav (Characters, Places, Library, Series settings, You, Create): its title, its lead, and its view switch and main action.",
+   "instead": [
+    {
+     "when": "opening a shelf or a section inside a page",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "the top of a production view, with its eyebrow and Maki",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the top bar of a full-screen flow",
+     "use": "FlowHeader"
+    },
+    {
+     "when": "the head of a side panel or an inspector",
+     "use": "PanelHeader"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PageHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-31",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A header landmark whose title is a level-1 heading (`as` changes the level), read before the lead as text; Tab reaches the view switch, then the action. Below 768 px the action sits on the title's line while the switch follows the lead, so the order read and tabbed is title, lead, switch, action.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SectionHeader",
+   "title": "SectionHeader",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "SectionHeader opens a shelf: a heading, the line that explains what is on it, and an optional See all link.",
+   "use": "the heading that opens a shelf, with the line that says what is on it (\"Shorts · videos under a minute\") and an optional See all link.",
+   "instead": [
+    {
+     "when": "a labelled group of rows in a Story panel, with its count",
+     "use": "PanelSection"
+    },
+    {
+     "when": "the top of a side panel in Story",
+     "use": "PanelHeader"
+    },
+    {
+     "when": "the top of an app page, with its title-1 and view switch",
+     "use": "PageHeader"
+    },
+    {
+     "when": "the top of a production view",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the label over a single control in a form",
+     "use": "Field"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#SectionHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The title is a heading (`as`, default h2) with its count read inside it, then the subtitle as text, and Tab reaches the See all link, named by `action.ariaLabel` or `action.label` (an action with only `onClick` is a button, never a link to #); the icon is hidden. At size xs the title is plain text, not a heading, with its count and subtitle read after it.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Pagination",
+   "title": "Pagination",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Pagination reads a long list a page at a time: what this page holds, then previous, the page numbers and next.",
+   "use": "reading a long list a page at a time, under the list it pages: productions at 24 a page, counted as \"1–24 of 31 shorts\".",
+   "instead": [
+    {
+     "when": "where a person is in a flow they step through",
+     "use": "Stepper"
+    },
+    {
+     "when": "a shelf that leads to everything on it",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "the pages of a manga issue in the editor",
+     "use": "IssueStrip"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#Pagination",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A navigation region named by `label` (default \"Pages\"): the count reads as text, then Tab moves through \"Previous page\", each \"Page 3\" (the current one marked \"current page\") and \"Next page\", which are disabled at the ends: an arrow that turns off under focus hands focus to the current page. The ellipsis is hidden. Sliding is for the pointer; each page is still its own link or button.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FlowHeader",
+   "title": "FlowHeader",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "FlowHeader is the full-screen flow's top bar: close (nothing is kept), what is being made and for what, the steps when there are several, then what sits at the end.",
+   "use": "the top bar of a full-screen flow: close, what is being made and for what (\"New issue · Bad Memories\"), the steps when there are several, and the balance.",
+   "instead": [
+    {
+     "when": "Back and the step's action",
+     "use": "FlowFooter"
+    },
+    {
+     "when": "the desktop header of the app",
+     "use": "TopNav"
+    },
+    {
+     "when": "the top of a production view",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the editor's top bar",
+     "use": "EditorHeader"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#FlowHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A header element: Tab reaches the close button (named by `closeLabel`, default \"Close\"; a link with `closeHref`) and then whatever sits at the end. The title and context are a level-1 heading, and the steps are a list named by `stepsLabel` (default \"Steps\") with the current one marked \"current step\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FlowFooter",
+   "title": "FlowFooter",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "FlowFooter closes a step of the full-screen flow, inline under its content, or, where the step's body scrolls (New template, Edit template), placed by the flow under that body, outside the scroll, so it stays in view with the header above; the flow's layout does that, and FlowFooter itself is never sticky: Back on the left when a step precedes, then the note and the action on the right.",
+   "use": "the foot of a step in a full-screen flow: Back when a step precedes, a note on what happens next or what it costs, then the one primary action.",
+   "instead": [
+    {
+     "when": "the way out of the flow",
+     "use": "FlowHeader"
+    },
+    {
+     "when": "facts at the foot of a working surface",
+     "use": "StatusBar"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#FlowFooter",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A footer element: Tab reaches Back (a link with `back.href`, otherwise a button running `back.onClick`) and then the actions; the note reads as text between them and the back icon is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Stepper",
+   "title": "Stepper",
+   "library": "Core",
+   "group": "Navigation",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Where a person is in a short multi-step flow: done steps get a check, the current one fills.",
+   "use": "where a person is in a short flow of three to five steps, in the top bar of a full-screen flow; `variant=\"bar\"` on a phone.",
+   "instead": [
+    {
+     "when": "moving between the pages of a list",
+     "use": "Pagination"
+    },
+    {
+     "when": "a job's stages while it runs, with the time each took",
+     "use": "Stages"
+    },
+    {
+     "when": "how far something being made has come",
+     "use": "Progress"
+    },
+    {
+     "when": "what a character is ready with",
+     "use": "Readiness"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Stepper",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; an ordered list named by `label` (default \"Steps\"), each step read as its number and name, a done one as \"Done:\" and its name, and the current one marked \"current step\". With `variant` \"bar\" it is a progress bar named like \"Step 2 of 4: Cast\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MediaCard",
+   "title": "MediaCard",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "MediaCard shows one episode, short or manga issue: its artwork at its real shape, then a title and a metadata line.",
+   "use": "one episode, short or manga issue: its art at its real shape (16:9, 9:16 or a manga page), its title and a metadata line.",
+   "instead": [
+    {
+     "when": "a picture in a frame, such as a take or a library item",
+     "use": "Thumb"
+    },
+    {
+     "when": "an episode or an issue announced but not out yet",
+     "use": "PremiereSlot"
+    },
+    {
+     "when": "a page of an issue in the editor",
+     "use": "MangaPage"
+    },
+    {
+     "when": "a cast member on the cast page",
+     "use": "CastCard"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#MediaCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with \"waiting for you\" when `attention` is set and \"watched 40%\" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With `menu`, its ⋯ is a button after the link, named \"More for\" and the title, with a menu popup: Tab reaches it after the card.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Badge",
+   "title": "Badge",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Badge is a small label laid over artwork: a duration, a view count, or New.",
+   "use": "a small label over artwork (a duration, a view count, New) and, on a surface, a state such as rendering or one that waits for you.",
+   "instead": [
+    {
+     "when": "narrowing a feed by kind",
+     "use": "Chip"
+    },
+    {
+     "when": "words the person keeps and removes",
+     "use": "TagList"
+    },
+    {
+     "when": "a state that changed, before and after",
+     "use": "StateChange"
+    },
+    {
+     "when": "the unread mark on the bell",
+     "use": "IconButton"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#Badge",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; its text is read in place. The dot and the icon are hidden, and `variant` changes only its colour. In forced colours every badge keeps an edge, and its dot stays visible.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CastAvatar",
+   "title": "CastAvatar",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "CastAvatar shows a person: a character (a round portrait from their identity sheet), or a creator (an initial until they add a picture), with their name and a one-line role.",
+   "use": "a person with their name and a one-line role: a character's round portrait from their identity sheet, or a creator's initial until they add a picture.",
+   "instead": [
+    {
+     "when": "a cast member on the cast page, with what they have and what is happening to them",
+     "use": "CastCard"
+    },
+    {
+     "when": "who or what a panel holds, with its @ or # mark and a note",
+     "use": "MentionChip"
+    },
+    {
+     "when": "a character as one card with stats and traits",
+     "use": "CharacterCard"
+    },
+    {
+     "when": "a character named inside prose",
+     "use": "Mention"
+    },
+    {
+     "when": "several people at a glance, overlapping",
+     "use": "CastStack"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#CastAvatar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `selected` set it is a toggle button, \"pressed\" when selected; with `href` a link; with only `onClick` a button; otherwise plain text, and Tab reaches each of the three controls, Enter or Space pressing the buttons. Its name and role are read, `muted` adds \"not in the story at this point\", and the portrait, initial and check are hidden; without `name` it is named by `label`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CastStack",
+   "title": "CastStack",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Who is in a take, at a glance: their faces overlapping, up to four, then +N for the rest.",
+   "use": "the people in a take, a clip or a scene at a glance, beside its name: up to four faces, then +N.",
+   "instead": [
+    {
+     "when": "one person with their name and role",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "choosing who is in something",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "who or what a prompt binds, with its note",
+     "use": "MentionChip"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CastStack",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as one image named by `label`, or by every person's name joined (\"Aiko, Ren and Mio\"), including those past `max`. The faces and the \"+N\" are hidden behind that name.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Thumb",
+   "title": "Thumb",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Thumb is a picture in a frame: cover-cropped, 6 px corners, `selected` adds the accent ring, `muted` greys a rejected take.",
+   "use": "a picture in a frame: a take (`selected`, or `muted` when rejected), a library item, a panel to pick, a frame not made yet.",
+   "instead": [
+    {
+     "when": "an episode, short or manga issue a viewer opens",
+     "use": "MediaCard"
+    },
+    {
+     "when": "a person's portrait with their name and role",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "a manga page at its trim",
+     "use": "MangaPage"
+    },
+    {
+     "when": "one look on white with its occasion",
+     "use": "LookPlate"
+    },
+    {
+     "when": "the place or backdrop being made, on the left of its flow",
+     "use": "PlaceCard"
+    },
+    {
+     "when": "a whole page or list with nothing in it yet",
+     "use": "EmptyState"
+    },
+    {
+     "when": "a character on the cast page",
+     "use": "CastCard"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.6",
+   "url": "https://sakuga.design/components#Thumb",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `onInsert`, Enter or a double-click inserts (the item is described \"Enter or a double-click inserts it at the playhead; drag it onto the timeline to place it\") and Insert is its own button named \"Insert\" and the name. A picture whose alt is `alt` (empty, so hidden, by default), with \"selected\" and \"rejected\" (`muted`) said after it, and with `title` or `meta` a figure captioned by them. With `onClick` it is a toggle button that Tab reaches and Enter or Space presses, \"pressed\" when `selected`: name it with `label` (or `alt`), since without one it has no name. With `href` its title is a link named by the title (or `label`), the meta read after it, and its action a separate control after the link. Without `href` an action is a separate control after the frame, before its caption. In forced colours a selected frame keeps its ring, in Highlight.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "List",
+   "title": "List",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "List holds the rows of one list of things and names it: `ListRow`s, one thing per row.",
+   "use": "around `ListRow`s, for one list of things that a screen reader should hear as a list.",
+   "instead": [
+    {
+     "when": "each kind of setting with its value",
+     "use": "PropertyList"
+    },
+    {
+     "when": "measured facts, a name and its value",
+     "use": "FactList"
+    },
+    {
+     "when": "cuts on an ekonte sheet",
+     "use": "CutSheet"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.5",
+   "url": "https://sakuga.design/components#List",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A list (role list) named by `label`; its rows are its items, read in order across each line when it has `columns`, and Tab reaches only the rows that are links or hold a control. With `onReorder` each grip is a button named \"Move Voices, 2 of 3\", described by how to move it, with Up and Down (or Alt with them) moving the row; the move is said aloud.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ListRow",
+   "title": "ListRow",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "ListRow is one row of a `List`: a title and a quiet line under it, with an optional `icon` or `image` before it, a `meta` column (a timecode) and whatever sits at the end (a switch, a button, a check).",
+   "use": "one thing on one row of a `List`: a title and a quiet line, with what sits at the end (a switch, a button, a check); `loose` in settings lists.",
+   "instead": [
+    {
+     "when": "a quiet action inside a line of text",
+     "use": "TextLink"
+    },
+    {
+     "when": "a row on Story with a picture, a state and the work that told it",
+     "use": "EntityRow"
+    },
+    {
+     "when": "each kind of setting with its value, opening the full choice",
+     "use": "PropertyList"
+    },
+    {
+     "when": "measured facts, a name and its value",
+     "use": "FactList"
+    },
+    {
+     "when": "a cut on an ekonte sheet",
+     "use": "CutRow"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.5",
+   "url": "https://sakuga.design/components#ListRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `onInsert`, Enter or a double-click inserts (the item is described \"Enter or a double-click inserts it at the playhead; drag it onto the timeline to place it\") and Insert is its own button named \"Insert\" and the name, followed by the row's `action` when it has one. Inside List (a list named by its `label`) each row is a list item read as its title, quiet line, `meta` and what sits at the end, marked \"current\" when `selected` and \"waiting for you\" with `attention`; with `checked` or `onCheck` its box comes first, a checkbox named \"Select\" and the title (`label` names it when the title is markup); pictures, icons and the chevron are hidden. With `href` the row is a link, with only `onClick` a link-role row, and either way Tab reaches it and Enter follows it. An action beside the link is the next Tab stop, with its own ring; `linkLabel`, when set, is the link's name.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FactList",
+   "title": "FactList",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "FactList pairs a quiet name with its value, two columns, values to the right.",
+   "use": "measured facts as a quiet name and its value (a colour match across a join, the length of a trimmed cut), and with `layout=\"grid\"` who a character is at a point in the story.",
+   "instead": [
+    {
+     "when": "settings the creator edits, each opening its choice",
+     "use": "PropertyList"
+    },
+    {
+     "when": "a character's picked facts, each with its picker's icon",
+     "use": "CharacterStats"
+    },
+    {
+     "when": "a Studio section showing what it is set to",
+     "use": "PanelRow"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#FactList",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a description list, so each name is read as a term and its value, with any `note`, as its description.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TagList",
+   "title": "TagList",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "TagList keeps words as tags: a character's visual vibe, the garments read from a photo.",
+   "use": "words kept as tags, each one removable and restorable: a character's visual vibe, the garments read from a photo.",
+   "instead": [
+    {
+     "when": "picking words from a set, such as traits",
+     "use": "Chip"
+    },
+    {
+     "when": "a label over artwork",
+     "use": "Badge"
+    },
+    {
+     "when": "who or what a panel holds, with its picture",
+     "use": "MentionChip"
+    },
+    {
+     "when": "a free sentence someone types",
+     "use": "TextField"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#TagList",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by `label`: Tab reaches each tag's button (\"Remove Gentle\", or \"Add back Gentle\" once it is out; `removeLabel` and `restoreLabel` change the verb), which runs `onRemove` or `onRestore`, and focus moves to the tag that takes its place; the change is said (\"Gentle removed\", \"Gentle added back\"). With `placeholder`, a text input named by `inputLabel` or the placeholder shows a focus ring and hands its words to `onAdd` on Enter.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PropertyList",
+   "title": "PropertyList",
+   "library": "Core",
+   "group": "Content",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "PropertyList shows each kind of setting on one row with what it is set to; a row opens the full choice.",
+   "use": "each kind of setting on a row with what it is set to, where a row opens the full choice: Studio's direction for a panel (shot type, angle, lighting, lens).",
+   "instead": [
+    {
+     "when": "one section that folds open on its own",
+     "use": "PanelRow"
+    },
+    {
+     "when": "measured facts that are never edited",
+     "use": "FactList"
+    },
+    {
+     "when": "every option of one kind, laid out to choose from",
+     "use": "OptionTiles"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PropertyList",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by `label`: Tab moves through each row, a button (a link with `href`) announced by its name and value, expanded or collapsed when the item's `expanded` is set, and Enter runs its `onClick` (Space too on a button). Icons and chevrons are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Notice",
+   "title": "Notice",
+   "library": "Core",
+   "group": "Feedback",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A single line of context inside a page: something to know (info) or something that needs action (attention), with an optional action on the right.",
+   "use": "one line of context inside a page: something to know, or something that needs action, with an optional action.",
+   "instead": [
+    {
+     "when": "confirming that something finished",
+     "use": "Toast"
+    },
+    {
+     "when": "a failure where the content should be",
+     "use": "EmptyState"
+    },
+    {
+     "when": "a correction pinned to work on a sheet",
+     "use": "Slip"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Notice",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable itself; the title and text read in place, the icon is hidden, and any action in it takes focus. With `tone` \"attention\" it says its title and text once, through the page’s one live region, when it appears: a status role on words there from the start is rarely read. A loader passed as `media` keeps its name.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Toast",
+   "title": "Toast",
+   "library": "Core",
+   "group": "Feedback",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A short confirmation that something finished, rising into a corner.",
+   "use": "a short confirmation that something finished, with an optional action.",
+   "instead": [
+    {
+     "when": "an error that needs a decision",
+     "use": "Dialog"
+    },
+    {
+     "when": "context that stays on the page",
+     "use": "Notice"
+    },
+    {
+     "when": "work that is still running",
+     "use": "Progress"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Toast",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Its title and text are said through the page's live region when it appears, and read in place with the icon and picture hidden; Tab reaches any actions in it and the \"Dismiss\" button, which runs `onDismiss`; dismissed with focus inside it, focus goes to the next toast, else back to where it came from. Sliding it away is for the pointer; the Dismiss button does the same.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Loader",
+   "title": "Loader",
+   "library": "Core",
+   "group": "Feedback",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Sakuga's loader is a ball bouncing on twos, the first exercise every animator draws.",
+   "use": "something being made or loading whose length is unknown, in an app that sets no loader of its own.",
+   "instead": [
+    {
+     "when": "work whose share done is known",
+     "use": "Progress"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#Loader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable. When it appears it says its `label` (default \"Loading\") once through the page's live region, unless it sits in a button, a link or a card, and in place it reads as a status of that name; the drawing is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "EmptyState",
+   "title": "EmptyState",
+   "library": "Core",
+   "group": "Feedback",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "EmptyState stands in place of content while there is none: what is happening or what went wrong, in a sentence, then what can be done.",
+   "use": "the place where content would be while there is none: nothing yet, something being made, or something that failed.",
+   "instead": [
+    {
+     "when": "one line of context beside content that is there",
+     "use": "Notice"
+    },
+    {
+     "when": "a job whose share done is known",
+     "use": "Progress"
+    },
+    {
+     "when": "a frame waiting for its picture",
+     "use": "Thumb"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#EmptyState",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable itself; the title is a heading (h2, or the level `as` gives) and the text a paragraph, the icon is hidden, and any actions in it take focus in order. With `tone` \"attention\" it says its title and text once, through the page’s one live region, when it appears.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Progress",
+   "title": "Progress",
+   "library": "Core",
+   "group": "Feedback",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Progress is how far something being made has come, as a line that fills in the accent.",
+   "use": "how far something being made has come, when the share done is known.",
+   "instead": [
+    {
+     "when": "work whose length is unknown",
+     "use": "Loader"
+    },
+    {
+     "when": "the playhead of an episode or a short",
+     "use": "Scrubber"
+    },
+    {
+     "when": "where a person is in a flow they step through",
+     "use": "Stepper"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Progress",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a progress bar announced with its percent. Name it with `label`; without one it has no name. In forced colours the track keeps an edge and the fill takes Highlight.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Scrubber",
+   "title": "Scrubber",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Scrubber shows and sets the playhead: played, buffered and remaining time, with the current time and total length.",
+   "use": "showing and setting the playhead of an episode or a short, over video or the player bar: played, buffered and remaining time, with chapter marks.",
+   "instead": [
+    {
+     "when": "how far something being made has come",
+     "use": "Progress"
+    },
+    {
+     "when": "seeking inside a voice line or a sound",
+     "use": "AudioPlayer"
+    },
+    {
+     "when": "the playhead across the cut's tracks",
+     "use": "Timeline"
+    },
+    {
+     "when": "moving through the story in story order",
+     "use": "StoryScrubber"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Scrubber",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A slider named by `label` (default \"Seek\") that Tab reaches: arrows move it by `step` seconds (default 10), Page Up and Page Down by six steps, Home and End to either end, and its value is spoken as \"1 minute 5 seconds of 3 minutes 0 seconds\". The times beside it read as text and the markers are hidden; without `onChange` it reads as read-only.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Caption",
+   "title": "Caption",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Caption is one subtitle line drawn over video.",
+   "use": "one subtitle line over an episode or a short, at most two lines, centred above the player controls.",
+   "instead": [
+    {
+     "when": "the quiet line that explains a heading or a field",
+     "use": "Text"
+    },
+    {
+     "when": "the caption tracks of a cut in the editor",
+     "use": "Timeline"
+    },
+    {
+     "when": "a planned line with its speaker and translation",
+     "use": "DialogueLine"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Caption",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as a paragraph of text where it sits. It isn't a live region, so a new line is not announced as it changes.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "AudioPlayer",
+   "title": "AudioPlayer",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A voice line or sound clip: a round play button, a `Waveform` you can click, drag or arrow through to seek, and the time.",
+   "use": "hearing a voice line or an audio take: a round play button, a waveform to seek through, and the time.",
+   "instead": [
+    {
+     "when": "a sound drawn as bars alone, such as a track in the cut",
+     "use": "Waveform"
+    },
+    {
+     "when": "choosing a voice to cast",
+     "use": "VoiceTiles"
+    },
+    {
+     "when": "a sound's level and mute",
+     "use": "VolumeControl"
+    },
+    {
+     "when": "the playhead of an episode or a short",
+     "use": "Scrubber"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#AudioPlayer",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Tab reaches the play button, announced \"Play\" or \"Pause\" (from `playing` once it is given) followed by `label`, else `title` (or \"audio\"), then the title's actions (`children`), then, with `onSeek`, the waveform: a slider named \"Position in\" plus that name, where arrows move a second, Home and End jump to either end, and the value is spoken as \"12 seconds of 40 seconds\". The time (\"0:12 / 0:40\") reads as text; without `onSeek` the waveform is hidden and can't be moved.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Waveform",
+   "title": "Waveform",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Waveform draws a sound as bars: a voice line, a take, a track in the cut, a generated sound option.",
+   "use": "a sound drawn as bars: a voice line, a take, a track in the cut, a generated sound option (`selected` on the one in use).",
+   "instead": [
+    {
+     "when": "a sound with its play button and time",
+     "use": "AudioPlayer"
+    },
+    {
+     "when": "the cut's tracks laid out in time",
+     "use": "Timeline"
+    },
+    {
+     "when": "the playhead of an episode or a short",
+     "use": "Scrubber"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Waveform",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Without `onSeek` it is decorative and hidden from screen readers. With `onSeek` it is a slider named by `label` (default \"Position\") that Tab reaches: arrows move it by a second, Home and End to either end, and its value is spoken as \"12 seconds of 40 seconds\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Timeline",
+   "title": "Timeline",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Timeline is the cut's tracks under the preview, shared by every production (episode or short, Quick or Directed).",
+   "use": "the cut's tracks under the preview: video, boards, overlays, sound, captions and effects in time, with the playhead and trim grips on the selected item.",
+   "instead": [
+    {
+     "when": "the whole cut at a glance, in planned proportion",
+     "use": "ProgramBar"
+    },
+    {
+     "when": "what gets generated for a cut on a frame grid",
+     "use": "Timesheet"
+    },
+    {
+     "when": "a manga page's layers",
+     "use": "LayerStrip"
+    },
+    {
+     "when": "the playhead of an episode a viewer watches",
+     "use": "Scrubber"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.9",
+   "url": "https://sakuga.design/components#Timeline",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `onDrop` a drop is said aloud (\"Popcorn night inserted at 2:41\", \"… on Video 3\" when it went to a free lane or \"… on Clips\" to the new lane, \"No free track at 2:41\" when refused); dragging is for the pointer, Insert and Enter on the card do the same by keyboard. A group named by `label` (default \"Timeline\") whose ruler times, track names, markers and playhead (\"Playhead at 0:04\") read as text, a looped sound adds \"loops to fill, 6 seconds made\" to its name, with waveforms and icons hidden. With `onSelect` the items are one Tab stop of buttons named by label, track, times and state (Left and Right move within a track, Home and End to its ends, Up and Down to the nearest item on the next one, Enter or Space selects), a selected item's grips are sliders (\"Trim the start of\" the item) that move a frame per arrow (`trimStep`) and a second with Shift through `onTrim`, and with `reorderable` and `onMoveTrack` Up and Down move a track by its handle, named with its place (\"Move the Picture track, 1 of 3\"), and Enter or Space lift it to move it further and drop it (Escape puts it back), each keyboard move said aloud, and a dragged track when it drops. With `onView` the zoom controls are buttons named \"Zoom out\", \"Fit the whole cut\" and \"Zoom in\" (Fit and Zoom out unavailable when the whole cut shows). With `onSeek` the playhead is a slider named \"Seek\" (`seekLabel`), its value said in seconds and frames, in place of the \"Playhead at\" text.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Panel",
+   "title": "Panel",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Panel is a Studio card: an AniCanon icon, a title, one line that explains it, an optional action, then its controls.",
+   "use": "a Studio card that explains itself: an AniCanon icon, a title, a one-line subtitle, an optional action, then its controls.",
+   "instead": [
+    {
+     "when": "a folded section showing its current value",
+     "use": "PanelRow"
+    },
+    {
+     "when": "the top of a side panel in Story",
+     "use": "PanelHeader"
+    },
+    {
+     "when": "a heading over a shelf",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "a task that needs the page's whole attention",
+     "use": "Dialog"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.5",
+   "url": "https://sakuga.design/components#Panel",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A region named by `title`, with the title as a level-3 heading that ends in \"selected\" when `selected`, and the subtitle as text; the icon is hidden, and the action and controls take focus in order. With `onToggle` the heading holds a button named by the title, expanded, controlling `controls`, whose hit area and focus ring cover the head; Enter or Space closes the fold, and the chevron is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Sheet",
+   "title": "Sheet",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Sheet is the bottom panel on phones for choices that belong to the current screen: audio and subtitles, reading direction.",
+   "use": "choices that belong to the current phone screen: audio and subtitles, reading direction, a row's menu.",
+   "instead": [
+    {
+     "when": "the same choices on desktop",
+     "use": "Popover"
+    },
+    {
+     "when": "a task on desktop",
+     "use": "Dialog"
+    },
+    {
+     "when": "the app's main destinations",
+     "use": "TabBar"
+    }
+   ],
+   "used_on": [
+    "iOS",
+    "Android"
+   ],
+   "version": "1.4",
+   "url": "https://sakuga.design/components#Sheet",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A modal dialog named by `title`: focus moves to the chosen option, a selected Sheet.Option or else a selected Chip (else the first control), Tab and Shift+Tab stay inside it, Escape, Done or a tap on the scrim run `onClose`, and focus goes back to what opened it. Sheet.Group is a group named by its `title`, and each Sheet.Option is a toggle button, \"pressed\" when selected, with its check hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Dialog",
+   "title": "Dialog",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Dialog is a window over the page on the web: pickers (references, opening frame, video plan), confirmations (story conflicts) and last checks (clip options).",
+   "use": "a task or a check that needs the page's whole attention on desktop: choosing references, a story conflict, the last check before something is spent or deleted.",
+   "instead": [
+    {
+     "when": "the same task in the iOS or Android app",
+     "use": "Sheet"
+    },
+    {
+     "when": "a menu or a hover card anchored to what opened it",
+     "use": "Popover"
+    },
+    {
+     "when": "choosing from a searchable list under a field",
+     "use": "Picker"
+    },
+    {
+     "when": "a confirmation that needs no answer",
+     "use": "Toast"
+    }
+   ],
+   "used_on": [
+    "Web (desktop and phone)"
+   ],
+   "version": "1.7",
+   "url": "https://sakuga.design/components#Dialog",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A modal dialog named by `title` and described by `description`: focus moves to the field a form leads with, else to the dialog itself, which draws no ring and is announced by its title and description; the first Tab reaches its first control, Tab and Shift+Tab stay inside it, a press on its words keeps focus inside, and Escape, \"Close\" or a click on the scrim run `onClose`. When it closes, focus goes back to what opened it.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Popover",
+   "title": "Popover",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Popover is a raised surface that floats over the page: a menu, a hover card, a small form.",
+   "use": "a raised surface anchored to what opened it: a menu, a hover card on a mention, a small form.",
+   "instead": [
+    {
+     "when": "a list of options with search",
+     "use": "Picker"
+    },
+    {
+     "when": "a task that needs the page's whole attention",
+     "use": "Dialog"
+    },
+    {
+     "when": "the same choices on a phone",
+     "use": "Sheet"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Popover",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A dialog named by `label` (`role` changes the role). With `onClose` it takes focus while open (its first control, else itself), and a press on its words keeps focus inside; Escape, a press outside or Tab out of it runs `onClose`, and after Escape focus goes back to what opened it; without `onClose` it never moves focus.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Menu",
+   "title": "Menu",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A menu behind a control, most often a ⋯ `IconButton`: rows of an icon and a label, left-aligned, each a link (`href`) or an action (`onClick`).",
+   "use": "the actions behind a ⋯: go somewhere (Face sheet and variants), or do something (Delete Smith). A `CastCard` opens one from its own ⋯ (`menu`); a full-screen flow puts its ⋯ at the end of its `FlowHeader`.",
+   "instead": [
+    {
+     "when": "choosing a value",
+     "use": "Select"
+    },
+    {
+     "when": "a phone",
+     "use": "Sheet"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Menu",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-29",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap, Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that opened it. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row keeps its ring, in Highlight.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Picker",
+   "title": "Picker",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Picker is the anchored chooser under a field: optional search, then options in groups.",
+   "use": "choosing one thing from many under a field, with search and groups: a cast member, a place, an event.",
+   "instead": [
+    {
+     "when": "a short list of plain values",
+     "use": "Select"
+    },
+    {
+     "when": "options that each need an explanation or a price",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "the same choice on a phone",
+     "use": "Sheet"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.4",
+   "url": "https://sakuga.design/components#Picker",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A dialog named by `label` that, with `onClose`, takes focus, closes on Escape, a press outside or Tab out of it, and gives focus back (after a press or Tab elsewhere, focus stays there). With search, the field (named \"Search\", or `search.label`) is a combobox, promising a filtered list only with `search.onChange`, whose active descendant Up and Down move through the options and Enter chooses; without search, the options are one Tab stop that Up and Down move through, Enter or Space choosing; each option reads its label, hint, \"out of reach\" (unavailable) when `dim` and \"selected\", and `onSelect` gets the choice; an option with `opens` opens with Right too, and in a level Back is a button named \"Back to\" its `to`, which Left and Backspace in an empty search also press. Gap: an option with `opens` is read by its hint (\"3 views\"), with nothing saying it opens a level.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "StatusBar",
+   "title": "StatusBar",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "StatusBar is the slim bar at the foot of a working surface such as the writing room: where the work sits, whether it is saved, how long it is.",
+   "use": "the slim bar at the foot of a working surface such as the writing room: where the work sits, whether it is saved, how long it is.",
+   "instead": [
+    {
+     "when": "actions on the work",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the transport and timecode under the editor's picture",
+     "use": "MonitorBar"
+    },
+    {
+     "when": "the foot of a step in a full-screen flow",
+     "use": "FlowFooter"
+    },
+    {
+     "when": "confirming that something finished",
+     "use": "Toast"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#StatusBar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable itself; its items read as text in order and anything focusable in them takes focus. Only the `slot=\"status\"` child (or `status`) is read when it changes, through a status region that is always there.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FloatingToolbar",
+   "title": "FloatingToolbar",
+   "library": "Core",
+   "group": "Containers",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "FloatingToolbar sits over a selection and offers what can be done with it.",
+   "use": "what can be done with a selection: two or three ghost buttons just above it (Make it an event, Ask Maki), or with `count` the bar of what is selected in a list or a grid (3 selected: Move to…, Download, Delete).",
+   "instead": [
+    {
+     "when": "a menu opened from a control",
+     "use": "Popover"
+    },
+    {
+     "when": "the actions of a view",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the edit buttons under the editor's picture",
+     "use": "MonitorBar"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#FloatingToolbar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A toolbar named by `label` (default \"Selection\") and its `count` (\"Selected takes, 3 selected\") that is one Tab stop: arrows move between its buttons, Home and End go to either end, and Tab comes back to the one last focused.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Icon",
+   "title": "Icon",
+   "library": "Core",
+   "group": "Foundations",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Icon draws one glyph from AniCanon's outline icon set: 24px grid, 2px stroke, round caps and joins, `currentColor`.",
+   "use": "one glyph from AniCanon's outline set inside a control or beside words: a field's leading glyph, a tab bar item, a Studio panel's header.",
+   "instead": [
+    {
+     "when": "an action shown as a glyph alone",
+     "use": "IconButton"
+    },
+    {
+     "when": "the shape of a story event",
+     "use": "EventGlyph"
+    },
+    {
+     "when": "the Fragments mark",
+     "use": "FragmentSoul"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.5",
+   "url": "https://sakuga.design/components#Icon",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Decorative by default: hidden from screen readers and never focusable. With `title` it is an image named by that title.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Text",
+   "title": "Text",
+   "library": "Core",
+   "group": "Foundations",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Text sets words in Sakuga's type scale: a `variant` names the style, `tone` changes only its colour.",
+   "use": "words on a board or in a component, set in Sakuga's type scale: titles, body, the caption line that explains, a field's name, an eyebrow.",
+   "instead": [
+    {
+     "when": "a subtitle line over video",
+     "use": "Caption"
+    },
+    {
+     "when": "an action inside a line of text",
+     "use": "TextLink"
+    },
+    {
+     "when": "a character or a place named inside prose",
+     "use": "Mention"
+    },
+    {
+     "when": "a proposed change in the words, the old struck and the new underlined",
+     "use": "Revision"
+    },
+    {
+     "when": "the heading that opens a shelf",
+     "use": "SectionHeader"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Text",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as text, with display and title variants rendered as headings (h1 to h3), lead, body and caption as paragraphs, and `mark` as highlighted text, unless `as` sets the element. `tone` changes only the colour.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FragmentSoul",
+   "title": "FragmentSoul",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "FragmentSoul is the Fragments currency mark: a hitodama spirit-flame in flat cel layers with a deep violet ink line.",
+   "use": "the mark every fragment amount carries: bare beside a balance figure, or seated in a medallion on its tinted disc.",
+   "instead": [
+    {
+     "when": "the balance with its amount, in a top bar, the sidebar or a sentence",
+     "use": "FragmentBalance"
+    },
+    {
+     "when": "the price on the action that spends it",
+     "use": "SpendButton"
+    },
+    {
+     "when": "the price on a choice card",
+     "use": "SpendTiles"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#FragmentSoul",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Decorative: the mark is hidden from screen readers.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "FragmentBalance",
+   "title": "FragmentBalance",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "The Fragments balance in its places: a pill in top bars, a block in the sidebar, a held line while a generation is running, `inline`: the mark and an amount inside a sentence (\"~520 is held when you start\"), and `card`: the balance as a wallet card.",
+   "use": "the Fragments balance in its places: a pill in a top bar, a block in the sidebar, a hold while a generation runs, an amount inside a sentence (\"~520 is held when you start\"), and the wallet card that leads the Fragments page on desktop and phone.",
+   "instead": [
+    {
+     "when": "the bare mark or a medallion with no amount",
+     "use": "FragmentSoul"
+    },
+    {
+     "when": "the price on the action that spends it",
+     "use": "SpendButton"
+    },
+    {
+     "when": "the price on a choice card",
+     "use": "SpendTiles"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#FragmentBalance",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The `variant` decides: block is a link named \"Fragments balance: 1,240\" (a button running `onClick` without `href`), card a group of that name, and pill, card and inline read their amount as \"1,240 fragments\"; held is said once through the page's live region when it appears (\"120 held\"), then reads as its text. The mark is hidden in every variant.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "AniCanonLoader",
+   "title": "AniCanon Loader",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "AniCanon's loader is its mark: the ring traces once around in the accent while the crescent and the moon dot stay exactly where the logo has them.",
+   "use": "wherever AniCanon waits on something whose length is unknown, generating or loading.",
+   "instead": [
+    {
+     "when": "work whose share done is known",
+     "use": "Progress"
+    },
+    {
+     "when": "a job's stages in order",
+     "use": "Stages"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#AniCanonLoader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable. When it appears it says its `label` (default \"Loading\") once through the page's live region, unless it sits in a button, a link or a card, and in place it reads as a status of that name; the mark is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ActivityRow",
+   "title": "ActivityRow",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ActivityRow is the sidebar's line for work that is running: the AniCanon loader, how many jobs are running, the latest one's line, and a chevron that opens `ActivityPanel`.",
+   "use": "in the sidebar for work that is running, opening `ActivityPanel`.",
+   "instead": [
+    {
+     "when": "one job's stages in order",
+     "use": "Stages"
+    },
+    {
+     "when": "how far one job has come where it is being made",
+     "use": "Progress"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#ActivityRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button announced as \"Activity: N running\" (with `waiting`, \"Activity: N running, M waiting\"), described by its `line`, and expanded or collapsed from `expanded`; Enter or Space runs `onClick`. The loader and the chevron are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ActivityPanel",
+   "title": "ActivityPanel",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "The work in flight and the work waiting on you, in groups: running, needs you, earlier.",
+   "use": "the jobs running and waiting across a series, opened from the navigation's activity row.",
+   "instead": [
+    {
+     "when": "the row that opens it",
+     "use": "ActivityRow"
+    },
+    {
+     "when": "one job's stages in order",
+     "use": "Stages"
+    },
+    {
+     "when": "a message that comes and goes",
+     "use": "Toast"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#ActivityPanel",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A dialog named \"Activity\". With `onClose`, focus moves to the first job's link or button, Tab and Shift+Tab stay inside, and Escape or Close runs it. A job that opens its screen is a link (a button with `onClick` alone) named by its title and text; its action is a separate button after it, its bar is a named progress bar, and its `held` reads after its time (\"12 fragments held\"). The picture and figure are hidden, and the chevron is too.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PremiereSlot",
+   "title": "PremiereSlot",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "PremiereSlot holds the place of something that is announced but not out yet: the next episode, the next manga issue.",
+   "use": "something announced but not out yet: the next episode or the next manga issue, with its premiere time (\"Premieres Friday · 21:00\") and Remind me.",
+   "instead": [
+    {
+     "when": "an episode, short or issue that is out",
+     "use": "MediaCard"
+    },
+    {
+     "when": "a frame of a production that is not made yet",
+     "use": "Thumb"
+    },
+    {
+     "when": "a place where there is nothing to show yet",
+     "use": "EmptyState"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PremiereSlot",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "When, title and subtitle read as text and the picture is hidden. Tab reaches the Remind me button, announced by `remindLabel` or one built from `title` (\"Remind me when Episode 4 premieres\"), and Enter or Space runs `onRemind`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Stages",
+   "title": "Stages",
+   "library": "Kit",
+   "group": "AniCanon",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "A job's stages in order, while it runs and after: done ones ticked with the time they took, the running one with AniCanon's loader, the rest numbered.",
+   "use": "a job's stages in order, while it runs and after: done ones with the time they took, the running one with AniCanon's loader, a failed one with why (\"Designing the first look\").",
+   "instead": [
+    {
+     "when": "where a person is in a flow they step through",
+     "use": "Stepper"
+    },
+    {
+     "when": "what a character is ready with",
+     "use": "Readiness"
+    },
+    {
+     "when": "how far one job has come as a share",
+     "use": "Progress"
+    },
+    {
+     "when": "every running and finished job",
+     "use": "ActivityPanel"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Stages",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; an ordered list named by `label` (default \"Stages\"), each stage read as its title, with \"done\" or \"failed\" where it applies, then its text and time. The running one is marked \"current step\", and its loader says the title once when it appears.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CharacterCard",
+   "title": "CharacterCard",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "A character as one card: stage (silhouette, avatar or 9:16 portrait; 16:9 with `stage.creature`), role, name, stat tiles, traits, an optional listen-only voice and a note.",
+   "use": "a character as one card in every character flow (creation, editing, looks, voice and face): the stage, role, name, stats, traits and a note.",
+   "instead": [
+    {
+     "when": "a cast member on the cast page",
+     "use": "CastCard"
+    },
+    {
+     "when": "a character's facts on their own, across their page",
+     "use": "CharacterStats"
+    },
+    {
+     "when": "a character's face and name in a row or on a series page",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "one look of a character",
+     "use": "LookPlate"
+    },
+    {
+     "when": "a place or backdrop being made",
+     "use": "PlaceCard"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#CharacterCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A complementary region named by `name` (or \"Character\"); a portrait's alt is `stage.alt` or the name, an avatar's is `stage.alt` (empty, so hidden, by default), and the silhouette is hidden. The role, name, stats, traits and note read as text, the voice's play button is named for it (\"Play Aiko's voice\"), and with `voice.onSeek` its waveform is a slider.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CharacterStats",
+   "title": "CharacterStats",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Who a character is at a glance: each fact as its picker's icon, the value and what it is.",
+   "use": "who a character is at a glance: each fact as its picker's icon, the value and what it is, as tiles in a card or on a phone, or as pills across the character's page.",
+   "instead": [
+    {
+     "when": "who a character is at a point in the story, with since when",
+     "use": "FactList"
+    },
+    {
+     "when": "the whole character as one card",
+     "use": "CharacterCard"
+    },
+    {
+     "when": "what a character is ready with",
+     "use": "Readiness"
+    },
+    {
+     "when": "words kept as tags, such as a visual vibe",
+     "use": "TagList"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CharacterStats",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; each stat reads as text, its value then its name (its name then its value as pills), with \"changed\" after a changed one, and the icons are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "LookPlate",
+   "title": "LookPlate",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "One look as a 9:16 plate on white, standing head to toe as the portrait is drawn, with its occasion (`creature`: 16:9, as a creature is drawn).",
+   "use": "one look as a 9:16 plate on white with its occasion, in each of its states: ready, wearing, drawing, waiting for review, or the plate that adds one.",
+   "instead": [
+    {
+     "when": "which occasions each character has a look for",
+     "use": "CoverageTable"
+    },
+    {
+     "when": "a plain picture in a frame",
+     "use": "Thumb"
+    },
+    {
+     "when": "the character as a whole",
+     "use": "CharacterCard"
+    },
+    {
+     "when": "choosing who wears a look",
+     "use": "CastAvatar"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#LookPlate",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A link with `href`, else a button that runs `onClick` (never a link to #), that Tab reaches and Enter follows, named by `label` and described by its tag (Review, New), its `occasion` and \"Drawing\" while it draws; Wearing and Showing plates are also announced as \"current\". With `menu`, its ⋯ is its own Tab stop after the plate, a button named \"More for {label}\" that says it opens a menu; it shows while the plate is under the pointer or holds focus, and always on a phone.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CastCard",
+   "title": "CastCard",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "A cast member on the cast page: the portrait (an initial until one is approved), the role, the name, what they have, and what is happening to them now.",
+   "use": "one cast member on the cast page: the portrait, role and name, what they have, what is happening to them now, and the next step at its foot.",
+   "instead": [
+    {
+     "when": "laying out a faction's cast",
+     "use": "CastGrid"
+    },
+    {
+     "when": "a character in a creation or editing flow",
+     "use": "CharacterCard"
+    },
+    {
+     "when": "a character's face and name in a row or on a series page",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "a cast member a panel or a prompt holds",
+     "use": "MentionChip"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#CastCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "With `href` it is a link that Tab reaches and Enter follows, named by `name` and described by its role, meta, state and action; without `href` all of these read as text. With `menu`, its ⋯ is its own Tab stop after the card, a button named \"More for {name}\" that says it opens a menu and whether it is open. The portrait and the state dot are hidden, and a busy action's loader stays quiet inside the card.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CastGrid",
+   "title": "CastGrid",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "A faction's cast as `CastCard`s, six across on desktop.",
+   "use": "a faction's cast on the cast page: its `CastCard`s six across on desktop, each linking to the character's page.",
+   "instead": [
+    {
+     "when": "one cast member on their own",
+     "use": "CastCard"
+    },
+    {
+     "when": "the faction's heading with its icon and count",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "the characters on a series page",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "episodes, shorts or issues in a grid",
+     "use": "MediaCard"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CastGrid",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A list named by `label` with a card per item: a card with `href` is a link that Tab moves to and Enter follows, named by the character's name, and a card without one is not a link.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CoverageTable",
+   "title": "CoverageTable",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Wardrobe coverage: a row per character and a column per occasion the scripts ask for.",
+   "use": "wardrobe coverage across the cast: a row per character, a column per occasion the scripts ask for, and the gaps where a scene needs a look and nothing fits.",
+   "instead": [
+    {
+     "when": "one look and its occasion",
+     "use": "LookPlate"
+    },
+    {
+     "when": "what one character is ready with",
+     "use": "Readiness"
+    },
+    {
+     "when": "each cast member's state and next step",
+     "use": "CastGrid"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CoverageTable",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a table named by `label` with a column header per occasion and a row header per character, each cell read as its label and its state in the legend's words (\"2 looks, Has a look\"; a cell without a label reads the state alone), and the legend reads as text with its swatches hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Readiness",
+   "title": "Readiness",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "What a character is ready with, at a glance on their page: looks, voice, face, props.",
+   "use": "what a character is ready with, at a glance on their page: looks, voice, face and props, each ticked or marked when it waits on the creator.",
+   "instead": [
+    {
+     "when": "a job's stages in order, with their times",
+     "use": "Stages"
+    },
+    {
+     "when": "where a person is in a flow they step through",
+     "use": "Stepper"
+    },
+    {
+     "when": "who a character is",
+     "use": "CharacterStats"
+    },
+    {
+     "when": "wardrobe across the whole cast",
+     "use": "CoverageTable"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Readiness",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a list named by `label` (default \"Ready\"), each item read as its label, then \"ready\" or \"waiting for you\", then its detail.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "VoiceTiles",
+   "title": "VoiceTiles",
+   "library": "Kit",
+   "group": "Characters",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Voices to cast from, each a tile with its name and a few words on how it sounds (\"Bright, determined\").",
+   "use": "casting a voice: a tile per voice with its name and a few words on how it sounds (\"Bright, determined\"), where choosing one plays it and selects it.",
+   "instead": [
+    {
+     "when": "hearing the voice already cast",
+     "use": "AudioPlayer"
+    },
+    {
+     "when": "choosing among sound options in the cut",
+     "use": "Waveform"
+    },
+    {
+     "when": "a direction choice drawn as icons",
+     "use": "OptionTiles"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#VoiceTiles",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A radio group named by `label` and one Tab stop: arrows move to a voice and choose it through `onChange`, each a radio read by its name and description and \"checked\" when chosen; the play mark is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PlaceCard",
+   "title": "PlaceCard",
+   "library": "Kit",
+   "group": "Places",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "The place or backdrop being made, on the left of its flow: its picture once drawn, or before that an empty frame naming what fills it (with the loader while it draws), its name, a quiet line under it, its facts and a note.",
+   "use": "the place or backdrop being made, on the left of its flow: its picture or an empty frame, its name, its facts and what happens next.",
+   "instead": [
+    {
+     "when": "a character in its flows",
+     "use": "CharacterCard"
+    },
+    {
+     "when": "a picture with its caption, in a grid or a strip",
+     "use": "Thumb"
+    },
+    {
+     "when": "a place named in a prompt or a script",
+     "use": "MentionChip"
+    },
+    {
+     "when": "a job's stages in order",
+     "use": "Stages"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PlaceCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a region named by `name`, with the picture's alt from `alt` or the name, the name as a level-2 heading, then the caption, facts and note as text. While it draws, the empty frame reads its `placeholder`, and its loader stays quiet inside the card.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PanelHeader",
+   "title": "PanelHeader",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "PanelHeader opens every side panel in Story with the same grammar: a small eyebrow naming what the panel shows, the title, an optional subtitle; icon actions (most common first, the rest in ⋯), then close.",
+   "use": "the head of every side panel in Story and of an inspector: an eyebrow, the title, an optional subtitle, icon actions, then close (none on the world panel or an inspector).",
+   "instead": [
+    {
+     "when": "the top of a production view",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "opening a shelf or labelling a strip",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "a labelled group of rows with its count",
+     "use": "PanelSection"
+    },
+    {
+     "when": "a Studio card with its controls",
+     "use": "Panel"
+    },
+    {
+     "when": "the editor's top bar with its timecode",
+     "use": "EditorHeader"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PanelHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Read in order: the eyebrow, the title as a heading (level `level`, default 2) and the subtitle. Tab then reaches the actions and a close button named by `closeLabel` (default \"Close\") that runs `onClose`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PanelSection",
+   "title": "PanelSection",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "PanelSection is a labelled group of rows with its count on the right (\"Changes 3\").",
+   "use": "a labelled group of rows inside a Story panel, with its count on the right (\"Changes 3\").",
+   "instead": [
+    {
+     "when": "the head of the panel itself",
+     "use": "PanelHeader"
+    },
+    {
+     "when": "a group outside Story, such as a faction in a list",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "Studio's folded section with its current value",
+     "use": "PanelRow"
+    },
+    {
+     "when": "rows outside Story that open pages",
+     "use": "List"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PanelSection",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable itself; the label and its count are a level-3 heading (\"Changes 3\"), then the rows and the footer read in order.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "EntityRow",
+   "title": "EntityRow",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "EntityRow is the one row kind on Story: a picture, the name, its state, and the work that told it.",
+   "use": "every row on Story: a character, a bond, a place, an event or a question, with its state and the work that told it.",
+   "instead": [
+    {
+     "when": "a row outside Story, such as a take or a setting",
+     "use": "ListRow"
+    },
+    {
+     "when": "an open question with its planted, raised and answered steps",
+     "use": "QuestionRow"
+    },
+    {
+     "when": "something found in writing, waiting for the person",
+     "use": "ProposalCard"
+    },
+    {
+     "when": "the people in a character's life beside their name",
+     "use": "CastAvatar"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#EntityRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; the name, \"not at this moment\" when `faded`, its source, its state and the chip read as text in order, then whatever sits at the end. Pictures and initials are hidden, and a faded row dims its picture while its words stay readable.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "StateChange",
+   "title": "StateChange",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "StateChange is a change written as before → after: two badges, the before faded.",
+   "use": "a change written as before and after, two badges with the before faded: a place that starts burning, a bond that turns to rivals.",
+   "instead": [
+    {
+     "when": "a single state laid over artwork",
+     "use": "Badge"
+    },
+    {
+     "when": "a proposed change to words",
+     "use": "Revision"
+    },
+    {
+     "when": "the change as a whole row with its picture",
+     "use": "EntityRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#StateChange",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as \"Changed from\", the before badge, \"to\" and the after badge, with the arrow itself hidden, and with no `before` it reads the after badge alone.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "EventGlyph",
+   "title": "EventGlyph",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "EventGlyph is the mark of an event type, the same everywhere a story event appears: map, scrubber, rows, mentions, pickers.",
+   "use": "the mark of a story event's type wherever one appears (map, scrubber, rows, mentions, pickers): event, twist, revelation, clue or goal.",
+   "instead": [
+    {
+     "when": "a glyph from the outline set",
+     "use": "Icon"
+    },
+    {
+     "when": "an event as a row with its state",
+     "use": "EntityRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "2.0",
+   "url": "https://sakuga.design/components#EventGlyph",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Decorative: hidden from screen readers, so the event type it draws is not announced.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "StoryMap",
+   "title": "StoryMap",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "StoryMap draws the story on a canvas you move: characters (portraits) and places (art) are hubs; events are small shapes, linked to the hubs they involve.",
+   "use": "the story drawn as hubs and events on a canvas: characters and places as hubs, events on a thread in story order, and a selection's causes and conflicts.",
+   "instead": [
+    {
+     "when": "moving through the story in story order",
+     "use": "StoryScrubber"
+    },
+    {
+     "when": "the same characters, places and events as rows in a panel",
+     "use": "EntityRow"
+    },
+    {
+     "when": "the open questions the audience waits on",
+     "use": "QuestionRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "2.10",
+   "url": "https://sakuga.design/components#StoryMap",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by `label` (default \"Story map: characters and places as hubs, events between them\") whose hubs and events are one Tab stop the arrows move through, each read with what the drawing shows (an event's type, \"proposed\", \"new\", \"not at this moment\", \"not placed\", \"current\" on the focus) and, when `interactive`, as \"movable\". Dragging has a keyboard way: Shift and an arrow moves the hub or event in focus, and + and − zoom. With `onSelect` each is a button. Tab then reaches the held labels (\"Show Mio\"), the chip (\"Remove\" and its words), then the controls in the order drawn: \"Zoom in\", \"Zoom out\", \"Fit the map\" and \"Key\", which says whether the key is expanded. The overview is a picture named \"The whole map, with the part in view framed\"; the arrows and Fit reach everything it does. A dimmed, ghost or muted node fades only its picture or shape; its name and quiet line keep their contrast.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "StoryScrubber",
+   "title": "StoryScrubber",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "StoryScrubber moves through the story in story order (when things happen in the world, not when they were released).",
+   "use": "moving through the story in story order, when things happen in the world: a column per event under arc brackets, and a handle that names the moment (\"After Fire at Sé\").",
+   "instead": [
+    {
+     "when": "the playhead of an episode or a short",
+     "use": "Scrubber"
+    },
+    {
+     "when": "the whole cut at a glance",
+     "use": "ProgramBar"
+    },
+    {
+     "when": "the cut's tracks in time",
+     "use": "Timeline"
+    },
+    {
+     "when": "the story's people, places and events as a map",
+     "use": "StoryMap"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.7",
+   "url": "https://sakuga.design/components#StoryScrubber",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A slider that Tab reaches, named \"Show the world at a moment in the story\" and read as `valueText` (else the first handle's label, else \"After event 3 of 12\"); with `onChange` arrows move it an event, Page Up and Page Down a tenth of the story and Home and End to either end, and without it it reads as read-only. Beside it, screen readers get the events in story order (type, title, the events at the same time, by each mark's `label` when it has one, \"in the moment shown\") and the arcs as lists, and, on a long story, buttons around it in the order drawn: \"Earlier events\" before it, then a held label (\"Show Now\") and \"Later events\" after it, each only while there is something that way; below it a group named \"Show events told by\" holds filter buttons that read \"pressed\" on the current one and run `onFilter`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "QuestionRow",
+   "title": "QuestionRow",
+   "library": "Kit",
+   "group": "Story",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "QuestionRow is one open question the audience is waiting on: planted → raised → answered, each step a real event with its place.",
+   "use": "one open question the audience is waiting on, from planted to raised to answered, each step a real event with its place.",
+   "instead": [
+    {
+     "when": "a character, place or event on Story",
+     "use": "EntityRow"
+    },
+    {
+     "when": "a conflict found in writing",
+     "use": "ProposalCard"
+    },
+    {
+     "when": "where a person is in a flow they step through",
+     "use": "Stepper"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#QuestionRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read in order as the question in quotes (then \"selected\" when `selected`), its badge (Waiting, Quiet or Answered) and note, then \"Planted\", \"Raised\" and \"Answered\" with each step's event and where it was told (\"Smoke, told in Episode 1\"), \"Not raised yet\" or \"Answer it\"; pictures and arrows are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MakiPanel",
+   "title": "MakiPanel",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiPanel is Maki in a side area: a `SidePanel` with Maki's face and name, what is waiting, and close; the conversation; the composer at the foot.",
+   "use": "the chat with Maki beside a view, opened from the Maki button in the view's header.",
+   "instead": [
+    {
+     "when": "the button that opens it",
+     "use": "AskMaki"
+    },
+    {
+     "when": "a side area about a character, place or event",
+     "use": "SidePanel"
+    },
+    {
+     "when": "one thing Maki says",
+     "use": "MakiTurn"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "2.1",
+   "url": "https://sakuga.design/components#MakiPanel",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": [
+     {
+      "rule": "color-contrast",
+      "reason": "The flagged label is a SegmentedControl's selected segment, on its sliding highlight, which the checker can't see. Measured on screen it is about 19:1 in both themes."
+     }
+    ]
+   },
+   "accessibility_declared": {
+    "design": "A section named \"Maki\". Tab moves through \"{count} to look at\", \"Close Maki\", the conversation's controls and the composer; Maki's face is hidden. The conversation is a log named \"Conversation with Maki\", so each reply is read as it arrives, held back while `busy` or `writing`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MakiTurn",
+   "title": "MakiTurn",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiTurn is one reply from Maki: her words on the panel's edge, in `text-body-lg`, with no who-line and no box (the head already says who).",
+   "use": "one reply from Maki in the chat, whatever it holds.",
+   "instead": [
+    {
+     "when": "what the person said",
+     "use": "ChatMessage"
+    },
+    {
+     "when": "something Maki proposes inside the reply",
+     "use": "MakiCard"
+    },
+    {
+     "when": "one thing Review found",
+     "use": "MakiFinding"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "2.0",
+   "url": "https://sakuga.design/components#MakiTurn",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Read as \"Maki:\" and the reply; the steps read first. While `writing`, the loader says its words once; the words beside it are hidden from screen readers.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ChatMessage",
+   "title": "ChatMessage",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ChatMessage is the person's own message in a chat with Maki: a neutral bubble at the right, in the same size as Maki's words.",
+   "use": "the person's own message in a chat with Maki.",
+   "instead": [
+    {
+     "when": "what Maki says",
+     "use": "MakiTurn"
+    },
+    {
+     "when": "where the person writes the next message",
+     "use": "MakiComposer"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "2.0",
+   "url": "https://sakuga.design/components#ChatMessage",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; the message reads as plain text after who sent it, \"You\" (or `name`), which is said but not shown.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MakiCard",
+   "title": "MakiCard",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiCard is something Maki proposes or asks inside her reply: a story edit, a canon line, a section to add, a choice.",
+   "use": "something Maki proposes or asks inside her reply, with what was checked and its one pair of actions.",
+   "instead": [
+    {
+     "when": "Maki's words around it",
+     "use": "MakiTurn"
+    },
+    {
+     "when": "one thing Review found",
+     "use": "MakiFinding"
+    },
+    {
+     "when": "something found in writing, beside the words it came from",
+     "use": "ProposalCard"
+    },
+    {
+     "when": "a correction pinned to work on a sheet",
+     "use": "Slip"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "2.1",
+   "url": "https://sakuga.design/components#MakiCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by its title; \"Already answered\" when `muted`. Choices are a radio group, one press answers. The check's icon is hidden, and the actions take focus in order.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MakiComposer",
+   "title": "MakiComposer",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiComposer is where the person writes to Maki: one container that holds what is asked about, the field and one set of controls.",
+   "use": "where the person writes to Maki.",
+   "instead": [
+    {
+     "when": "writing the prompt that makes a take",
+     "use": "PromptComposer"
+    },
+    {
+     "when": "a plain text field in a form",
+     "use": "TextField"
+    },
+    {
+     "when": "a message already sent",
+     "use": "ChatMessage"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "2.3",
+   "url": "https://sakuga.design/components#MakiComposer",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Tab reaches each context chip's remove (\"Remove Kiko\"), each file's Remove (\"Remove lighthouse.png\"; a file still adding is busy), the field (named by `label`, default \"Message to Maki\"), \"Attach\", \"Mention someone or something\", then \"Send\" or \"Stop\". Enter sends, Shift+Enter starts a new line; Send is unavailable until there are words.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "AskMaki",
+   "title": "AskMaki",
+   "library": "Kit",
+   "group": "Maki",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "AskMaki is Maki's one button: Maki's face and a label.",
+   "use": "the one button that asks Maki: handed a conflict, a selection or a question at `size=\"sm\"`, or in a view's header as the Maki pill with its count, which opens Maki's panel.",
+   "instead": [
+    {
+     "when": "an action that is not about Maki",
+     "use": "Button"
+    },
+    {
+     "when": "a quiet Ask Maki inside a line or a row of text",
+     "use": "TextLink"
+    },
+    {
+     "when": "Maki's column with the conversation",
+     "use": "MakiPanel"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#AskMaki",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A button (a link with `href`) that Tab reaches; Enter runs `onClick`, and Space does too on a button. A screen reader hears \"Ask Maki\" (or `label`), \"Ask Maki, 3 to look at\" with `count`, and expanded or collapsed when `open` is set; Maki's face is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CutSheet",
+   "title": "CutSheet",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "CutSheet is a scene read the way anime reads it: an ekonte sheet.",
+   "use": "a scene read as an ekonte sheet: numbered cuts as rows, columns set per view (Plan, Make, lists), rules between rows and no boxes.",
+   "instead": [
+    {
+     "when": "the cut's tracks in time",
+     "use": "Timeline"
+    },
+    {
+     "when": "what gets generated for one cut, on a frame grid",
+     "use": "Timesheet"
+    },
+    {
+     "when": "one row of the sheet",
+     "use": "CutRow"
+    },
+    {
+     "when": "a plain list of things with a title and a quiet line",
+     "use": "List"
+    },
+    {
+     "when": "the script as it is written",
+     "use": "Manuscript"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CutSheet",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a table named by `label`, its first row the column headers, then a row per CutRow, and with `surface` the footer slot follows the table.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CutRow",
+   "title": "CutRow",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "CutRow is one cut (or video, or production) in a CutSheet.",
+   "use": "one cut, video or production as a row in a `CutSheet`, its cells in column order, banded while it is open beside the sheet.",
+   "instead": [
+    {
+     "when": "a row outside a sheet",
+     "use": "ListRow"
+    },
+    {
+     "when": "the cut number and its approval",
+     "use": "CutCell"
+    },
+    {
+     "when": "a row on Story",
+     "use": "EntityRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CutRow",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a table row whose children each become a cell (a plain element takes the cell role unless it has its own; a component such as CutCell, or text, is wrapped in one), read in column order. A `selected` or `changed` row starts its first cell with \"Selected\" or \"changed\", said but not shown.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CutCell",
+   "title": "CutCell",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "CutCell is the cut number, with its approval: `approved` (filled check) or `waiting` (an empty ring).",
+   "use": "a cut's number with its approval, approved or waiting, and a short note under it such as the video it is (V3).",
+   "instead": [
+    {
+     "when": "camera and timing notation",
+     "use": "Shorthand"
+    },
+    {
+     "when": "a state on a surface",
+     "use": "Badge"
+    },
+    {
+     "when": "a whole row of the sheet",
+     "use": "CutRow"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#CutCell",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; the cut number and `note` read as text, and the approval is an image named by `stateLabel` (\"Approved\" or \"Waiting for you\").",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Shorthand",
+   "title": "Shorthand",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Shorthand is camera and timing notation as an ekonte writes it: shot size, angle, move and when it starts and stops (C.U · low · T.U 0+00 → 5+00).",
+   "use": "camera and timing notation as an ekonte writes it: shot size, angle, move and when it starts and stops (C.U · low · T.U 0+00 → 5+00).",
+   "instead": [
+    {
+     "when": "choosing a shot, an angle or a move",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "the direction set on a panel, a row per kind",
+     "use": "PropertyList"
+    },
+    {
+     "when": "Studio's folded section with its current value",
+     "use": "PanelRow"
+    },
+    {
+     "when": "a cut's number and approval",
+     "use": "CutCell"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Shorthand",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; with `spoken` a screen reader says those words in place of the notation, which is hidden from it, and without `spoken` the notation is read as written (\"C.U\", \"T.U\").",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Revision",
+   "title": "Revision",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Revision shows a proposed change in place: the old words struck, the new ones underlined.",
+   "use": "a proposed change shown in place, the old words struck and the new ones underlined, with Accept, Decline and Why beside it, or a new line where there was none.",
+   "instead": [
+    {
+     "when": "a change of state, such as alive to dead",
+     "use": "StateChange"
+    },
+    {
+     "when": "the Director's note on a cut",
+     "use": "Slip"
+    },
+    {
+     "when": "something Maki proposes inside the chat",
+     "use": "MakiCard"
+    },
+    {
+     "when": "an event or link found in writing",
+     "use": "ProposalCard"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Revision",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as \"Removed:\" and the old words, then \"Added:\" and the new ones, the two labels said but not shown.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Slip",
+   "title": "Slip",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Slip is the correction slip, the only tinted surface on a sheet: the Director's revision note, a check, a review note pinned to a take, a story check.",
+   "use": "the correction slip, the only tinted surface on a sheet: the Director's revision note, a check, a review note pinned to a take, a story check.",
+   "instead": [
+    {
+     "when": "one line of context inside a page",
+     "use": "Notice"
+    },
+    {
+     "when": "a proposed change in the words themselves",
+     "use": "Revision"
+    },
+    {
+     "when": "something Maki proposes inside the chat",
+     "use": "MakiCard"
+    },
+    {
+     "when": "a confirmation that something finished",
+     "use": "Toast"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Slip",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable itself; \"Done\" when `done`, then the label, body and action read in order, and the action takes focus.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Timesheet",
+   "title": "Timesheet",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Timesheet is what gets generated for a cut, on a frame grid (24 a second, a heavier tick each second): each video's bracket, the key frames it starts and ends on, and one line per video (where it opens, how it continues).",
+   "use": "what gets generated for a cut, on a frame grid: each video's bracket, the key frames it starts and ends on, and one line per video.",
+   "instead": [
+    {
+     "when": "the cut's tracks under the preview",
+     "use": "Timeline"
+    },
+    {
+     "when": "the whole cut at a glance",
+     "use": "ProgramBar"
+    },
+    {
+     "when": "camera and timing notation in a line",
+     "use": "Shorthand"
+    },
+    {
+     "when": "a cut's in and out frames while trimming",
+     "use": "TrimFrames"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#Timesheet",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a group named by `label` (default \"Videos to make\") whose label, note, key frame labels (with \"at frame 24\") and each video's line (with \"frames 0 to 48\") read as text.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ScreenplayLine",
+   "title": "ScreenplayLine",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ScreenplayLine is one block of a screenplay inside a `ManuscriptSection`: `slug`, `action`, `cue` (with `extension` such as O.S.), `paren`, `dialogue`, `transition`.",
+   "use": "one block of a screenplay inside a section of the script: a slugline, action, a cue with its extension (O.S.), a parenthetical, dialogue or a transition.",
+   "instead": [
+    {
+     "when": "a planned line with its delivery and translation",
+     "use": "DialogueLine"
+    },
+    {
+     "when": "a subtitle over video",
+     "use": "Caption"
+    },
+    {
+     "when": "a scene being written",
+     "use": "ScreenplayEditor"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#ScreenplayLine",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; the block reads as plain text, a cue followed by its extension in brackets (\"(O.S.)\"), and a `flagged` block ends with \"story conflict\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "DialogueLine",
+   "title": "DialogueLine",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "DialogueLine is a planned line: speaker, delivery, where it falls in the beat, the line in the spoken language and its translation.",
+   "use": "a planned line: the speaker, the delivery, where it falls in the beat, the line in its spoken language and its translation.",
+   "instead": [
+    {
+     "when": "dialogue as written in the screenplay",
+     "use": "ScreenplayLine"
+    },
+    {
+     "when": "a subtitle over video",
+     "use": "Caption"
+    },
+    {
+     "when": "hearing the line",
+     "use": "AudioPlayer"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#DialogueLine",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as text in order: the speaker, the delivery and where it falls, the line as a quotation, then the translation. The speaker's picture is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ProgramBar",
+   "title": "ProgramBar",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ProgramBar is the whole cut at a glance: sections in planned proportion (`cut`, `partial` with gaps, `missing`), the window the Timeline shows, the playhead, and numbered note `marks` from screening.",
+   "use": "the whole cut at a glance: its sections in planned proportion, the window the Timeline shows, the playhead and numbered notes from screening.",
+   "instead": [
+    {
+     "when": "the cut's tracks to edit",
+     "use": "Timeline"
+    },
+    {
+     "when": "the playhead of an episode or a short being watched",
+     "use": "Scrubber"
+    },
+    {
+     "when": "how far something being made has come",
+     "use": "Progress"
+    },
+    {
+     "when": "moving through the story in story order",
+     "use": "StoryScrubber"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#ProgramBar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable without `onSeek`; a group named by `label` (default \"The whole cut\") whose section labels (with \"partly cut\" or \"missing\"), mark labels (with \"done\"), the window (\"Timeline shows 0:30 to 1:00\"), the playhead (\"Playhead at 0:42\") and the total read as text. With `onSeek` the playhead is a slider named \"Seek\" (`seekLabel`) whose value reads \"Playhead at 0:42\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ProductionNav",
+   "title": "ProductionNav",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ProductionNav is the side bar inside a production (an episode, a short, and later a manga issue).",
+   "use": "the side bar inside a production (an episode, a short, a manga issue): its views, scenes and the facts that matter while making it, folding to a rail of views and tools in the editor.",
+   "instead": [
+    {
+     "when": "the creator sidebar outside a production, wide or `compact`",
+     "use": "SideNav"
+    },
+    {
+     "when": "the top of a view with its title and actions",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "the steps of a full-screen flow",
+     "use": "Stepper"
+    },
+    {
+     "when": "the desktop header across the app",
+     "use": "TopNav"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.5",
+   "url": "https://sakuga.design/components#ProductionNav",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A complementary region named by `label` (default \"Production\"): Tab moves through Back, the links of a navigation named \"Views\" (the current one \"current page\", with its note; a `disabled` view is a disabled link, out of the tab order, still read with its note: \"Plan, After the script, dimmed\"), the scene links (\"current\" on the selected one) and the balance link, while the production's title is a level-2 heading, the scenes' title a level-3 one, and each fact reads its value and percent. Collapsed, the rail's links are named by their titles (\"Cast · 3 waiting\"), a `disabled` one the same way and out of the tab order, the tools sit in a navigation named \"Tools\" and are named by their `label` (not the short word under them), and the balance is the mark alone, still a link named \"Fragments balance: 1,240\"; pictures, icons and the attention dot are hidden. With `production.menu`, the ⋯ is a button after the production's heading, named \"More for\" and the title, with a menu popup.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ViewHeader",
+   "title": "ViewHeader",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ViewHeader opens a production view: which view it is, its title and its meta, with the view's actions on the right.",
+   "use": "the top of a production view: the view as an eyebrow, the title on one line, the meta under it, and the view's actions on the right (Maki, then at most one primary).",
+   "instead": [
+    {
+     "when": "the top of an app page beside the SideNav",
+     "use": "PageHeader"
+    },
+    {
+     "when": "opening a shelf",
+     "use": "SectionHeader"
+    },
+    {
+     "when": "the head of a side panel or an inspector",
+     "use": "PanelHeader"
+    },
+    {
+     "when": "the editor's top bar with its timecode",
+     "use": "EditorHeader"
+    },
+    {
+     "when": "the top bar of a full-screen flow",
+     "use": "FlowHeader"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#ViewHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The title is a level-1 heading, with the eyebrow before it and the meta after it read as text; the actions on the right take focus in order.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "EditorShell",
+   "title": "EditorShell",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "EditorShell is the full-screen editor (Cut).",
+   "use": "the full-screen editor (Cut, and Art and Lettering in manga): the rail, header, tool panel, inspector and the centre column with the monitor, program bar and timeline, with `focus` for the canvas alone.",
+   "instead": [
+    {
+     "when": "a production view outside the editor",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "a full-screen flow that makes one thing step by step",
+     "use": "FlowHeader"
+    },
+    {
+     "when": "a task over the page",
+     "use": "Dialog"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.6",
+   "url": "https://sakuga.design/components#EditorShell",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A layout with no keyboard handling of its own: Tab moves through its slots in order (nav, header, tool, the tool's resize handle, centre, the inspector's resize handle, inspector); each handle is a vertical separator named \"Resize the tool panel\" or \"Resize the inspector\", its value always the pane's width as laid out, its least and most the pane's min and max, the inspector is a complementary region named by `inspectorLabel` (default \"Inspector\"), and EditorHeader's title is a level-1 heading. CanvasStage's selection is a group named by `label` and described by its position and size; with `onBox` it is an application (a \"movable item\") and one Tab stop where arrows move it and Shift with an arrow resizes it, each change said aloud, and its handles are hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "EditorHeader",
+   "title": "EditorHeader",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "EditorHeader is the editor's top bar: what is being edited, its timecode, whether it rebuilds exactly, and the editor's actions.",
+   "use": "in `EditorShell`'s `header` slot.",
+   "instead": [
+    {
+     "when": "a production view outside the editor",
+     "use": "ViewHeader"
+    },
+    {
+     "when": "a full-screen flow that makes one thing step by step",
+     "use": "FlowHeader"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#EditorHeader",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The title is a level-1 heading; the timecode and status are read as text, the status's check is hidden, and the actions are their own buttons in order.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Monitor",
+   "title": "Monitor",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Monitor is the editor's picture: the frame being edited, with its corner labels, the guides and the region an edit works on.",
+   "use": "in `EditorShell`'s centre column for the picture being edited.",
+   "instead": [
+    {
+     "when": "a take shown in a list or a strip",
+     "use": "Thumb"
+    },
+    {
+     "when": "a clip that plays where it is shown",
+     "use": "VideoPlayer"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#Monitor",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The picture is an image named by `alt` (decorative without it); the labels are read as text; the guides are hidden, and the region is read by its label. With `picks` the picture is for the pointer: the outline and its name are hidden from assistive technology, and the timeline is where a keyboard selects the same items.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MonitorBar",
+   "title": "MonitorBar",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MonitorBar is the bar under the editor's picture: the transport, the timecode, the edit buttons and what sits at the end.",
+   "use": "under `Monitor` or `CanvasStage` in `EditorShell`.",
+   "instead": [
+    {
+     "when": "a bar of tools that floats over the canvas",
+     "use": "FloatingToolbar"
+    },
+    {
+     "when": "the status line at the bottom of a view",
+     "use": "StatusBar"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#MonitorBar",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A row with no role of its own: its buttons are in order (transport, edit buttons, end), the timecode is read as text and the separator is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "CanvasStage",
+   "title": "CanvasStage",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "CanvasStage is the editor's canvas while an item on it is selected: the frame, the item at its size and place, and a box with eight handles to move and resize it.",
+   "use": "in place of `Monitor` while an item is selected on the canvas.",
+   "instead": [
+    {
+     "when": "the picture while nothing is selected",
+     "use": "Monitor"
+    },
+    {
+     "when": "a page's frames and selection in manga",
+     "use": "MangaPage"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#CanvasStage",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "The selection is a group named by `label` (default \"Selected item\") and described by its position and size. With `onBox` it is an application (a \"movable item\"), so a screen reader in browse mode hands it the arrows, and one Tab stop: arrows move it a percent and Shift with an arrow resizes it from its right or bottom edge, each change said aloud. The handles are for the pointer, dragged to resize, and are hidden; dragging the box moves it as the arrows do. With `onPick`, Escape on the selected box clears the selection; a click on the box that was not a drag takes the pick beneath it, and a click on its dimmed part past the frame does nothing.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "TrimFrames",
+   "title": "TrimFrames",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "TrimFrames shows a cut’s in and out frames with their timecodes and a frame-at-a-time nudge under each.",
+   "use": "the selected cut's in and out frames with their timecodes and a frame-at-a-time nudge under each, ringing the one being trimmed.",
+   "instead": [
+    {
+     "when": "trimming an item on the tracks by its ends",
+     "use": "Timeline"
+    },
+    {
+     "when": "a picture in a frame",
+     "use": "Thumb"
+    },
+    {
+     "when": "a number stepped a unit at a time",
+     "use": "NumberField"
+    },
+    {
+     "when": "the frame grid of what gets generated for a cut",
+     "use": "Timesheet"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#TrimFrames",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A group named by `label` (default \"Trim\"): each frame reads \"In\" or \"Out\" and its timecode, a frame with `href` is a link named like \"In frame, 0:12\" (with \"selected\" on the `active` one), and Tab reaches its nudge buttons (\"In a frame earlier\", \"In a frame later\", and the same for Out). Without `href` the nudges run `onNudge`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "VolumeControl",
+   "title": "VolumeControl",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "VolumeControl is a sound’s mute button, its level and the readout (Muted when muted).",
+   "use": "a sound's mute button, its level and the readout (Muted when muted), such as the video's own sound on the selected cut.",
+   "instead": [
+    {
+     "when": "any other labelled value on a track",
+     "use": "SliderRow"
+    },
+    {
+     "when": "one setting on or off",
+     "use": "Switch"
+    },
+    {
+     "when": "hearing a voice line or a take",
+     "use": "AudioPlayer"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#VolumeControl",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Tab reaches the mute button, a toggle named \"Mute\" plus `what` (default \"the sound\") and \"pressed\" when muted, then a slider named \"Volume of the sound\" and spoken as its percent or \"Muted\"; with `onChange`, arrows move it by 1 (10 with Shift), Page Up and Page Down by 10, and Home and End to 0 and 100. Without `onChange` the slider reads as read-only.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PromptComposer",
+   "title": "PromptComposer",
+   "library": "Kit",
+   "group": "Productions",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "PromptComposer is Studio's prompt: who and where it binds on top, the words, then its tools.",
+   "use": "the prompt that makes a take (in Studio, and for episodes in Quick mode): the cast, places and references it binds on top, the words, then its tools with Generate and its cost, `variant=\"media\"` as the phone app's dock over the take and `variant=\"web\"` as the phone browser's.",
+   "instead": [
+    {
+     "when": "writing to Maki",
+     "use": "MakiComposer"
+    },
+    {
+     "when": "a plain text field",
+     "use": "TextField"
+    },
+    {
+     "when": "the script itself",
+     "use": "Manuscript"
+    },
+    {
+     "when": "choosing direction as tiles",
+     "use": "OptionTiles"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.7",
+   "url": "https://sakuga.design/components#PromptComposer",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A region named by `label` (default \"Prompt\"): Tab reaches the refs, then the words, then the tools. A missing mention reads as its name then \"missing\" (\"$platform-edge, missing\"), and a grouped $ list is one listbox whose groups are named by their headings, the arrows moving through every group in order. With `onChange` the words are a multi-line textbox named by `promptLabel` (default \"Prompt\"), with `placeholder` as its placeholder: focus stays in the words while the list is open (the field controls it, `aria-autocomplete=\"list\"`), the arrows move its active option (announced as the field's active descendant), Enter or Tab chooses it and Escape closes it; Right opens a place's views, the list then named by the place, and Left or Backspace after the # goes back, as does the head's Back button (\"Back to Places\"), which a press leaves focus in the words. While the words have focus the composer’s frame shows the focus ring, in every form, and the words draw none of their own; without `onChange` the words are text and take no focus.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MangaPage",
+   "title": "MangaPage",
+   "library": "Kit",
+   "group": "Manga",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MangaPage draws one page of an issue at its trim (1448 × 2048): its art once drawn, or its layout's frames before.",
+   "use": "one page of an issue at its trim: its art once drawn, its layout's frames before, or blank when it is not made yet, with a selection only on the editor's canvas.",
+   "instead": [
+    {
+     "when": "the issue's pages as the reader turns them",
+     "use": "IssueStrip"
+    },
+    {
+     "when": "every page with its stage at once",
+     "use": "PageWall"
+    },
+    {
+     "when": "an issue on a shelf",
+     "use": "MediaCard"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#MangaPage",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as one image named by `label`, `alt` or `title` (else \"Page\"), followed by \"selected\", how many frames are drawing or waiting, the area to redraw (`maskLabel`) and the item selected (`selectionLabel`), and with `title` or `meta` it sits in a figure captioned by them, where the `action` slot takes focus.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "IssueStrip",
+   "title": "IssueStrip",
+   "library": "Kit",
+   "group": "Manga",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "IssueStrip shows the issue as the reader turns it: the cover alone, then the content pages paired into spreads, with a rule at every page turn.",
+   "use": "the issue as the reader turns it, in Layout and under the editor's canvas: the cover alone, then the pages in spreads with a rule at every page turn.",
+   "instead": [
+    {
+     "when": "Proof, every page with how far it has come",
+     "use": "PageWall"
+    },
+    {
+     "when": "one page on its own",
+     "use": "MangaPage"
+    },
+    {
+     "when": "a page's panels, lettering and sound effects",
+     "use": "LayerStrip"
+    },
+    {
+     "when": "an issue on a shelf",
+     "use": "MediaCard"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#IssueStrip",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; its label (default \"The issue, spread by spread\") and key read as text, then a list named \"Spreads\", each spread a list item holding its pages as images (named by `label` or `alt`, else \"Page\", with \"selected\"), the one `selectSpread` rings starting with \"Selected spread\", and the page-turn rules hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "PageWall",
+   "title": "PageWall",
+   "library": "Kit",
+   "group": "Manga",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "PageWall is Proof: every page of the issue at once, in spreads, each with its caption and how far it has come.",
+   "use": "the Proof view: every page of the issue at once in spreads, each with its caption and how far it has come (Laid out, Drawn, Lettered, Proofed).",
+   "instead": [
+    {
+     "when": "placing a page in its issue while editing",
+     "use": "IssueStrip"
+    },
+    {
+     "when": "editing a page",
+     "use": "EditorShell"
+    },
+    {
+     "when": "one page on its own",
+     "use": "MangaPage"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#PageWall",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; a list named by `label` (default \"The whole issue\") with a spread per item: each page is an image named by its `label`, `alt` or `title`, then its title, meta and stage (an image named by its step) read as text, with a \"Page turn\" separator between spreads.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "LayerStrip",
+   "title": "LayerStrip",
+   "library": "Kit",
+   "group": "Manga",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "LayerStrip lists a page's layers by kind, in reading order, under the editor's canvas: panels, lettering, sound effects.",
+   "use": "a page's layers under the editor's canvas: panels, lettering and sound effects, a track per kind in reading order, with the issue strip on top.",
+   "instead": [
+    {
+     "when": "a cut's tracks in time",
+     "use": "Timeline"
+    },
+    {
+     "when": "the issue's spreads on their own",
+     "use": "IssueStrip"
+    },
+    {
+     "when": "who or what a panel holds",
+     "use": "MentionChip"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#LayerStrip",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Each track reads its name and count, then its layers: with `onSelect`, a listbox named by the track and one Tab stop, where Left and Right move between layers, Enter, Space or a click choose one, and the chosen one reads \"selected\"; without it, a list whose selected item reads \"current\". Each layer reads its number and label, with \"drawn into the art\" when `muted`, pictures are hidden, and an empty track reads \"None yet\".",
+    "gap": ""
+   }
+  },
+  {
+   "name": "MentionChip",
+   "title": "MentionChip",
+   "library": "Kit",
+   "group": "Manga",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MentionChip shows who or what a panel holds: a cast member (@), a place (#) or a prop, with its picture and a quiet note.",
+   "use": "who or what a panel or a prompt holds: a cast member (@), a place (#), a reference ($) or a prop, with its picture and a quiet note such as the outfit and the emotion.",
+   "instead": [
+    {
+     "when": "a character's face, name and role in a row",
+     "use": "CastAvatar"
+    },
+    {
+     "when": "a mention inside prose",
+     "use": "Mention"
+    },
+    {
+     "when": "narrowing a feed by kind",
+     "use": "Chip"
+    },
+    {
+     "when": "words kept as removable tags",
+     "use": "TagList"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#MentionChip",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Read as text, its mark first (\"@Aiko\", \"#Harbour\") then the note; with `href` it is a link that Tab reaches and Enter follows, named the same way; with `onClick` it is a button, named by `label` when given, that says whether what it opens is expanded. The picture is hidden.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Manuscript",
+   "title": "Manuscript",
+   "library": "Kit",
+   "group": "Writing",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Manuscript is the script's page: its tools on top (the block type, where the cursor is), the sections, and what it reports under them (saved, length, Maki's check).",
+   "use": "the script's page, for episodes and manga issues alike: its tools on top, the numbered sections, and what it reports under them (saved, length, Maki's check).",
+   "instead": [
+    {
+     "when": "one numbered section",
+     "use": "ManuscriptSection"
+    },
+    {
+     "when": "a scene read as cuts",
+     "use": "CutSheet"
+    },
+    {
+     "when": "Studio's prompt",
+     "use": "PromptComposer"
+    },
+    {
+     "when": "a long text in a form",
+     "use": "TextField"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#Manuscript",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "A region named by `label` (default \"Script\"); its toolbar, sections and footer read and take focus in order. While the body scrolls it is itself a Tab stop, a group named \"Scenes\", so the arrows and Page Up and Page Down scroll it (axe: a scrolling region must be reachable by keyboard); it shows the focus ring inside its edge. When everything fits it is no stop at all.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ManuscriptSection",
+   "title": "ManuscriptSection",
+   "library": "Kit",
+   "group": "Writing",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ManuscriptSection is one numbered section of a scene note or an imported script: #number, title (or a slugline with `slug`), the prose, the word count.",
+   "use": "one numbered section of a scene note or an imported script: its number, title or slugline, the prose and the word count, with what was found in it in the margin.",
+   "instead": [
+    {
+     "when": "one block of a screenplay inside it",
+     "use": "ScreenplayLine"
+    },
+    {
+     "when": "the whole page with its tools and status",
+     "use": "Manuscript"
+    },
+    {
+     "when": "something found in the words",
+     "use": "ProposalCard"
+    },
+    {
+     "when": "a shelf's heading",
+     "use": "SectionHeader"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.2",
+   "url": "https://sakuga.design/components#ManuscriptSection",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as \"#\" and its number, the title as a level-3 heading, the prose and its word count (\"240 words\"), the section being written (`current`) is marked \"current\", and `with` reads as its line (\"At the same time as #4 · Toddy's bedroom\"). The margin's proposals follow in reading order.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "Mention",
+   "title": "Mention",
+   "library": "Kit",
+   "group": "Writing",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "Mention is a reference inside prose: `@` a character (filled), `#` a place (underlined), `&` an object (`kind=\"object\"`, a hairline box, never broken across lines).",
+   "use": "a reference inside prose or a prompt: @ a character, # a place, $ a reference the creator added, ringed while its card is open.",
+   "instead": [
+    {
+     "when": "who or what a panel or a prompt binds, with its picture and note",
+     "use": "MentionChip"
+    },
+    {
+     "when": "a quiet action inside a line of text",
+     "use": "TextLink"
+    },
+    {
+     "when": "words a check flagged inside a sentence",
+     "use": "Text"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.3",
+   "url": "https://sakuga.design/components#Mention",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Not focusable; read as text, its mark first (\"@Aiko\", \"#Harbour\", \"&The red watch\"), an event as its quoted title and where it was told, the picture and glyph hidden, with \"missing\" after a `missing` one and \"card open\" after the `active` one.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "ProposalCard",
+   "title": "ProposalCard",
+   "library": "Kit",
+   "group": "Writing",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ProposalCard is one event, change or link found in writing, waiting for the person.",
+   "use": "one event, change or link found in writing, waiting for the person beside the words it came from: stated, inferred, or a conflict with its Ask Maki.",
+   "instead": [
+    {
+     "when": "something Maki proposes inside the chat",
+     "use": "MakiCard"
+    },
+    {
+     "when": "a change shown in place in the words",
+     "use": "Revision"
+    },
+    {
+     "when": "a check pinned to a cut on a sheet",
+     "use": "Slip"
+    }
+   ],
+   "used_on": [
+    "Web"
+   ],
+   "version": "1.0",
+   "url": "https://sakuga.design/components#ProposalCard",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-24",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "Read as text: the title, \"conflict\" on a conflict, the note and \"Inferred\" on an inferred find, with the picture hidden; the `action` slot takes focus. With `accepted` set, Tab reaches the \"Accept\" toggle button, \"pressed\" when accepted, which runs `onAccept`.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "SpendButton",
+   "title": "SpendButton",
+   "library": "Kit",
+   "group": "Fragments",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "An action that spends fragments: Sakuga's `Button` with AniCanon's price after the label, behind the hairline, with the fragment mark.",
+   "use": "an action that spends fragments: Generate, Draw it again, Make the clip, Plan scene 5.",
+   "instead": [
+    {
+     "when": "an action that costs nothing",
+     "use": "Button"
+    },
+    {
+     "when": "a fragment amount inside a sentence",
+     "use": "FragmentBalance variant=\"inline\""
+    },
+    {
+     "when": "a price on a choice card",
+     "use": "SpendTiles"
+    }
+   ],
+   "url": "https://sakuga.design/components#SpendButton",
+   "accessibility_declared": {
+    "design": "Button's own: a native button (a link with `href`), so Tab reaches it, Enter activates it, and Space does too on a button. A screen reader hears its label, then the price as \"~100 fragments\"; the mark and icons are hidden. With `href` and `disabled` it is a disabled button, out of the tab order, so a price can't be spent through a disabled link. While `busy` it stays focusable and a second press can't spend twice; a screen reader hears `busyLabel` once.",
+    "gap": ""
+   },
+   "version": "1.1",
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ]
+  },
+  {
+   "name": "SpendTiles",
+   "title": "SpendTiles",
+   "library": "Kit",
+   "group": "Fragments",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "`OptionTiles` whose large cards carry fragments: an option's `amount` (what a pack or plan gives, the card's headline) and `cost` (what choosing it charges, under its description), each with the fragment mark.",
+   "use": "a choice whose cards carry fragments: the Fragments packs and plans, and the first choice of a flow when each way costs something different.",
+   "instead": [
+    {
+     "when": "a choice that costs nothing",
+     "use": "OptionTiles"
+    },
+    {
+     "when": "the action that spends them",
+     "use": "SpendButton"
+    }
+   ],
+   "url": "https://sakuga.design/components#SpendTiles",
+   "accessibility_declared": {
+    "design": "OptionTiles' own: with one choice the cards are a radio group, one Tab stop that the arrows move through. A screen reader hears each card's name, the amount or cost as \"24,990 fragments\", the description and the footnote; the mark and art are hidden.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ]
+  },
+  {
+   "name": "Cropper",
+   "title": "Cropper",
+   "library": "Core",
+   "group": "Inputs",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "A crop of a picture: a circle (or a square) you move over the whole picture.",
+   "use": "to choose the part of a picture that is kept: an avatar from a face sheet or a variant, a logo's square.",
+   "instead": [
+    {
+     "when": "showing a picture already cut",
+     "use": "Thumb"
+    },
+    {
+     "when": "choosing among whole pictures",
+     "use": "Thumb"
+    },
+    {
+     "when": "a file being added",
+     "use": "DropZone"
+    }
+   ],
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ],
+   "version": "1.1",
+   "url": "https://sakuga.design/components#Cropper",
+   "accessibility": {
+    "standard": "WCAG 2.2 A and AA",
+    "tool": "axe-core 4.11.4",
+    "checked": "2026-10-30",
+    "issues": [],
+    "reviewed": []
+   },
+   "accessibility_declared": {
+    "design": "An application named by `label`, described by `hint`, and one Tab stop. The arrows move the circle a tenth of its width, and with Shift a whole width. + and − zoom (not at a fixed size), 1 to 9 jump to a region's centre, and Home goes to the first. When a move, a zoom or a jump ends, the page's live region says where it is (\"Face 3 of 6, zoom 1.3 times\", or \"Face 3 of 6\" at a fixed size); a drag is never spoken while it runs. The slider, when there is one, is a named slider, and − and + are buttons. In forced colours the circle and its handle keep a Highlight ring.",
+    "gap": ""
+   }
+  },
+  {
+   "name": "VideoPlayer",
+   "title": "VideoPlayer",
+   "library": "Core",
+   "group": "Media",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "VideoPlayer is a clip played where it is shown: its picture, with play, the track, sound and full screen over it.",
+   "use": "a clip that plays where it is shown: a Library item, a landed take on Studio's stage.",
+   "instead": [
+    {
+     "when": "the frame being edited, with its guides",
+     "use": "Monitor"
+    },
+    {
+     "when": "a clip in a grid or a strip",
+     "use": "MediaCard"
+    },
+    {
+     "when": "only the playhead under a picture",
+     "use": "Scrubber"
+    },
+    {
+     "when": "hearing a voice line or a take's sound",
+     "use": "AudioPlayer"
+    }
+   ],
+   "url": "https://sakuga.design/components#VideoPlayer",
+   "accessibility_declared": {
+    "design": "A group named \"{name}, video\". Tab reaches play or pause (a button named \"Play {name}\", \"Pause {name}\" or \"Play {name} again\"), the seek slider (\"Seek in {name}\", a second per arrow), mute (a toggle, \"Mute {name}\") and full screen (a toggle, \"Full screen\"). With focus anywhere in the player, Space or K plays and pauses, M mutes, F goes full screen and Left and Right step a second; keyboard focus inside keeps the controls shown (a pointer's focus lets them fade), and the large play and the picture's press do what play does; the large play goes as it plays, and hands its focus to play or pause. The loader is named \"Loading {name}\". Gap: the time is read through the slider only, with no live update while it plays.",
+    "gap": ""
+   },
+   "version": "1.3",
+   "used_on": [
+    "Web"
+   ]
+  },
+  {
+   "name": "MakiFinding",
+   "title": "MakiFinding",
+   "library": "Kit",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiFinding is one thing Maki's Review found, as a line of her reply: a small mark, what doesn't hold up and why, and every event it is in.",
+   "use": "one thing Maki's Review found, inside a `MakiFindingGroup` in her reply.",
+   "instead": [
+    {
+     "when": "something Maki proposes inside a reply",
+     "use": "MakiCard"
+    },
+    {
+     "when": "something found in writing, beside the words it came from",
+     "use": "ProposalCard"
+    },
+    {
+     "when": "a check pinned to work on a sheet",
+     "use": "Slip"
+    }
+   ],
+   "url": "https://sakuga.design/components#MakiFinding",
+   "accessibility_declared": {
+    "design": "An item of its group's list, named by its title. A line that opens is one button, read as its severity, \"Show {title} on the map\" and its note, expanded or collapsed; the mark is hidden. Open, its events are a list named \"In 3 events\", then Ask Maki and Keep on purpose take focus. A kept one reads \"Kept on purpose by {name} · {date}\", or \"Kept on purpose\" with no one named, and its reason, then Reopen.",
+    "gap": ""
+   },
+   "version": "2.1",
+   "used_on": [
+    "Web"
+   ]
+  },
+  {
+   "name": "SidePanel",
+   "title": "SidePanel",
+   "library": "Core",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "SidePanel is the one container for a side area beside a view: an event, a character, a place, Maki.",
+   "use": "any side area beside a view: an event, a character or a place on Story, Maki's chat.",
+   "instead": [
+    {
+     "when": "a dialog over the view",
+     "use": "Dialog"
+    },
+    {
+     "when": "a panel that slides up on a phone",
+     "use": "Sheet"
+    },
+    {
+     "when": "a boxed group of settings inside a page",
+     "use": "Panel"
+    }
+   ],
+   "url": "https://sakuga.design/components#SidePanel",
+   "accessibility_declared": {
+    "design": "A section named by `label`. The body is a region Tab reaches when its `role` is `region`, or a log when it is a conversation, which Tab also reaches so it scrolls from the keyboard, held back while `busy`; \"Jump to the latest\" is a button.",
+    "gap": ""
+   },
+   "version": "1.1",
+   "used_on": [
+    "Web"
+   ]
+  },
+  {
+   "name": "MakiFindingGroup",
+   "title": "MakiFindingGroup",
+   "library": "Kit",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiFindingGroup is one group of what Review found, inside Maki's reply: its label and count (\"Conflicts · 2\"), an optional quiet note, then its `MakiFinding`s.",
+   "use": "to group Review's findings inside Maki's reply.",
+   "instead": [
+    {
+     "when": "a section of a side area",
+     "use": "PanelSection"
+    },
+    {
+     "when": "a section of a page",
+     "use": "SectionHeader"
+    }
+   ],
+   "url": "https://sakuga.design/components#MakiFindingGroup",
+   "accessibility_declared": {
+    "design": "Its findings are a list named by its label.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web"
+   ]
+  },
+  {
+   "name": "MakiStep",
+   "title": "MakiStep",
+   "library": "Kit",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiStep is one line of what Maki is doing or did, at the top of her reply: \"Read the story · 26 events\".",
+   "use": "what Maki did before she answered, at the top of a `MakiTurn`.",
+   "instead": [
+    {
+     "when": "Maki's answer itself",
+     "use": "MakiTurn"
+    },
+    {
+     "when": "a job running elsewhere",
+     "use": "ActivityRow"
+    }
+   ],
+   "url": "https://sakuga.design/components#MakiStep",
+   "accessibility_declared": {
+    "design": "Read as text; a step that opens is a button, expanded or collapsed. A running step's loader says its label once.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ]
+  },
+  {
+   "name": "MakiSuggestions",
+   "title": "MakiSuggestions",
+   "library": "Kit",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "MakiSuggestions is what to ask Maki first, as rows that send on a press, phrased as the person would type them.",
+   "use": "the first things to ask, when nothing has been said yet in `MakiPanel`.",
+   "instead": [
+    {
+     "when": "an answer Maki asks for",
+     "use": "MakiCard"
+    },
+    {
+     "when": "a filter or a toggle",
+     "use": "Chip"
+    }
+   ],
+   "url": "https://sakuga.design/components#MakiSuggestions",
+   "accessibility_declared": {
+    "design": "A list named \"What to ask\"; each row is a button that sends its words.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web",
+    "iOS",
+    "Android"
+   ]
+  },
+  {
+   "name": "ScreenplayEditor",
+   "title": "ScreenplayEditor",
+   "library": "Kit",
+   "package": "@anicanon/sakuga/anicanonkit",
+   "summary": "ScreenplayEditor is a scene written on the page: each block is a `ScreenplayLine` of its kind, typed in place, with no box around the words.",
+   "use": "to write a scene of a script on the page, inside a `ManuscriptSection`, the blocks typed as screenplay lines.",
+   "instead": [
+    {
+     "when": "a scene that only reads",
+     "use": "ScreenplayLine"
+    },
+    {
+     "when": "the prompt that makes a take",
+     "use": "PromptComposer"
+    },
+    {
+     "when": "a plain multi-line field",
+     "use": "TextArea"
+    }
+   ],
+   "url": "https://sakuga.design/components#ScreenplayEditor",
+   "accessibility_declared": {
+    "design": "A group named by `label` (default \"Script\") and described by its keys (\"Enter starts the next block, … Escape, then Tab, leaves the script\"). Each block is a textbox named by its kind (\"Scene heading\", \"Action\", \"Character\", \"Parenthetical\", \"Dialogue\", \"Transition\"), multi-line for action and dialogue, one Tab stop for the whole script (the block last written in). A change of kind is said in a polite live region. The mention list is a listbox the line controls, its active option the line's active descendant.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web"
+   ]
+  }
+ ]
+}

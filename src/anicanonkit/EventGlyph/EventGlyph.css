@@ -1,0 +1,8 @@
+/* EventGlyph: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--glyph-stroke-width:2}
+.sk-glyph{display:block;flex:none}
+.sk-glyph{stroke-width:var(--glyph-stroke-width)}
+.sk-glyph--primary{color:var(--glyph-event)}
+.sk-glyph--accent{color:var(--glyph-accent)}
+.sk-glyph--muted{color:var(--glyph-muted)}
+:root,[data-theme]{--glyph-accent:var(--accent)}

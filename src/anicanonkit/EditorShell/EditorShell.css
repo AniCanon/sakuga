@@ -1,0 +1,45 @@
+/* EditorShell: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--editor-status-icon-size:var(--icon-size-xs);--editor-tool-duration:var(--duration-move);--editor-tool-easing:var(--ease-move);--editor-tool-opacity-duration:var(--duration-state);--editor-center-focus-padding-top:var(--inset-sm);--editor-center-focus-padding-x:var(--inset-md);--editor-center-focus-padding-bottom:var(--inset-md);--editor-center-focus-gap:var(--gap-md);--editor-font-family:var(--font-body);--editor-tool-width:calc(var(--space-base) * 78);--editor-tool-min-width:calc(var(--space-base) * 70);--editor-tool-max-width:calc(var(--space-base) * 130);--editor-inspector-min-width:calc(var(--space-base) * 65);--editor-inspector-max-width:calc(var(--space-base) * 115);--editor-grip-width:calc(var(--space-base) * 2);--editor-grip-line:var(--line-strong);--editor-tool-gap:var(--gap-lg);--editor-tool-padding:var(--inset-lg);--editor-tool-border-right-width:var(--line-hairline);--editor-center-gap:var(--gap-md);--editor-center-padding-y:var(--inset-md);--editor-center-padding-x:var(--inset-md);--editor-inspector-width:calc(var(--space-base) * 75);--editor-inspector-gap:var(--gap-lg);--editor-inspector-padding:var(--inset-lg);--editor-inspector-border-left-width:var(--line-hairline);--editor-timeline-gap:var(--gap-md);--editor-timeline-padding-y:var(--inset-md);--editor-timeline-padding-x:var(--inset-md);--editor-timeline-border-top-width:var(--line-hairline);--editor-timeline-max-height:50%;--editor-head-gap:var(--gap-lg);--editor-head-height:calc(var(--space-base) * 14);--editor-head-padding-x:var(--inset-lg);--editor-head-border-bottom-width:var(--line-hairline);--editor-head-b-font:var(--text-title-4);--editor-tc-font:var(--text-caption-strong);--editor-status-gap:var(--gap-sm);--editor-status-height:calc(var(--space-base) * 7);--editor-status-padding-x:var(--inset-sm);--editor-status-radius:var(--radius-pill);--editor-status-font:var(--text-small-strong)}
+.sk-editor__tool,.sk-editor__inspector,.sk-editor__head{transition:width var(--editor-tool-duration) var(--editor-tool-easing),opacity var(--editor-tool-opacity-duration) var(--editor-tool-easing),transform var(--editor-tool-duration) var(--editor-tool-easing)}
+.sk-editor.is-focus .sk-editor__head,.sk-editor.is-focus .sk-editor__tool,.sk-editor.is-focus .sk-editor__inspector,.sk-editor.is-focus .sk-prodnav{display:none}
+.sk-editor.is-focus .sk-editor__center{padding:var(--editor-center-focus-padding-top) var(--editor-center-focus-padding-x) var(--editor-center-focus-padding-bottom);gap:var(--editor-center-focus-gap)}
+.sk-editor__float{position:absolute;inset:0;z-index:4;pointer-events:none}
+.sk-editor__float>*{pointer-events:auto}
+.sk-editor{position:relative;display:flex;width:100%;overflow:hidden;background:var(--editor-bg-canvas);color:var(--editor-text-primary);font-family:var(--editor-font-family)}
+.sk-editor__col{flex:1;min-width:0;display:flex;flex-direction:column}
+.sk-editor__head{flex:none;display:flex;align-items:center;gap:var(--editor-head-gap);height:var(--editor-head-height);padding:0 var(--editor-head-padding-x);box-shadow:inset 0 calc(-1 * var(--editor-head-border-bottom-width)) 0 var(--editor-border-hairline)}
+.sk-editor__head>b{font:var(--editor-head-b-font);white-space:nowrap}
+.sk-editor__tc{font:var(--editor-tc-font);color:var(--editor-text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sk-editor__status{display:inline-flex;align-items:center;gap:var(--editor-status-gap);height:var(--editor-status-height);padding:0 var(--editor-status-padding-x);border-radius:var(--editor-status-radius);background:var(--editor-bg-fill-subtle);font:var(--editor-status-font);color:var(--editor-text-secondary);white-space:nowrap}
+.sk-editor__fill{flex:1}
+.sk-editor__body{flex:1;min-height:0;display:flex}
+.sk-editor__tool{flex:none;width:var(--editor-tool-width);box-sizing:border-box;display:flex;flex-direction:column;gap:var(--editor-tool-gap);padding:var(--editor-tool-padding);box-shadow:inset calc(-1 * var(--editor-tool-border-right-width)) 0 0 var(--editor-border-hairline);overflow:hidden}
+.sk-editor__center{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--editor-center-gap);padding:var(--editor-center-padding-y) var(--editor-center-padding-x)}
+.sk-editor__inspector{flex:none;width:var(--editor-inspector-width);box-sizing:border-box;display:flex;flex-direction:column;gap:var(--editor-inspector-gap);padding:var(--editor-inspector-padding);box-shadow:inset var(--editor-inspector-border-left-width) 0 0 var(--editor-border-hairline);overflow:hidden}
+.sk-editor:has(>.sk-editor__col>.sk-editor__timeline) :is(.sk-editor__tool,.sk-editor__center,.sk-editor__inspector){overflow-y:auto;min-height:0}
+.sk-editor__timeline{flex:none;max-height:var(--editor-timeline-max-height);overflow-y:auto;display:flex;flex-direction:column;gap:var(--editor-timeline-gap);padding:var(--editor-timeline-padding-y) var(--editor-timeline-padding-x);box-shadow:inset 0 var(--editor-timeline-border-top-width) 0 var(--editor-border-hairline)}
+@media (prefers-reduced-motion:reduce){.sk-editor *{transition:none!important;animation:none!important}}
+:root{--editor-float-duration:var(--duration-move);--editor-float-easing:var(--ease-move)}
+.sk-editor__float{transition:opacity var(--editor-float-duration) var(--editor-float-easing)}
+.sk-editor__float.is-asleep{opacity:0}
+.sk-editor__float.is-asleep>*{pointer-events:none}
+.sk-editor.is-focus .sk-monitor__hud{transition:opacity var(--editor-float-duration) var(--editor-float-easing)}
+.sk-editor.is-focus:has(.sk-editor__float:not(.is-asleep)) .sk-monitor__hud{opacity:0}
+:root,[data-theme]{--editor-bg-canvas:var(--bg-canvas);--editor-timeline-pin-z:4;--editor-pane-edge:var(--editor-border-hairline);--editor-text-primary:var(--text-primary);--editor-border-hairline:var(--border-hairline);--editor-text-secondary:var(--text-secondary);--editor-bg-fill-subtle:var(--bg-fill-subtle)}
+:is(.sk-editor__tool,.sk-editor__inspector)>.sk-panel,:is(.sk-editor__tool,.sk-editor__inspector)>*>.sk-panel{padding:0;border-radius:0;background:none;box-shadow:none}
+.sk-editor__float .sk-ftoolbar{--toolbar-bg:var(--bg-glass-media-strong);--toolbar-border:var(--border-glass-media);--ftoolbar-text-primary:var(--text-on-media);--ftoolbar-border-hairline:var(--border-glass-media);color:var(--text-on-media);-webkit-backdrop-filter:var(--icon-button-media-blur);backdrop-filter:var(--icon-button-media-blur)}
+:is(.sk-editor__tool,.sk-editor__inspector,.sk-panel.is-pane) .sk-stage{--stage-outside:var(--editor-bg-canvas,var(--bg-canvas))}
+.sk-editor__timeline .sk-tl__ruler{position:sticky;top:calc(-1 * var(--editor-timeline-padding-y));z-index:var(--editor-timeline-pin-z);background:var(--editor-bg-canvas)}
+.sk-editor__tool{--pane-side:inset calc(-1 * var(--editor-tool-border-right-width)) 0 0 var(--editor-border-hairline)}
+.sk-editor__inspector{--pane-side:inset var(--editor-inspector-border-left-width) 0 0 var(--editor-border-hairline)}
+:is(.sk-editor__tool,.sk-editor__inspector).is-more-above{box-shadow:var(--pane-side),inset 0 var(--line-hairline) 0 var(--editor-pane-edge)}
+:is(.sk-editor__tool,.sk-editor__inspector).is-more-below{box-shadow:var(--pane-side),inset 0 calc(-1 * var(--line-hairline)) 0 var(--editor-pane-edge)}
+:is(.sk-editor__tool,.sk-editor__inspector).is-more-above.is-more-below{box-shadow:var(--pane-side),inset 0 var(--line-hairline) 0 var(--editor-pane-edge),inset 0 calc(-1 * var(--line-hairline)) 0 var(--editor-pane-edge)}
+@media (forced-colors:active){:is(.sk-editor__tool,.sk-editor__inspector):is(.is-more-above,.is-more-below){border-block:1px solid CanvasText}}
+.sk-editor__grip{position:relative;flex:none;width:var(--editor-grip-width);margin:0 calc(-1 * var(--editor-grip-width) / 2);z-index:3;cursor:col-resize;touch-action:none;outline:none}
+.sk-editor__grip::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:var(--editor-grip-line);transform:translateX(-50%);background:transparent;transition:background var(--duration-state) var(--ease-move)}
+.sk-editor__grip:hover::after,.sk-editor__grip.is-dragging::after{background:var(--editor-border-hairline)}
+.sk-editor__grip:focus-visible::after{background:var(--focus-ring)}
+.sk-editor__tool,.sk-editor__inspector{min-width:0}
+.sk-editor.is-resizing :is(.sk-editor__tool,.sk-editor__inspector){transition:none}
+@media (forced-colors:active){.sk-editor__grip:is(:hover,:focus-visible,.is-dragging)::after{background:Highlight}}

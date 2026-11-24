@@ -1,0 +1,6 @@
+/* Caption: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--caption-font-family:var(--font-body);--caption-font-weight:var(--weight-strong);--caption-radius:var(--radius-mark);--caption-font-size-lg:var(--text-subtitle-size);--caption-line-height-lg:var(--text-subtitle-line-height);--caption-padding-y-lg:var(--inset-xs);--caption-padding-x-lg:var(--inset-md);--caption-font-size-md:var(--text-subtitle-sm-size);--caption-line-height-md:var(--text-subtitle-sm-line-height);--caption-padding-y-md:var(--inset-2xs);--caption-padding-x-md:var(--inset-sm)}
+.sk-caption{display:inline-block;margin:0;text-align:center;font-family:var(--caption-font-family);font-weight:var(--caption-font-weight);background:var(--caption-bg);color:var(--caption-fg);border-radius:var(--caption-radius)}
+.sk-caption--lg{font-size:var(--caption-font-size-lg);line-height:var(--caption-line-height-lg);padding:var(--caption-padding-y-lg) var(--caption-padding-x-lg)}
+.sk-caption--md{font-size:var(--caption-font-size-md);line-height:var(--caption-line-height-md);padding:var(--caption-padding-y-md) var(--caption-padding-x-md)}
+.sk-caption{text-wrap:balance}

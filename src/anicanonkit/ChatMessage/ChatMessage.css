@@ -1,0 +1,7 @@
+/* ChatMessage: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+@media (prefers-reduced-motion:reduce){.sk-mk-mine{animation:var(--motion-reduced-in) both}}
+:root{--mk-mine-max-width:85%;--mk-mine-padding-y:var(--inset-sm);--mk-mine-padding-x:var(--inset-md);--mk-mine-radius:var(--radius-card)}
+:root,[data-theme]{--mk-mine-bg:var(--bg-fill-subtle)}
+.sk-mk-mine{align-self:flex-end;max-width:var(--mk-mine-max-width);padding:var(--mk-mine-padding-y) var(--mk-mine-padding-x);border-radius:var(--mk-mine-radius);background:var(--mk-mine-bg);font:var(--mk-say-font);color:var(--mk-text);text-wrap:pretty;animation:var(--motion-rise) backwards}
+@media (forced-colors:active){.sk-mk-mine{outline:var(--line-hairline) solid CanvasText}}
+@media (prefers-reduced-motion:reduce){.sk-mk-mine{animation:none}}

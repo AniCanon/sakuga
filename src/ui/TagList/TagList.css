@@ -1,0 +1,26 @@
+/* TagList: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
+:root{--tag-icon-size:var(--icon-size-xs);--tags-gap:var(--gap-sm);--tags-input-min-height:var(--size-control-md);--tags-input-padding-y:var(--inset-sm);--tags-input-padding-x:var(--inset-md);--tags-input-radius:var(--radius-item);--tags-input-inset-ring-width:var(--line-hairline);--tag-gap:var(--gap-2xs);--tag-height:calc(var(--space-base) * 7);--tag-padding-right:var(--inset-xs);--tag-padding-left:var(--inset-md);--tag-radius:var(--radius-pill);--tag-font:var(--text-caption-strong);--tag-x-press-duration:var(--duration-state);--tag-x-press-easing:var(--ease-move);--tag-x-active-scale:var(--scale-press-sm);--tag-x-active-duration:var(--duration-press);--tag-x-size:var(--icon-size-md);--tag-x-radius:var(--radius-pill);--tag-x-duration:var(--duration-state);--tag-x-focus-outline-offset:var(--focus-ring-offset);--tags-entry-min-width:calc(var(--space-base) * 30);--tags-entry-height:calc(var(--space-base) * 6);--tags-entry-padding-x:var(--inset-xs);--tags-entry-font:var(--text-caption);--tags-input-focus-inset-ring-width:var(--line-strong)}
+@media (prefers-reduced-motion:reduce){.sk-tag__x:active{transform:none}}
+.sk-tags{display:flex;flex-wrap:wrap;align-items:center;gap:var(--tags-gap)}
+.sk-tags--input{min-height:var(--tags-input-min-height);box-sizing:border-box;padding:var(--tags-input-padding-y) var(--tags-input-padding-x);border-radius:var(--tags-input-radius);box-shadow:inset 0 0 0 var(--tags-input-inset-ring-width) var(--tags-border-control);background:var(--tags-bg-canvas)}
+.sk-tag{display:inline-flex;align-items:center;gap:var(--tag-gap);height:var(--tag-height);padding:0 var(--tag-padding-right) 0 var(--tag-padding-left);border-radius:var(--tag-radius);background:var(--tag-bg-fill-subtle);color:var(--tag-text-primary);font:var(--tag-font);white-space:nowrap}
+.sk-tag.is-off{color:var(--tag-text-muted);text-decoration:line-through}
+.sk-tag__x{width:var(--tag-x-size);height:var(--tag-x-size);padding:0;border:0;border-radius:var(--tag-x-radius);display:flex;align-items:center;justify-content:center;background:transparent;color:inherit;cursor:pointer;transition:background-color var(--tag-x-duration) linear,transform var(--tag-x-press-duration) var(--tag-x-press-easing)}
+.sk-tag__x:active{transform:scale(var(--tag-x-active-scale));transition-duration:var(--tag-x-active-duration)}
+@media (hover:hover){.sk-tag__x:hover{background:var(--tag-bg-fill)}}
+.sk-tag__x:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--tag-x-focus-outline-offset)}
+.sk-tags__input{flex:1;min-width:var(--tags-entry-min-width);height:var(--tags-entry-height);padding:0 var(--tags-entry-padding-x);border:0;background:transparent;color:var(--tags-text-primary);font:var(--tags-entry-font);outline:none}
+.sk-tags__input::placeholder{color:var(--tags-text-muted)}
+.sk-tags--input:has(.sk-tags__input:focus-visible){box-shadow:inset 0 0 0 var(--tags-input-focus-inset-ring-width) var(--focus-ring)}
+:root{--tags-forced-edge-width:var(--line-hairline);--tags-forced-focus-width:var(--line-strong)}
+@media (forced-colors:active){.sk-tags--input{outline:var(--tags-forced-edge-width) solid ButtonText;outline-offset:calc(-1 * var(--tags-forced-edge-width))}}
+@media (forced-colors:active){.sk-tags--input:has(.sk-tags__input:focus-visible){outline:var(--tags-forced-focus-width) solid Highlight;outline-offset:calc(-1 * var(--tags-forced-focus-width))}}
+:root{--tag-x-target-size:var(--target-dense)}
+.sk-tag__x{position:relative}
+.sk-tag__x::after{content:"";position:absolute;inset:calc((var(--tag-x-size) - var(--tag-x-target-size)) / 2)}
+:root{--tag-arrive-animation:sk-emerge var(--duration-move) var(--ease-arrive);--tag-leave-animation:sk-recede var(--duration-state) var(--ease-leave)}
+.sk-tag.is-arriving{animation:var(--tag-arrive-animation) both}
+.sk-tag.is-leaving{animation:var(--tag-leave-animation) both;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sk-tag.is-arriving{animation:var(--motion-reduced-in) both!important}}
+@media (prefers-reduced-motion:reduce){.sk-tag.is-leaving{animation:var(--motion-reduced-out) both!important}}
+:root,[data-theme]{--tags-border-control:var(--border-control);--tags-bg-canvas:var(--bg-canvas);--tag-bg-fill-subtle:var(--bg-fill-subtle);--tag-text-primary:var(--text-primary);--tag-text-muted:var(--text-muted);--tag-bg-fill:var(--bg-fill);--tags-text-primary:var(--text-primary);--tags-text-muted:var(--text-muted)}

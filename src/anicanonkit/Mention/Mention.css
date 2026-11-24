@@ -1,0 +1,27 @@
+/* Mention: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root{--mention-img-size:var(--icon-size-sm);--mention-img-gap:var(--gap-xs);--mention-object-ring-width:var(--line-hairline);--mention-object-radius:var(--radius-mark);--mention-told-font:var(--text-small);--mention-radius:var(--radius-mark);--mention-padding-x:var(--inset-2xs);--mention-font-weight:var(--weight-strong);--mention-place-border-bottom-width:var(--line-hairline);--mention-active-ring-width:var(--line-strong)}
+.sk-mention{border-radius:var(--mention-radius);padding:0 var(--mention-padding-x);font-weight:var(--mention-font-weight)}
+.sk-mention--character{background:var(--mention-character-bg);color:var(--mention-character-fg)}
+.sk-mention--place{padding:0;color:var(--mention-place-fg);box-shadow:inset 0 calc(-1 * var(--mention-place-border-bottom-width)) 0 var(--mention-place-rule)}
+.sk-mention.is-active{box-shadow:0 0 0 var(--mention-active-ring-width) var(--mention-active-ring)}
+:root{--mention-duration:var(--duration-state);--mention-easing:var(--ease-move);--mention-reference-border-bottom-width:var(--line-hairline)}
+.sk-mention{transition:box-shadow var(--mention-duration) var(--mention-easing),background-color var(--mention-duration) var(--mention-easing),color var(--mention-duration) var(--mention-easing)}
+.sk-mention--reference{padding:0;color:var(--mention-place-fg);box-shadow:inset 0 calc(-1 * var(--mention-reference-border-bottom-width)) 0 var(--mention-place-rule)}
+:root{--mention-forced-active-width:var(--line-strong)}
+@media (forced-colors:active){.sk-mention.is-active{outline:var(--mention-forced-active-width) solid Highlight}}
+.sk-mention:is(.sk-mention--place,.sk-mention--reference){border-radius:0}
+.sk-mention:is(.sk-mention--place,.sk-mention--reference).is-active{border-radius:var(--mention-radius)}
+:root{--mention-missing-fg:var(--text-danger);--mention-missing-rule-width:var(--line-hairline);--mention-missing-rule-offset:var(--underline-offset)}
+.sk-mention.is-missing{background:none;box-shadow:none;color:var(--mention-missing-fg);text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:var(--mention-missing-fg);text-decoration-thickness:var(--mention-missing-rule-width);text-underline-offset:var(--mention-missing-rule-offset);text-decoration-skip-ink:none}
+.sk-mention--reference{white-space:nowrap}
+:root,[data-theme]{--mention-object-fg:var(--text-primary);--mention-object-ring:var(--border-control);--mention-told:var(--text-muted)}
+.sk-mention.has-img{display:inline-flex;align-items:baseline;gap:var(--mention-img-gap)}
+.sk-mention__img{align-self:center;width:var(--mention-img-size);height:var(--mention-img-size);object-fit:cover;object-position:top;border-radius:var(--radius-mark)}
+.sk-mention--character .sk-mention__img{border-radius:var(--radius-pill)}
+.sk-mention--object{white-space:nowrap;color:var(--mention-object-fg);box-shadow:inset 0 0 0 var(--mention-object-ring-width) var(--mention-object-ring);border-radius:var(--mention-object-radius)}
+.sk-mention--object .sk-mention__img{object-fit:contain;background:var(--bg-canvas)}
+.sk-mention--event{padding:0;color:var(--mention-place-fg);font-weight:var(--mention-font-weight)}
+.sk-mention__glyph{display:inline-block;margin-right:var(--mention-img-gap);vertical-align:baseline}
+.sk-mention__told{font:var(--mention-told-font);color:var(--mention-told)}
+@media (forced-colors:active){.sk-mention--object{border:var(--line-hairline) solid CanvasText}}
+.sk-mention__figure{display:inline-flex;align-items:flex-end;justify-content:center;overflow:hidden;border-radius:var(--radius-pill);background:var(--bg-canvas);color:var(--text-secondary)}
