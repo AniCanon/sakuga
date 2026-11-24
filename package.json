@@ -88,7 +88,8 @@
     "vitest": "^2.1.8"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "dependencies": {
     "@lexical/history": "0.52.0",

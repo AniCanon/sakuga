@@ -18,18 +18,7 @@ UI components, studio tools, design tokens, and icons.
 npm install @anicanon/sakuga
 ```
 
-Requires React 18 or later.
-
-<details>
-<summary>Using GitHub Packages</summary>
-
-Add a `.npmrc` file to your project:
-
-```ini
-@anicanon:registry=https://npm.pkg.github.com
-```
-
-</details>
+Requires React 18 or later. It is on npm, so no registry setup is needed.
 
 ## Usage
 

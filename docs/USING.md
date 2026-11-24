@@ -4,13 +4,7 @@ The [README](../README.md) shows how to install Sakuga and start it. This page c
 
 ## 1. Install
 
-Sakuga is published to GitHub Packages. Point the `@anicanon` scope at it in the app's `.npmrc`:
-
-```ini
-@anicanon:registry=https://npm.pkg.github.com
-```
-
-Then install it with `npm install @anicanon/sakuga`. It needs React 18 or later.
+Sakuga is published to npm: install it with `npm install @anicanon/sakuga`. It needs React 18 or later.
 
 ## 2. The CSS
 
