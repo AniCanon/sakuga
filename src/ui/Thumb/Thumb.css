@@ -72,3 +72,5 @@ button.sk-thumb.has-light:focus-visible>.sk-clip>.sk-light{opacity:var(--light-s
 .sk-ins--row>.sk-listrow{flex:1;min-width:0}
 .sk-ins--row>.sk-ins__btn{position:static;flex:none}
 .sk-ins--row>.sk-listrow__action{padding-right:0}
+/* The row's + sits at its end, flush with the row's own edge */
+.sk-ins--row>.sk-ins__btn{margin-right:calc(-1 * var(--ins-inset))}

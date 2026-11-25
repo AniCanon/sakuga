@@ -27,7 +27,7 @@ Use it for one thing on one row of a `List`: a title and a quiet line, with what
 - `linkLabel` names the row link when its words alone don't say where it goes ("Continue Episode 2"). It replaces what the link reads, so it carries the state that matters too. `label` still names the box.
 - `chevron` adds a trailing chevron when the row opens a page. `List` with `surface` sets the rows in a surface, as a phone groups them.
 
-**Adds itself**, as Thumb does: `onInsert` puts Insert at the row's end (on hover, focus and when selected), a double-click or Enter inserts at the playhead, and `dragData` drags it onto a `Timeline` with `onDrop`. A row that adds itself keeps its `action` (a take's More, with Use and Reject): it sits after Insert, its own Tab stop, and a double-click or Enter on it never inserts the row.
+**Adds itself**, as Thumb does: `onInsert` puts Insert at the row's end (on hover, focus and when selected), inside the row: the hairline and the hover fill run under the row and its Insert as one, as on every other row, a double-click or Enter inserts at the playhead, and `dragData` drags it onto a `Timeline` with `onDrop`. A row that adds itself keeps its `action` (a take's More, with Use and Reject): it sits after Insert, its own Tab stop, and a double-click or Enter on it never inserts the row.
 
 **Reorders**, in a `List` with `onReorder`: the row gets a grip at its start (see `List`).
 
@@ -83,4 +83,4 @@ export function ListRowExample() {
 With `onInsert`, Enter or a double-click inserts (the item is described "Enter or a double-click inserts it at the playhead; drag it onto the timeline to place it") and Insert is its own button named "Insert" and the name, followed by the row's `action` when it has one. Inside List (a list named by its `label`) each row is a list item read as its title, quiet line, `meta` and what sits at the end, marked "current" when `selected` and "waiting for you" with `attention`; with `checked` or `onCheck` its box comes first, a checkbox named "Select" and the title (`label` names it when the title is markup); pictures, icons and the chevron are hidden. With `href` the row is a link, with only `onClick` a link-role row, and either way Tab reaches it and Enter follows it. An action beside the link is the next Tab stop, with its own ring; `linkLabel`, when set, is the link's name.
 
 Used on: Web, iOS, Android
-Version: 1.5
+Version: 1.6

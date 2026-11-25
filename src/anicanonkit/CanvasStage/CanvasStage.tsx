@@ -66,7 +66,7 @@ function boxText(b: Box, tx: Words) { return tx('boxAt', { x: b.x, y: b.y, w: b.
  * Escape on the selected box clears the selection; a click on the box that was not a drag takes the pick beneath it, and a click
  * on its dimmed part past the frame does nothing.
  *
- * @version 1.3
+ * @version 1.4
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function CanvasStage(props: CanvasStageProps) {

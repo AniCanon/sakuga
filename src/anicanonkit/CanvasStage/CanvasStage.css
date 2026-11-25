@@ -33,3 +33,4 @@
 .sk-stage.is-fill.is-past .sk-stage__frame{width:calc(min(100cqw - 2 * var(--stage-h-size),(100cqh - 2 * var(--stage-h-size)) * var(--stage-ratio)) * var(--stage-fit));transform:translate(var(--stage-shift-x),var(--stage-shift-y))}
 .sk-stage{container-type:size;align-self:stretch}
 .sk-stage__frame{height:auto;width:min(100cqw,100cqh * var(--stage-ratio))}
+.sk-stage__sel{z-index:1}

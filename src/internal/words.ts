@@ -35,6 +35,7 @@ export interface SakugaMessages {
   /** "{name} inserted at {time} on {track}" · Timeline onDrop */ insertedAtOn?: SakugaMessage;
   /** "{name} moved to {time}" · Timeline onMoveItem */ itemMovedTo?: SakugaMessage;
   /** "Alt and an arrow move it a frame, with Shift a second" · Timeline onMoveItem */ moveItemHelp?: SakugaMessage;
+  /** "Enter selects it; drag it, or Alt and an arrow move it a frame, with Shift a second" · Timeline onMoveMarker */ moveMarkerHelp?: SakugaMessage;
   /** "Back" · FlowFooter and ProductionNav back */ back?: SakugaMessage;
   /** "Done" · Sheet done button */ done?: SakugaMessage;
   /** "Search" · TopNav, Picker and SearchField */ search?: SakugaMessage;
@@ -362,7 +363,7 @@ export interface SakugaMessages {
   /** "loops to fill, {made} made" · Timeline, a looped sound */ loopsToFill?: SakugaMessage;
   /** "{name} +{count}" · Timeline, markers sharing one flag */ markerAndMore?: SakugaMessage;
   /** "{count} markers: {list}" · Timeline, the shared flag said in full */ markersHere?: SakugaMessage;
-  /** "{name} at {time}" · Timeline, one marker in a shared flag */ markerAt?: SakugaMessage;
+  /** "{name} at {time}" · Timeline, a marker's flag, and one marker in a shared flag */ markerAt?: SakugaMessage;
   /** "Move {name}, {n} of {total}" · List onReorder, a row's grip */ moveRow?: SakugaMessage;
   /** "{name} moved to {n} of {total}" · List onReorder */ rowMoved?: SakugaMessage;
   /** "Up and Down, or Alt with Up and Down, move it a place; drag the handle to move it further" · List onReorder */ rowMoveHelp?: SakugaMessage;

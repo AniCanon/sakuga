@@ -11,6 +11,7 @@ Use it in place of `Monitor` while an item is selected on the canvas.
 
 ## How it works
 
+- The selection, its outline and its handles always paint over everything else on the stage, so a title or picture a page lays on the frame as `children` sits under the box, never hiding it.
 - `box` is the item's place and size in percent of the frame; past the frame's edges it shows dimmed.
 - `image` and `imageStyle` draw the item; `ratio` is the frame's (default `16 / 9`, a number or `'9 / 16'`); `height` the stage's.
 - `fill` takes the column's height instead: the frame of `ratio` is as large as fits and centred, on the monitor's ground and with its corners, exactly where a Monitor with the same `ratio` draws it, so the editor swaps one for the other as an item is selected without the frame moving. An item that reaches past the frame (a punch-in) is shown whole: the frame scales down just enough for the whole box and its handles, offset so the box sits centred; an item inside the frame leaves the frame exactly the monitor's.
@@ -82,4 +83,4 @@ export function PlaceLayer({ art }: { art: string }) {
 The selection is a group named by `label` (default "Selected item") and described by its position and size. With `onBox` it is an application (a "movable item"), so a screen reader in browse mode hands it the arrows, and one Tab stop: arrows move it a percent and Shift with an arrow resizes it from its right or bottom edge, each change said aloud. The handles are for the pointer, dragged to resize, and are hidden; dragging the box moves it as the arrows do. With `onPick`, Escape on the selected box clears the selection; a click on the box that was not a drag takes the pick beneath it, and a click on its dimmed part past the frame does nothing.
 
 Used on: Web
-Version: 1.3
+Version: 1.4

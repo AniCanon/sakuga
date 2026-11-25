@@ -120,6 +120,14 @@ export const Zoomable: Story = () => {
 };
 
 /* Markers closer than a readable flag share one (1.9): the first named, the rest counted, opening along the rail on hover */
+/* onSelectMarker + onMoveMarker: each flag is a button the app opens and moves; the selected one is ringed */
+export const MarkersLive: Story = () => {
+  const [marks, setMarks] = useState([{ at: 4, label: 'Smoke' }, { at: 9, label: 'Rain', selected: true }]);
+  return <div style={box}><Timeline duration={12} playhead={2} rate="24 fps" markers={marks} tracks={cut}
+    onSelectMarker={(i) => { setMarks(marks.map((m, j) => ({ ...m, selected: j === i }))); }}
+    onMoveMarker={(i, at) => { setMarks(marks.map((m, j) => (j === i ? { ...m, at } : m))); }} /></div>;
+};
+
 export const SharedFlags: Story = () => <div style={box}><Timeline duration={60} offset={150} rate="24 fps" markers={[{ at: 11, label: 'Window goes' }, { at: 13, label: 'Smith' }, { at: 40, label: 'Rain' }]} tracks={cut} /></div>;
 
 /* A sound that loops to fill: the 4 s made, again and again across its span, a dashed seam at each start (1.9) */

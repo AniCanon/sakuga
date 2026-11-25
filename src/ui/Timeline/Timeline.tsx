@@ -68,6 +68,9 @@ export interface TimelineProps {
   /** A selected item's grip moved by keyboard or dragged: the new time of that edge, in seconds. An edge stops at the item beside it
       on the track and goes where it is dragged, a whole frame at a time; it never snaps. Without it the grips only draw. */
   onTrim?: (track: number, item: number, edge: 'in' | 'out', seconds: number) => void;
+  /** A trim has ended: the grip is let go, or the key that moved it is released (or focus leaves). Called once, with the edge's final
+      time: save here, not in onTrim. */
+  onTrimEnd?: (track: number, item: number, edge: 'in' | 'out', seconds: number) => void;
   /** What one arrow press trims, in seconds. Default 1/24 (a frame); Shift, Page Up and Page Down trim a second. */
   trimStep?: number;
   /** With reorderable, a track's handle moves it: Up and Down a place at once, Enter or Space to lift it and drop it further, or a drag. */
@@ -75,8 +78,20 @@ export interface TimelineProps {
   /** An item dragged along its track, or moved with Alt and an arrow (a frame; Shift, a second; Home and End as far as it goes): its
       new start, whole frames of `trimStep`, never snapped and never over the item beside it. */
   onMoveItem?: (track: number, item: number, seconds: number) => void;
-  /** Named points in time (a scene start, a beat). */
-  markers?: { at: number; label: string }[];
+  /** A move has ended: the item is let go, or Alt and the arrow are released (or focus leaves). Called once, with its final start: save
+      here, not in onMoveItem. */
+  onMoveItemEnd?: (track: number, item: number, seconds: number) => void;
+  /** Named times on the ruler, in seconds on the same scale as `playhead`. `selected` draws it selected and says so. */
+  markers?: { at: number; label: string; selected?: boolean }[];
+  /** Makes each marker's flag a button: a press, Enter or Space calls it with the marker's index in `markers` (to open it, rename it).
+      A marker in a shared flag is chosen from the flag's list. */
+  onSelectMarker?: (marker: number) => void;
+  /** A marker's flag dragged along the ruler, or moved with Alt and an arrow (a frame; Shift, a second; Home and End to the ends): its
+      new time on every frame it passes, whole frames of `trimStep`, never snapped. A marker in a shared flag is moved from the app, once
+      selected. */
+  onMoveMarker?: (marker: number, seconds: number) => void;
+  /** A marker's move has ended (let go, or the key released): called once with its final time. */
+  onMoveMarkerEnd?: (marker: number, seconds: number) => void;
   /** Track heads carry a drag handle. */
   reorderable?: boolean;
   /** Draws a track being moved, its index and where it lands (a board); a drag or the keys draw their own. */
@@ -174,7 +189,7 @@ const RULER_STEPS = [1, 2, 5, 10, 15, 30, 60, 120, 300, 600];
  * unavailable when the whole cut shows). With `onSeek` the playhead is a slider named "Seek" (`seekLabel`), its value said in seconds and frames, in place
  * of the "Playhead at" text.
  *
- * @version 1.9
+ * @version 1.10
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function Timeline(props: TimelineProps) {
@@ -191,6 +206,17 @@ export function Timeline(props: TimelineProps) {
   const [land, setLand] = useState<Landing | null>(null), dropping = !!props.onDrop;
   const count = (props.tracks || []).length, how = useUid('sk-tl') + '-move';
   const mv = lift || props.moving;
+  /* A change made by keys is pending until the key is let go or focus leaves: then its End callback runs once */
+  const nudge = useRef<{ kind: 'trim'; ti: number; ii: number; edge: 'in' | 'out'; v: number } | { kind: 'move'; ti: number; ii: number; v: number } | null>(null);
+  const propsRef = useRef(props);
+  propsRef.current = props;
+  const settle = () => {
+    const n = nudge.current, p = propsRef.current;
+    nudge.current = null;
+    if (!n) return;
+    if (n.kind === 'trim') p.onTrimEnd?.(n.ti, n.ii, n.edge, n.v);
+    else p.onMoveItemEnd?.(n.ti, n.ii, n.v);
+  };
   /* The lane the app offers for a drop (newLane): it shows only while a card that fits it is dragged over the Timeline */
   const fresh = dropping && props.newLane ? props.newLane : null, [shown, setShown] = useState(false);
   const fits = (o: { kind?: string }) => { const d = draggedItem(); return !!d && !(d.kind && o.kind && d.kind !== o.kind); };
@@ -296,9 +322,13 @@ export function Timeline(props: TimelineProps) {
       if (s.slide) {
         const it = ((props.tracks || [])[s.ti].items || [])[s.ii];
         if (s.last !== undefined && it) announce(tx('itemMovedTo', { name: it.label || tx('thisItem'), time: tc(off + s.last) }));
+        if (s.last !== undefined) props.onMoveItemEnd?.(s.ti, s.ii, s.last);
         return;
       }
-      if (s.trim) return;
+      if (s.trim) {
+        if (s.last !== undefined) props.onTrimEnd?.(s.ti, s.ii, s.edge, s.last);
+        return;
+      }
       setLift(null);
       const tr = (props.tracks || [])[s.ti];
       if (s.to !== s.ti && props.onMoveTrack) { props.onMoveTrack(s.ti, s.to); announce(tx('trackMoved', { track: tr.label, n: s.to + 1, total: count })); }
@@ -384,7 +414,8 @@ export function Timeline(props: TimelineProps) {
           return (
             <span key={'g' + edge + ii} className={'sk-tl__grip sk-tl__grip--' + edge} style={{ left: ((isIn ? it.start : end) / D * 100) + '%' }} data-ti={ti} data-ii={ii} data-edge={edge}
               {...(onTrim ? sliderProps({ label: tx(isIn ? 'trimStart' : 'trimEnd', { name }), value: isIn ? it.start : end, min: isIn ? before : it.start + trim, max: isIn ? end - trim : after,
-                step: trim, shiftStep: 1, page: 1, text: framesText(off + (isIn ? it.start : end)), onChange: (v) => { onTrim(ti, ii, edge, v); } }) : { 'aria-hidden': true })} />
+                step: trim, shiftStep: 1, page: 1, text: framesText(off + (isIn ? it.start : end)), onChange: (v) => { onTrim(ti, ii, edge, v); nudge.current = { kind: 'trim', ti, ii, edge, v }; } }) : { 'aria-hidden': true })}
+              {...(onTrim ? { onKeyUp: settle, onBlur: settle } : null)} />
           );
         };
         const pick = props.onSelect ? () => { props.onSelect!(ti, ii); } : null, slide = props.onMoveItem;
@@ -397,14 +428,14 @@ export function Timeline(props: TimelineProps) {
           e.preventDefault(); e.stopPropagation();
           to = Math.min(after - it.length, Math.max(before, Math.round(to / trim) * trim));
           if (Math.abs(to - it.start) < 1e-6) return;
-          slide(ti, ii, to); announce(tx('itemMovedTo', { name, time: tc(off + to) }));
+          slide(ti, ii, to); nudge.current = { kind: 'move', ti, ii, v: to }; announce(tx('itemMovedTo', { name, time: tc(off + to) }));
         } : null;
         const press = pick ? pressProps(pick) : null;
         const item = (
           <div key={ii} data-kind={tr.kind} className={cx('sk-tl__item', 'sk-tl__item--' + tr.kind, it.start < -1e-6 && 'is-cut-start', end > D + 1e-6 && 'is-cut-end', it.state && 'is-' + it.state, slide && 'is-movable')} style={st} title={it.label}
             data-ti={ti} data-start={it.start} {...press}
             {...(slideKey ? { 'data-ii': ii, 'data-min': before, 'data-max': after - it.length, 'aria-keyshortcuts': 'Alt+ArrowLeft Alt+ArrowRight', 'aria-describedby': how + '-item',
-              onKeyDown: (e: KeyboardEvent<HTMLElement>) => { slideKey(e); if (!e.defaultPrevented && press?.onKeyDown) press.onKeyDown(e); } } : null)}
+              onKeyDown: (e: KeyboardEvent<HTMLElement>) => { slideKey(e); if (!e.defaultPrevented && press?.onKeyDown) press.onKeyDown(e); }, onKeyUp: settle, onBlur: settle } : null)}
             {...(pick ? { 'aria-label': [it.label, tr.label, tx('timeRange', { start: tc(off + it.start), end: tc(off + end) }), looped && tx('loopsToFill', { made: spoken(it.loop!, tx) }), word].filter(Boolean).join(', ') } : null)}>
             {inner}
             <span className="sk-tl__chip" aria-hidden="true"><Icon name={TRACK_ICON[tr.kind] || 'video'} size="var(--timeline-chip-icon-size)" /></span>
@@ -483,6 +514,7 @@ export function Timeline(props: TimelineProps) {
       onDragEnter={fresh ? () => { if (!shown && fits(fresh)) setShown(true); } : undefined}
       onDragLeave={fresh ? (e: DragEvent<HTMLElement>) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) { setShown(false); setLand(null); } } : undefined}>
       <TimelineRuler duration={D} step={step} offset={off} rate={props.rate} markers={props.markers} laneW={laneW}
+        flags={props.onSelectMarker || props.onMoveMarker ? { onSelect: props.onSelectMarker, onMove: props.onMoveMarker, onMoveEnd: props.onMoveMarkerEnd, trim, help: how + '-marker' } : undefined}
         zoom={view.zoomable ? zoomCtl : undefined}
         seek={seekable ? { playhead: props.playhead || 0, label: props.seekLabel || tx('seek'), trim, text: framesText, onSeek: props.onSeek! } : undefined} />
       <div ref={body} className={cx('sk-tl__body', pull.dragging && 'is-dragging')} onKeyDown={keys} {...pull.handlers}>
@@ -495,6 +527,7 @@ export function Timeline(props: TimelineProps) {
         )}
         {props.reorderable && props.onMoveTrack && <span id={how} className="sk-sr">{tx('trackMoveHelp')}</span>}
         {props.onMoveItem && <span id={how + '-item'} className="sk-sr">{tx('moveItemHelp')}</span>}
+        {props.onMoveMarker && <span id={how + '-marker'} className="sk-sr">{tx('moveMarkerHelp')}</span>}
       </div>
     </div>
   );

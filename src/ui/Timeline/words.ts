@@ -10,6 +10,7 @@ export const words = Object.freeze({
   "insertedAtOn": "{name} inserted at {time} on {track}",
   "itemMovedTo": "{name} moved to {time}",
   "moveItemHelp": "Alt and an arrow move it a frame, with Shift a second",
+  "moveMarkerHelp": "Enter selects it; drag it, or Alt and an arrow move it a frame, with Shift a second",
   "noPictureYet": "no picture yet",
   "storyboard": "storyboard",
   "thisItem": "this item",

@@ -1,6 +1,6 @@
 {
  "system": "Sakuga",
- "version": "244",
+ "version": "257",
  "site": "https://sakuga.design",
  "components": [
   {
@@ -1599,7 +1599,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.5",
+   "version": "1.6",
    "url": "https://sakuga.design/components#ListRow",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -2136,7 +2136,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.9",
+   "version": "1.10",
    "url": "https://sakuga.design/components#Timeline",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -2146,7 +2146,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "With `onDrop` a drop is said aloud (\"Popcorn night inserted at 2:41\", \"… on Video 3\" when it went to a free lane or \"… on Clips\" to the new lane, \"No free track at 2:41\" when refused); dragging is for the pointer, Insert and Enter on the card do the same by keyboard. A group named by `label` (default \"Timeline\") whose ruler times, track names, markers and playhead (\"Playhead at 0:04\") read as text, a looped sound adds \"loops to fill, 6 seconds made\" to its name, with waveforms and icons hidden. With `onSelect` the items are one Tab stop of buttons named by label, track, times and state (Left and Right move within a track, Home and End to its ends, Up and Down to the nearest item on the next one, Enter or Space selects), a selected item's grips are sliders (\"Trim the start of\" the item) that move a frame per arrow (`trimStep`) and a second with Shift through `onTrim`, and with `reorderable` and `onMoveTrack` Up and Down move a track by its handle, named with its place (\"Move the Picture track, 1 of 3\"), and Enter or Space lift it to move it further and drop it (Escape puts it back), each keyboard move said aloud, and a dragged track when it drops. With `onView` the zoom controls are buttons named \"Zoom out\", \"Fit the whole cut\" and \"Zoom in\" (Fit and Zoom out unavailable when the whole cut shows). With `onSeek` the playhead is a slider named \"Seek\" (`seekLabel`), its value said in seconds and frames, in place of the \"Playhead at\" text.",
+    "design": "With `onDrop` a drop is said aloud (\"Popcorn night inserted at 2:41\", \"… on Video 3\" when it went to a free lane or \"… on Clips\" to the new lane, \"No free track at 2:41\" when refused); dragging is for the pointer, Insert and Enter on the card do the same by keyboard. A group named by `label` (default \"Timeline\") whose ruler times, track names, markers and playhead (\"Playhead at 0:04\") read as text, a looped sound adds \"loops to fill, 6 seconds made\" to its name, with waveforms and icons hidden. With `onSelect` the items are one Tab stop of buttons named by label, track, times and state (Left and Right move within a track, Home and End to its ends, Up and Down to the nearest item on the next one, Enter or Space selects), a selected item's grips are sliders (\"Trim the start of\" the item) that move a frame per arrow (`trimStep`) and a second with Shift through `onTrim`, and with `reorderable` and `onMoveTrack` Up and Down move a track by its handle, named with its place (\"Move the Picture track, 1 of 3\"), and Enter or Space lift it to move it further and drop it (Escape puts it back), each keyboard move said aloud, and a dragged track when it drops. With `onSelectMarker` each flag is a button named with its time (\"Kiko enters at 0:02\", \", selected\" when it is), and a shared flag's list holds one such button per marker; with `onMoveMarker` Alt and an arrow move it a frame (Shift a second), said aloud, and its description says so. The End calls come on the key's release, so a held arrow saves once. With `onView` the zoom controls are buttons named \"Zoom out\", \"Fit the whole cut\" and \"Zoom in\", each name shown as a tooltip under it on hover or keyboard focus (Fit and Zoom out unavailable when the whole cut shows). With `onSeek` the playhead is a slider named \"Seek\" (`seekLabel`), its value said in seconds and frames, in place of the \"Playhead at\" text.",
     "gap": ""
    }
   },
@@ -4491,7 +4491,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.3",
+   "version": "1.4",
    "url": "https://sakuga.design/components#CanvasStage",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",

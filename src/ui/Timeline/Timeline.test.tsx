@@ -427,6 +427,91 @@ describe('Timeline', () => {
     expect(move).not.toHaveBeenCalled();
   });
 
+  it('a change ends once: onTrimEnd when the trimming key is let go, onMoveItemEnd when the moving key is, each with the final time', () => {
+    const trimEnd = vi.fn(), moveEnd = vi.fn(), trim = vi.fn();
+    render(<Timeline duration={10} onSelect={() => {}} onTrim={trim} onTrimEnd={trimEnd} onMoveItem={() => {}} onMoveItemEnd={moveEnd}
+      tracks={[{ label: 'Video', kind: 'video', items: [{ start: 2, length: 1, label: 'Smoke', state: 'selected' }, { start: 6, length: 2, label: 'Roof' }] }]} />);
+    const end = screen.getByRole('slider', { name: 'Trim the end of Smoke' });
+    fireEvent.keyDown(end, { key: 'ArrowRight' });
+    fireEvent.keyDown(end, { key: 'ArrowRight' });
+    expect(trimEnd).not.toHaveBeenCalled();
+    fireEvent.keyUp(end, { key: 'ArrowRight' });
+    expect(trimEnd).toHaveBeenCalledTimes(1);
+    expect(trimEnd.mock.lastCall!.slice(0, 3)).toEqual([0, 0, 'out']);
+    expect(trimEnd.mock.lastCall![3]).toBeCloseTo(trim.mock.lastCall![3], 9);
+    // A key let go with nothing moved ends nothing
+    fireEvent.keyUp(end, { key: 'ArrowRight' });
+    expect(trimEnd).toHaveBeenCalledTimes(1);
+    const smoke = screen.getByRole('button', { name: /Smoke/ });
+    fireEvent.keyDown(smoke, { key: 'ArrowRight', altKey: true });
+    fireEvent.blur(smoke);
+    expect(moveEnd).toHaveBeenCalledTimes(1);
+    expect(moveEnd.mock.lastCall![2]).toBeCloseTo(2 + 1 / 24, 9);
+  });
+
+  it('a grip let go after a drag calls onTrimEnd once with where it landed', () => {
+    const trimEnd = vi.fn();
+    render(<Timeline duration={10} onTrim={() => {}} onTrimEnd={trimEnd} tracks={[{ label: 'Video', kind: 'video', items: [{ start: 1, length: 2, label: 'Take 2', state: 'selected' }] }]} />);
+    const end = screen.getByRole('slider', { name: 'Trim the end of Take 2' });
+    vi.spyOn(end.parentElement!, 'getBoundingClientRect').mockReturnValue(rect(0, 0, 1000, 40));
+    pointer('pointerdown', end, 300, 10);
+    pointer('pointermove', window, 351, 10);
+    pointer('pointermove', window, 396, 10);
+    expect(trimEnd).not.toHaveBeenCalled();
+    pointer('pointerup', window, 396, 10);
+    expect(trimEnd).toHaveBeenCalledTimes(1);
+    expect(trimEnd.mock.lastCall![3]).toBeCloseTo(95 / 24, 9);
+  });
+
+  it('with onSelectMarker a flag is a button that selects its marker; selected, it is ringed and says so', () => {
+    const select = vi.fn();
+    const { container, rerender } = render(<Timeline duration={10} markers={[{ at: 2, label: 'Smoke' }, { at: 8, label: 'Rain' }]} onSelectMarker={select} tracks={[]} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Rain at 0:08' }));
+    expect(select).toHaveBeenCalledWith(1);
+    rerender(<Timeline duration={10} markers={[{ at: 2, label: 'Smoke' }, { at: 8, label: 'Rain', selected: true }]} onSelectMarker={select} tracks={[]} />);
+    expect(screen.getByRole('button', { name: 'Rain at 0:08, selected' })).toBeTruthy();
+    expect(container.querySelectorAll('.sk-tl__marker.is-selected')).toHaveLength(1);
+  });
+
+  it('with onMoveMarker Alt and an arrow move a marker a frame, Shift a second, said aloud, and onMoveMarkerEnd gets the final time once', () => {
+    vi.useFakeTimers();
+    const move = vi.fn(), end = vi.fn();
+    render(<Timeline duration={10} markers={[{ at: 2, label: 'Smoke' }]} onMoveMarker={move} onMoveMarkerEnd={end} tracks={[]} />);
+    const flag = screen.getByRole('button', { name: 'Smoke at 0:02' });
+    expect(flag.getAttribute('aria-keyshortcuts')).toBe('Alt+ArrowLeft Alt+ArrowRight');
+    expect(document.getElementById(flag.getAttribute('aria-describedby')!)!.textContent).toBe('Enter selects it; drag it, or Alt and an arrow move it a frame, with Shift a second');
+    fireEvent.keyDown(flag, { key: 'ArrowRight', altKey: true, shiftKey: true });
+    expect(move).toHaveBeenLastCalledWith(0, 3);
+    expect(said()).toBe('Smoke moved to 0:03');
+    expect(end).not.toHaveBeenCalled();
+    fireEvent.keyUp(flag, { key: 'ArrowRight' });
+    expect(end).toHaveBeenCalledWith(0, 3);
+    // A plain arrow never moves it
+    move.mockClear();
+    fireEvent.keyDown(flag, { key: 'ArrowRight' });
+    expect(move).not.toHaveBeenCalled();
+  });
+
+  it('a flag dragged along the ruler moves its marker a whole frame at a time, and a press alone selects without moving', () => {
+    const move = vi.fn(), end = vi.fn(), select = vi.fn();
+    const { container } = render(<Timeline duration={10} markers={[{ at: 2, label: 'Smoke' }]} onSelectMarker={select} onMoveMarker={move} onMoveMarkerEnd={end} tracks={[]} />);
+    vi.spyOn(container.querySelector('.sk-tl__scale')!, 'getBoundingClientRect').mockReturnValue(rect(0, 0, 1000, 40));
+    const flag = screen.getByRole('button', { name: 'Smoke at 0:02' });
+    pointer('pointerdown', flag, 200, 5);
+    pointer('pointermove', flag, 302, 5);
+    expect(move.mock.lastCall![0]).toBe(0);
+    expect(move.mock.lastCall![1]).toBeCloseTo(Math.round(3.02 * 24) / 24, 9);
+    pointer('pointerup', flag, 302, 5);
+    expect(end).toHaveBeenCalledTimes(1);
+    fireEvent.click(flag);
+    expect(select).not.toHaveBeenCalled();
+    // A press that doesn't travel selects
+    pointer('pointerdown', flag, 200, 5);
+    pointer('pointerup', flag, 201, 5);
+    fireEvent.click(flag);
+    expect(select).toHaveBeenCalledWith(0);
+  });
+
   it('without onTrim a grip does not drag', () => {
     const { container } = render(<Timeline duration={10} tracks={[{ label: 'Video', kind: 'video', items: [{ start: 1, length: 2, state: 'selected' }] }]} />);
     const grip = container.querySelector('.sk-tl__grip--out')!;

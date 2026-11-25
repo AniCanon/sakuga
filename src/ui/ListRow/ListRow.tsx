@@ -96,7 +96,7 @@ export interface ListRowProps {
  * hidden. With `href` the row is a link, with only `onClick` a link-role row, and either way Tab reaches it and Enter follows
  * it. An action beside the link is the next Tab stop, with its own ring; `linkLabel`, when set, is the link's name.
  *
- * @version 1.5
+ * @version 1.6
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function ListRow(props: ListRowProps) {
