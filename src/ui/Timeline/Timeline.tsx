@@ -207,14 +207,14 @@ export function Timeline(props: TimelineProps) {
   const count = (props.tracks || []).length, how = useUid('sk-tl') + '-move';
   const mv = lift || props.moving;
   /* A change made by keys is pending until the key is let go or focus leaves: then its End callback runs once */
-  const nudge = useRef<{ kind: 'trim'; ti: number; ii: number; edge: 'in' | 'out'; v: number } | { kind: 'move'; ti: number; ii: number; v: number } | null>(null);
+  const nudge = useRef<{ kind: 'trimming'; ti: number; ii: number; edge: 'in' | 'out'; v: number } | { kind: 'move'; ti: number; ii: number; v: number } | null>(null);
   const propsRef = useRef(props);
   propsRef.current = props;
   const settle = () => {
     const n = nudge.current, p = propsRef.current;
     nudge.current = null;
     if (!n) return;
-    if (n.kind === 'trim') p.onTrimEnd?.(n.ti, n.ii, n.edge, n.v);
+    if (n.kind === 'trimming') p.onTrimEnd?.(n.ti, n.ii, n.edge, n.v);
     else p.onMoveItemEnd?.(n.ti, n.ii, n.v);
   };
   /* The lane the app offers for a drop (newLane): it shows only while a card that fits it is dragged over the Timeline */
@@ -414,7 +414,7 @@ export function Timeline(props: TimelineProps) {
           return (
             <span key={'g' + edge + ii} className={'sk-tl__grip sk-tl__grip--' + edge} style={{ left: ((isIn ? it.start : end) / D * 100) + '%' }} data-ti={ti} data-ii={ii} data-edge={edge}
               {...(onTrim ? sliderProps({ label: tx(isIn ? 'trimStart' : 'trimEnd', { name }), value: isIn ? it.start : end, min: isIn ? before : it.start + trim, max: isIn ? end - trim : after,
-                step: trim, shiftStep: 1, page: 1, text: framesText(off + (isIn ? it.start : end)), onChange: (v) => { onTrim(ti, ii, edge, v); nudge.current = { kind: 'trim', ti, ii, edge, v }; } }) : { 'aria-hidden': true })}
+                step: trim, shiftStep: 1, page: 1, text: framesText(off + (isIn ? it.start : end)), onChange: (v) => { onTrim(ti, ii, edge, v); nudge.current = { kind: 'trimming', ti, ii, edge, v }; } }) : { 'aria-hidden': true })}
               {...(onTrim ? { onKeyUp: settle, onBlur: settle } : null)} />
           );
         };
