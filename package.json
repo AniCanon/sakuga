@@ -1,6 +1,6 @@
 {
   "name": "@anicanon/sakuga",
-  "version": "2.54.1",
+  "version": "2.55.0",
   "description": "Sakuga 2.0, AniCanon's design system for the web: tokens, fonts, icons, the core components and AniCanonKit.",
   "keywords": [
     "design-system",
