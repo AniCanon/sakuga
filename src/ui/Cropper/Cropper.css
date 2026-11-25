@@ -1,5 +1,5 @@
 /* Cropper: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
-.sk-crop{--crop-shade:var(--shade-on-media);--crop-ring:var(--edge-on-media);--crop-ring-edge:var(--shade-on-media);--crop-ring-width:2px;--crop-handle-size:16px;--crop-radius:var(--radius-card);--crop-gap:var(--gap-sm);display:flex;flex-direction:column;gap:var(--crop-gap);min-width:0}
+.sk-crop{--crop-shade:var(--shade-on-media);--crop-ring:var(--edge-on-media);--crop-ring-edge:var(--shade-on-media);--crop-ring-width:2px;--crop-handle-size:16px;--crop-radius:var(--radius-card);--crop-gap:var(--gap-sm);--crop-rect-radius:var(--radius-mark);--crop-frame-inset:var(--inset-sm);display:flex;flex-direction:column;gap:var(--crop-gap);min-width:0}
 .sk-crop__stage{position:relative;width:100%;max-width:100%;overflow:hidden;border-radius:var(--crop-radius);background:var(--look-plate-bg);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
 .sk-crop__stage:active{cursor:grabbing}
 .sk-crop__stage.is-still{cursor:default}
@@ -12,5 +12,10 @@
 .sk-crop__zoom{display:flex;align-items:center;gap:var(--gap-xs)}
 .sk-crop__zoom .sk-slidertrack{flex:1}
 .sk-crop__hint{margin:0;font:var(--txt-small-font);color:var(--txt-muted)}
+/* A box of the shot's own shape: square corners, its handle on its far corner, and the picture on a margin of plate */
+.sk-crop__window.is-rect{aspect-ratio:auto;border-radius:var(--crop-rect-radius)}
+.sk-crop__window.is-rect .sk-crop__handle{left:calc(100% - var(--crop-handle-size) / 2);top:calc(100% - var(--crop-handle-size) / 2)}
+.sk-crop__frame{padding:var(--crop-frame-inset);border-radius:var(--crop-radius);background:var(--look-plate-bg);overflow:hidden;cursor:grab}
+.sk-crop--rect .sk-crop__stage{border-radius:0;overflow:visible;background:none}
 @media (forced-colors:active){.sk-crop__window{box-shadow:0 0 0 var(--crop-ring-width) Highlight,0 0 0 200vmax rgba(0,0,0,.5)}}
 @media (forced-colors:active){.sk-crop__handle{background:Highlight}}

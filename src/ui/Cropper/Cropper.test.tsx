@@ -150,4 +150,29 @@ describe('Cropper', () => {
     expect(css).toContain('touch-action:none');
     expect(css).toContain('-webkit-user-drag:none');
   });
+
+  it('a box keeps its shape, is given back as its corner and size, and takes a region whole', () => {
+    const onChange = vi.fn();
+    const panel = { x: 0.5, y: 0, width: 0.5, height: 0.5 };
+    render(<Cropper image="sheet.png" aspect={16 / 9} shape="rect" value={{ x: 0, y: 0, width: 0.25, height: 0.25 }} onChange={onChange}
+      regions={[{ label: 'Panel 1', crop: { x: 0, y: 0, width: 0.5, height: 0.5 } }, { label: 'Panel 2', crop: panel }]} />);
+    const stage = screen.getByRole('application');
+    fireEvent.keyDown(stage, { key: '2' });
+    const taken = onChange.mock.calls.at(-1)![0];
+    expect(taken.x).toBeCloseTo(0.5);
+    expect(taken.y).toBeCloseTo(0);
+    expect(taken.width).toBeCloseTo(0.5);
+    expect(taken.height).toBeCloseTo(0.5);
+    // A step right keeps its 16:9 shape
+    fireEvent.keyDown(stage, { key: 'ArrowRight' });
+    const moved = onChange.mock.calls.at(-1)![0];
+    expect(moved.width / moved.height).toBeCloseTo(1);
+    expect(moved.x).toBeGreaterThan(0);
+  });
+
+  it('cropStyle previews a box exactly', () => {
+    expect(cropStyle({ x: 0.5, y: 0, width: 0.5, height: 0.5 }, 16 / 9)).toBe(
+      'inset:auto;max-width:none;object-fit:fill;width:200.000%;height:200.000%;left:-100.000%;top:0.000%',
+    );
+  });
 });

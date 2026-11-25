@@ -40,7 +40,18 @@ export interface ProductionNavProps {
   /** The scenes, numbered, with their pictures. `selected` is the open scene's `number` (not its place in `items`). */
   sections?: { title?: string; /** The open scene's `number`. */ selected?: number; items: { number: number; title: string; image?: string; note?: string; state?: 'attention'; href?: string; onClick?: MouseEventHandler }[] };
   /** A few facts at the foot (runtime, cut), with an optional bar for `percent`. */
-  facts?: { label: string; value: string; percent?: number }[];
+  facts?: {
+    label: string;
+    value: string;
+    percent?: number;
+    /** The value is a fragment amount ("3,420 of ~4,100"): shown with the fragment mark. */
+    fragments?: boolean;
+    /** Opens what the fact sums up (the episode's spending, by scene and by kind). */
+    href?: string;
+    onClick?: MouseEventHandler<HTMLElement>;
+    /** The link's name when the label and value alone do not say what it opens. */
+    linkLabel?: string;
+  }[];
   /** The Fragments balance, at the foot. */
   balance?: string;
   /** Where the balance leads (the Fragments page), open or collapsed. */
@@ -74,7 +85,7 @@ export interface ProductionNavProps {
  * still a link named "Fragments balance: 1,240"; pictures, icons and the attention dot are hidden. With `production.menu`, the ⋯
  * is a button after the production's heading, named "More for" and the title, with a menu popup.
  *
- * @version 1.5
+ * @version 1.6
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function ProductionNav({ back, production, views: given, current: cur, sections: sec, facts, balance, balanceHref, onBalance, collapsed, tools, currentTool, label, className }: ProductionNavProps) {
@@ -173,7 +184,12 @@ export function ProductionNav({ back, production, views: given, current: cur, se
             <Fragment key={f.label}>
               <dt>{f.label}</dt>
               <dd>
-                {f.value}{f.percent !== undefined && <i><em style={{ width: Math.min(100, f.percent) + '%' }} /></i>}
+                {(f.href || f.onClick) ? (
+                  <GoLink href={f.href} onClick={f.onClick} className="sk-prodnav__fact-link" aria-label={f.linkLabel}>
+                    {f.fragments ? <FragmentBalance variant="inline" amount={f.value} /> : f.value}
+                  </GoLink>
+                ) : f.fragments ? <FragmentBalance variant="inline" amount={f.value} /> : f.value}
+                {f.percent !== undefined && <i><em style={{ width: Math.min(100, f.percent) + '%' }} /></i>}
                 {f.percent !== undefined && <span className="sk-sr">{', ' + Math.round(f.percent) + '%'}</span>}
               </dd>
             </Fragment>

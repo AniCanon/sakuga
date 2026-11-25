@@ -31,4 +31,4 @@
 .sk-dialog.is-scrolled .sk-dialog__head{box-shadow:inset 0 calc(-1 * var(--dialog-foot-border-top-width)) 0 var(--dialog-border-hairline)}
 .sk-dialog__foot{flex-wrap:wrap}
 .sk-dialog__foot>*{max-width:100%}
-:is(.sk-dialog,.sk-panel) .sk-scrub-wrap{--scrubber-time:var(--text-secondary);--scrubber-thumb:var(--text-primary)}
+:is(.sk-dialog,.sk-panel,.sk-monitorbar) .sk-scrub-wrap{--scrubber-track:var(--bg-fill);--scrubber-marker:var(--text-secondary);--scrubber-time:var(--text-secondary);--scrubber-thumb:var(--text-primary)}

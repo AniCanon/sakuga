@@ -14,7 +14,7 @@ Use it for showing and setting the playhead of an episode or a short, over video
 ## How it works
 
 - It is a `slider` with spoken values ("3 minutes 12 seconds of 11 minutes 36 seconds"). Arrow keys move 10 seconds, Page keys a minute, Home and End jump to the ends.
-- Always over video or the player bar, so it uses the media tokens and stays the same in both themes.
+- Over video or the player bar it uses the media tokens and stays the same in both themes. On a surface (a Panel, a Dialog, an editor's MonitorBar) its times, thumb, track and marks take the theme's inks instead, so they read on a light page as well as a dark one.
 - `showTimes={false}` when the times are shown elsewhere (phone shorts).
 - `markers` draws chapter marks (in seconds) cut into the track.
 - The thumb grows and the track thickens under the pointer. Dragging follows the pointer with no easing; playback moves the fill linearly.
@@ -50,4 +50,4 @@ export function ScrubberExample() {
 A slider named by `label` (default "Seek") that Tab reaches: arrows move it by `step` seconds (default 10), Page Up and Page Down by six steps, Home and End to either end, and its value is spoken as "1 minute 5 seconds of 3 minutes 0 seconds". The times beside it read as text and the markers are hidden; without `onChange` it reads as read-only.
 
 Used on: Web, iOS, Android
-Version: 1.0
+Version: 1.1

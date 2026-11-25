@@ -38,7 +38,7 @@ export interface ScrubberProps {
  * Page Up and Page Down by six steps, Home and End to either end, and its value is spoken as "1 minute 5 seconds of 3 minutes 0
  * seconds". The times beside it read as text and the markers are hidden; without `onChange` it reads as read-only.
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function Scrubber(props: ScrubberProps) {

@@ -62,7 +62,7 @@ export { TopNav, type TopNavProps, type NavLink } from './TopNav/TopNav';
 export { SideNav, type SideNavProps } from './SideNav/SideNav';
 export { CastAvatar, type CastAvatarProps } from './CastAvatar/CastAvatar';
 export { Cropper, type CropperProps, type CropRegion } from './Cropper/Cropper';
-export { cropStyle, type CropValue, type CropView } from './Cropper/crop';
+export { cropStyle, type CropValue, type CropView, type RectCrop } from './Cropper/crop';
 export { CastStack, type CastStackProps } from './CastStack/CastStack';
 export { MediaCard, type MediaCardProps } from './MediaCard/MediaCard';
 export { Scrubber, type ScrubberProps } from './Scrubber/Scrubber';

@@ -8,8 +8,8 @@ export interface SpendButtonProps extends Omit<ButtonProps, 'trailing'> {
 }
 
 /**
- * An action that spends fragments: Sakuga's `Button` with AniCanon's price after the label, behind the hairline, with the
- * fragment mark. It takes every `Button` prop except `trailing`, plus `cost`. The core `Button` knows nothing of fragments; its
+ * An action that spends fragments: Sakuga's `Button` with AniCanon's price after the label: the fragment mark and the amount, in
+ * regular weight and the muted ink, part of the one action with no rule between them. It takes every `Button` prop except `trailing`, plus `cost`. The core `Button` knows nothing of fragments; its
  * `trailing` slot is neutral, and this is the part that fills it.
  *
  * Not for an action that costs nothing (`Button`); a fragment amount inside a sentence (`FragmentBalance variant="inline"`); a
@@ -20,7 +20,7 @@ export interface SpendButtonProps extends Omit<ButtonProps, 'trailing'> {
  * and `disabled` it is a disabled button, out of the tab order, so a price can't be spent through a disabled link. While `busy`
  * it stays focusable and a second press can't spend twice; a screen reader hears `busyLabel` once.
  *
- * @version 1.1
+ * @version 1.2
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function SpendButton({ cost, ...rest }: SpendButtonProps) {

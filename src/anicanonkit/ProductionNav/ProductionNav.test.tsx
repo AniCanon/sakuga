@@ -146,4 +146,14 @@ describe('ProductionNav', () => {
     heights.mockRestore();
     client.mockRestore();
   });
+
+  it('a fact can be a fragment amount that opens what it sums up', () => {
+    const onClick = vi.fn();
+    render(<ProductionNav views={[]} facts={[{ label: 'Spent', value: '3,420', fragments: true, onClick, linkLabel: 'What it went on' }, { label: 'Runtime', value: '1:06' }]} />);
+    const link = screen.getByRole('button', { name: 'What it went on' });
+    expect(link.querySelector('.sk-frag')).toBeTruthy();
+    fireEvent.click(link);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(screen.getByText('1:06').closest('button')).toBeNull();
+  });
 });

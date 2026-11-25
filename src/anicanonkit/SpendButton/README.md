@@ -1,6 +1,6 @@
 # SpendButton
 
-An action that spends fragments: Sakuga's `Button` with AniCanon's price after the label, behind the hairline, with the fragment mark.
+An action that spends fragments: Sakuga's `Button` with AniCanon's price after the label: the fragment mark and the amount, in regular weight and the muted ink, part of the one action with no rule between them.
 
 ## When to use
 
@@ -54,4 +54,4 @@ export function SpendButtonExample() {
 Button's own: a native button (a link with `href`), so Tab reaches it, Enter activates it, and Space does too on a button. A screen reader hears its label, then the price as "~100 fragments"; the mark and icons are hidden. With `href` and `disabled` it is a disabled button, out of the tab order, so a price can't be spent through a disabled link. While `busy` it stays focusable and a second press can't spend twice; a screen reader hears `busyLabel` once.
 
 Used on: Web, iOS, Android
-Version: 1.1
+Version: 1.2

@@ -12,6 +12,7 @@ Use it for one block of a screenplay inside a section of the script: a slugline,
 
 ## How it works
 
+- A speech (a `cue`, its `paren` and its `dialogue`) is one block on one left edge, set in from the action by `screenplay-speech-indent`: the name as a small caps label, the direction under it in the quiet ink, then the line at reading size. This is how the cut sheet shows dialogue; the print layout's three indents are not used on screen.
 - `flagged` underlines a line Maki found a story conflict in.
 
 ## Props
@@ -41,4 +42,4 @@ export function ScreenplayLineExample() {
 Not focusable; the block reads as plain text, a cue followed by its extension in brackets ("(O.S.)"), and a `flagged` block ends with "story conflict".
 
 Used on: Web
-Version: 1.0
+Version: 1.1

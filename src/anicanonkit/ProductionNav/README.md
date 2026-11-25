@@ -15,6 +15,7 @@ Use it for the side bar inside a production (an episode, a short, a manga issue)
 
 - The app's SideNav is not shown there: a production is a focused, full-screen workspace.
 - Expanded (Script, Plan, Cut, Screen, Publish): back to the list, the production's cover, title and format; the views with their state (`note`, and `state: 'attention'` when something needs you; `disabled` for a view that is not open yet, drawn waiting in the muted ink with its note saying when it opens, as Plan before there is a script); the scenes with their picture and state (`sections.selected` is the open scene's `number`, not its place in the list); the facts that matter while making it (runtime against plan, story place, video plan); the fragments balance.
+- A fact can be the episode's spending: `fragments` shows its value with the fragment mark ("3,420 of ~4,100", spent against the plan, with `percent`), and `href` or `onClick` makes it open what it sums up, by scene and by kind. It reads as the other facts, and underlines under the pointer.
 - `collapsed` (Cut): one 72px rail with the cover, the views as icons, a separator and the editor's `tools` (`currentTool` marks the open one), so the picture gets the room.
 - The rail fits a short window: under 820 px tall its cover and rows tighten, under 740 px tighter, and when its tools still do not fit they scroll, a hairline at each end that has more past it. Every tool is always reachable, by wheel, drag or Tab (a focused tool scrolls into view).
 - Every place it can take you is a link: `back.href`, and `href` on each view, scene and tool; `balanceHref` is where the balance leads. Without an address, an item is a button that runs its `onClick` (`onBalance` for the balance), never a link to #.
@@ -62,6 +63,10 @@ Use it for the side bar inside a production (an episode, a short, a manga issue)
 | `facts[].label` | `string` | required |  |
 | `facts[].value` | `string` | required |  |
 | `facts[].percent` | `number` |  |  |
+| `facts[].fragments` | `boolean` |  | The value is a fragment amount ("3,420 of ~4,100"): shown with the fragment mark. |
+| `facts[].href` | `string` |  | Opens what the fact sums up (the episode's spending, by scene and by kind). |
+| `facts[].onClick` | `MouseEventHandler<HTMLElement>` |  |  |
+| `facts[].linkLabel` | `string` |  | The link's name when the label and value alone do not say what it opens. |
 | `balance` | `string` |  | The Fragments balance, at the foot. |
 | `balanceHref` | `string` |  | Where the balance leads (the Fragments page), open or collapsed. |
 | `onBalance` | `MouseEventHandler` |  | Runs when the balance is pressed and it has no `balanceHref`. |
@@ -103,4 +108,4 @@ export function EpisodeRail({ cover }: { cover: string }) {
 A complementary region named by `label` (default "Production"): Tab moves through Back, the links of a navigation named "Views" (the current one "current page", with its note; a `disabled` view is a disabled link, out of the tab order, still read with its note: "Plan, After the script, dimmed"), the scene links ("current" on the selected one) and the balance link, while the production's title is a level-2 heading, the scenes' title a level-3 one, and each fact reads its value and percent. Collapsed, the rail's links are named by their titles ("Cast · 3 waiting"), a `disabled` one the same way and out of the tab order, the tools sit in a navigation named "Tools" and are named by their `label` (not the short word under them), and the balance is the mark alone, still a link named "Fragments balance: 1,240"; pictures, icons and the attention dot are hidden. With `production.menu`, the ⋯ is a button after the production's heading, named "More for" and the title, with a menu popup.
 
 Used on: Web
-Version: 1.5
+Version: 1.6

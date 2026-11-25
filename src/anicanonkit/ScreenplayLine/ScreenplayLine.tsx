@@ -27,7 +27,7 @@ export interface ScreenplayLineProps {
  * Accessibility: Not focusable; the block reads as plain text, a cue followed by its extension in brackets ("(O.S.)"), and a
  * `flagged` block ends with "story conflict".
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function ScreenplayLine({ type: given, extension, flagged, children, className }: ScreenplayLineProps) {
