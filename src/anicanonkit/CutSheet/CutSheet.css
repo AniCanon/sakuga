@@ -21,3 +21,17 @@
 @media (forced-colors:active){.sk-cutsheet__row.is-selected>*:first-child::after{border-left:var(--cutsheet-forced-selected-width) solid Highlight}}
 @media (forced-colors:active){.sk-cutsheet__row.is-selected>*:last-child::after{border-right:var(--cutsheet-forced-selected-width) solid Highlight}}
 @media (forced-colors:active){.sk-cutsheet__row.is-selected>*{position:relative}}
+/* An open cut is one tinted block with no rule inside it or against it; the row of its videos under it is part of the block:
+   CutRow span takes `selected` with the cut it belongs to */
+.sk-cutsheet__row.is-selected>*{box-shadow:0 calc(-1 * var(--line-hairline)) 0 var(--cutsheet-selected-bg)}
+.sk-cutsheet:has(.sk-cutsheet__row.is-span.is-selected) .sk-cutsheet__row.is-selected:not(.is-span)>*:first-child{border-bottom-left-radius:0}
+.sk-cutsheet:has(.sk-cutsheet__row.is-span.is-selected) .sk-cutsheet__row.is-selected:not(.is-span)>*:last-child{border-bottom-right-radius:0}
+.sk-cutsheet__row.is-span.is-selected>*{box-shadow:none}
+.sk-cutsheet__row.is-span.is-selected>*:first-child{border-top-left-radius:0}
+.sk-cutsheet__row.is-span.is-selected>*:last-child{border-top-right-radius:0}
+@media (forced-colors:active){
+.sk-cutsheet:has(.sk-cutsheet__row.is-span.is-selected) .sk-cutsheet__row.is-selected:not(.is-span)>*::after{border-bottom:0}
+.sk-cutsheet__row.is-span.is-selected>*::after{border-top:0}
+}
+/* Rules part the rows, so the last row has none under it */
+.sk-cutsheet>.sk-cutsheet__row:last-child:not(.is-selected)>*{box-shadow:none}

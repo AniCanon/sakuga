@@ -14,7 +14,7 @@ Use it for a scene read as an ekonte sheet: numbered cuts as rows, columns set p
 
 ## How it works
 
-- Rows are numbered cuts; columns are set per view (Plan: C · Picture · Action · Dialogue · Sec · Notes; Make: C · Board · Latest take · Video · Sec; lists: art · title · where it is · story). Rules between rows, no boxes. Rows are `CutRow`s. `surface` sets the sheet on its page, the paper it is printed on; what follows the sheet (the next scene, a quote) goes in `slot="footer"` under it.
+- Rows are numbered cuts; columns are set per view (Plan: C · Picture · Action · Dialogue · Sec · Notes; Make: C · Board · Latest take · Video · Sec; lists: art · title · where it is · story). Rules between rows and none after the last, no boxes. Rows are `CutRow`s. `surface` sets the sheet on its page, the paper it is printed on; what follows the sheet (the next scene, a quote) goes in `slot="footer"` under it.
 
 ## Props
 
@@ -49,4 +49,4 @@ export function SceneTwo() {
 Not focusable; a table named by `label`, its first row the column headers, then a row per CutRow, and with `surface` the footer slot follows the table.
 
 Used on: Web
-Version: 1.0
+Version: 1.1

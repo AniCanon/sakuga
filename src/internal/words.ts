@@ -89,6 +89,7 @@ export interface SakugaMessages {
   /** "Done:" · Stepper, before a done step’s name */ stepDone?: SakugaMessage;
   /** "Watched" · MediaCard progress */ watched?: SakugaMessage;
   /** "watched {percent}%" · MediaCard progress, said */ watchedPercent?: SakugaMessage;
+  /** "No cover yet" · MediaCard with no image, in its well */ noCoverYet?: SakugaMessage;
   /** "not in the story at this point" · CastAvatar muted */ notInStory?: SakugaMessage;
   /** "Remind me" · PremiereSlot */ remindMe?: SakugaMessage;
   /** "Remind me when {title} premieres" · PremiereSlot */ remindMeWhen?: SakugaMessage;
@@ -358,6 +359,10 @@ export interface SakugaMessages {
   /** "at the same time as {list}" · StoryScrubber, in its events list */ atSameTimeAs?: SakugaMessage;
   /** "{title}, at the same time as {list}" · StoryScrubber, a node's tooltip */ sameTimeTitle?: SakugaMessage;
   /** "At the same time as #{number} · {title}" · ManuscriptSection */ sameTimeAs?: SakugaMessage;
+  /** "Cut between them" · ManuscriptSection told menu */ toldBetween?: SakugaMessage;
+  /** "One after the other" · ManuscriptSection told menu */ toldAfter?: SakugaMessage;
+  /** "Not at the same time" · ManuscriptSection told menu, set apart */ notSameTime?: SakugaMessage;
+  /** "How the two are told: {told}" · ManuscriptSection told button and menu */ toldHow?: SakugaMessage;
   /** "+{count}" · StoryScrubber, more marks than fit on a node */ andMore?: SakugaMessage;
   /** "Scenes" · Manuscript, its body while it scrolls */ manuscriptScenes?: SakugaMessage;
   /** "loops to fill, {made} made" · Timeline, a looped sound */ loopsToFill?: SakugaMessage;

@@ -23,3 +23,7 @@ button.sk-mk-find__head:focus-visible{outline:var(--focus-ring-width) solid var(
 .sk-mk-find__reason::before{content:"“"}
 .sk-mk-find__reason::after{content:"”"}
 @media (forced-colors:active){.sk-mk-find{border-top:var(--line-hairline) solid CanvasText}}
+/* The rule separates findings, so the first in a column has none */
+.sk-mk-find{box-shadow:none}
+.sk-mk-find + .sk-mk-find{box-shadow:inset 0 var(--line-hairline) 0 var(--side-rule)}
+@media (forced-colors:active){.sk-mk-find{border-top:0}.sk-mk-find + .sk-mk-find{border-top:var(--line-hairline) solid CanvasText}}

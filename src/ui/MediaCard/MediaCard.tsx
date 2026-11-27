@@ -15,8 +15,10 @@ import './MediaCard.css';
 export interface MediaCardProps {
   /** Sets the frame ratio: episode 16:9, short 9:16, manga 1:1.414. */
   kind: 'episode' | 'short' | 'manga';
-  /** The artwork. Leave it out while there is no picture: the frame draws the AniCanon mark. */
+  /** The artwork. Leave it out while there is no picture: the frame is a flat well with `placeholder` in it. */
   image?: string;
+  /** The words in the well while there is no image. Default "No cover yet". */
+  placeholder?: string;
   /** Names the artwork; decorative without it. */
   alt?: string;
   /** Where the art's subject sits, as CSS object-position, so the crop keeps it. */
@@ -64,10 +66,10 @@ export interface MediaCardProps {
  * Accessibility: With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content
  * in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with "waiting for you" when `attention`
  * is set and "watched 40%" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's
- * `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With `menu`, its ⋯ is a button
- * after the link, named "More for" and the title, with a menu popup: Tab reaches it after the card.
+ * `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With no `image`, the well's words
+ * are read with the card. With `menu`, its ⋯ is a button after the link, named "More for" and the title, with a menu popup: Tab reaches it after the card.
  *
- * @version 1.2
+ * @version 1.3
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function MediaCard(props: MediaCardProps) {
@@ -83,7 +85,7 @@ export function MediaCard(props: MediaCardProps) {
       <div ref={frameRef} className={cx('sk-card__frame', small, lit && 'has-light')} onPointerEnter={lit ? lightAt : undefined} onPointerMove={lit ? lightAt : undefined}>
         <span className="sk-clip">
           {props.image ? <img className="sk-card__img" src={props.image} alt={props.alt || ''} style={crop} />
-            : <span className="sk-card__none" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M52 17a33 33 0 1 0 0.01 0Z M58 31a22 22 0 1 1 -0.01 0Z" fillRule="evenodd" /><circle cx={67} cy={62} r={5} /></svg></span>}
+            : <span className="sk-card__none">{props.placeholder || tx('noCoverYet')}</span>}
           {lit && lightLayer(props.lightMap!, crop)}
           {kind === 'manga' && <span className="sk-card__spine" aria-hidden="true" />}
           {props.logo && <span className="sk-card__scrim" aria-hidden="true" />}

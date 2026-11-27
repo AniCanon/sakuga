@@ -21,7 +21,7 @@ Use it for one episode, short or manga issue: its art at its real shape (16:9, 9
 - `lightMap` is the art's baked light map: its own highlights glow where the pointer is, and at the centre under keyboard focus (light on art). It is on wherever there is a map; `light={false}` turns it off on a surface that must stay still.
 - Give the card a width from the layout (a grid column or a fixed shelf width); the frame keeps its ratio.
 - The corner follows the size: thumbnails 160px wide or less use `radius-sm`, 64px or less `radius-xs`, so a small frame never turns into a pill.
-- With no `image` (a production with no cover yet), the card shows the AniCanon mark, quiet, in the middle of its surface: never words, never a broken picture.
+- With no `image` (a production with no cover yet), the frame is a flat well that says so: "No cover yet", or the app's `placeholder`. Never a mark shaped like the loader, which reads as a picture still coming, and never a broken picture.
 - `menu` (`{ items }`, as a `Menu` takes them) gives the card its own ⋯ in a creator's list: Rename, and Delete in the danger tone set apart. It sits on the art's top corner on a media disc, beside the card's link and never inside it, and opens the menu under it; a short's `duration` moves to the art's foot so the ⋯ has the corner. Delete opens a `Dialog` that names what goes and what stays before anything is deleted.
 
 ## Props
@@ -29,7 +29,8 @@ Use it for one episode, short or manga issue: its art at its real shape (16:9, 9
 | Prop | Type | Default | What it does |
 |---|---|---|---|
 | `kind` | `'episode' \| 'short' \| 'manga'` | required | Sets the frame ratio: episode 16:9, short 9:16, manga 1:1.414. |
-| `image` | `string` |  | The artwork. Leave it out while there is no picture: the frame draws the AniCanon mark. |
+| `image` | `string` |  | The artwork. Leave it out while there is no picture: the frame is a flat well with `placeholder` in it. |
+| `placeholder` | `string` |  | The words in the well while there is no image. Default "No cover yet". |
 | `alt` | `string` |  | Names the artwork; decorative without it. |
 | `imagePosition` | `string` |  | Where the art's subject sits, as CSS object-position, so the crop keeps it. |
 | `lightMap` | `string` |  | The art's baked light map: it glows with its own highlights under the pointer, at its centre under keyboard focus (light on art). |
@@ -71,7 +72,7 @@ export function EpisodeCard({ still }: { still: string }) {
 
 ## Accessibility
 
-With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with "waiting for you" when `attention` is set and "watched 40%" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With `menu`, its ⋯ is a button after the link, named "More for" and the title, with a menu popup: Tab reaches it after the card.
+With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with "waiting for you" when `attention` is set and "watched 40%" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With no `image`, the well's words are read with the card. With `menu`, its ⋯ is a button after the link, named "More for" and the title, with a menu popup: Tab reaches it after the card.
 
 Used on: Web, iOS, Android
-Version: 1.2
+Version: 1.3

@@ -29,5 +29,12 @@ export const AtTheSameTime: Story = () => (
   </div>
 );
 
+export const ToldMenu: Story = () => (
+  // Room under the line for the open menu, which drops from it
+  <div style={{ ...wide, paddingBottom: 140 }}>
+    <ManuscriptSection number={5} title="Sé station" words={18} with={{ number: 4, title: 'Toddy’s bedroom', told: 'Cut between them' }} onTold={() => {}} toldOpen>Kiko steps out of the smoke, the phone at her ear.</ManuscriptSection>
+  </div>
+);
+
 export const Playground: Story<ManuscriptSectionProps> = (args) => <div style={wide}><ManuscriptSection {...args} /></div>;
 Playground.args = { number: 1, title: 'The roof', words: 34, slug: false, current: false, children: 'After the fire, Toddy wires a second watch for Lisa.' };

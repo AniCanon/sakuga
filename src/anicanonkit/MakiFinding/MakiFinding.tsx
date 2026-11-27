@@ -69,7 +69,7 @@ export interface MakiFindingProps {
  * {title} on the map" and its note, expanded or collapsed; the mark is hidden. Open, its events are a list named "In 3 events",
  * then Ask Maki and Keep on purpose take focus. A kept one reads "Kept on purpose by {name} · {date}" and its reason, then Reopen.
  *
- * @version 2.1
+ * @version 2.2
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function MakiFinding(props: MakiFindingProps) {

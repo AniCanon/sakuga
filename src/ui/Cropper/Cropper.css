@@ -1,5 +1,5 @@
 /* Cropper: split from Sakuga Version 215's bundle.css by scripts/css-split.mjs. */
-.sk-crop{--crop-shade:var(--shade-on-media);--crop-ring:var(--edge-on-media);--crop-ring-edge:var(--shade-on-media);--crop-ring-width:2px;--crop-handle-size:16px;--crop-radius:var(--radius-card);--crop-gap:var(--gap-sm);--crop-rect-radius:var(--radius-mark);--crop-frame-inset:var(--inset-sm);display:flex;flex-direction:column;gap:var(--crop-gap);min-width:0}
+.sk-crop{--crop-shade:var(--shade-on-media);--crop-ring:var(--edge-on-media);--crop-ring-edge:var(--shade-on-media);--crop-ring-width:var(--line-strong);--crop-handle-size:calc(var(--space-base) * 4);--crop-radius:var(--radius-card);--crop-gap:var(--gap-sm);--crop-rect-radius:var(--radius-mark);--crop-frame-inset:var(--inset-sm);display:flex;flex-direction:column;gap:var(--crop-gap);min-width:0}
 .sk-crop__stage{position:relative;width:100%;max-width:100%;overflow:hidden;border-radius:var(--crop-radius);background:var(--look-plate-bg);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
 .sk-crop__stage:active{cursor:grabbing}
 .sk-crop__stage.is-still{cursor:default}

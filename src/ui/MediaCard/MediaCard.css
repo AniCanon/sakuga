@@ -38,7 +38,9 @@ a.sk-card:focus-visible .sk-card__frame.has-light>.sk-clip>.sk-light{opacity:var
 a.sk-card:focus-visible .sk-card__frame>.sk-clip>.sk-light{transform:scale(var(--media-card-frame-light-scale))}
 @media (hover:hover){.sk-card:hover .sk-card__frame>.sk-clip>.sk-light{transform:scale(var(--media-card-frame-light-scale))}}
 @media (forced-colors:active){.sk-card__meta.is-attention::before{forced-color-adjust:none;background:CanvasText}}
-:root,[data-theme]{--card-text-primary:var(--text-primary);--card-none-fg:var(--text-muted);--card-none-mark-size:22%}
+:root,[data-theme]{--card-text-primary:var(--text-primary);--card-none-fg:var(--text-muted);--card-none-bg:var(--bg-fill-subtle);--card-none-font:var(--text-small-strong);--card-none-padding-x:var(--inset-md)}
 .sk-card__none{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--card-none-fg)}
-.sk-card__none svg{width:var(--card-none-mark-size);height:auto;fill:currentColor}
 .sk-card-wrap>.sk-more-wrap__button{top:var(--more-wrap-inset);right:var(--more-wrap-inset)}
+/* No picture is a flat well that says so, never the loader's ring */
+.sk-card__none{background:var(--card-none-bg);font:var(--card-none-font);color:var(--card-none-fg);text-align:center;padding:0 var(--card-none-padding-x);box-sizing:border-box}
+@media (forced-colors:active){.sk-card__none{outline:var(--line-hairline) solid CanvasText;outline-offset:calc(-1 * var(--line-hairline))}}

@@ -5,6 +5,7 @@ import { slots } from '../../internal/slots';
 import { useWords } from '../../internal/words';
 import { words as ownWords } from './words';
 import '../../base.css';
+import '../../ui/TextLink/TextLink.css';
 import '../ManuscriptSection/ManuscriptSection.css';
 import './Manuscript.css';
 

@@ -17,3 +17,9 @@
 .sk-msec__with{display:flex;align-items:center;gap:var(--manuscript-with-gap);margin:0 0 var(--manuscript-with-margin-bottom);font:var(--manuscript-with-font);color:var(--manuscript-meta)}
 .sk-msec__with>svg{flex:none}
 .sk-msec.is-with .sk-msec__body::before{content:'';position:absolute;left:0;bottom:100%;width:var(--manuscript-section-body-border-left-width);height:calc(2 * var(--manuscript-section-padding-y));background:var(--manuscript-rule)}
+/* With onTold, how the two scenes are told is a menu trigger in the line */
+.sk-msec__told{position:relative;display:inline-flex}
+.sk-msec__toldbtn{display:inline-flex;align-items:center;gap:var(--manuscript-with-gap);margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;cursor:pointer;border-radius:var(--tlink-focus-radius)}
+.sk-msec__toldbtn:hover,.sk-msec__toldbtn[aria-expanded="true"]{color:var(--text-primary)}
+.sk-msec__toldbtn:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--tlink-focus-outline-offset)}
+.sk-msec__told>.sk-menu{font:var(--text-body)}

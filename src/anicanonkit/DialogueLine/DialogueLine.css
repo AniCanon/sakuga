@@ -7,3 +7,5 @@
 .sk-dline b small{font-weight:var(--dline-b-small-font-weight);color:var(--dline-meta)}
 .sk-dline q{font:var(--dline-q-font);color:var(--dline-text);quotes:"“" "”"}
 .sk-dline>div>span{font:var(--dline-div-span-font);color:var(--dline-meta)}
+/* A Japanese line in 「」 */
+.sk-dline q:lang(ja){quotes:"「" "」"}

@@ -17,3 +17,8 @@
 .sk-tsheet__key{top:calc(-1 * (var(--tsheet-key-size) + var(--tsheet-key-gap)));display:flex;align-items:center;justify-content:center}
 .sk-tsheet__key::after{content:"";position:absolute;left:50%;top:100%;height:calc(var(--tsheet-key-gap) + var(--tsheet-grid-height));border-left:var(--tsheet-key-line-width) solid var(--tsheet-key-bg)}
 @media (forced-colors:active){.sk-tsheet__key::after{border-left-color:CanvasText}}
+/* A key on the first or last frame sits inside the strip, its line on the frame */
+.sk-tsheet__key.is-start{margin-left:0}
+.sk-tsheet__key.is-start::after{left:0}
+.sk-tsheet__key.is-end{margin-left:calc(-1 * var(--tsheet-key-size))}
+.sk-tsheet__key.is-end::after{left:auto;right:0}

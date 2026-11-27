@@ -12,12 +12,14 @@ Use it for a planned line: the speaker, the delivery, where it falls in the beat
 
 ## How it works
 
+- The quotes follow the line's language: a Japanese line is set in 「」, any other in “”. `lang` names it ("ja", "en"); left out, kana or kanji in `line` make it Japanese. The translation under it is never quoted.
 - The line may carry markup as children instead of `line`: a `Revision` inside the words.
 
 ## Props
 
 | Prop | Type | Default | What it does |
 |---|---|---|---|
+| `lang` | `string` |  | The line's language ("ja", "en"); read from the line when left out: kana or kanji make it Japanese, set in 「」. |
 | `speaker` | `string` | required | Who says it. |
 | `line` | `string` |  | Or the line as children, when it carries markup. |
 | `image` | `string` |  | The speaker's face. |
@@ -44,4 +46,4 @@ export function DialogueLineExample() {
 Not focusable; read as text in order: the speaker, the delivery and where it falls, the line as a quotation, then the translation. The speaker's picture is hidden.
 
 Used on: Web
-Version: 1.0
+Version: 1.1

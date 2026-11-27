@@ -31,7 +31,7 @@ export interface CutRowProps {
  * has its own; a component such as CutCell, or text, is wrapped in one), read in column order. A `selected` or `changed` row
  * starts its first cell with "Selected" or "changed", said but not shown.
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function CutRow({ selected, changed, span, children, className }: CutRowProps) {

@@ -12,7 +12,7 @@ Use it for one cut, video or production as a row in a `CutSheet`, its cells in c
 
 ## How it works
 
-- Its children are the cells, in column order. `selected` bands the row (the cut open beside the sheet); `changed` puts a bar in the margin when it changed since you last read it; `span` makes one cell run under the row's columns (a Timesheet under its cut).
+- Its children are the cells, in column order. `selected` bands the row (the cut open beside the sheet), one tint with no rule inside it or against it; `changed` puts a bar in the margin when it changed since you last read it; `span` makes one cell run under the row's columns (a Timesheet under its cut). A span row that belongs to an open cut takes `selected` too, and the two read as one block: one tint, one rounded shape, no rule between them.
 
 ## Props
 
@@ -41,4 +41,4 @@ export function CutRowExample() {
 Not focusable; a table row whose children each become a cell (a plain element takes the cell role unless it has its own; a component such as CutCell, or text, is wrapped in one), read in column order. A `selected` or `changed` row starts its first cell with "Selected" or "changed", said but not shown.
 
 Used on: Web
-Version: 1.0
+Version: 1.1

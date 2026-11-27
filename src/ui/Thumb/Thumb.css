@@ -74,3 +74,9 @@ button.sk-thumb.has-light:focus-visible>.sk-clip>.sk-light{opacity:var(--light-s
 .sk-ins--row>.sk-listrow__action{padding-right:0}
 /* The row's + sits at its end, flush with the row's own edge */
 .sk-ins--row>.sk-ins__btn{margin-right:calc(-1 * var(--ins-inset))}
+/* A picture still to come is a flat well with its words, not an outline */
+:root{--thumb-placeholder-bg:var(--bg-fill-subtle)}
+.sk-thumb.is-placeholder{box-shadow:none;background:var(--thumb-placeholder-bg)}
+.sk-thumb.is-placeholder:has(.sk-thumb__silhouette){background:var(--thumb-silhouette-bg)}
+.sk-thumb.is-placeholder>.sk-clip:has(.sk-thumb__silhouette){gap:var(--thumb-silhouette-gap)}
+@media (forced-colors:active){.sk-thumb.is-placeholder{outline:var(--line-hairline) solid CanvasText}}

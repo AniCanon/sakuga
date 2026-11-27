@@ -84,11 +84,19 @@ describe('MediaCard', () => {
 });
 
 describe('MediaCard with no cover', () => {
-  it('draws the AniCanon mark, hidden, never a broken picture or words', () => {
+  it('is a flat well that says "No cover yet", read with the card, never a broken picture or the loader\'s mark', () => {
     const { container } = render(<MediaCard kind="episode" image="" title="The Burning" meta="Episode 3" href="/p/3" />);
     expect(container.querySelector('img.sk-card__img')).toBeNull();
-    expect(container.querySelector('.sk-card__none')!.getAttribute('aria-hidden')).toBe('true');
-    expect(container.querySelector('.sk-card__none svg path')).not.toBeNull();
+    const well = container.querySelector('.sk-card__none')!;
+    expect(well.getAttribute('aria-hidden')).toBeNull();
+    expect(well.textContent).toBe('No cover yet');
+    expect(well.querySelector('svg')).toBeNull();
+    expect(screen.getByRole('link').textContent).toContain('No cover yet');
+  });
+
+  it('says the app\'s placeholder in the well when given', () => {
+    const { container } = render(<MediaCard kind="short" title="Ash" placeholder="Cover coming with the cut" />);
+    expect(container.querySelector('.sk-card__none')!.textContent).toBe('Cover coming with the cut');
   });
 
   it('with menu its ⋯ is a button after the link, on the wrap that takes the card\'s class and width, opening its menu; a short\'s time moves to the foot', () => {

@@ -1,6 +1,6 @@
 {
  "system": "Sakuga",
- "version": "258",
+ "version": "261",
  "site": "https://sakuga.design",
  "components": [
   {
@@ -1317,7 +1317,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.2",
+   "version": "1.3",
    "url": "https://sakuga.design/components#MediaCard",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -1327,7 +1327,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with \"waiting for you\" when `attention` is set and \"watched 40%\" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With `menu`, its ⋯ is a button after the link, named \"More for\" and the title, with a menu popup: Tab reaches it after the card.",
+    "design": "With `href` it is a link that Tab reaches and Enter follows, named by `label` if given, else by its content in order (any artwork and logo alt text, badge, duration, count, title, meta) ending with \"waiting for you\" when `attention` is set and \"watched 40%\" from `progress`; without `href` the same reads as text. The artwork's alt is `alt` and the logo's `logoAlt` (both empty by default), and the spine, scrim, light and progress bar are hidden. With no `image`, the well's words are read with the card. With `menu`, its ⋯ is a button after the link, named \"More for\" and the title, with a menu popup: Tab reaches it after the card.",
     "gap": ""
    }
   },
@@ -1509,7 +1509,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.6",
+   "version": "1.7",
    "url": "https://sakuga.design/components#Thumb",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -1519,7 +1519,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "With `onInsert`, Enter or a double-click inserts (the item is described \"Enter or a double-click inserts it at the playhead; drag it onto the timeline to place it\") and Insert is its own button named \"Insert\" and the name. A picture whose alt is `alt` (empty, so hidden, by default), with \"selected\" and \"rejected\" (`muted`) said after it, and with `title` or `meta` a figure captioned by them. With `onClick` it is a toggle button that Tab reaches and Enter or Space presses, \"pressed\" when `selected`: name it with `label` (or `alt`), since without one it has no name. With `href` its title is a link named by the title (or `label`), the meta read after it, and its action a separate control after the link. Without `href` an action is a separate control after the frame, before its caption. In forced colours a selected frame keeps its ring, in Highlight.",
+    "design": "With `onInsert`, Enter or a double-click inserts (the item is described \"Enter or a double-click inserts it at the playhead; drag it onto the timeline to place it\") and Insert is its own button named \"Insert\" and the name. A picture whose alt is `alt` (empty, so hidden, by default), with \"selected\" and \"rejected\" (`muted`) said after it, and with `title` or `meta` a figure captioned by them. With `onClick` it is a toggle button that Tab reaches and Enter or Space presses, \"pressed\" when `selected`: name it with `label` (or `alt`), since without one it has no name. With `href` its title is a link named by the title (or `label`), the meta read after it, and its action a separate control after the link. Without `href` an action is a separate control after the frame, before its caption. In forced colours a selected frame keeps its ring, in Highlight, and a placeholder keeps a hairline edge.",
     "gap": ""
    }
   },
@@ -3851,7 +3851,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#CutSheet",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -3890,7 +3890,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#CutRow",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4078,7 +4078,7 @@
    "library": "Kit",
    "group": "Productions",
    "package": "@anicanon/sakuga/anicanonkit",
-   "summary": "Timesheet is what gets generated for a cut, on a frame grid (24 a second, a heavier tick each second): each video's bracket, the key frames it starts and ends on, and one line per video (where it opens, how it continues).",
+   "summary": "Timesheet is what gets generated for a cut, on a frame grid (24 a second, a tick on each whole second, the strip's two ends its first and last frames): each video's bracket, the key frames it starts and ends on, and one line per video (where it opens, how it continues).",
    "use": "what gets generated for a cut, on a frame grid: each video's bracket, the key frames it starts and ends on, and one line per video.",
    "instead": [
     {
@@ -4101,7 +4101,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#Timesheet",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4179,7 +4179,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#DialogueLine",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4909,7 +4909,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.2",
+   "version": "1.3",
    "url": "https://sakuga.design/components#ManuscriptSection",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4919,7 +4919,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "Not focusable; read as \"#\" and its number, the title as a level-3 heading, the prose and its word count (\"240 words\"), the section being written (`current`) is marked \"current\", and `with` reads as its line (\"At the same time as #4 · Toddy's bedroom\"). The margin's proposals follow in reading order.",
+    "design": "Not focusable; read as \"#\" and its number, the title as a level-3 heading, the prose and its word count (\"240 words\"), the section being written (`current`) is marked \"current\", and `with` reads as its line (\"At the same time as #4 · Toddy's bedroom\"). With `onTold` the told words are a button Tab reaches, named \"How the two are told: Cut between them\", with a menu popup; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals follow in reading order.",
     "gap": ""
    }
   },
@@ -5170,7 +5170,7 @@
     "design": "An item of its group's list, named by its title. A line that opens is one button, read as its severity, \"Show {title} on the map\" and its note, expanded or collapsed; the mark is hidden. Open, its events are a list named \"In 3 events\", then Ask Maki and Keep on purpose take focus. A kept one reads \"Kept on purpose by {name} · {date}\", or \"Kept on purpose\" with no one named, and its reason, then Reopen.",
     "gap": ""
    },
-   "version": "2.1",
+   "version": "2.2",
    "used_on": [
     "Web"
    ]

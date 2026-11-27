@@ -23,7 +23,7 @@ export interface CutSheetProps {
 /**
  * CutSheet is a scene read the way anime reads it: an ekonte sheet. Rows are numbered cuts; columns are set per view (Plan: C ·
  * Picture · Action · Dialogue · Sec · Notes; Make: C · Board · Latest take · Video · Sec; lists: art · title · where it is ·
- * story). Rules between rows, no boxes. Rows are `CutRow`s. `surface` sets the sheet on its page, the paper it is printed on;
+ * story). Rules between rows and none after the last, no boxes. Rows are `CutRow`s. `surface` sets the sheet on its page, the paper it is printed on;
  * what follows the sheet (the next scene, a quote) goes in `slot="footer"` under it.
  *
  * Not for the cut's tracks in time (`Timeline`); what gets generated for one cut, on a frame grid (`Timesheet`); one row of the
@@ -32,7 +32,7 @@ export interface CutSheetProps {
  * Accessibility: Not focusable; a table named by `label`, its first row the column headers, then a row per CutRow, and with
  * `surface` the footer slot follows the table.
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function CutSheet({ columns, label, surface, children, className }: CutSheetProps) {

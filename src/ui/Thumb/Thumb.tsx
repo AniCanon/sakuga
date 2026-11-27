@@ -136,9 +136,9 @@ function ThumbFrame(props: ThumbProps) {
  * "pressed" when `selected`: name it with `label` (or `alt`), since without one it has no name. With `href` its title is a
  * link named by the title (or `label`), the meta read after it, and its action a separate control after the link. Without
  * `href` an action is a separate control after the frame, before its caption. In forced colours a selected frame keeps its
- * ring, in Highlight.
+ * ring, in Highlight, and a placeholder keeps a hairline edge.
  *
- * @version 1.6
+ * @version 1.7
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function Thumb(props: ThumbProps) {

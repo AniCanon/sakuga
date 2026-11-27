@@ -28,4 +28,15 @@ describe('DialogueLine', () => {
     expect(container.querySelector('q')!.textContent).toBe('Stay.');
     expect(container.querySelector('small')).toBeNull();
   });
+
+  it('marks a line in kana or kanji Japanese, so it is set in 「」; another line, or one named by lang, follows lang', () => {
+    const { container, rerender } = render(<DialogueLine speaker="Kiko" line="来なさい、ケン。" translation="Come here, Ken." />);
+    expect(container.querySelector('q')!.getAttribute('lang')).toBe('ja');
+    rerender(<DialogueLine speaker="Kiko" line="Come here, Ken." />);
+    expect(container.querySelector('q')!.hasAttribute('lang')).toBe(false);
+    rerender(<DialogueLine speaker="Kiko" lang="en" line="来なさい" />);
+    expect(container.querySelector('q')!.getAttribute('lang')).toBe('en');
+    rerender(<DialogueLine speaker="Kiko" lang="ja">Kite</DialogueLine>);
+    expect(container.querySelector('q')!.getAttribute('lang')).toBe('ja');
+  });
 });

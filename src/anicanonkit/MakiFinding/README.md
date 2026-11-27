@@ -13,7 +13,7 @@ Use it for one thing Maki's Review found, inside a `MakiFindingGroup` in her rep
 ## How it works
 
 - One cause is one finding, however many events it touches. The mark is small, at the start of the line: a conflict (the story contradicts itself) the warning glyph in the accent, a warning the info glyph, muted. Its word is read, never shown; the group's label already says it. Never vermilion: nothing here deletes anything.
-- The title takes the full width and wraps; `slot="title"` lets it carry `Mention`s. Lines are parted by hairlines, compact, with no inset and no fill.
+- The title takes the full width and wraps; `slot="title"` lets it carry `Mention`s. Lines are parted by hairlines, compact, with no inset and no fill: a hairline runs only between two findings, so the first in a group or a column has none above it.
 - Its press (`onSelect`) shows it on the map and opens it (Show me). Open, its events list under it on the same edge, the title first and where it was told quiet under it, then its two actions as one pair in one style: Ask Maki and Keep on purpose. A page passes what they do (`onAsk`, `onKeep`), never the buttons, so they can't drift apart. Children show in the open one (the "Why it stays" field).
 - `kept` is one kept on purpose: the bookmark, the title quiet, "Kept on purpose by {name} · {date}" (just "Kept on purpose" with no `by`), the reason, and Reopen.
 
@@ -62,4 +62,4 @@ export function MakiFindingExample() {
 An item of its group's list, named by its title. A line that opens is one button, read as its severity, "Show {title} on the map" and its note, expanded or collapsed; the mark is hidden. Open, its events are a list named "In 3 events", then Ask Maki and Keep on purpose take focus. A kept one reads "Kept on purpose by {name} · {date}", or "Kept on purpose" with no one named, and its reason, then Reopen.
 
 Used on: Web
-Version: 2.1
+Version: 2.2

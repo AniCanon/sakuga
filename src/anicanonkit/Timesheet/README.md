@@ -1,6 +1,6 @@
 # Timesheet
 
-Timesheet is what gets generated for a cut, on a frame grid (24 a second, a heavier tick each second): each video's bracket, the key frames it starts and ends on, and one line per video (where it opens, how it continues).
+Timesheet is what gets generated for a cut, on a frame grid (24 a second, a tick on each whole second, the strip's two ends its first and last frames): each video's bracket, the key frames it starts and ends on, and one line per video (where it opens, how it continues).
 
 ## When to use
 
@@ -14,6 +14,7 @@ Use it for what gets generated for a cut, on a frame grid: each video's bracket,
 ## How it works
 
 - A key sits on a rail above the frames, its number centred in its badge, with a hairline down to its exact frame, which may fall between the ticks.
+- A key on the first or last frame sits inside the strip, its hairline on the frame, never hanging past the strip's end.
 
 ## Props
 
@@ -50,4 +51,4 @@ export function TimesheetExample() {
 Not focusable; a group named by `label` (default "Videos to make") whose label, note, key frame labels (with "at frame 24") and each video's line (with "frames 0 to 48") read as text.
 
 Used on: Web
-Version: 1.0
+Version: 1.1

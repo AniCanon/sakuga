@@ -24,13 +24,22 @@ describe('Timesheet', () => {
     expect((lines as HTMLElement).style.gridTemplateColumns).toBe('120fr 96fr');
   });
 
-  it('lays out a frame grid at 24 a second, a heavier tick each second, the brackets in proportion', () => {
-    const { container } = render(<Timesheet seconds={2} spans={[{ start: 0, end: 24, label: 'V' }]} keys={[{ at: 12, label: 'k' }]} />);
+  it('lays out a frame grid at 24 a second, a tick on each whole second inside the strip, the brackets in proportion', () => {
+    const { container } = render(<Timesheet seconds={3} spans={[{ start: 0, end: 36, label: 'V' }]} keys={[{ at: 18, label: 'k' }]} />);
     const ticks = [...container.querySelectorAll('.sk-tsheet__grid > i')] as HTMLElement[];
-    expect(ticks).toHaveLength(9);
-    expect(ticks.filter((t) => t.className === 'is-second').map((t) => t.style.left)).toEqual(['0%', '50%', '100%']);
+    // The strip's two ends are its first and last frames, so only the seconds between them are ticked
+    expect(ticks.map((t) => [t.className, t.style.left])).toEqual([['is-second', `${24 / 72 * 100}%`], ['is-second', `${48 / 72 * 100}%`]]);
     const span = container.querySelector('.sk-tsheet__span') as HTMLElement;
     expect([span.style.left, span.style.width]).toEqual(['0%', '50%']);
     expect((container.querySelector('.sk-tsheet__key') as HTMLElement).style.left).toBe('25%');
+  });
+
+  it('a key on the first or last frame sits inside the strip, its line on the frame, and one past the end is held at it', () => {
+    const { container } = render(<Timesheet seconds={2} spans={[{ start: 0, end: 48, label: 'V' }]} keys={[{ at: 0, label: '1' }, { at: 24, label: '2' }, { at: 48, label: '3' }, { at: 60, label: '4' }]} />);
+    const keys = [...container.querySelectorAll('.sk-tsheet__key')] as HTMLElement[];
+    expect(keys.map((k) => [k.className, k.style.left])).toEqual([
+      ['sk-tsheet__key is-start', '0%'], ['sk-tsheet__key', '50%'], ['sk-tsheet__key is-end', '100%'], ['sk-tsheet__key is-end', '100%']]);
+    // Said at the frame it names
+    expect(keys[3].textContent).toBe('4, at frame 60');
   });
 });

@@ -6,5 +6,9 @@ export const words = Object.freeze({
     "one": "{count} word",
     "other": "{count} words"
   },
-  "sameTimeAs": "At the same time as #{number} · {title}"
+  "sameTimeAs": "At the same time as #{number} · {title}",
+  "toldBetween": "Cut between them",
+  "toldAfter": "One after the other",
+  "notSameTime": "Not at the same time",
+  "toldHow": "How the two are told: {told}"
 } satisfies SakugaMessages);
