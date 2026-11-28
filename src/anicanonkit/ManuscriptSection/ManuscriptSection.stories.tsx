@@ -32,7 +32,7 @@ export const AtTheSameTime: Story = () => (
 export const ToldMenu: Story = () => (
   // Room under the line for the open menu, which drops from it
   <div style={{ ...wide, paddingBottom: 140 }}>
-    <ManuscriptSection number={5} title="Sé station" words={18} with={{ number: 4, title: 'Toddy’s bedroom', told: 'Cut between them' }} onTold={() => {}} toldOpen>Kiko steps out of the smoke, the phone at her ear.</ManuscriptSection>
+    <ManuscriptSection number={5} title="Sé station" words={18} with={{ number: 4, title: 'Toddy’s bedroom', told: 'Cut between them', how: 'between' }} onTold={() => {}} toldOpen>Kiko steps out of the smoke, the phone at her ear.</ManuscriptSection>
   </div>
 );
 
