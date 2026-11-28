@@ -1,6 +1,6 @@
 # Toast
 
-A short confirmation that something finished, rising into a corner.
+A short confirmation that something finished, rising into the window's lower right corner.
 
 ## When to use
 
@@ -15,6 +15,8 @@ Use it for a short confirmation that something finished, with an optional action
 - One line of title and one of detail, optional action, always dismissable. Never for errors that need a decision.
 - Motion: it rises in on `motion-base` with `ease-enter` and leaves on `motion-fast` with `ease-exit`.
 - Slide it sideways to dismiss it: it follows the pointer and fades; past `toast-swipe-dismiss` (35%) of its width it leaves and `onDismiss` runs, short of that it returns.
+- Every toast in the app sits in one place: bottom right, 24px in from the window's right edge and its foot, the newest at the foot. A page with a bar along its foot (Script's status bar) raises them above it. On a phone they run full width inside the 16px gutters, above the `TabBar`. Never at the top, where it would cover tabs, navigation and page actions, and never centred over a canvas.
+- How long it stays: 5 seconds with no action; 10 with one (Undo, Change when), so there is time to read it and reach the button. Its clock stops while the pointer rests on it, while focus is inside it, and while the window is hidden, and starts again from the top when they leave. Every toast in the app keeps the same two times; a page never sets its own.
 
 ## Props
 
@@ -48,4 +50,4 @@ export function ToastExample() {
 Its title and text are said through the page's live region when it appears, and read in place with the icon and picture hidden; Tab reaches any actions in it and the "Dismiss" button, which runs `onDismiss`; dismissed with focus inside it, focus goes to the next toast, else back to where it came from. Sliding it away is for the pointer; the Dismiss button does the same.
 
 Used on: Web, iOS, Android
-Version: 1.0
+Version: 1.1

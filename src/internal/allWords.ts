@@ -2,6 +2,7 @@ import { words as w42 } from '../ui/AudioPlayer/words';
 import { words as w43 } from '../ui/Button/words';
 import { words as w44 } from '../ui/CastAvatar/words';
 import { words as w45 } from '../ui/ColorPicker/words';
+import { words as wContents } from '../ui/Contents/words';
 import { words as w46 } from '../ui/Cropper/words';
 import { words as w47 } from '../ui/DateField/words';
 import { words as w48 } from '../ui/DropZone/words';
@@ -30,4 +31,4 @@ import { core, type SakugaMessages } from './words';
 
 /** The core's words in English, by key: the core's own and every core component's. An app reads it to translate them; a
  *  component carries only its own. With AniCanonKit, its `messages` is every word, the Kit's included. */
-export const messages: Readonly<SakugaMessages> = Object.freeze({ ...core, ...w42, ...w43, ...w44, ...w45, ...w46, ...w47, ...w48, ...w49, ...w50, ...w51, ...w52, ...w53, ...w54, ...w55, ...w57, ...w58, ...w59, ...w60, ...w61, ...w62, ...w63, ...w64, ...w65, ...w66, ...w67, ...w68, ...w69, ...wList } as SakugaMessages);
+export const messages: Readonly<SakugaMessages> = Object.freeze({ ...core, ...w42, ...w43, ...w44, ...w45, ...wContents, ...w46, ...w47, ...w48, ...w49, ...w50, ...w51, ...w52, ...w53, ...w54, ...w55, ...w57, ...w58, ...w59, ...w60, ...w61, ...w62, ...w63, ...w64, ...w65, ...w66, ...w67, ...w68, ...w69, ...wList } as SakugaMessages);

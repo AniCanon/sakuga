@@ -333,6 +333,7 @@ export interface SakugaMessages {
   /** "Full screen" · VideoPlayer */ fullScreen?: SakugaMessage;
   /** "Loading {name}" · VideoPlayer, waiting for frames */ loadingItem?: SakugaMessage;
   /** one: "{count} waiting" · other: "{count} waiting" · ActivityRow, what waits on you */ waitingCount?: SakugaMessage;
+  /** one: "{count} more" · other: "{count} more" · Contents, the sections past its limit */ moreCount?: SakugaMessage;
   /** "Activity: {running}, {waiting}" · ActivityRow, running and waiting */ activityCounts?: SakugaMessage;
   /** one: "{count} view" · other: "{count} views" · PromptComposer place row with views */ placeViews?: SakugaMessage;
   /** "1 view · {name}" · PromptComposer place row with one view */ placeOneView?: SakugaMessage;

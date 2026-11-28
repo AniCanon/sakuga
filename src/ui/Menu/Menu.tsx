@@ -19,6 +19,8 @@ export interface MenuProps {
     onClick?: MouseEventHandler;
     /** Can't be taken back (Delete): the danger tone. */
     tone?: 'danger';
+    /** One choice among several: true draws a check at its end and it reads as checked; false reads as not checked. Left out, the item is an action. */
+    checked?: boolean;
     /** A rule before it, to set it apart. */
     separated?: boolean;
     disabled?: boolean;
@@ -45,15 +47,16 @@ export interface MenuProps {
  *
  * Accessibility: A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap,
  * Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that
- * opened it. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row
- * keeps its ring, in Highlight.
+ * opened it. A row with `checked` is a menu item radio, read as checked or not checked. A disabled row is skipped and said as
+ * unavailable; the rule is a separator. In forced colours the focused row keeps its ring and the check is drawn, both in
+ * Highlight.
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function Menu({ label, items, open, onClose, anchored, align, className }: MenuProps) {
   const box = useRef<HTMLDivElement>(null);
-  const keys = useRoving(box, { selector: '[role="menuitem"]', axis: 'y', active: '[data-first]' });
+  const keys = useRoving(box, { selector: '[role^="menuitem"]', axis: 'y', active: '[data-first]' });
   return (
     <Popover open={open} onClose={onClose} role="menu" label={label} align={align} anchored={anchored} className={cx('sk-menu', className)} onKeyDown={keys}>
       <div ref={box} className="sk-menu__items" role="none">
@@ -66,10 +69,12 @@ export function Menu({ label, items, open, onClose, anchored, align, className }
           return (
             <Fragment key={i}>
               {it.separated && i > 0 && <div role="separator" className="sk-menu__rule" />}
-              <GoLink href={it.href} onClick={run} role="menuitem" className={cx('sk-menu__item', it.tone === 'danger' && 'is-danger')}
+              <GoLink href={it.href} onClick={run} role={it.checked === undefined ? 'menuitem' : 'menuitemradio'}
+                aria-checked={it.checked === undefined ? undefined : it.checked ? 'true' : 'false'} className={cx('sk-menu__item', it.tone === 'danger' && 'is-danger')}
                 aria-disabled={it.disabled ? 'true' : undefined} tabIndex={it.disabled ? -1 : undefined} data-first={i === 0 ? '' : undefined}>
                 {it.icon && <Icon name={it.icon} size="var(--menu-item-icon-size)" />}
                 <span className="sk-menu__label">{it.label}</span>
+                {it.checked && <Icon name="check" size="var(--menu-item-icon-size)" className="sk-menu__check" />}
               </GoLink>
             </Fragment>
           );

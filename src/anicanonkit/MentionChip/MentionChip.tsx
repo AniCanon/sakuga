@@ -61,7 +61,7 @@ export interface MentionChipProps {
  * and Enter follows, named the same way; with `onClick` it is a button, named by `label` when given, that says whether what it
  * opens is expanded. The picture is hidden. Held as context, its remove button beside it is named "Remove {name}".
  *
- * @version 1.3
+ * @version 1.4
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function MentionChip({ name, kind: given = 'character', type, icon, status, missing, figure, onRemove, removable, tone, image, imageStyle, note, href, onClick, expanded, controls, label, className }: MentionChipProps) {
@@ -77,7 +77,7 @@ export function MentionChip({ name, kind: given = 'character', type, icon, statu
   const body = (
     <>
       {vis}
-      <span><b>{kind === 'event' ? '“' + name + '”' : (MENTION_MARK[kind] || '') + name}</b>{missing && <span className="sk-sr">{', ' + tx('missing')}</span>}{note && <small>{' · ' + note}</small>}</span>
+      <span className="sk-mchip__text"><b>{kind === 'event' ? '“' + name + '”' : (MENTION_MARK[kind] || '') + name}</b>{missing && <span className="sk-sr">{', ' + tx('missing')}</span>}{note && <small>{' · ' + note}</small>}</span>
       {status && <Badge variant={status.variant || 'neutral'} icon={status.icon}>{status.label}</Badge>}
     </>
   );

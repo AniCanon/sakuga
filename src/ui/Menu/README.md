@@ -16,6 +16,7 @@ Use it for the actions behind a ⋯: go somewhere (Face sheet and variants), or 
 - A row answers the pointer with `bg-fill-subtle`, sinks on press like Select's options, and takes the focus ring from the keyboard.
 - Vermilion is for the row that deletes or takes access away, and that row comes last, after a rule. Its confirmation is the `Dialog` it opens, never the menu itself.
 - The control that opens it says so: `aria-haspopup="menu"` and `aria-expanded`.
+- A choice among several (how two scenes are told) gives each of its rows `checked`: the one that holds now draws a check at its end, in the accent, and the rest draw nothing. Rows without `checked` stay actions, so a choice and an action can share a menu (Not at the same time, after a rule).
 - Never a Popover of ghost Buttons: a Button centres its label, and its keys are a Tab stop each.
 
 ## Props
@@ -29,6 +30,7 @@ Use it for the actions behind a ⋯: go somewhere (Face sheet and variants), or 
 | `items[].href` | `string` |  |  |
 | `items[].onClick` | `MouseEventHandler` |  |  |
 | `items[].tone` | `'danger'` |  | Can't be taken back (Delete): the danger tone. |
+| `items[].checked` | `boolean` |  | One choice among several: true draws a check at its end and it reads as checked; false reads as not checked. Left out, the item is an action. |
 | `items[].separated` | `boolean` |  | A rule before it, to set it apart. |
 | `items[].disabled` | `boolean` |  |  |
 | `open` | `boolean` |  | As on Popover: whether it shows. |
@@ -66,7 +68,7 @@ export function CharacterMore({ onDelete }: { onDelete: () => void }) {
 
 ## Accessibility
 
-A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap, Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that opened it. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row keeps its ring, in Highlight.
+A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap, Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that opened it. A row with `checked` is a menu item radio, read as checked or not checked. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row keeps its ring and the check is drawn, both in Highlight.
 
 Used on: Web
-Version: 1.0
+Version: 1.1

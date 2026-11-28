@@ -1,6 +1,6 @@
 {
  "system": "Sakuga",
- "version": "261",
+ "version": "263",
  "site": "https://sakuga.design",
  "components": [
   {
@@ -926,7 +926,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.1",
+   "version": "1.2",
    "url": "https://sakuga.design/components#TopNav",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -1411,7 +1411,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.1",
+   "version": "1.2",
    "url": "https://sakuga.design/components#CastAvatar",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -1785,7 +1785,7 @@
    "library": "Core",
    "group": "Feedback",
    "package": "@anicanon/sakuga/ui",
-   "summary": "A short confirmation that something finished, rising into a corner.",
+   "summary": "A short confirmation that something finished, rising into the window's lower right corner.",
    "use": "a short confirmation that something finished, with an optional action.",
    "instead": [
     {
@@ -1806,7 +1806,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#Toast",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -2336,7 +2336,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.0",
+   "version": "1.1",
    "url": "https://sakuga.design/components#Menu",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -2346,7 +2346,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap, Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that opened it. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row keeps its ring, in Highlight.",
+    "design": "A menu named by `label`, its rows menu items (a link or a button) and one Tab stop: Up and Down move and wrap, Home and End go to the first and last, Enter or Space chooses, Escape closes it and focus goes back to the control that opened it. A row with `checked` is a menu item radio, read as checked or not checked. A disabled row is skipped and said as unavailable; the rule is a separator. In forced colours the focused row keeps its ring and the check is drawn, both in Highlight.",
     "gap": ""
    }
   },
@@ -3360,7 +3360,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.1",
+   "version": "1.2",
    "url": "https://sakuga.design/components#EntityRow",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -3473,7 +3473,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "2.10",
+   "version": "2.12",
    "url": "https://sakuga.design/components#StoryMap",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4823,7 +4823,7 @@
     "iOS",
     "Android"
    ],
-   "version": "1.3",
+   "version": "1.4",
    "url": "https://sakuga.design/components#MentionChip",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4909,7 +4909,7 @@
    "used_on": [
     "Web"
    ],
-   "version": "1.3",
+   "version": "1.4",
    "url": "https://sakuga.design/components#ManuscriptSection",
    "accessibility": {
     "standard": "WCAG 2.2 A and AA",
@@ -4919,7 +4919,7 @@
     "reviewed": []
    },
    "accessibility_declared": {
-    "design": "Not focusable; read as \"#\" and its number, the title as a level-3 heading, the prose and its word count (\"240 words\"), the section being written (`current`) is marked \"current\", and `with` reads as its line (\"At the same time as #4 · Toddy's bedroom\"). With `onTold` the told words are a button Tab reaches, named \"How the two are told: Cut between them\", with a menu popup; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals follow in reading order.",
+    "design": "Not focusable; read as \"#\" and its number, the title as a level-3 heading, the prose and its word count (\"240 words\"), the section being written (`current`) is marked \"current\", and `with` reads as its line (\"At the same time as #4 · Toddy's bedroom\"). With `onTold` the told words are a button Tab reaches, named \"How the two are told: Cut between them\", with a menu popup whose choice in force is read as checked; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals follow in reading order.",
     "gap": ""
    }
   },
@@ -5315,6 +5315,41 @@
    "url": "https://sakuga.design/components#ScreenplayEditor",
    "accessibility_declared": {
     "design": "A group named by `label` (default \"Script\") and described by its keys (\"Enter starts the next block, … Escape, then Tab, leaves the script\"). Each block is a textbox named by its kind (\"Scene heading\", \"Action\", \"Character\", \"Parenthetical\", \"Dialogue\", \"Transition\"), multi-line for action and dialogue, one Tab stop for the whole script (the block last written in). A change of kind is said in a polite live region. The mention list is a listbox the line controls, its active option the line's active descendant.",
+    "gap": ""
+   },
+   "version": "1.0",
+   "used_on": [
+    "Web"
+   ]
+  },
+  {
+   "name": "Contents",
+   "title": "Contents",
+   "library": "Core",
+   "package": "@anicanon/sakuga/ui",
+   "summary": "Contents lists a document's sections in order, one press each: the sections of an open canon document under its row.",
+   "use": "the sections of one document, in order, where one is open beside them: a canon document's sections under its row.",
+   "instead": [
+    {
+     "when": "a page's main sections",
+     "use": "SideNav"
+    },
+    {
+     "when": "rows with a picture, a second line or an action",
+     "use": "ListRow"
+    },
+    {
+     "when": "a link inside a sentence",
+     "use": "TextLink"
+    },
+    {
+     "when": "the views inside a production",
+     "use": "ProductionNav"
+    }
+   ],
+   "url": "https://sakuga.design/components#Contents",
+   "accessibility_declared": {
+    "design": "A navigation named by `label` (\"Sections of World rules\") holding an ordered list, so a screen reader says how many sections there are. Each section is a link or a button Tab reaches, and the open one is marked current. \"6 more\" is a button; pressing it puts focus on the first section it opened. In forced colours the open section is drawn in Highlight and focus keeps its ring.",
     "gap": ""
    },
    "version": "1.0",

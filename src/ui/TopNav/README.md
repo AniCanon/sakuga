@@ -13,14 +13,15 @@ Use it for the desktop header: the AniCanon mark, up to five main sections (Home
 
 ## How it works
 
-- Five links at most: Home, Series, Shorts, Manga, Creators. Mark the current one with `current`; it gets `aria-current="page"` and the `topnav-indicator` underline, which slides to a newly current link on `motion-base`.
+- Five links at most: Home, Series, Shorts, Manga, Creators. Mark the current one with `current`; it gets `aria-current="page"`.
+- Each link is SideNav's item laid flat: `bg-fill-subtle` under the pointer, a press that sinks, and the focus ring from the keyboard. The current link's state dot sits in the link's own padding and arrives by scale, so marking a link never moves the ones after it.
 - It sits on the page or over the hero's top scrim, never in a filled bar.
 - Phones never show TopNav; they use TabBar.
 - `actions` (a prop, or children with `slot="actions"`) sit before search and the account: the notifications bell, an `IconButton` with `attention` while something is unread.
 - `onSearch` runs when Search is pressed and `account.onClick` when the account is; `search={false}` drops Search.
 - A section link sets its own line height (`topnav-links-a-line-height`), so a real link draws the same inside a page with its own line height.
 - `search` as an object searches in the bar: SearchField's props plus `open`, `onOpen` and `onClose`. Search calls `onOpen`; while `open`, the field takes the links' place, with Close search after it. Escape on an empty field calls `onClose`, and focus goes back to Search.
-- The current link reads in ink weight with the state dot after it; nothing marks it with a line under it.
+- The current link reads in ink with the state dot after it; nothing marks it with a line under it or a fill. In forced colours it is underlined, as the system draws a current link.
 
 ## Props
 
@@ -76,4 +77,4 @@ export function SiteHeader({ mark, face }: { mark: string; face: string }) {
 A header whose brand link reads the name (the logo is hidden; without `brand.href` the brand is the name alone, not a link), then a navigation named by `label` (default "Main") whose links mark the current page (a link without `href` is a button running its `onClick`, never a link to #); Tab moves through them, then the `actions`, then, when there is an account or Create, "Search" (running `onSearch`, or `search.onOpen`; while searching, the search landmark and "Close search" take the links' place and Search is gone), then Create and the account button ("Your account, Aiko Mori", running `account.onClick`).
 
 Used on: Web
-Version: 1.1
+Version: 1.2

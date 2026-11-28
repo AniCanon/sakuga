@@ -67,6 +67,28 @@ describe('Menu', () => {
     expect(screen.getByRole('button', { name: 'More for Smith' }).getAttribute('aria-expanded')).toBe('false');
   });
 
+  it('a row with checked is a menu item radio, read checked or not, and the chosen one draws its check; arrows reach it', () => {
+    const pick = vi.fn();
+    render(<Menu open label="How the two are told" items={[
+      { label: 'Cut between them', checked: true, onClick: pick },
+      { label: 'One after the other', checked: false, onClick: pick },
+      { label: 'Not at the same time', separated: true, onClick: pick },
+    ]} />);
+    const between = screen.getByRole('menuitemradio', { name: 'Cut between them' });
+    const after = screen.getByRole('menuitemradio', { name: 'One after the other' });
+    expect(between.getAttribute('aria-checked')).toBe('true');
+    expect(after.getAttribute('aria-checked')).toBe('false');
+    expect(between.querySelector('.sk-menu__check')).not.toBeNull();
+    expect(after.querySelector('.sk-menu__check')).toBeNull();
+    expect(screen.getByRole('menuitem', { name: 'Not at the same time' }).getAttribute('aria-checked')).toBeNull();
+    between.focus();
+    fireEvent.keyDown(between, { key: 'ArrowDown' });
+    expect(document.activeElement).toBe(after);
+    fireEvent.keyDown(after, { key: 'ArrowDown' });
+    expect(document.activeElement).toBe(screen.getByRole('menuitem', { name: 'Not at the same time' }));
+    expect(css).toContain('@media (forced-colors:active){.sk-menu__item>.sk-menu__check{color:Highlight}}');
+  });
+
   it('Escape closes it', () => {
     render(<More />);
     fireEvent.keyDown(screen.getAllByRole('menuitem')[0], { key: 'Escape' });

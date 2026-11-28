@@ -57,7 +57,7 @@ export interface CastAvatarProps {
  * role are read, `muted` adds "not in the story at this point", and the portrait, initial and check are hidden; without `name`
  * it is named by `label`.
  *
- * @version 1.1
+ * @version 1.2
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function CastAvatar(props: CastAvatarProps & { figure?: ReactNode }) {

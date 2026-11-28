@@ -55,6 +55,21 @@ describe('ManuscriptSection', () => {
     expect(onTold).toHaveBeenCalledWith('after');
   });
 
+  it('with.how checks how the two are told now; Not at the same time stays an action', () => {
+    const { rerender } = render(<ManuscriptSection number={5} title="Sé station" with={{ number: 4, title: "Toddy's bedroom", told: 'Cut between them', how: 'between' }} onTold={() => {}} toldOpen>Kiko.</ManuscriptSection>);
+    expect(screen.getByRole('menuitemradio', { name: 'Cut between them' }).getAttribute('aria-checked')).toBe('true');
+    expect(screen.getByRole('menuitemradio', { name: 'One after the other' }).getAttribute('aria-checked')).toBe('false');
+    expect(screen.getByRole('menuitem', { name: 'Not at the same time' })).toBeTruthy();
+    rerender(<ManuscriptSection number={5} title="Sé station" with={{ number: 4, title: "Toddy's bedroom", told: 'Cut between them' }} onTold={() => {}} toldOpen>Kiko.</ManuscriptSection>);
+    expect(screen.queryAllByRole('menuitemradio')).toHaveLength(0);
+  });
+
+  it('the same-time line is not a paragraph, so the told menu never sits inside one', () => {
+    render(<ManuscriptSection number={5} title="Sé station" with={{ number: 4, title: "Toddy's bedroom", told: 'Cut between them' }} onTold={() => {}} toldOpen>Kiko.</ManuscriptSection>);
+    expect(document.querySelector('.sk-msec__with')!.tagName).toBe('DIV');
+    expect(document.querySelector('.sk-msec__with [role="menu"]')!.closest('p')).toBeNull();
+  });
+
   it('Not at the same time is set apart, and says apart', () => {
     const onTold = vi.fn();
     render(<ManuscriptSection number={5} title="Sé station" with={{ number: 4, title: "Toddy's bedroom", told: 'One after the other' }} onTold={onTold} toldOpen>Kiko.</ManuscriptSection>);

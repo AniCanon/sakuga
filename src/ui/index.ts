@@ -36,6 +36,7 @@ export { SwatchPicker, type SwatchPickerProps, type SwatchOption } from './Swatc
 export { ColorPicker, type ColorPickerProps } from './ColorPicker/ColorPicker';
 export { Popover, type PopoverProps } from './Popover/Popover';
 export { Menu, type MenuProps } from './Menu/Menu';
+export { Contents, type ContentsProps } from './Contents/Contents';
 export { Picker, type PickerProps, type PickerOption } from './Picker/Picker';
 export { DateField, type DateFieldProps, type DateRange } from './DateField/DateField';
 export { OptionTiles, type OptionTilesProps, type TileOption } from './OptionTiles/OptionTiles';

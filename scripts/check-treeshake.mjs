@@ -42,13 +42,14 @@ expect(css.includes('@font-face'), 'fonts.css is missing');
 /* What a browser downloads for this page, compressed. Each limit sits a little above what the page measures, so a component or
    a token change that grows every page fails here instead of passing unseen. Raise one only for growth that is meant, and say here
    what every page now carries for it. The script carries the core's shared words (the words more than one part says; each component
-   brings its own), so a page that only takes a button notices any word or part that reaches it. The CSS carries base.css: the roles
+   brings its own), so a page that only takes a button notices any word or part that reaches it, and the full-words tip <Sakuga>
+   installs for every page, since any part may cut its text. The CSS carries base.css: the roles
    block (radius, timing, size and opacity roles, the space steps from space-base), the greys and alphas derived from neutral-base,
    Sakuga's own scrollbars inside .sk-root, the warning role, and Button's busy state, which brings the Loader's drawing to every page
-   with a button. The icons carry the sprite, the traced trait icons among them. */
+   with a button, and the full-words tip. The icons carry the sprite, the traced trait icons among them. */
 const sprite = files.filter((f) => f.endsWith('.svg')).map(read).join('');
 const gz = (s) => gzipSync(s, { level: 9 }).length;
-const limits = { script: [gz(js), 62_050], css: [gz(css), 22_800], icons: [gz(sprite), 96_000] };
+const limits = { script: [gz(js), 63_300], css: [gz(css), 22_800], icons: [gz(sprite), 96_000] };
 for (const [what, [size, limit]] of Object.entries(limits)) expect(size <= limit, `the page's ${what} is ${size} bytes compressed, over its ${limit}`);
 
 /* The same for a page that uses one AniCanonKit component: SpendButton reaches the core through its public entry, so the page

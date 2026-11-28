@@ -57,7 +57,7 @@ const ENTITY_CHIP_MAX = 14;
  * Accessibility: Not focusable; the name, "not at this moment" when `faded`, its source, its state and the chip read as text in order, then
  * whatever sits at the end. Pictures and initials are hidden, and a faded row dims its picture while its words stay readable.
  *
- * @version 1.1
+ * @version 1.2
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function EntityRow({ visual, name, before, after, afterVariant, afterIcon, beforeIcon, chip: given, source: told, faded, state, end, children, className }: EntityRowProps) {
@@ -73,7 +73,7 @@ export function EntityRow({ visual, name, before, after, afterVariant, afterIcon
       <span className="sk-erow__text"><b>{name}</b>{faded && <span className="sk-sr">{', ' + tx('notAtThisMoment')}</span>}
         {source && <small className="sk-erow__source">{source}</small>}{shown}</span>
       {/* A chip is a short label (Ep 2, Manga); it yields before the title ever does, its whole words on hover */}
-      {chip && <span className="sk-erow__chip" title={chip}>{chip}</span>}{end || sl.get('end')}
+      {chip && <span className="sk-erow__chip">{chip}</span>}{end || sl.get('end')}
     </div>
   );
 }

@@ -1,9 +1,11 @@
+import { installFullWords } from '../internal/fullWords';
 import { liveRegion } from '../internal/live';
 import { SOUND_KEY, soundSet } from './sound/sound';
 import { THEME_KEY, applyTheme, type Theme } from './theme';
 
 /* What the bundle did on load, which <Sakuga> runs as it mounts: the stored theme and sound choice are restored and followed
-   across tabs (onTheme hears another tab's choice), and the live region is made before the first message. Returns the undo.
+   across tabs (onTheme hears another tab's choice), the live region is made before the first message, and a part that cuts its
+   text shows its full words in a tip. Returns the undo.
    Internal: apps use <Sakuga>; the parity pages call it directly. */
 export function install(onTheme?: (theme: Theme) => void): () => void {
   try {
@@ -20,7 +22,9 @@ export function install(onTheme?: (theme: Theme) => void): () => void {
   const made = () => liveRegion();
   if (document.body) made();
   else document.addEventListener('DOMContentLoaded', made, { once: true });
+  const fullWords = installFullWords();
   return () => {
+    fullWords();
     window.removeEventListener('storage', follow);
     document.removeEventListener('DOMContentLoaded', made);
     soundSet(false);

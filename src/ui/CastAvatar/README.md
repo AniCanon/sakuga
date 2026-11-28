@@ -20,7 +20,7 @@ Use it for a person with their name and a one-line role: a character's round por
 - Without an `image` it shows the `initial` in the same circle, until a portrait is approved.
 - `selected` (true or false) makes it a choice: a ring and a check say it is chosen (who wears a look).
 - `muted` dims the face: the character is no longer in the story at that moment (dead, gone).
-- Under a small face (`sm`, `xs`) in a column, the name reads at 12 px and the name and role are cut to the cell, so a panel grid of four stays tidy; larger faces wrap their names.
+- Under a small face (`sm`, `xs`) in a column, the name reads at 12 px and the name and role are cut to the cell, so a panel grid of four stays tidy, and resting on a cut one shows both whole in a tip; larger faces wrap their names.
 - `layout="row"` puts a small portrait beside the name and role (the people in a character's life). `size` is `lg`, `md`, `sm` (44), `xs` (36) or a number of pixels.
 - `imageStyle` (from `Sakuga.cropStyle`) shows a face not cut yet through the square it will be cut to: the avatar previews beside a `Cropper`.
 
@@ -61,4 +61,4 @@ export function CastAvatarExample() {
 With `selected` set it is a toggle button, "pressed" when selected; with `href` a link; with only `onClick` a button; otherwise plain text, and Tab reaches each of the three controls, Enter or Space pressing the buttons. Its name and role are read, `muted` adds "not in the story at this point", and the portrait, initial and check are hidden; without `name` it is named by `label`.
 
 Used on: Web, iOS, Android
-Version: 1.1
+Version: 1.2

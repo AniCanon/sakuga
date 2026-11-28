@@ -88,3 +88,11 @@ html[data-sk-move^=takeover][data-sk-reduced]::view-transition-new(root){animati
 @media (forced-colors:active){.sk-root,.sk-root *{scrollbar-color:auto}}
 :root{--scrollbar-size:10px;--scrollbar-gap:2px}
 :root,[data-theme]{--scrollbar-thumb:var(--bg-fill);--scrollbar-thumb-hover:var(--border-control);--scrollbar-track:rgba(0, 0, 0, 0)}
+/* Full words: the whole of a cut text, in a tip over its part */
+:root,[data-theme]{--fulltip-max-width:calc(var(--space-base) * 72);--fulltip-padding-y:var(--inset-xs);--fulltip-padding-x:var(--inset-sm);--fulltip-gap:var(--gap-2xs);--fulltip-radius:var(--radius-item);--fulltip-name-font:var(--text-label);--fulltip-line-font:var(--text-caption);--fulltip-bg:var(--bg-surface-raised);--fulltip-fg:var(--text-primary);--fulltip-line-fg:var(--text-secondary);--fulltip-border:var(--border-divider);--fulltip-duration:var(--duration-state);--fulltip-easing:var(--ease-move)}
+.sk-fulltip{position:fixed;z-index:1000;display:flex;flex-direction:column;gap:var(--fulltip-gap);box-sizing:border-box;max-width:var(--fulltip-max-width);padding:var(--fulltip-padding-y) var(--fulltip-padding-x);border-radius:var(--fulltip-radius);background:var(--fulltip-bg);color:var(--fulltip-fg);box-shadow:inset 0 0 0 var(--line-hairline) var(--fulltip-border),var(--help-shadow-overlay);opacity:0;transition:opacity var(--fulltip-duration) var(--fulltip-easing);overflow-wrap:anywhere}
+.sk-fulltip.is-on{opacity:1}
+.sk-fulltip__name{font:var(--fulltip-name-font)}
+.sk-fulltip__line{font:var(--fulltip-line-font);color:var(--fulltip-line-fg)}
+@media (prefers-reduced-motion:reduce){.sk-fulltip{transition:none}}
+@media (forced-colors:active){.sk-fulltip{border:1px solid CanvasText}}

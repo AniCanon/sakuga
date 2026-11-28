@@ -14,7 +14,7 @@ Use it for every row on Story: a character, a bond, a place, an event or a quest
 ## How it works
 
 - **The name gets the width.** It wraps to a second line before it is ever cut, and nothing at the row's end may take its room.
-- `chip` is a short label at the end ("Ep 2", "Manga"): it yields first, cut with its whole words on hover, never wider than 40% of the row. A chip longer than 14 characters is shown as the source instead.
+- `chip` is a short label at the end ("Ep 2", "Manga"): it yields first, cut with its whole words in a tip on hover and focus, never wider than 40% of the row. A chip longer than 14 characters is shown as the source instead.
 - `source` is where it was told in full ("Lantern Tide · series bible · Prologue"): quiet secondary text under the name. Pass a long source here, never as the chip.
 - `visual` picks the picture: a portrait (`avatar`), two overlapping portraits for a bond (`pair`), a place's art (`place`), an event's shape (`event`), a question's three-step track (`question`).
 - State is `before`/`after` (drawn as `StateChange`) or any badges in `slot="state"`.
@@ -56,4 +56,4 @@ export function EntityRowExample() {
 Not focusable; the name, "not at this moment" when `faded`, its source, its state and the chip read as text in order, then whatever sits at the end. Pictures and initials are hidden, and a faded row dims its picture while its words stay readable.
 
 Used on: Web
-Version: 1.1
+Version: 1.2

@@ -67,7 +67,9 @@ describe('EntityRow 1.1', () => {
   it('source is quiet text under the name, read after it; a chip longer than 14 characters shows as the source instead', () => {
     const { container, rerender } = render(<EntityRow name="Fire at Sé" source="Lantern Tide · series bible · Prologue" chip="Ep 2" />);
     expect(container.querySelector('.sk-erow__source')!.textContent).toBe('Lantern Tide · series bible · Prologue');
-    expect(container.querySelector('.sk-erow__chip')!.getAttribute('title')).toBe('Ep 2');
+    expect(container.querySelector('.sk-erow__chip')!.textContent).toBe('Ep 2');
+    // The full-words tip shows a cut chip whole; the chip carries no native title of its own
+    expect(container.querySelector('.sk-erow__chip')!.hasAttribute('title')).toBe(false);
     rerender(<EntityRow name="Fire at Sé" chip="Episode 2 — Salt and Ash" />);
     expect(container.querySelector('.sk-erow__chip')).toBeNull();
     expect(container.querySelector('.sk-erow__source')!.textContent).toBe('Episode 2 — Salt and Ash');

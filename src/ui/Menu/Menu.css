@@ -13,3 +13,7 @@
 .sk-menu__rule{height:var(--line-hairline);margin:var(--menu-rule-margin-y) 0;background:var(--menu-rule)}
 @media (prefers-reduced-motion:reduce){.sk-menu__item:active{transform:none}}
 @media (forced-colors:active){.sk-menu__item:focus-visible{outline-color:Highlight}}
+/* Menu: a checked item's check sits at its end, in the accent */
+:root,[data-theme]{--menu-item-check-fg:var(--text-accent)}
+.sk-menu__item>.sk-menu__check{flex:none;color:var(--menu-item-check-fg)}
+@media (forced-colors:active){.sk-menu__item>.sk-menu__check{color:Highlight}}

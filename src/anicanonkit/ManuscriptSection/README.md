@@ -15,8 +15,8 @@ Use it for one numbered section of a scene note or an imported script: its numbe
 
 - What was found in it sits beside it in `slot="margin"` as `ProposalCard`s, so every proposal stays next to the words it came from.
 - A hover card or selection toolbar goes in `slot="overlay"`.
-- `with` (`{ number, title, told }`) says the scene happens at the same time as another: "At the same time as #4 · Toddy's bedroom · Cut between them" under its heading, and the rule beside the numbers runs on, unbroken, from that scene into this one (no hairline between them). How the two are told (`told`: "Cut between them" or "One after the other") is the app's words.
-- `onTold` makes the told words a menu: Cut between them, One after the other, and, set apart, Not at the same time. It is called with `between`, `after` or `apart`. On `apart` the app unlinks the two scenes and offers Undo in a `Toast`; the line goes when the link does.
+- `with` (`{ number, title, told, how }`) says the scene happens at the same time as another: "At the same time as #4 · Toddy's bedroom · Cut between them" under its heading, and the rule beside the numbers runs on, unbroken, from that scene into this one (no hairline between them). How the two are told (`told`: "Cut between them" or "One after the other") is the app's words.
+- `onTold` makes the told words a menu: Cut between them, One after the other, and, set apart, Not at the same time. It is called with `between`, `after` or `apart`. `with.how` (`between` or `after`) is how they are told now, and the menu checks it. On `apart` the app unlinks the two scenes and offers Undo in a `Toast`; the line goes when the link does.
 - `current` marks the section being written: its number takes the accent. No fill and no inset: on a `Manuscript` page the sections stay flush, ruled apart by hairlines.
 
 ## Props
@@ -32,6 +32,7 @@ Use it for one numbered section of a scene note or an imported script: its numbe
 | `with.number` | `number` | required |  |
 | `with.title` | `string` | required |  |
 | `with.told` | `string` |  |  |
+| `with.how` | `'between' \| 'after'` |  | How the two are told now: the told menu checks it. |
 | `onTold` | `(how: 'between' \| 'after' \| 'apart') => void` |  | With `with.told`: the told words open a menu (Cut between them · One after the other · Not at the same time) and this is called with the choice. 'apart' unlinks the two; the app offers Undo. |
 | `toldOpen` | `boolean` |  | Draws the told menu open (a board). |
 | `margin` | `ReactNode` |  | What sits beside the section (as slot="margin"). |
@@ -53,7 +54,7 @@ export function ManuscriptSectionExample() {
 
 ## Accessibility
 
-Not focusable; read as "#" and its number, the title as a level-3 heading, the prose and its word count ("240 words"), the section being written (`current`) is marked "current", and `with` reads as its line ("At the same time as #4 · Toddy's bedroom"). With `onTold` the told words are a button Tab reaches, named "How the two are told: Cut between them", with a menu popup; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals follow in reading order.
+Not focusable; read as "#" and its number, the title as a level-3 heading, the prose and its word count ("240 words"), the section being written (`current`) is marked "current", and `with` reads as its line ("At the same time as #4 · Toddy's bedroom"). With `onTold` the told words are a button Tab reaches, named "How the two are told: Cut between them", with a menu popup whose choice in force is read as checked; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals follow in reading order.
 
 Used on: Web
-Version: 1.3
+Version: 1.4

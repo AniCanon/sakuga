@@ -65,7 +65,7 @@ export interface TopNavProps {
  * search" take the links' place and Search is gone), then Create and the account button ("Your account, Aiko Mori", running
  * `account.onClick`).
  *
- * @version 1.1
+ * @version 1.2
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function TopNav(props: TopNavProps) {

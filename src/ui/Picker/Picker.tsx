@@ -141,7 +141,7 @@ export function Picker(props: PickerProps) {
   return (
     <Popover id={props.id} label={props.label} className={cx('sk-picker', props.className)} style={props.style} anchored={props.anchored} align={props.align} open={props.open} onClose={props.onClose} onKeyDown={fieldKeys}>
       {props.back && props.back.title && <div className="sk-picker__head"><IconButton icon="chevron-left" variant="plain" label={tx('backTo', { name: props.back.to })} onClick={props.back.onBack} /><span className="sk-picker__title">{props.back.title}</span></div>}
-      {props.search && <TextField className="sk-picker__search" label={props.search.label || tx('search')} icon="search" placeholder={props.search.placeholder} value={props.search.value} defaultValue={props.search.defaultValue} onChange={props.search.onChange} />}
+      {props.search && <TextField className="sk-picker__search" label={props.search.label || tx('search')} icon="search" placeholder={props.search.placeholder} value={props.search.onChange ? props.search.value : undefined} defaultValue={props.search.defaultValue ?? (props.search.onChange ? undefined : props.search.value)} onChange={props.search.onChange} />}
       <div ref={box} id={pid + '-list'} className="sk-picker__list" role="listbox" aria-label={props.label || tx('options')} onKeyDown={listKeys}>
         {(props.groups || []).map((g, gi) => {
           if (!g.title) return <Fragment key={gi}>{(g.options || []).map(opt)}</Fragment>;

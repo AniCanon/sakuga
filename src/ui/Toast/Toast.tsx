@@ -46,7 +46,7 @@ export interface ToastProps {
  * inside it, focus goes to the next toast, else back to where it came from. Sliding it away is for the pointer; the Dismiss
  * button does the same.
  *
- * @version 1.0
+ * @version 1.1
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function Toast({ title, text, icon, image, media, open, onDismiss, children, style, className }: ToastProps) {

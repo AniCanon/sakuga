@@ -25,7 +25,13 @@ export interface ManuscriptSectionProps {
    * The scene this one happens at the same time as ("At the same time as #4 · Toddy's bedroom"), with how the two are told
    * ("Cut between them"); the number rule runs on from that scene into this one.
    */
-  with?: { number: number; title: string; told?: string };
+  with?: {
+    number: number;
+    title: string;
+    told?: string;
+    /** How the two are told now: the told menu checks it. */
+    how?: 'between' | 'after';
+  };
   /**
    * With `with.told`: the told words open a menu (Cut between them · One after the other · Not at the same time) and this is
    * called with the choice. 'apart' unlinks the two; the app offers Undo.
@@ -56,7 +62,7 @@ export interface ManuscriptSectionProps {
  * menu popup; Up and Down move through it, Enter chooses, Escape closes it and focus goes back to the words. The margin's proposals
  * follow in reading order.
  *
- * @version 1.3
+ * @version 1.4
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function ManuscriptSection({ number, title, slug, words, current, with: w, onTold, toldOpen, margin, overlay, children, className }: ManuscriptSectionProps) {
@@ -70,7 +76,8 @@ export function ManuscriptSection({ number, title, slug, words, current, with: w
         {w.told}<Icon name="chevron-down" size="var(--manuscript-with-icon-size)" />
       </button>
       {told && <Menu label={tx('toldHow', { told: w.told })} align="start" onClose={() => setTold(false)} items={[
-        { label: tx('toldBetween'), onClick: pick('between') }, { label: tx('toldAfter'), onClick: pick('after') },
+        { label: tx('toldBetween'), onClick: pick('between'), checked: w.how ? w.how === 'between' : undefined },
+        { label: tx('toldAfter'), onClick: pick('after'), checked: w.how ? w.how === 'after' : undefined },
         { label: tx('notSameTime'), onClick: pick('apart'), separated: true }]} />}
     </span>
     : w.told);
@@ -80,7 +87,7 @@ export function ManuscriptSection({ number, title, slug, words, current, with: w
     <div className={cx('sk-msec', current && 'is-current', w && 'is-with', className)} aria-current={current ? 'true' : undefined}>
       <div className="sk-msec__text"><span className="sk-msec__no">{'#' + number}</span>
         <div className="sk-msec__body">{title && <h3 className={slug ? 'is-slug' : undefined}>{title}</h3>}
-          {w && <p className="sk-msec__with"><Icon name="link" size="var(--manuscript-with-icon-size)" /><span>{tx('sameTimeAs', { number: w.number, title: w.title })}{toldWords && ' · '}{toldWords}</span></p>}
+          {w && <div className="sk-msec__with"><Icon name="link" size="var(--manuscript-with-icon-size)" /><span>{tx('sameTimeAs', { number: w.number, title: w.title })}{toldWords && ' · '}{toldWords}</span></div>}
           <div className="sk-msec__prose">{sl.body}</div>
           {words !== undefined && <span className="sk-msec__words">{tx('wordCount', { count: words })}</span>}{overlay || sl.get('overlay')}</div>
       </div>

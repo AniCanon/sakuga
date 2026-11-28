@@ -18,6 +18,7 @@ Use it for who or what a panel or a prompt holds: a cast member (@), a place (#)
 - A character with no portrait passes `figure` (`age-adult`, `age-child`, …) and shows its age figure on the canvas colour, as `CastCard` does. A chip is for a row of who and what (Maki's "named here", the context); inside a sentence use `Mention` with `image`, which keeps the line's height.
 - `missing` is one deleted since: its name in the danger text with a wavy rule, as `Mention` draws it, its picture faded.
 - `onRemove` (or `removable` on a board) holds it as Maki's context: a remove button beside the chip, never inside it, named "Remove Kiko".
+- A chip never runs past what holds it: a long name and note stay on one line, cut with an ellipsis and whole in a tip on hover and focus; the picture, the badge and the remove button are never cut.
 - `tone="media"` over art, in the phone's dock.
 - `note` is what this panel needs of it: the outfit and the emotion for a character ("Winter coat · tired").
 - Pass the sheet's picture as `image`; a prop with no sheet yet shows no picture, never a stand-in.
@@ -68,4 +69,4 @@ export function MentionChipExample() {
 Read as text, its mark first ("@Aiko", "#Harbour") then the note; with `href` it is a link that Tab reaches and Enter follows, named the same way; with `onClick` it is a button, named by `label` when given, that says whether what it opens is expanded. The picture is hidden.
 
 Used on: Web, iOS, Android
-Version: 1.3
+Version: 1.4

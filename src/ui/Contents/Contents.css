@@ -1,0 +1,12 @@
+/* Contents: split from Sakuga Version 221's bundle.css by scripts/css-split.mjs. */
+:root,[data-theme]{--toc-gap:var(--gap-2xs);--toc-item-padding-y:var(--inset-xs);--toc-item-padding-x:var(--inset-sm);--toc-item-radius:var(--radius-mark);--toc-item-font:var(--text-caption);--toc-item-fg:var(--text-secondary);--toc-item-hover-fg:var(--text-primary);--toc-current-font:var(--text-label);--toc-current-fg:var(--text-primary);--toc-more-font:var(--text-small);--toc-more-fg:var(--text-muted);--toc-inset-start:calc(var(--list-row-icon-size) + var(--list-row-gap));--toc-duration:var(--duration-state)}
+.sk-toc__list{display:flex;flex-direction:column;gap:var(--toc-gap);margin:0;padding:0;list-style:none}
+.sk-toc__item,.sk-toc__more{display:block;width:100%;box-sizing:border-box;margin:0;padding:var(--toc-item-padding-y) var(--toc-item-padding-x);border:0;border-radius:var(--toc-item-radius);background:transparent;font:var(--toc-item-font);color:var(--toc-item-fg);text-align:left;text-decoration:none;overflow-wrap:anywhere;cursor:pointer;transition:color var(--toc-duration) linear}
+.sk-toc--inset .sk-toc__item,.sk-toc--inset .sk-toc__more{padding-left:var(--toc-inset-start)}
+.sk-toc__item:hover{color:var(--toc-item-hover-fg)}
+.sk-toc__item.is-current{font:var(--toc-current-font);color:var(--toc-current-fg)}
+.sk-toc__more{font:var(--toc-more-font);color:var(--toc-more-fg)}
+.sk-toc__more:hover{color:var(--toc-item-hover-fg)}
+.sk-toc__item:focus-visible,.sk-toc__more:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:calc(-1 * var(--focus-ring-width))}
+@media (forced-colors:active){.sk-toc__item.is-current{color:Highlight}}
+@media (forced-colors:active){.sk-toc__item:focus-visible,.sk-toc__more:focus-visible{outline-color:Highlight}}

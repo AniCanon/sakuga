@@ -30,6 +30,7 @@ Use it for one look as a 9:16 plate on white with its occasion, in each of its s
 | `menu.items[].href` | `string` |  |  |
 | `menu.items[].onClick` | `MouseEventHandler` |  |  |
 | `menu.items[].tone` | `'danger'` |  | Can't be taken back (Delete): the danger tone. |
+| `menu.items[].checked` | `boolean` |  | One choice among several: true draws a check at its end and it reads as checked; false reads as not checked. Left out, the item is an action. |
 | `menu.items[].separated` | `boolean` |  | A rule before it, to set it apart. |
 | `menu.items[].disabled` | `boolean` |  |  |
 | `menu.open` | `boolean` |  |  |

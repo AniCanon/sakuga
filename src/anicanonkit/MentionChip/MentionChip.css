@@ -22,6 +22,11 @@ button.sk-mchip:active{transform:scale(var(--chip-active-scale));transition-dura
 .sk-mchip.is-missing img,.sk-mchip.is-missing .sk-mchip__face{opacity:var(--opacity-muted)}
 .sk-mchip-held{display:inline-flex;align-items:center;gap:var(--mchip-held-gap);border-radius:var(--mchip-radius);background:var(--mchip-bg)}
 .sk-mchip-held>.sk-mchip{background:transparent}
+/* A chip never runs past what holds it: its words are cut and whole in the tip; the picture, the badge and the remove stay whole */
+.sk-mchip,.sk-mchip-held{max-width:100%}
+.sk-mchip__text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sk-mchip__face,.sk-mchip .sk-badge,.sk-mchip-held>.sk-mchip-held__x{flex:none}
+.sk-mchip-held>.sk-mchip{flex:0 1 auto;min-width:0}
 .sk-mchip-held__x{all:unset;display:inline-flex;align-items:center;justify-content:center;width:var(--mchip-remove-size);height:var(--mchip-remove-size);margin-right:var(--gap-2xs);border-radius:var(--radius-pill);color:var(--text-muted);cursor:pointer}
 .sk-mchip-held__x:hover{color:var(--text-primary);background:var(--bg-fill-subtle)}
 .sk-mchip-held__x:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:0}

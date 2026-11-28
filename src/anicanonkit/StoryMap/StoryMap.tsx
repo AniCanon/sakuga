@@ -552,7 +552,7 @@ export function StoryMapHeldNames(props: StoryMapHeldNamesProps) {
  * overview is a picture named "The whole map, with the part in view framed". A dimmed, ghost or muted one fades its art and
  * marks while its words stay readable.
  *
- * @version 2.10
+ * @version 2.12
  * @see README.md for when to use it, its states and its accessibility in full.
  */
 export function StoryMap(props: StoryMapProps) {
